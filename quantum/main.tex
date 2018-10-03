@@ -2,14 +2,14 @@
 
 \begin{document}
 \title{Quantum computer architecture}
-\author{John Scott, Oliver Thomas}
+ \author{John Scott, Oliver Thomas}
 \maketitle
 
 \abstract{This is for a demonstration of 12 or 16 \textit{Classical qubits} to
     demonstrate the differences between a 4 bit digital microcomputer and state of the
 art quantum processors}
 
-\section{Notes}
+\section{Notes about the electronic design}
 
 \begin{itemize}
     \item 16 qubits (4 by 4 grid) requires $2^{16}=65536$ entries in the state vector. Each entry must be signed and could optionally be complex (to express the addition algorithm). If we used 4 bits of precision that means complex amplitudes require 16bits. Then the state vector can be stored in 131072 Bytes (approx. 131 KiB).
@@ -27,6 +27,11 @@ art quantum processors}
 \item We could cycle between the non-zero amplitudes to show the super-position. If you
     did it fast enough in proportion to different amplitude sizes it would do the
     averaging for you.
+\end{itemize}
+
+\section{Notes about aesthetics/interface}
+\begin{itemize}
+  \item Grid of 4 by 4 LEDs with colors showing qubit state.
 \end{itemize}
 
 \end{document}
