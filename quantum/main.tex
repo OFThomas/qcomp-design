@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage{tikz}
+
 \begin{document}
 \title{Quantum computer architecture}
 \author{John Scott, Oliver Thomas}
@@ -28,5 +30,14 @@ art quantum processors}
     did it fast enough in proportion to different amplitude sizes it would do the
     averaging for you.
 \end{itemize}
+
+\begin{tikzpicture}
+\centering
+    \foreach \x in {0,...,3}
+    \foreach \y in {0,...,3}
+    \draw (\x,\y) circle (0.3) node {\x\y};
+
+\end{tikzpicture}
+
 
 \end{document}
