@@ -1,5 +1,5 @@
-.aux
-.fls
-.log
-.gz
-latex
+*.aux
+*.fls
+*.log
+*.gz
+*latex
