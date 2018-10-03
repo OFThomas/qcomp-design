@@ -31,12 +31,13 @@ art quantum processors}
     averaging for you.
 \end{itemize}
 
-<<<<<<< HEAD
 \section{Notes about aesthetics/interface}
 \begin{itemize}
-  \item Grid of 4 by 4 LEDs with colors showing qubit state.
+\item Grid of 4 by 4 LEDs with colors showing qubit state.
+\item We will use buttons to perform the gates. For two qubit gates: We can have buttons placed between the LEDs (connecting each qubit), and a control panel at the bottom for each different kind of gate (CNOT, CPhase, etc.). The user presses one of each to perform a particular gate between two qubits. For one qubit gates: We can have buttons on each qubit (on the display area) to select a qubit and then use buttons on the control panel to select the one qubit gate (X, H, etc.) We could use flashing to indicate when a qubit is selected. We could even just have buttons on the qubits only, and perform two qubit gates by pressing one after the other.
+\item Mechanical back-lit switches are the only way!
 \end{itemize}
-=======
+
 \begin{tikzpicture}
 \centering
     \foreach \x in {0,...,3}
@@ -44,7 +45,5 @@ art quantum processors}
     \draw (\x,\y) circle (0.3) node {\x\y};
 
 \end{tikzpicture}
-
->>>>>>> 574b76f061a1181c7cbdf4be16263e68d9f0c644
 
 \end{document}
