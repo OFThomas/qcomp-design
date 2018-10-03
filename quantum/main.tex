@@ -1,5 +1,7 @@
 \documentclass{article}
 
+\usepackage{tikz}
+
 \begin{document}
 \title{Quantum computer architecture}
  \author{John Scott, Oliver Thomas}
@@ -29,9 +31,20 @@ art quantum processors}
     averaging for you.
 \end{itemize}
 
+<<<<<<< HEAD
 \section{Notes about aesthetics/interface}
 \begin{itemize}
   \item Grid of 4 by 4 LEDs with colors showing qubit state.
 \end{itemize}
+=======
+\begin{tikzpicture}
+\centering
+    \foreach \x in {0,...,3}
+    \foreach \y in {0,...,3}
+    \draw (\x,\y) circle (0.3) node {\x\y};
+
+\end{tikzpicture}
+
+>>>>>>> 574b76f061a1181c7cbdf4be16263e68d9f0c644
 
 \end{document}
