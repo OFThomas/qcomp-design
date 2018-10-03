@@ -12,11 +12,21 @@ art quantum processors}
 \section{Notes}
 
 \begin{itemize}
-\item 16 qubits (4 by 4 grid) requires $2^16=65536$ entries in the state vector. Each entry must be signed and could optionally be complex (to express the addition algorithm). If we used 4 bits of precision that means complex amplitudes require 16bits. Then the state vector can be stored in 131072 Bytes (approx. 131 KiB).
+    \item 16 qubits (4 by 4 grid) requires $2^{16}=65536$ entries in the state vector. Each entry must be signed and could optionally be complex (to express the addition algorithm). If we used 4 bits of precision that means complex amplitudes require 16bits. Then the state vector can be stored in 131072 Bytes (approx. 131 KiB).
+
 \item Multiplication requires only 2 by 2 and 4 by 4 matrix multiplications. The unitary operations can be performed in block diagonal form. You probably need 2 or 3 external memory chips (one for the state vector and a few for working memory).
+
 \item States of qubits will be shown using RGB LEDs. We also need to figure out how to measure.
-\item The memory needs to be quite fast. We found one (AS6C4008-55PCN) that has 55ns read/write times (we think). The time it takes the micro-controller to do the matrix multiplication is also important. If the micro-controller has 70MHz instruction rate and a single matrix multiplication takes 200 clock cycles for a 4 by 4 matrix (guess) then the total processing will take about 40ms assuming that you need to do $2^14$ blocks. That seems quick enough.
-  \item We could cycle between the non-zero amplitudes to show the superposition. If you did it fast enough in proportion to different amplitude sizes it would do the averaging for you
+
+\item The memory needs to be quite fast. We found one (AS6C4008-55PCN) that has 55ns
+    read/write times (we think). The time it takes the micro-controller to do the matrix
+    multiplication is also important. If the micro-controller has 70MHz instruction rate
+    and a single matrix multiplication takes 200 clock cycles for a 4 by 4 matrix (guess)
+    then the total processing will take about 40ms assuming that you need to do $2^{14}$ blocks. That seems quick enough.
+  
+\item We could cycle between the non-zero amplitudes to show the super-position. If you
+    did it fast enough in proportion to different amplitude sizes it would do the
+    averaging for you.
 \end{itemize}
 
 \end{document}
