@@ -29,6 +29,22 @@ art quantum processors}
 \item We could cycle between the non-zero amplitudes to show the super-position. If you
     did it fast enough in proportion to different amplitude sizes it would do the
     averaging for you.
+    
+\end{itemize}
+
+\subsection{External memory selection}
+
+\begin{itemize}
+\item If we use 16 qubits then there are $2^{16} = 65536$ complex amplitudes to store. Each amplitude requires two signed real numbers. We will represent a complex amplitude using 8 bits. We will need $65536 \times 16 = 1048576$ bits, which is 1MB (where the M here means $1024 \times 1024$, which is how RS and Farnell do it.)
+\item We need a word size at least 8 bits. So a complex amplitude will take two words. Hence we need memory with $65536 \times 2 = 131072$ 8 bit words. A candidate is the 23LC1024-I/P from Farnell (https://uk.farnell.com/microchip/23lc1024-i-p/sram-serial-1mbit-2-5v-8pdip/dp/2212152) which uses an SPI serial interface. 20MHz clock. One read or write operation takes 40 instruction cycles, so it takes 2us to read or write. Since an amplitude is 2 bytes, it takes 4us to read/write an amplitude. Also the device is 8pin DIP and is through hole.
+\item We might need a few.
+\end{itemize}
+
+
+\subsection{Microcontroller selection}
+
+\begin{itemize}
+\item Needs to be able to write to and read from external memory. So it needs to have whatever communication protocol the external memory uses (SPI, I2C, etc.)
 \end{itemize}
 
 \section{Notes about aesthetics/interface}
