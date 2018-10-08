@@ -2,7 +2,7 @@
 * File Name: io-const.inc
 *
 * Type: Definition
-*
+* 
 * Title: Constant symbol definitions
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

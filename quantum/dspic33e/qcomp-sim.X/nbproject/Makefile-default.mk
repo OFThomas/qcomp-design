@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../io-reg.s ../io.s ../main.s ../sys-debug.s ../sys-interrupt.s ../sys-reg.s ../sys.s
+SOURCEFILES_QUOTED_IF_SPACED=io-reg.s io.s main.s sys-debug.s sys-interrupt.s sys-reg.s sys.s
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/io-reg.o ${OBJECTDIR}/_ext/1472/io.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/sys-debug.o ${OBJECTDIR}/_ext/1472/sys-interrupt.o ${OBJECTDIR}/_ext/1472/sys-reg.o ${OBJECTDIR}/_ext/1472/sys.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/io-reg.o.d ${OBJECTDIR}/_ext/1472/io.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/_ext/1472/sys-debug.o.d ${OBJECTDIR}/_ext/1472/sys-interrupt.o.d ${OBJECTDIR}/_ext/1472/sys-reg.o.d ${OBJECTDIR}/_ext/1472/sys.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/io-reg.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/sys-debug.o ${OBJECTDIR}/sys-interrupt.o ${OBJECTDIR}/sys-reg.o ${OBJECTDIR}/sys.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/io-reg.o.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/sys-debug.o.d ${OBJECTDIR}/sys-interrupt.o.d ${OBJECTDIR}/sys-reg.o.d ${OBJECTDIR}/sys.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/io-reg.o ${OBJECTDIR}/_ext/1472/io.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/sys-debug.o ${OBJECTDIR}/_ext/1472/sys-interrupt.o ${OBJECTDIR}/_ext/1472/sys-reg.o ${OBJECTDIR}/_ext/1472/sys.o
+OBJECTFILES=${OBJECTDIR}/io-reg.o ${OBJECTDIR}/io.o ${OBJECTDIR}/main.o ${OBJECTDIR}/sys-debug.o ${OBJECTDIR}/sys-interrupt.o ${OBJECTDIR}/sys-reg.o ${OBJECTDIR}/sys.o
 
 # Source Files
-SOURCEFILES=../io-reg.s ../io.s ../main.s ../sys-debug.s ../sys-interrupt.s ../sys-reg.s ../sys.s
+SOURCEFILES=io-reg.s io.s main.s sys-debug.s sys-interrupt.s sys-reg.s sys.s
 
 
 CFLAGS=
@@ -94,104 +94,104 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: assemble
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/_ext/1472/io-reg.o: ../io-reg.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/io-reg.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/io-reg.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../io-reg.s  -o ${OBJECTDIR}/_ext/1472/io-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/io-reg.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/io-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/io-reg.o: io-reg.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/io-reg.o.d 
+	@${RM} ${OBJECTDIR}/io-reg.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  io-reg.s  -o ${OBJECTDIR}/io-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/io-reg.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/io-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/io.o: ../io.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/io.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/io.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../io.s  -o ${OBJECTDIR}/_ext/1472/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/io.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/io.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/io.o: io.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/io.o.d 
+	@${RM} ${OBJECTDIR}/io.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  io.s  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/io.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/io.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/main.o: ../main.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../main.s  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/main.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  main.s  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/main.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-debug.o: ../sys-debug.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-debug.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-debug.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-debug.s  -o ${OBJECTDIR}/_ext/1472/sys-debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-debug.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-debug.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-debug.o: sys-debug.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-debug.o.d 
+	@${RM} ${OBJECTDIR}/sys-debug.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-debug.s  -o ${OBJECTDIR}/sys-debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-debug.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-debug.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-interrupt.o: ../sys-interrupt.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-interrupt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-interrupt.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-interrupt.s  -o ${OBJECTDIR}/_ext/1472/sys-interrupt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-interrupt.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-interrupt.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-interrupt.o: sys-interrupt.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-interrupt.o.d 
+	@${RM} ${OBJECTDIR}/sys-interrupt.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-interrupt.s  -o ${OBJECTDIR}/sys-interrupt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-interrupt.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-interrupt.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-reg.o: ../sys-reg.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-reg.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-reg.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-reg.s  -o ${OBJECTDIR}/_ext/1472/sys-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-reg.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-reg.o: sys-reg.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-reg.o.d 
+	@${RM} ${OBJECTDIR}/sys-reg.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-reg.s  -o ${OBJECTDIR}/sys-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-reg.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys.o: ../sys.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys.s  -o ${OBJECTDIR}/_ext/1472/sys.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys.o: sys.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys.o.d 
+	@${RM} ${OBJECTDIR}/sys.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys.s  -o ${OBJECTDIR}/sys.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys.o.d",--defsym=__MPLAB_BUILD=1,--defsym=__ICD2RAM=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,--defsym=__MPLAB_DEBUGGER_PK3=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/_ext/1472/io-reg.o: ../io-reg.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/io-reg.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/io-reg.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../io-reg.s  -o ${OBJECTDIR}/_ext/1472/io-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/io-reg.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/io-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/io-reg.o: io-reg.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/io-reg.o.d 
+	@${RM} ${OBJECTDIR}/io-reg.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  io-reg.s  -o ${OBJECTDIR}/io-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/io-reg.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/io-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/io.o: ../io.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/io.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/io.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../io.s  -o ${OBJECTDIR}/_ext/1472/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/io.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/io.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/io.o: io.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/io.o.d 
+	@${RM} ${OBJECTDIR}/io.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  io.s  -o ${OBJECTDIR}/io.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/io.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/io.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/main.o: ../main.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../main.s  -o ${OBJECTDIR}/_ext/1472/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/main.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/main.o: main.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/main.o.d 
+	@${RM} ${OBJECTDIR}/main.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  main.s  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/main.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/main.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-debug.o: ../sys-debug.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-debug.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-debug.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-debug.s  -o ${OBJECTDIR}/_ext/1472/sys-debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-debug.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-debug.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-debug.o: sys-debug.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-debug.o.d 
+	@${RM} ${OBJECTDIR}/sys-debug.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-debug.s  -o ${OBJECTDIR}/sys-debug.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-debug.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-debug.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-interrupt.o: ../sys-interrupt.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-interrupt.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-interrupt.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-interrupt.s  -o ${OBJECTDIR}/_ext/1472/sys-interrupt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-interrupt.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-interrupt.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-interrupt.o: sys-interrupt.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-interrupt.o.d 
+	@${RM} ${OBJECTDIR}/sys-interrupt.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-interrupt.s  -o ${OBJECTDIR}/sys-interrupt.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-interrupt.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-interrupt.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys-reg.o: ../sys-reg.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-reg.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys-reg.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys-reg.s  -o ${OBJECTDIR}/_ext/1472/sys-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys-reg.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys-reg.o: sys-reg.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys-reg.o.d 
+	@${RM} ${OBJECTDIR}/sys-reg.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys-reg.s  -o ${OBJECTDIR}/sys-reg.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys-reg.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys-reg.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/1472/sys.o: ../sys.s  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1472/sys.o 
-	${MP_CC} $(MP_EXTRA_AS_PRE)  ../sys.s  -o ${OBJECTDIR}/_ext/1472/sys.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/_ext/1472/sys.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/sys.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/sys.o: sys.s  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/sys.o.d 
+	@${RM} ${OBJECTDIR}/sys.o 
+	${MP_CC} $(MP_EXTRA_AS_PRE)  sys.s  -o ${OBJECTDIR}/sys.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  -Wa,-MD,"${OBJECTDIR}/sys.o.d",--defsym=__MPLAB_BUILD=1,-g,--no-relax$(MP_EXTRA_AS_POST)
+	@${FIXDEPS} "${OBJECTDIR}/sys.o.d"  $(SILENT)  -rsi ${MP_CC_DIR}../  
 	
 endif
 
