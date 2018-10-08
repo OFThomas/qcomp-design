@@ -5,8 +5,6 @@
 *
 * Title: Constant symbol definitions
 *
-* Purpose: To be included with all IO source files
-*
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ; ========================== DEFINITIONS =============================

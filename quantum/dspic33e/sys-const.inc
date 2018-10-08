@@ -1,11 +1,11 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * File Name: sys-const.inc
-*
-* Type: Definition
-*
-* Title: Constant symbol definitions
-*
-* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ *
+ * Type: Definition
+ *
+ * Title: Constant symbol definitions
+ *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ; Include configuration files
 .include "sys-debug-options.inc"
@@ -32,4 +32,3 @@
                              ;           0 if no hold
 .equiv sys_i2c_hold,     8   ;   Bit 8:  1 if I2C is running
                              ;           0 if no hold
-			     

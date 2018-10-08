@@ -1,28 +1,14 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* File Name: sys-11-interrupt.s
+* File Name: sys-interrupt.s
 *
 * Type: SOURCE
 *
 * Title: USB Interrupt Service Routine
 *
-* Version: 2.1
-*
-* Purpose:
-*
-*
-* Date first created: 11th October 2015
-* Date last modified: 25th January 2017
-*
-* Author: John Scott
-*
-* Used by: sys-11.s
-*
-*
-*
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .include "p33EP512MU810.inc"  
-.include "sys-11-extern.inc"    
+.include "sys.inc"    
     
 ; ========================== DECLARATIONS ============================
 .global __T1Interrupt

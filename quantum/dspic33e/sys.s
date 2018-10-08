@@ -1,5 +1,5 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-* File Name: sys-11.s
+* File Name: sys.s
 *
 * Type: SOURCE
 *
@@ -17,17 +17,12 @@
 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.include "p33EP512MU810.inc"
-.include "sys-const.inc"
-.include "usb-21-extern.inc"
     
 ; ======================== INCLUDE FILES =============================
 
-;.include "sys-11-debug.inc"
-;.include "sys-11-option-debug.inc"
-;.include "sys-11-reg.inc"
-;.include "sys-11-definitions.inc"
-;.include "sys-11-interrupt.inc"
+.include "p33EP512MU810.inc"
+.include "sys-const.inc"
+.include "sys-debug-options.inc"
 
 ; ==================== SUBROUTINE DECLARATIONS =======================
 .global SYS.SUB.CONFIG

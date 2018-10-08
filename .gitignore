@@ -4,3 +4,5 @@
 *.gz
 *latex
 *~
+/quantum/dspic33e/qcomp-sim.X/nbproject/private/
+/quantum/dspic33e/qcomp-sim.X/build/default/

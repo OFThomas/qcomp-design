@@ -5,8 +5,6 @@
 *
 * Title: Subroutine and register declarations 
 *
-* Purpose: To be included with all source files
-*
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ; =================== SUBROUTINE DECLARATIONS ==========================
@@ -18,7 +16,7 @@
 .extern IO.SUB.amber_on
 .extern IO.SUB.amber_off
 .extern IO.SUB.red_on
-.extern IO.SUB.red_o    
+.extern IO.SUB.red_off
     
 .extern IO.SUB.green_flash
 .extern IO.SUB.amber_flash
