@@ -47,7 +47,7 @@
 ;.section SYS.SUB.CONFIG, code
 SYS.SUB.CONFIG:
     ; Use Primary Oscillator with PLL --------------------------------
-    ; Prepear PLL settings for clock switch - New clock (Fosc) = 50MHz
+    ; Prepare PLL settings for clock switch - New clock (Fosc) = 50MHz
     MOV     #0x0030, w0
     MOV     w0, PLLFBD      ; M = 50
     MOV     #0x3040, w0
