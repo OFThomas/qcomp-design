@@ -56,7 +56,7 @@ SYS.SUB.CONFIG:
     MOV     #0x3, w0
     ; OSCCONH Unlock Sequence
     MOV     #OSCCONH, w1    ; Store address of OSCCONH in w1
-    MOV     #0x78, w2       ; Prepear for unlock
+    MOV     #0x78, w2       ; Prepare for unlock
     MOV     #0x9A, w3
     MOV.B   w2, [w1]        ; unlock OSCCONH for writing
     MOV.B   w3, [w1]        ;   (refer to 'Oscillator Module' FRM)
@@ -64,7 +64,7 @@ SYS.SUB.CONFIG:
     MOV.B   w0, [w1]
     ; OSCCONL Unlock Sequence
     MOV     #OSCCONL, w1    ; Store address of OSCCONL in w1
-    MOV     #0x46, w2       ; Prepear for unlock
+    MOV     #0x46, w2       ; Prepare for unlock
     MOV     #0x57, w3
     MOV.B   w2, [w1]        ; unlock OSCCONL for writing
     MOV.B   w3, [w1]        ;   (refer to 'Oscillator Module' FRM)
