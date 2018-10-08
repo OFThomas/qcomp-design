@@ -11,7 +11,8 @@
 	* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 	.include "p33EP512MU810.inc" ; Macros for dsPIC33EP512MU810 device
-	.include "io.inc"            ; Include input/output configuration
+	.include "sys.inc"           ; System initialisation functions
+	.include "io.inc"  	     ; Input/output functions
 
 	; ============================== CONFIG BITS =========================
 
@@ -80,8 +81,10 @@
 	; First thing to run after Power-on Reset
 	_main:
 
-	    RCALL   IO.SUB.CONFIG   ; Configure input/output
+		RCALL   IO.SUB.CONFIG   ; Configure input/output
+		RCALL   SYS.SUB.CONFIG  ; Set up system management routines
 
+	
 	; ======================== MAIN ROUTINE ==============================
 
 	    ; Signal to indicate that the program is running

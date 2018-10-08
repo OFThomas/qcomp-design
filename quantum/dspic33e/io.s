@@ -5,26 +5,10 @@
 *
 * Title: Input/Output Configuration
 *
-* Version: 1.1
-*
-* Purpose:
-*
-*
-* Date first created: 11th October 2015
-* Date last modified: 26th January 2017
-*
-* Author: John Scott
-*
-* Used by: <main application>.s
-*
-*
-*
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.include "p33EP512MU810.inc"  
-.include "io-11-const.inc"
-    
-;.include    "io-11-definitions.inc"
+.include "p33EP512MU810.inc"
+.include "io-const.inc"
     
 ; ==================== SUBROUTINE DECLARATIONS =======================
 .global IO.SUB.CONFIG
