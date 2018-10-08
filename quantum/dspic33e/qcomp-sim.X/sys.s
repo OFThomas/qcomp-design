@@ -251,7 +251,7 @@ SYS.SUB.service_increment:
 
 .section SYS.SUB.JumpTable, code
 
-    BRA     USB.SUB.WIN.WF1         ; Windows function 1
+    BRA     IO.SUB.green_on      ; Example function here
 
 
 

@@ -7,9 +7,6 @@
  *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-; Include configuration files
-.include "sys-debug-options.inc"
-			     
 ; ======================= SYS.REG.STAT Register Layout =========================
 			     
 ; This register contains flags which request actions from the
