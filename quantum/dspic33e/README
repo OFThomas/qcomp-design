@@ -1,1 +1,6 @@
-This
+This folder contains a list of assembly language files for the dsPIC33E family of Microcontrollers. There are two types of files:
+
+*.s files contain code and data and code that will be assembled into object files
+*.inc files contain things like function declarations, etc.
+
+The main.s file contains the entry point for the program. At the top there are several other files that are included which point to external subroutines, etc. The config bits determine global behaviour of the microcontroller and aren't part of program execution. The declarations of interrupts cover a number of error conditions that might arise during operation of the microcontroller. The program starts at the label called `_main:'. Input and output are configured using the IO.SUB.CONFIG routine and the system is setup using SYS.SUB.CONFIG.  
