@@ -84,8 +84,8 @@
    	MATH.H22:   .word 0xA581 ; -0.707
    
 	.section MATH.V, data, near
-	MATH.V1:    .word 0x7FFF ; 1 (0.999...)
-   	MATH.V2:    .word 0x7FFF ; 1 (0.999...)
+	MATH.V1:    .word 0x5A7F ; 0.707
+   	MATH.V2:    .word 0x5A7F ; 0.707
     
     	.section MATH.W, data, near
 	MATH.W1:    .word 0x0000 ; 0
@@ -107,7 +107,7 @@
 	    ; Signal to indicate that the program is running
 	    RCALL   IO.SUB.red_flash
 	    
-	    ; Testing matrix multiplication
+	    ; --- Testing matrix multiplication ---
 	    ; The matrix multiplication will be H acting on the equal 
 	    ; superposition state.
 	    ;
@@ -123,29 +123,51 @@
 	    ; arithmetic can be performed using the fixed point fractional
 	    ; type 1.15 (1 sign bit, 15 fractional bits). Set bit 0 of
 	    ; CORCON to 0.
+	    ;
 	    BCLR CORCON, #IF
+	    
+	    ; Wait for user to press SW1 before starting the test
+	0:  RCALL IO.SUB.UPDATE_BUTTON_STATE
+	    BTSC IO.REG.button_state, #0
+	    BRA 0b
+	    
+	    ; The arithmetic is performed using multiply and accumulate (MAC)
+	    ; operations, which perform a multiplication and add the result
+	    ; to the accumulator. The MAC instructions have prefetch and 
+	    ; writeback features which aren't implemented here. The format
+	    ; of the accumulator is important: it is 40 bits wide and the
+	    ; decimal point sits between bits 30 and 31. Reading the 
+	    ; accumulator is performed using SAC which automatically reads
+	    ; the correct word.
 	    
 	    ; Perform the loop 2^15 times
 	    DO      #128, 1f
 	    REPEAT  #256
+	    
 	    ; W1 = H11 * V1 + H12 * V2
-	    MOV MATH.H11, w0
-	    MOV MATH.V1, w1
-	    MUL.SS W0, W1, W2 ; Result in W2 and w3
-	    MOV MATH.H12, w0
-	    MOV MATH.V2, w1
-	    MUL.SS W0, W1, W4 ; Result in W4 and W5
-	    ADD W2, W4, W0
-	    MOV W0, MATH.W1
-	    ; W2 = H21 * V1 + H22 * V2
-	    MOV MATH.H21, w0
-	    MOV MATH.V1, w1
-	    MUL.SS W0, W1, W2 ; Result in W2 and w3
-	    MOV MATH.H22, w0
-	    MOV MATH.V2, w1
-	    MUL.SS W0, W1, W4 ; Result in W4 and W5
-	    ADD W2, W4, W0
-	    MOV W0, MATH.W2
+	    MOV MATH.H11, w4
+	    MOV MATH.V1, w5
+	    MOV MATH.H12, w6
+	    MOV MATH.V2, w7
+	    CLR A ; Reset accumulator A to zero
+	    MAC W4*W5, A ; Multiply and accumulate to A, no prefetch
+	    MAC W6*W7, A
+	    SAC A, #0, W0 ; Store bits 31:16 of accumulator A in 
+			  ; These bits contain the 1.15 result of the
+			  ; above additions.
+	    MOV W0, MATH.W1 ; Write the result to memory
+		
+	    ; W1 = H21 * V1 + H22 * V2
+	    MOV MATH.H21, w4
+	    MOV MATH.H22, w6
+	    CLR A ; Reset accumulator A to zero
+	    MAC W4*W5, A ; Multiply and accumulate to A, no prefetch
+	    MAC W6*W7, A
+	    SAC A, #0, W0 ; Store bits 31:16 of accumulator A in W.
+			  ; These bits contain the 1.15 result of the
+			  ; above additions.
+	    MOV W0, MATH.W2 ; Write the result to memory
+	    
 	    ; End
 	1:  NOP
     
