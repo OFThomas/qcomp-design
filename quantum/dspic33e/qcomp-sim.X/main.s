@@ -75,6 +75,23 @@
 	.global __DMACError         ; Direct memory access trap
 	.global __SoftTrapError     ; Generic soft trap
 
+
+	; ============================ DATA ==================================
+	.section MATH.H, data, near
+	MATH.H11:   .word 0x5A7F ; 0.707
+   	MATH.H12:   .word 0x5A7F ; 0.707
+   	MATH.H21:   .word 0x5A7F ; 0.707
+   	MATH.H22:   .word 0xA581 ; -0.707
+   
+	.section MATH.V, data, near
+	MATH.V1:    .word 0x7FFF ; 1 (0.999...)
+   	MATH.V2:    .word 0x7FFF ; 1 (0.999...)
+    
+    	.section MATH.W, data, near
+	MATH.W1:    .word 0x0000 ; 0
+   	MATH.W2:    .word 0x0000 ; 0
+   
+	
 	.text
 	; ============================ CODE ==================================
 
@@ -88,9 +105,52 @@
 	; ======================== MAIN ROUTINE ==============================
 
 	    ; Signal to indicate that the program is running
-	    RCALL   IO.SUB.green_flash
-	    RCALL   IO.SUB.amber_flash
-    	    RCALL   IO.SUB.red_flash
+	    RCALL   IO.SUB.red_flash
+	    
+	    ; Testing matrix multiplication
+	    ; The matrix multiplication will be H acting on the equal 
+	    ; superposition state.
+	    ;
+	    ; H = [ 0.707,  0.707 ]
+	    ;     [ 0.707, -0.707 ]
+	    ;
+	    ; and 
+	    ;
+	    ; |+> = [ 0.707 ]
+	    ;       [ 0.707 ]
+	    ;
+	    ; Since all the numbers involved are strictly less than 1 (abs)
+	    ; arithmetic can be performed using the fixed point fractional
+	    ; type 1.15 (1 sign bit, 15 fractional bits). Set bit 0 of
+	    ; CORCON to 0.
+	    BCLR CORCON, #IF
+	    
+	    ; Perform the loop 2^15 times
+	    DO      #128, 1f
+	    REPEAT  #256
+	    ; W1 = H11 * V1 + H12 * V2
+	    MOV MATH.H11, w0
+	    MOV MATH.V1, w1
+	    MUL.SS W0, W1, W2 ; Result in W2 and w3
+	    MOV MATH.H12, w0
+	    MOV MATH.V2, w1
+	    MUL.SS W0, W1, W4 ; Result in W4 and W5
+	    ADD W2, W4, W0
+	    MOV W0, MATH.W1
+	    ; W2 = H21 * V1 + H22 * V2
+	    MOV MATH.H21, w0
+	    MOV MATH.V1, w1
+	    MUL.SS W0, W1, W2 ; Result in W2 and w3
+	    MOV MATH.H22, w0
+	    MOV MATH.V2, w1
+	    MUL.SS W0, W1, W4 ; Result in W4 and W5
+	    ADD W2, W4, W0
+	    MOV W0, MATH.W2
+	    ; End
+	1:  NOP
+    
+    	    ; Signal to indicate that the program is finished
+    	    RCALL   IO.SUB.green_flash
 	    
 	0:  BRA     0b
 
