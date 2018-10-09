@@ -89,6 +89,8 @@
 
 	    ; Signal to indicate that the program is running
 	    RCALL   IO.SUB.green_flash
+	    RCALL   IO.SUB.amber_flash
+    	    RCALL   IO.SUB.red_flash
 	    
 	0:  BRA     0b
 
