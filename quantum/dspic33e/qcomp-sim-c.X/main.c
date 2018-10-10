@@ -16,7 +16,6 @@
 
 #include "p33EP512MU810.h"
 #include "xc.h"
-#include "stdlib.h"
 
 // Locations of LEDs and buttons on Port D
 #define red 0
@@ -113,11 +112,16 @@ int main(void) {
     set_led(green, off);
     set_led(amber, off);
     set_led(red, off);
-    // Show new qubit state on LEDs
-    if (abs(V.a1) > 0.99)
+    
+    // Show current qubit state on LEDs
+    if (V.a1 > 0.99)
       set_led(green, on);
-    else if (abs(V.a2) > 0.99)
+    else if ((V.a2 > 0.99) || (V.a2 < -0.99))
       set_led(amber, on);
+    else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
+      set_led(green, on);
+      set_led(amber, on);
+    }
     else
       set_led(red, on);
     
