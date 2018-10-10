@@ -82,7 +82,7 @@ int main(void) {
   Matrix Z = {0.9999, 0.0, 0.0, -1.0};
   
   // Define state vector
-  Vector V = {0.0, 0.0};
+  Vector V = {0.9999, 0.0};
 
   while (1 == 1) {
         
@@ -103,15 +103,21 @@ int main(void) {
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
     // Light LEDs to show output
-    if ((V.a1 > 0.95) && (V.a2 < 0.05))
+    if (V.a1 > 0.95)
       set_led(green, on);
-    else
+    else if (V.a2 > 0.95)
       set_led(amber, on);
-
+    else {
+      set_led(red, on);
+      while(1 == 1);
+    }
+    
     // Wait for all the buttons to be released
-    while ((btn1 == on) || (btn2 == on) || (btn3 == on))
-      // Do nothing
-      ;
+    while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {
+      btn1 = read_btn(sw1);
+      btn2 = read_btn(sw2);
+      btn3 = read_btn(sw3);
+    }
     
     // Short delay to stop button bouncing
     int cnt = 0;
