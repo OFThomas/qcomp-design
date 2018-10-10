@@ -103,10 +103,10 @@ int main(void) {
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
     // Add global phase to make first amplitude positive
-    if (V.a1 < 0.0) {
-        V.a1 *= -1.0;
-        V.a2 *= -1.0;
-    }
+    //if (V.a1 < 0.0) {
+    //    V.a1 *= -1.0;
+    //    V.a2 *= -1.0;
+    //}
     
     // Reset all the LEDs
     set_led(green, off);
@@ -115,11 +115,11 @@ int main(void) {
     
     // Show current qubit state on LEDs
     if (V.a1 > 0.99)
-      set_led(green, on);
+      set_led(green, on); // The |0> state
     else if ((V.a2 > 0.99) || (V.a2 < -0.99))
-      set_led(amber, on);
+      set_led(amber, on); // The |1> state
     else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
-      set_led(green, on);
+      set_led(green, on); // The |+> or |-> state
       set_led(amber, on);
     }
     else
