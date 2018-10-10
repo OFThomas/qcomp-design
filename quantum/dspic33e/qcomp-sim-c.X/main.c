@@ -20,13 +20,14 @@
 #define amber 1
 #define green 2
 
-#define off 0
-#define on 1
-
 #define sw1 6
 #define sw2 7
 #define sw3 13
 
+#define off 0
+#define on 1
+
+// Turn a particular LED on or off
 int set_led(int color, int state) {
   if (state == on)
     LATD |= (1 << color);
@@ -35,6 +36,7 @@ int set_led(int color, int state) {
   return 0;
 }
 
+// Read the state of a push button
 int read_btn(int btn) {
   if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
     return -1;
