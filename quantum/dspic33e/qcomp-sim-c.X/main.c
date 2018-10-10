@@ -15,6 +15,7 @@
 #include "p33EP512MU810.h"
 #include "xc.h"
 
+// Locations of LEDs and buttons on Port D
 #define red 0
 #define amber 1
 #define green 2
