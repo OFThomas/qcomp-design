@@ -5,9 +5,11 @@
  * for applying operations to a single qubit. The only operations included
  * are H, X and Z so that everything is real (this can be extended later).
  *
- * Compile command: make
+ * Compile command: make (on linux). But if you want ot program the micro-
+ * controller too or if you're using windows you're better of downloading
+ * and installing MPLAB-X https://www.microchip.com/mplab/mplab-x-ide.
  *
- * Notes: You need the microchip xc16 compilers which
+ * Notes: You also need the microchip xc16 compilers which
  * are freely available from https://www.microchip.com/mplab/compilers 
  *
  */
