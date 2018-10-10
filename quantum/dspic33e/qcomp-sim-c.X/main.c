@@ -41,10 +41,31 @@ int main(void) {
     TRISD = 0x20C0; // Set liens 0,1,2 as output; 6,7,13 as input 
     
     while (1 == 1) {
-        set_led(red, read_sw(sw1));
-        set_led(amber, read_sw(sw2));
-        set_led(green, read_sw(sw3));
         
+        // Simple IO test
+        //set_led(red, read_sw(sw1));
+        //set_led(amber, read_sw(sw2));
+        //set_led(green, read_sw(sw3));
+        
+        // Define H
+        signed _Fract H[2][2] = {{0.707, 0.707},
+                                 {0.707, -0.707}};
+        
+        // Define input state vector
+        signed _Fract V[2] = {0.707, -0.707};
+
+        // Define output state vector
+        signed _Fract W[2] = {0, 0};
+        
+        // Multiply H by V
+        W[0] = H[0][0] * V[0] + H[0][1] * V[1];
+        W[1] = H[1][0] * V[0] + H[1][1] * V[1];
+        
+        // Light LEDs to show output
+        if ((W[0] > 0.95) && (W[1] < 0.05)) 
+            set_led(green, on);
+        else 
+            set_led(amber, on);
         
     }
     return 0;
