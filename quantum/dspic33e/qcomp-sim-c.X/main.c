@@ -1,6 +1,14 @@
 /*
  * File:   main.c
  *
+ * Description: A minimal example of fixed precision 2x2 matrix multiplication 
+ * for applying operations to a single qubit. The only operations included
+ * are H, X and Z so that everything is real (this can be extended later).
+ *
+ * Compile command: make
+ * Notes: You need the microchip xc16 compilers which
+ * are freely available from https://www.microchip.com/mplab/compilers 
+ *
  */
 
 #include "p33EP512MU810.h"
@@ -25,12 +33,12 @@ int set_led(int color, int state) {
     return 0;
 }
 
-int read_sw(int sw) {
-    if ((sw != sw1) && (sw != sw2) && (sw != sw3)) {
+int read_btn(int btn) {
+    if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
         return -1;
     } else {
         // How well do you know C:
-        return (((PORTD & (1 << sw)) >> sw) ^ 0x0001);
+        return (((PORTD & (1 << btn)) >> btn) ^ 0x0001);
     }
 }
 
@@ -68,27 +76,35 @@ int main(void) {
 
     while (1 == 1) {
         
-        // Simple IO test
-        set_led(red, on);
-        int cnt = 0;
-        while(cnt < 10000) cnt++;
-        cnt = 0;
-        set_led(red, off);
-        while(cnt < 10000) cnt++;
-        cnt = 0;
-        //set_led(amber, read_sw(sw2));
-        //set_led(green, read_sw(sw3));
-
+        // Wait for user to choose operation
+        int btn1, btn2, btn3 = off;
+        while((btn1 == off) && (btn2 == off) && (btn3 == off)) { 
+            btn1 = read_btn(sw1);
+            btn2 = read_btn(sw2);
+            btn3 = read_btn(sw3);
+        } 
         
-        
-        // Multiply H by V
-        V = mat_mul(H, V);
+        // Apply operation
+        if (btn1 == on)
+            V = mat_mul(H, V); // Multiply H by V, put result in V
+        if (btn2 == on)
+            V = mat_mul(X, V); // Multiply X by V, put result in V
 
         // Light LEDs to show output
         if ((V.a1 > 0.95) && (V.a2 < 0.05))
             set_led(green, on);
         else
             set_led(amber, on);
+
+        // Wait for all the buttons to be released
+        while ((btn1 == on) || (btn2 == on) || (btn3 == on))
+            ; // do nothing
+        
+        // Short delay to stop button bouncing
+        int cnt = 0;
+        while(cnt < 100000) cnt++;
+        cnt = 0;
+        
 
     }
 
