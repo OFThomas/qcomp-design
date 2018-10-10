@@ -42,31 +42,49 @@ int main(void) {
     
     while (1 == 1) {
         
+        typedef struct {
+            signed _Fract a11;
+            signed _Fract a12;
+            signed _Fract a21;
+            signed _Fract a22;
+        } Matrix;
+        
+        typedef struct {
+            signed _Fract a1;
+            signed _Fract a2;
+        } Vector;
+        
+        Vector mat_mul(Matrix M, Vector V) {
+            Vector W = {0, 0}; // To store the output
+            W.a1 = M.a11 * V.a1 + M.a12 * V.a2;
+            W.a2 = M.a21 * V.a1 + M.a22 * V.a2;
+            return W;
+        } 
+        
         // Simple IO test
         //set_led(red, read_sw(sw1));
         //set_led(amber, read_sw(sw2));
         //set_led(green, read_sw(sw3));
-        
+            
         // Define H
-        signed _Fract H[2][2] = {{0.707, 0.707},
-                                 {0.707, -0.707}};
+        Matrix H = {0.707, 0.707, 0.707, -0.707};
         
         // Define input state vector
-        signed _Fract V[2] = {0.707, -0.707};
+        Vector V = {0.707, 0.707};
 
         // Define output state vector
-        signed _Fract W[2] = {0, 0};
+        Vector W = {0, 0}; 
         
         // Multiply H by V
-        W[0] = H[0][0] * V[0] + H[0][1] * V[1];
-        W[1] = H[1][0] * V[0] + H[1][1] * V[1];
+        W = mat_mul(H, V);
         
         // Light LEDs to show output
-        if ((W[0] > 0.95) && (W[1] < 0.05)) 
+        if ((W.a1 > 0.95) && (W.a2 < 0.05)) 
             set_led(green, on);
         else 
-            set_led(amber, on);
+            set_led(amber, on); 
         
     }
+        
     return 0;
 }
