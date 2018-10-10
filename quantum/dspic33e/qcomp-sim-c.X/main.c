@@ -85,7 +85,7 @@ int main(void) {
   while (1 == 1) {
         
     // Wait for user to choose operation
-    int btn1, btn2, btn3 = off;
+    int btn1 = off, btn2 = off, btn3 = off;
     while((btn1 == off) && (btn2 == off) && (btn3 == off)) { 
       btn1 = read_btn(sw1);
       btn2 = read_btn(sw2);
