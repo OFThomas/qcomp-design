@@ -152,10 +152,10 @@
 	    CLR A ; Reset accumulator A to zero
 	    MAC W4*W5, A ; Multiply and accumulate to A, no prefetch
 	    MAC W6*W7, A
-	    SAC A, #0, W0 ; Store bits 31:16 of accumulator A in 
-			  ; These bits contain the 1.15 result of the
-			  ; above additions.
-	    MOV W0, MATH.W1 ; Write the result to memory
+	    MOV #MATH.W1, W0 
+	    SAC A, #0, [W0] ; Store bits 31:16 of accumulator A in MATH.W1
+			    ; These bits contain the 1.15 result of the
+			    ; above additions.
 		
 	    ; W1 = H21 * V1 + H22 * V2
 	    MOV MATH.H21, w4
@@ -163,10 +163,10 @@
 	    CLR A ; Reset accumulator A to zero
 	    MAC W4*W5, A ; Multiply and accumulate to A, no prefetch
 	    MAC W6*W7, A
-	    SAC A, #0, W0 ; Store bits 31:16 of accumulator A in W.
-			  ; These bits contain the 1.15 result of the
-			  ; above additions.
-	    MOV W0, MATH.W2 ; Write the result to memory
+	    MOV #MATH.W2, W0 
+	    SAC A, #0, [W0] ; Store bits 31:16 of accumulator A in MATH.W2
+			      ; These bits contain the 1.15 result of the
+			      ; above additions.
 	    
 	    ; End
 	1:  NOP
