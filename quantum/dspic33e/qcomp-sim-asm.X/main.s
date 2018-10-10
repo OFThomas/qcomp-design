@@ -168,6 +168,16 @@
 			      ; These bits contain the 1.15 result of the
 			      ; above additions.
 	    
+	    ; Display the output 
+	    MOV MATH.W1, W0
+	    MOV MATH.W2, W1
+	    MOV #0x799A, W2 ; Compare first element to 0.95
+	    MOV #0x0666, W3 ; 0.05
+	    CPSLT W0, W2
+	    RCALL IO.SUB.amber_on ; Lights up if in |0> state
+	    CPSLT W1, W3
+	    RCALL IO.SUB.red_on ; Lights up if in |1> state
+	    	      
 	    ; End
 	1:  NOP
     
