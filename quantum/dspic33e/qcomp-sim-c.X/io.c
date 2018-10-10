@@ -34,3 +34,10 @@ int read_btn(int btn) {
     return (((PORTD & (1 << btn)) >> btn) ^ 0x0001);
   }
 }
+
+// Turn all the LEDs off
+void leds_off(void) {
+  set_led(green, off);
+  set_led(amber, off);
+  set_led(red, off);
+}

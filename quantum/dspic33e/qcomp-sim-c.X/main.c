@@ -1,9 +1,13 @@
 /*
  * File:   main.c
  *
- * Description: A minimal example of fixed precision 2x2 matrix multiplication 
+ * Description: Contains an example of fixed precision 2x2 matrix multiplication 
  * for applying operations to a single qubit. The only operations included
  * are H, X and Z so that everything is real (this can be extended later).
+ * 
+ * All the functions have now been moved into separate files. io.h and io.c 
+ * contain functions for reading and controlling the buttons and LEDs, and
+ * quantum.h/quantum.c contain the matrix arithmetic for simulating one qubit.
  *
  * Compile command: make (on linux). But if you want to program the micro-
  * controller too or if you're using windows you're better of downloading
@@ -54,10 +58,30 @@ int main(void) {
     // Add a global phase to make first amplitude positive
     fix_phase(&V);
     
-    // Reset all the LEDs
-    set_led(green, off);
-    set_led(amber, off);
-    set_led(red, off);
+    // Clean state
+    if (V.a1 > 0.99) {
+      V.a1 = 0.9999; // The |0> state
+      V.a2 = 0.0;
+    }
+    else if ((V.a2 > 0.99) || (V.a2 < -0.99)) {
+      V.a1 = 0.0; // The |1> state
+      V.a2 = 0.9999;
+    }
+    else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
+      if (V.a2 > 0.0){
+        V.a1 = 0.7071067812; // The |+> state
+        V.a2 = 0.7071067812;
+      }
+      else {
+        V.a1 = 0.7071067812; // The |-> state
+        V.a2 = -0.7071067812;
+      }
+    }
+    else
+      set_led(red, on);
+    
+    // Turn all the LEDs off
+    leds_off();
     
     // Show current qubit state on LEDs
     if (V.a1 > 0.99)

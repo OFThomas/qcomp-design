@@ -38,6 +38,9 @@ extern "C" {
 
     // Read the state of a push button
     int read_btn(int btn);
+    
+    // Turn all the LEDs off
+    void leds_off(void);
 
 #ifdef	__cplusplus
 }
