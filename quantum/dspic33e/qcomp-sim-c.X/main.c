@@ -96,8 +96,6 @@ int main(void) {
       V = mat_mul(X, V); // Multiply X by V, put result in V
     if (btn3 == on)
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
-
-
     
     // Light LEDs to show output
     if ((V.a1 > 0.95) && (V.a2 < 0.05))
@@ -107,9 +105,10 @@ int main(void) {
 
     // Wait for all the buttons to be released
     while ((btn1 == on) || (btn2 == on) || (btn3 == on))
-      ; // do nothing
-        
-        // Short delay to stop button bouncing
+      // Do nothing
+      ;
+    
+    // Short delay to stop button bouncing
     int cnt = 0;
     while(cnt < 100000) cnt++;
     cnt = 0;
