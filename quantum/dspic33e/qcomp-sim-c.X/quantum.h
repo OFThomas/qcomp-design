@@ -35,7 +35,14 @@ extern "C" {
     Vector mat_mul(Matrix M, Vector V);
 
     // Add a global phase to make first amplitude positive
-    int fix_phase(Vector * V);
+    Vector fix_phase(Vector V);
+    
+    // Clean the state: return the closest state out of
+    // 0>, |1>, |+> and |->
+    Vector clean_state(Vector V);
+    
+    // Show the qubit state on the LEDs
+    void show_state(Vector V);
     
 #ifdef	__cplusplus
 }

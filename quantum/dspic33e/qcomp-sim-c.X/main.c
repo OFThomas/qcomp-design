@@ -28,6 +28,9 @@ int main(void) {
     
   // Setup input/output (LEDs and buttons)
   setup_io();
+  
+  // Flash LEDs
+  flash_all(5);
 
   // Define quantum operations
   Matrix H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
@@ -36,6 +39,9 @@ int main(void) {
   
   // Define state vector
   Vector V = {0.9999, 0.0};
+  
+  // Show qubit state
+  show_state(V);
 
   while (1 == 1) {
         
@@ -56,47 +62,13 @@ int main(void) {
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
     // Add a global phase to make first amplitude positive
-    fix_phase(&V);
+    V = fix_phase(V);
     
     // Clean state
-    if (V.a1 > 0.99) {
-      V.a1 = 0.9999; // The |0> state
-      V.a2 = 0.0;
-    }
-    else if ((V.a2 > 0.99) || (V.a2 < -0.99)) {
-      V.a1 = 0.0; // The |1> state
-      V.a2 = 0.9999;
-    }
-    else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
-      if (V.a2 > 0.0){
-        V.a1 = 0.7071067812; // The |+> state
-        V.a2 = 0.7071067812;
-      }
-      else {
-        V.a1 = 0.7071067812; // The |-> state
-        V.a2 = -0.7071067812;
-      }
-    }
-    else
-      set_led(red, on);
+    V = clean_state(V);
     
-    // Turn all the LEDs off
-    leds_off();
-    
-    // Show current qubit state on LEDs
-    if (V.a1 > 0.99)
-      set_led(red, on); // The |0> state
-    else if ((V.a2 > 0.99) || (V.a2 < -0.99))
-      set_led(green, on); // The |1> state
-    else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
-      set_led(red, on); // The |+> or |-> state
-      set_led(green, on);
-      // Now add the sign bit
-      if (V.a2 < 0.0)
-          set_led(amber, on);
-    }
-    else
-      set_led(red, on);
+    // Show qubit state
+    show_state(V);
     
     // Wait for all the buttons to be released
     while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {

@@ -41,6 +41,12 @@ extern "C" {
     
     // Turn all the LEDs off
     void leds_off(void);
+    
+    // Flash one LED a number of times
+    void flash_led(int color, int number);
+    
+    // Flash all the LEDs a number of times
+    void flash_all(int number);
 
 #ifdef	__cplusplus
 }
