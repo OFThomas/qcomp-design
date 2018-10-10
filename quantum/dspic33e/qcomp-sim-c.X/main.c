@@ -5,70 +5,20 @@
  * for applying operations to a single qubit. The only operations included
  * are H, X and Z so that everything is real (this can be extended later).
  *
- * Compile command: make (on linux). But if you want ot program the micro-
+ * Compile command: make (on linux). But if you want to program the micro-
  * controller too or if you're using windows you're better of downloading
  * and installing MPLAB-X https://www.microchip.com/mplab/mplab-x-ide.
  *
  * Notes: You also need the microchip xc16 compilers which
- * are freely available from https://www.microchip.com/mplab/compilers 
+ * are available from https://www.microchip.com/mplab/compilers 
  *
  */
 
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-// Locations of LEDs and buttons on Port D
-#define red 0
-#define amber 1
-#define green 2
-
-#define sw1 6
-#define sw2 7
-#define sw3 13
-
-#define off 0
-#define on 1
-
-// Turn a particular LED on or off
-int set_led(int color, int state) {
-  if (state == on)
-    LATD |= (1 << color);
-  else
-    LATD &= ~(1 << color);
-  return 0;
-}
-
-// Read the state of a push button
-int read_btn(int btn) {
-  if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
-    return -1;
-  } else {
-    // How well do you know C
-    return (((PORTD & (1 << btn)) >> btn) ^ 0x0001);
-  }
-}
-
-// Matrix type
-typedef struct {
-  signed _Fract a11;
-  signed _Fract a12;
-  signed _Fract a21;
-  signed _Fract a22;
-} Matrix;
-
-// Vector type
-typedef struct {
-  signed _Fract a1;
-  signed _Fract a2;
-} Vector;
-
-// 2x2 matrix multiplication
-Vector mat_mul(Matrix M, Vector V) {
-  Vector W = {0, 0}; // To store the output
-  W.a1 = M.a11 * V.a1 + M.a12 * V.a2;
-  W.a2 = M.a21 * V.a1 + M.a22 * V.a2;
-  return W;
-}
+#include "io.h"
+#include "quantum.h"
 
 int main(void) {
 
