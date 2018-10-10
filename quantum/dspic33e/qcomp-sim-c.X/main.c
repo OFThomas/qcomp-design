@@ -38,7 +38,7 @@ int read_btn(int btn) {
   if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
     return -1;
   } else {
-    // How well do you know C:
+    // How well do you know C
     return (((PORTD & (1 << btn)) >> btn) ^ 0x0001);
   }
 }
