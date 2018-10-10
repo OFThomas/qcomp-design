@@ -77,7 +77,7 @@ int main(void) {
   TRISD = 0x20C0; // Set lines 0,1,2 as output; 6,7,13 as input 
 
   // Define H
-  Matrix H = {0.707, 0.707, 0.707, -0.707};
+  Matrix H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
   Matrix X = {0.0, 0.9999, 0.9999, 0.0};
   Matrix Z = {0.9999, 0.0, 0.0, -1.0};
   
@@ -116,12 +116,15 @@ int main(void) {
     
     // Show current qubit state on LEDs
     if (V.a1 > 0.99)
-      set_led(green, on); // The |0> state
+      set_led(red, on); // The |0> state
     else if ((V.a2 > 0.99) || (V.a2 < -0.99))
-      set_led(amber, on); // The |1> state
+      set_led(green, on); // The |1> state
     else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
-      set_led(green, on); // The |+> or |-> state
-      set_led(amber, on);
+      set_led(red, on); // The |+> or |-> state
+      set_led(green, on);
+      // Now add the sign bit
+      if (V.a2 < 0.0)
+          set_led(amber, on);
     }
     else
       set_led(red, on);
