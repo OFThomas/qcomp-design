@@ -15,3 +15,13 @@ Vector mat_mul(Matrix M, Vector V) {
   W.a2 = M.a21 * V.a1 + M.a22 * V.a2;
   return W;
 }
+
+// Add a global phase to make first amplitude positive
+int fix_phase(Vector *V) {
+  signed _Fract phase = -1.0;
+  if ((*V).a1 < 0.0) {
+    (*V).a1 *= phase;
+    (*V).a2 *= phase;
+  }
+  return 0;
+}

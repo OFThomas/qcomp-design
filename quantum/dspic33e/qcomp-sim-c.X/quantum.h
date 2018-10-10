@@ -34,6 +34,9 @@ extern "C" {
     // 2x2 matrix multiplication
     Vector mat_mul(Matrix M, Vector V);
 
+    // Add a global phase to make first amplitude positive
+    int fix_phase(Vector * V);
+    
 #ifdef	__cplusplus
 }
 #endif

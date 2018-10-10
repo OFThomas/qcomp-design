@@ -21,12 +21,11 @@
 #include "quantum.h"
 
 int main(void) {
+    
+  // Setup input/output (LEDs and buttons)
+  setup_io();
 
-  // Set up the input/output
-  ANSELD = 0x0000; // Set port D to digital
-  TRISD = 0x20C0; // Set lines 0,1,2 as output; 6,7,13 as input 
-
-  // Define H
+  // Define quantum operations
   Matrix H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
   Matrix X = {0.0, 0.9999, 0.9999, 0.0};
   Matrix Z = {0.9999, 0.0, 0.0, -1.0};
@@ -36,7 +35,7 @@ int main(void) {
 
   while (1 == 1) {
         
-    // Wait for user to choose operation
+    // Wait for user to choose an operation
     int btn1 = off, btn2 = off, btn3 = off;
     while((btn1 == off) && (btn2 == off) && (btn3 == off)) { 
       btn1 = read_btn(sw1);
@@ -52,12 +51,8 @@ int main(void) {
     if (btn3 == on)
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
-    // Add global phase to make first amplitude positive
-    signed _Fract phase = -1.0;
-    if (V.a1 < 0.0) {
-        V.a1 *= phase;
-        V.a2 *= phase;
-    }
+    // Add a global phase to make first amplitude positive
+    fix_phase(&V);
     
     // Reset all the LEDs
     set_led(green, off);

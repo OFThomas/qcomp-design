@@ -30,6 +30,9 @@ extern "C" {
 #define off 0
 #define on 1
 
+    // Set up LEDs and buttons on port D 
+    int setup_io(void);
+    
     // Turn a particular LED on or off
     int set_led(int color, int state);
 
