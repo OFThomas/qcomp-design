@@ -74,7 +74,8 @@ int main(void) {
   // Define H
   Matrix H = {0.707, 0.707, 0.707, -0.707};
   Matrix X = {0.0, 0.9999, 0.9999, 0.0};
-
+  Matrix Z = {0.9999, 0.0, 0.0, -1.0};
+  
   // Define state vector
   Vector V = {0.0, 0.0};
 
@@ -93,7 +94,11 @@ int main(void) {
       V = mat_mul(H, V); // Multiply H by V, put result in V
     if (btn2 == on)
       V = mat_mul(X, V); // Multiply X by V, put result in V
+    if (btn3 == on)
+      V = mat_mul(Z, V); // Multiply Z by V, put result in V
 
+
+    
     // Light LEDs to show output
     if ((V.a1 > 0.95) && (V.a2 < 0.05))
       set_led(green, on);
