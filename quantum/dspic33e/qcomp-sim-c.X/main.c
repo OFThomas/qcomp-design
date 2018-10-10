@@ -103,10 +103,11 @@ int main(void) {
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
     // Add global phase to make first amplitude positive
-    //if (V.a1 < 0.0) {
-    //    V.a1 *= -1.0;
-    //    V.a2 *= -1.0;
-    //}
+    signed _Fract phase = -1.0;
+    if (V.a1 < 0.0) {
+        V.a1 *= phase;
+        V.a2 *= phase;
+    }
     
     // Reset all the LEDs
     set_led(green, off);
