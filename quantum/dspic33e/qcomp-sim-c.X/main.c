@@ -102,15 +102,17 @@ int main(void) {
     if (btn3 == on)
       V = mat_mul(Z, V); // Multiply Z by V, put result in V
     
-    // Light LEDs to show output
+    // Reset all the LEDs
+    set_led(green, off);
+    set_led(amber, off);
+    set_led(red, off);
+    // Show new qubit state on LEDs
     if (V.a1 > 0.95)
       set_led(green, on);
     else if (V.a2 > 0.95)
       set_led(amber, on);
-    else {
+    else
       set_led(red, on);
-      while(1 == 1);
-    }
     
     // Wait for all the buttons to be released
     while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {
@@ -121,10 +123,8 @@ int main(void) {
     
     // Short delay to stop button bouncing
     int cnt = 0;
-    while(cnt < 100000) cnt++;
-    cnt = 0;
-        
-
+    while(cnt < 10000) cnt++;
+    
   }
 
   return 0;
