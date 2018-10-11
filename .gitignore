@@ -2,6 +2,7 @@
 *.fls
 *.log
 *.gz
+*.fbd_latexmk
 *latex
 *~
 /quantum/dspic33e/qcomp-sim.X/nbproject/private/
