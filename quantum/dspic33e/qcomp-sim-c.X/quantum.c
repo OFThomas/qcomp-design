@@ -32,12 +32,12 @@ Vector fix_phase(Vector V) {
 Vector clean_state(Vector V) {
     Vector W;
     if (V.a1 > 0.99) {
-      W.a1 = 0.9999; // The |0> state
+      W.a1 = 0.9999694824; // The |0> state
       W.a2 = 0.0;
     }
     else if ((V.a2 > 0.99) || (V.a2 < -0.99)) {
       W.a1 = 0.0; // The |1> state
-      W.a2 = 0.9999;
+      W.a2 = 0.9999694824;
     }
     else if ((0.70 < V.a1) && (V.a1 < 0.71)) {
       if (V.a2 > 0.0){
