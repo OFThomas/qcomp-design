@@ -41,6 +41,7 @@ int main(void) {
     Vector V = {0.9999694824, 0.0};
 
     // Do a matrix multiplication test
+    /*
     int n = 0, m = 0;
     while (n < 128) {
         m = 0;
@@ -50,13 +51,14 @@ int main(void) {
         }
         n++;
     }
+    
 
     // Show that the test is finished
     set_led(red, on);
     
     // Wait
     while(1 == 1);
-    
+    */
     // Show qubit state
     show_state(V);
 
