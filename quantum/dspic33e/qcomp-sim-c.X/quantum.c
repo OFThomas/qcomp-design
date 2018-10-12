@@ -47,11 +47,11 @@ Vector fix_phase(Vector V) {
 // Clean the state: return the closest state out of |0>, |1>, |+> and |->
 Vector clean_state(Vector V) {
     Vector W;
-    if (V.a1 > 0.99) {
-      W.a1 = 0.9999694824; // The |0> state
-      W.a2 = 0.0;
+    if (V[0] > 0.99) {
+      W[0] = 0.9999694824; // The |0> state
+      W[] = 0.0;
     }
-    else if ((V.a2 > 0.99) || (V.a2 < -0.99)) {
+    else if ((V[1] > 0.99) || (V[1] < -0.99)) {
       W.a1 = 0.0; // The |1> state
       W.a2 = 0.9999694824;
     }
