@@ -28,8 +28,8 @@ Matrix2 make_Z() {
 // 2x2 matrix multiplication
 Vector mat_mul(Matrix2 M, Vector V) {
   Vector W = {0, 0}; // To store the output
-  W.a1 = M.a11 * V.a1 + M.a12 * V.a2;
-  W.a2 = M.a21 * V.a1 + M.a22 * V.a2;
+  W[0] = M[0][0] * V[0] + M[0][1] * V[1];
+  W[1] = M[1][0] * V[0] + M[1][1] * V[1];
   return W;
 }
 
