@@ -1,7 +1,7 @@
 /*
  * File: quantum.h
  * 
- * Description: Header file containing all the matric arithmetic for 
+ * Description: Header file containing all the matrix arithmetic for 
  * simulating a single qubit.
  * 
  */
@@ -33,6 +33,11 @@ extern "C" {
         signed _Fract a2;
     } Vector;
 
+    // Create X, H and Z
+    Matrix make_X();
+    Matrix make_Z();
+    Matrix make_H();
+    
     // 2x2 matrix multiplication
     Vector mat_mul(Matrix M, Vector V);
 

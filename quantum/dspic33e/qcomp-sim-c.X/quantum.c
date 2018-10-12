@@ -9,6 +9,22 @@
 #include "io.h"
 #include "quantum.h"
 
+// Create X, H and Z
+Matrix make_X() {
+    Matrix X = {0.0, -1.0, -1.0, 0.0};
+    return X;
+}
+
+Matrix make_H() {
+    Matrix H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
+    return H;
+}
+
+Matrix make_Z() {
+    Matrix Z = {0.9999694824, 0.0, 0.0, -1.0};
+    return Z;
+}
+
 // 2x2 matrix multiplication
 Vector mat_mul(Matrix M, Vector V) {
   Vector W = {0, 0}; // To store the output
