@@ -38,6 +38,8 @@ int main(void) {
     Matrix Z = {0.9999694824, 0.0, 0.0, -1.0};
 
     // Define state vector
+    // |0> = (1,0)
+    // |1> = (0,1)
     Vector V = {0.9999694824, 0.0};
 
     // Do a matrix multiplication test
@@ -51,7 +53,6 @@ int main(void) {
         }
         n++;
     }
-    
 
     // Show that the test is finished
     set_led(red, on);
