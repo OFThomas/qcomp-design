@@ -19,13 +19,13 @@ extern "C" {
 
     // to add matrix4
 
-    // Matrix type
+    // Matrix2 type
     typedef struct {
         signed _Fract a11;
         signed _Fract a12;
         signed _Fract a21;
         signed _Fract a22;
-    } Matrix;
+    } Matrix2;
 
     // Vector type
     typedef struct {
@@ -34,12 +34,12 @@ extern "C" {
     } Vector;
 
     // Create X, H and Z
-    Matrix make_X();
-    Matrix make_Z();
-    Matrix make_H();
+    Matrix2 make_X();
+    Matrix2 make_Z();
+    Matrix2 make_H();
     
     // 2x2 matrix multiplication
-    Vector mat_mul(Matrix M, Vector V);
+    Vector mat_mul(Matrix2 M, Vector V);
 
     // Add a global phase to make first amplitude positive
     Vector fix_phase(Vector V);

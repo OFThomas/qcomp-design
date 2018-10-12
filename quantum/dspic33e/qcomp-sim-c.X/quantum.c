@@ -10,23 +10,23 @@
 #include "quantum.h"
 
 // Create X, H and Z
-Matrix make_X() {
-    Matrix X = {0.0, -1.0, -1.0, 0.0};
+Matrix2 make_X() {
+    Matrix2 X = {0.0, -1.0, -1.0, 0.0};
     return X;
 }
 
-Matrix make_H() {
-    Matrix H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
+Matrix2 make_H() {
+    Matrix2 H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
     return H;
 }
 
-Matrix make_Z() {
-    Matrix Z = {0.9999694824, 0.0, 0.0, -1.0};
+Matrix2 make_Z() {
+    Matrix2 Z = {0.9999694824, 0.0, 0.0, -1.0};
     return Z;
 }
 
 // 2x2 matrix multiplication
-Vector mat_mul(Matrix M, Vector V) {
+Vector mat_mul(Matrix2 M, Vector V) {
   Vector W = {0, 0}; // To store the output
   W.a1 = M.a11 * V.a1 + M.a12 * V.a2;
   W.a2 = M.a21 * V.a1 + M.a22 * V.a2;

@@ -18,7 +18,7 @@ void mat_mul_test() {
     // |1> = (0,1)
     Vector V = {0.9999694824, 0.0};
     
-    Matrix X = make_X();
+    Matrix2 X = make_X();
     
     // Do a matrix multiplication test
     unsigned int n = 0;
@@ -36,7 +36,7 @@ void mat_mul_test() {
 // state of the qubit.
 void one_qubit() {
     // Define quantum operations
-    Matrix H = make_H(), X = make_X(), Z = make_Z();
+    Matrix2 H = make_H(), X = make_X(), Z = make_Z();
 
     // Define state vector
     // |0> = (1,0)
