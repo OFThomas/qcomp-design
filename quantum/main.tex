@@ -65,7 +65,10 @@ art quantum processors}
 \subsection{Testing the dsPIC33E microcontroller}
 
 \begin{itemize}
-  \item The dsPIC series are a family of 16 bit microcontrollers which contain special instructions for performing more intensive mathematical operations. Some of them come in surface mount packages, but some are also DIP and will go on a breadboard (e.g. dsPIC33F). We can probably prototype initially using a dsPIC33E (which we have) and then port the code to the dsPIC33F (which hopefully shouldn't be too hard).
+\item The dsPIC series are a family of 16 bit microcontrollers which contain special instructions for performing more intensive mathematical operations. Some of them come in surface mount packages, but some are also DIP and will go on a breadboard (e.g. dsPIC33F). We can probably prototype initially using a dsPIC33E (which we have) and then port the code to the dsPIC33F (which hopefully shouldn't be too hard).
+\item Tested $2^{15}$ $2\times 2$ real matrix multiplications at 12MHz. The operation involved about 16 instructions and took under 0.1s.
+\item Created a one qubit simulator in C -- it can do the H, X and Z gates, mapped to buttons on the development board. The three lights are used to display the 0, 1, + and - states. Next steps -- extend to complex number arithmetic and multiple qubits
+\item Tried the same $2\times 2$ matrix multiplication test, which takes significantly longer in C. There might be a way of making it faster, or just embedding assembly language.
 \end{itemize}
 
 \end{document}
