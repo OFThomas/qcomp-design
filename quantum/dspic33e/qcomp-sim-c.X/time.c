@@ -7,6 +7,27 @@
 
 #include "time.h"
 
+// Use this routine to set up the instruction cycle clock
+void setup_clock() {
+    // Use Primary Oscillator with PLL --------------------------------
+    // Prepare PLL settings for clock switch - New clock (Fosc) = 50MHz
+    PLLFBD = 0x0030; // M = 50
+    CLKDIV = 0x3040; // N1 = 2; N2 = 4
+    // OSCCONH Unlock Sequence
+    OSCCONH = 0x78; // Unlock OSCCONH for writing
+    OSCCONH = 0x9A; //   (refer to 'Oscillator Module' FRM)     
+    // Set New Oscillator Selection - Primary Clock with PLL
+    OSCCONH = 0x3;
+    // OSCCONL Unlock Sequence
+    //MOV     #OSCCONL, w1    ; Store address of OSCCONL in w1
+    OSCCONL = 0x46; // Unlock OSCCONL for writing
+    OSCCONL = 0x57; //   (refer to 'Oscillator Module' FRM)  
+    // Enable Clock Switch
+    OSCCONbits.OSWEN = 1; // Set OSWEN bit to request clock switch
+    while(OSCCONbits.OSWEN != 0)
+        ; // Wait for OSWEN to be cleared
+}
+
 // Run this before using the timer functions
 // Use timers 2 and 3 (type A and B) together to form a single 32 bit timer
 // 

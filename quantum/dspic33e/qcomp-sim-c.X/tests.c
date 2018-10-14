@@ -14,8 +14,10 @@
 // Testing the speed of 2^15 2x2 matrix multiplications
 void mat_mul_test() {
 
-    // Setup the timer
-    setup_timer();
+    // Change clock speed
+    setup_clock();
+    
+    // Start the timer
     start_timer();
     
     // Define state vector
@@ -37,6 +39,9 @@ void mat_mul_test() {
     
     // Show that the test is finished
     set_led(red, on);
+
+    // wait (add a breakpoint here)
+    while(1 == 1);
     
 }
 

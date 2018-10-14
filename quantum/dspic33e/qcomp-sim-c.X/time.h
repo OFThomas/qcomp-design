@@ -15,6 +15,9 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
+    // Use this routine to set up the instruction cycle clock
+    void setup_clock();
+    
     // Run this before using the timer functions
     void setup_timer();
     
