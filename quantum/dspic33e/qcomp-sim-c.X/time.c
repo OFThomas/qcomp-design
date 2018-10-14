@@ -8,13 +8,18 @@
 #include "time.h"
 
 // Use this routine to set up the instruction cycle clock
-// The dsPIC33E development board contains an 8MHz external clock
+// The dsPIC33E development board contains an 8MHz external clock. Using the
+// settings below, the output of the PLL is
+//
+//   F_PLLO = F_IN * M/(N1 * N2)
+//          = 8 MHz * 50/(2 * 2)
+//          = 50MHz
 //
 void setup_clock() {
     // Use Primary Oscillator with PLL --------------------------------
     // Prepare PLL settings for clock switch - New clock (Fosc) = 50MHz
     PLLFBD = 0x0030; // M = 50
-    CLKDIV = 0x3040; // N1 = 2; N2 = 4
+    CLKDIV = 0x3040; // N1 = 2; N2 = 2
     // OSCCONH Unlock Sequence
     OSCCONH = 0x78; // Unlock OSCCONH for writing
     OSCCONH = 0x9A; //   (refer to 'Oscillator Module' FRM)     
