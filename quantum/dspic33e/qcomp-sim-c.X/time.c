@@ -8,6 +8,8 @@
 #include "time.h"
 
 // Use this routine to set up the instruction cycle clock
+// The dsPIC33E development board contains an 8MHz external clock
+//
 void setup_clock() {
     // Use Primary Oscillator with PLL --------------------------------
     // Prepare PLL settings for clock switch - New clock (Fosc) = 50MHz
@@ -26,6 +28,8 @@ void setup_clock() {
     OSCCONbits.OSWEN = 1; // Set OSWEN bit to request clock switch
     while(OSCCONbits.OSWEN != 0)
         ; // Wait for OSWEN to be cleared
+    while(OSCCONbits.LOCK != 0)
+        ; // Wait for PLL to lock
 }
 
 // Run this before using the timer functions
