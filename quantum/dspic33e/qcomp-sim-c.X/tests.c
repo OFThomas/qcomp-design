@@ -9,10 +9,15 @@
 #include "tests.h"
 #include "io.h"
 #include "quantum.h"
+#include "time.h"
 
 // Testing the speed of 2^15 2x2 matrix multiplications
 void mat_mul_test() {
 
+    // Setup the timer
+    setup_timer();
+    start_timer();
+    
     // Define state vector
     // |0> = (1,0)
     // |1> = (0,1)
@@ -22,11 +27,14 @@ void mat_mul_test() {
     
     // Do a matrix multiplication test
     unsigned int n = 0;
-    while (n < 32768) {
+    while (n < 32) {
         V = mat_mul(X, V);
         n++;
     }
 
+    // Read the timer
+    unsigned long int time = read_timer();
+    
     // Show that the test is finished
     set_led(red, on);
     

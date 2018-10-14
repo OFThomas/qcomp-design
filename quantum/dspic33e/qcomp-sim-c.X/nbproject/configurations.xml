@@ -19,6 +19,8 @@
       <itemPath>quantum.h</itemPath>
       <itemPath>tests.c</itemPath>
       <itemPath>tests.h</itemPath>
+      <itemPath>time.c</itemPath>
+      <itemPath>time.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

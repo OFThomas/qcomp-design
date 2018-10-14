@@ -34,7 +34,10 @@ int main(void) {
     flash_all(5);
 
     // Simulate one qubit
-    one_qubit();
+    //one_qubit();
 
+    // Run matrix multiplication test
+    mat_mul_test();
+    
     return 0;
 }
