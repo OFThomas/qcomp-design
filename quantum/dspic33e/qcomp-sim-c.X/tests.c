@@ -56,7 +56,7 @@ void one_qubit() {
     // |0> = (1,0)
     // |1> = (0,1)
     Vector V;
-    init_state(V, ONE);
+    init_state(V, ZERO);
     
     // Show qubit state
     show_state(V);
