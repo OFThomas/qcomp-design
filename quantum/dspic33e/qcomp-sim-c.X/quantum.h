@@ -21,40 +21,23 @@ extern "C" {
     
 
     // Matrix2 type
-<<<<<<< HEAD
-    typedef struct {
-        signed _Fract[0][0];
-        signed _Fract[0][1];
-        signed _Fract[1][0];
-        signed _Fract[1][1];
-    } Matrix2;
-
-    // Vector type
-    typedef struct {
-        signed _Fract[0];
-        signed _Fract[1];
-    } Vector;
-=======
     typedef signed _Fract Matrix2[2][2];
 
     // Vector type
     typedef signed _Fract Vector[2];
->>>>>>> c072d4188e5c9bd535595c84188ec4cd1da0296b
 
     // Create X, H and Z
-    Matrix2 make_X();
-    Matrix2 make_Z();
-    Matrix2 make_H();
+    void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H);
     
     // 2x2 matrix multiplication
-    Vector mat_mul(Matrix2 M, Vector V);
+    void mat_mul(Matrix2 M, Vector V);
 
     // Add a global phase to make first amplitude positive
-    Vector fix_phase(Vector V);
+    void fix_phase(Vector V);
     
     // Clean the state: return the closest state out of
     // 0>, |1>, |+> and |->
-    Vector clean_state(Vector V);
+    void clean_state(Vector V);
     
     // Show the qubit state on the LEDs
     void show_state(Vector V);

@@ -10,31 +10,15 @@
 #include "quantum.h"
 
 // Create X, H and Z
-Matrix2 make_X() {
-    Matrix2 X = {0.0, -1.0, -1.0, 0.0};
-    return X;
-}
-
-Matrix2 make_H() {
-    Matrix2 H = {0.7071067812, 0.7071067812, 0.7071067812, -0.7071067812};
-    return H;
-}
-
-Matrix2 make_Z() {
-    Matrix2 Z = {0.9999694824, 0.0, 0.0, -1.0};
-    return Z;
+void make_ops(Matrix2 &X, Matrix2 &Z, Matrix2 &H) {
+    X[0][0] = 0.0;
 }
 
 // 2x2 matrix multiplication
 Vector mat_mul(Matrix2 M, Vector V) {
   Vector W = {0, 0}; // To store the output
-<<<<<<< HEAD
-  W[0] = M[0]1 * V[0] + M[0]2 * V[1];
-  W[1] = M[1]1 * V[0] + M[1]2 * V[1];
-=======
   W[0] = M[0][0] * V[0] + M[0][1] * V[1];
   W[1] = M[1][0] * V[0] + M[1][1] * V[1];
->>>>>>> c072d4188e5c9bd535595c84188ec4cd1da0296b
   return W;
 }
 
