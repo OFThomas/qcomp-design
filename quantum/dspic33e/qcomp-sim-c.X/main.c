@@ -21,20 +21,29 @@
 #include "p33EP512MU810.h"
 #include "xc.h"
 
+#include "config.h"
+#include "time.h"
 #include "io.h"
 #include "quantum.h"
 #include "tests.h"
+#include "time.h"
 
 int main(void) {
 
     // Setup input/output (LEDs and buttons)
     setup_io();
 
+    // Setup the timer
+    setup_timer();
+    
     // Flash LEDs
     flash_all(5);
 
     // Simulate one qubit
-    one_qubit();
+    //one_qubit();
+
+    // Run matrix multiplication test
+    mat_mul_test();
 
     return 0;
 }
