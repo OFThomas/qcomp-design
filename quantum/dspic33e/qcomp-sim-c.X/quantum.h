@@ -37,6 +37,7 @@ extern "C" {
   
     // Vector type
     typedef signed _Fract Vector[2];
+    typedef Complex CVector[2];
 
     // Create X, H and Z
     void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H);

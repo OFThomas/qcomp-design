@@ -56,11 +56,16 @@ void init_state(Vector V, State s) {
     }
 }
 
-
 // 2x2 matrix multiplication
 void mat_mul(Matrix2 M, Vector V) {
   V[0] = M[0][0] * V[0] + M[0][1] * V[1];
   V[1] = M[1][0] * V[0] + M[1][1] * V[1];
+}
+
+// 2x2 complex matrix multiplication
+void cmat_mul(CMatrix2 M, CVector V) {
+  V[0] = cadd(cmul(M[0][0],V[0]), cmul(M[0][1],V[1]));
+  V[1] = cadd(cmul(M[1][0],V[0]), cmul(M[1][1], V[1]));
 }
 
 // Add a global phase to make first amplitude positive
