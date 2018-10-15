@@ -9,6 +9,22 @@
 #include "io.h"
 #include "quantum.h"
 
+// Complex addition
+Complex cadd(Complex a, Complex b) {
+    Complex result;
+    result.real = a.real + b.real;
+    result.imag = a.imag + b.imag;
+    return result;
+}
+
+// Complex multiplication
+Complex cmul(Complex a, Complex b) {
+    Complex result;
+    result.real = a.real * b.real - a.imag * b.imag;
+    result.imag = a.real * b.imag + a.imag * b.real; 
+    return result;
+}
+
 // Create X, H and Z
 void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H) {
     // Assume the elements are all equal to zero
