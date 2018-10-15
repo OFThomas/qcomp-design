@@ -11,7 +11,15 @@
 
 // Create X, H and Z
 void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H) {
-    X[0][0] = 0.0;
+    // Assume the elements are all equal to zero
+    X[0][1] = 0.9999694824; // X
+    X[1][0] = 0.9999694824;
+    Z[0][0] = 0.9999694824; // Z
+    Z[1][1] = -1.0;
+    H[0][0] = 0.7071067812; // H
+    H[0][1] = 0.7071067812;
+    H[1][0] = 0.7071067812;
+    H[1][1] = -0.7071067812;
 }
 
 // 2x2 matrix multiplication

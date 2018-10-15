@@ -76,10 +76,10 @@ void flash_all(int number) {
         m = 0;
         while(m < PERIOD) m++;
         n++;
-        
-        // Read the timer
-        unsigned long int time = read_timer();
-        
-        while(1);
     }
+     
+    // Read the timer
+    unsigned long int time = read_timer();
+    
+    while(1);
 }
