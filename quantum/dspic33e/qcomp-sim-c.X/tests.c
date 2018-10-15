@@ -11,7 +11,7 @@
 #include "quantum.h"
 #include "time.h"
 
-// Testing the speed of 2^15 2x2 matrix multiplications
+// Testing the speed of 2^15 2x2 real matrix multiplications
 void mat_mul_test() {
     
     // Define state vector
@@ -43,6 +43,40 @@ void mat_mul_test() {
     while(1 == 1);
     
 }
+
+// Testing the speed of 2^15 2x2 real matrix multiplications
+void mat_mul_test_cmplx() {
+    
+    // Define state vector
+    // |0> = (1,0)
+    // |1> = (0,1)
+    CVector V;
+    init_state_cmplx(V, ZERO);
+    
+    CMatrix2 X = {0}, Z = {0}, H = {0};
+    make_ops_cmplx(X, Z, H);
+    
+    // Start the timer
+    start_timer();
+    
+    // Do a complex matrix multiplication test
+    unsigned int n = 0;
+    while (n < 32) {
+        cmat_mul(X, V);
+        n++;
+    }
+
+    // Read the timer
+    unsigned long int time = read_timer();
+    
+    // Show that the test is finished
+    set_led(red, on);
+
+    // wait (add a breakpoint here)
+    while(1 == 1);
+    
+}
+
 
 // Simulating one qubit. Buttons apply H, X and Z and LEDs display the
 // state of the qubit.
@@ -96,8 +130,8 @@ void one_qubit() {
         }
 
         // Short delay to stop button bouncing
-        int cnt = 0;
-        while (cnt < 10000) cnt++;
+        unsigned long int cnt = 0; // 32 bit int
+        while (cnt < 100000) cnt++;
 
     }
 }

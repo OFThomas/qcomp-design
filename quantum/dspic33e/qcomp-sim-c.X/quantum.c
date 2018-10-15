@@ -38,7 +38,20 @@ void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H) {
     H[1][1] = -0.7071067812;
 }
 
-// Initialise state vector
+// Create complex X, H and Z
+void make_ops_cmplx(CMatrix2 X, CMatrix2 Z, CMatrix2 H) {
+    // Assume the elements are all equal to zero
+    X[0][1].real = 0.9999694824; // X
+    X[1][0].real = 0.9999694824;
+    Z[0][0].real = 0.9999694824; // Z
+    Z[1][1].real = -1.0;
+    H[0][0].real = 0.7071067812; // H
+    H[0][1].real = 0.7071067812;
+    H[1][0].real = 0.7071067812;
+    H[1][1].real = -0.7071067812;
+}
+
+// Initialise real state vector
 void init_state(Vector V, State s) {
     switch(s) {
         case ZERO:
@@ -56,6 +69,28 @@ void init_state(Vector V, State s) {
         case MINUS:
             V[0] = 0.7071067812;
             V[1] = -0.7071067812;
+            break;
+    }
+}
+
+// Initialise complex state vector
+void init_state_cmplx(CVector V, State s) {
+    switch(s) {
+        case ZERO:
+            V[0].real = 0.9999694824;
+            V[1].real = 0.0;
+            break;
+        case ONE:
+            V[0].real = 0.0;
+            V[1].real = 0.9999694824;
+            break;
+        case PLUS:
+            V[0].real = 0.7071067812;
+            V[1].real = 0.7071067812;
+            break;
+        case MINUS:
+            V[0].real = 0.7071067812;
+            V[1].real = -0.7071067812;
             break;
     }
 }

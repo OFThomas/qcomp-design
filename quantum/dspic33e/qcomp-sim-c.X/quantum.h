@@ -41,9 +41,13 @@ extern "C" {
 
     // Create X, H and Z
     void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H);
-
-  // Initialise state vector
-  void init_state(Vector V, State s);
+    void make_ops_cmplx(CMatrix2 X, CMatrix2 Z, CMatrix2 H);
+    
+    // Initialise a real state vector
+    void init_state(Vector V, State s);
+    
+    // Initialise a complex state vector
+    void init_state_cmplx(CVector V, State s);
   
     // 2x2 matrix multiplication
     void mat_mul(Matrix2 M, Vector V);
