@@ -16,7 +16,6 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
-#include "complex.h"
 
   // Complex type
   typedef struct {
