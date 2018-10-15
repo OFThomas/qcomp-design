@@ -14,10 +14,11 @@
 // Testing the speed of 2^15 2x2 matrix multiplications
 void mat_mul_test() {
     
-        // Define state vector
+    // Define state vector
     // |0> = (1,0)
     // |1> = (0,1)
-    Vector V = {0.9999694824, 0.0};
+  Vector V;
+  init_state(V, ZERO);
     
     Matrix2 X = {0}, Z = {0}, H = {0};
     make_ops(X, Z, H);

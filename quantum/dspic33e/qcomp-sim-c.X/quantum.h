@@ -16,22 +16,35 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
+#include "complex.h"
 
+  // Complex type
+  typedef struct {
+    signed _Fract real;
+    signed _Fract imag; 
+  } Complex;
+  
     // Basis states
     typedef enum {ZERO, ONE, PLUS, MINUS} State;
     
     // Matrix4 type
-    typedef signed _Fract Matrix4[4][4];
-    
+  typedef signed _Fract Matrix4[4][4];
+  typedef Complex CMatrix4[4][4];
+  
     // Matrix2 type
-    typedef signed _Fract Matrix2[2][2];
+  typedef signed _Fract Matrix2[2][2];
+  typedef Complex CMatrix2[2][2];
 
+  
     // Vector type
     typedef signed _Fract Vector[2];
 
     // Create X, H and Z
     void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H);
-    
+
+  // Initialise state vector
+  void init_state(Vector V, State s);
+  
     // 2x2 matrix multiplication
     void mat_mul(Matrix2 M, Vector V);
 
