@@ -10,16 +10,14 @@
 #include "quantum.h"
 
 // Create X, H and Z
-void make_ops(Matrix2 &X, Matrix2 &Z, Matrix2 &H) {
+void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H) {
     X[0][0] = 0.0;
 }
 
 // 2x2 matrix multiplication
-Vector mat_mul(Matrix2 M, Vector V) {
-  Vector W = {0, 0}; // To store the output
-  W[0] = M[0][0] * V[0] + M[0][1] * V[1];
-  W[1] = M[1][0] * V[0] + M[1][1] * V[1];
-  return W;
+void mat_mul(Matrix2 M, Vector V) {
+  V[0] = M[0][0] * V[0] + M[0][1] * V[1];
+  V[1] = M[1][0] * V[0] + M[1][1] * V[1];
 }
 
 // Add a global phase to make first amplitude positive
