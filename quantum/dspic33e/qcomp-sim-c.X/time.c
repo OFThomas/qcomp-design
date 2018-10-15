@@ -12,19 +12,19 @@
 // settings below, the output of the PLL is
 //
 //   F_PLLO = F_IN * M/(N1 * N2)
-//          = 8 MHz * 50/(4 * 2)
-//          = 50MHz
+//          = 8 MHz * 50/(2 * 2)
+//          = 100MHz
 //
-// The the instruction cycle clock F_CY is half of F_PLLO, so 25MHz.
+// The the instruction cycle clock F_CY is half of F_PLLO, so 50MHz.
 //
 // It is important to set of the configuration bits correctly to allow clock
 // switching.
 //
 void setup_clock() {
     // Use Primary Oscillator with PLL --------------------------------
-    // Prepare PLL settings for clock switch.  New clock F_CY = 25MHz
+    // Prepare PLL settings for clock switch.  New clock F_CY = 50MHz
     PLLFBD = 0x0030; // M = 50
-    CLKDIV = 0x3040; // N1 = 2; N2 = 4
+    CLKDIV = 0x3000; // N1 = 2; N2 = 2
     // Set new oscillator selection - primary clock with PLL
     __builtin_write_OSCCONH(0x3); // (refer to 'Oscillator Module' FRM)     
     // Set OSWEN bit to request clock switch
