@@ -16,6 +16,9 @@ extern "C" {
 
     // Testing the speed of 2^15 2x2 matrix multiplications
     void mat_mul_test();
+    
+    // Testing the speed of 2^15 2x2 real matrix multiplications
+    void mat_mul_test_cmplx();
 
     // Simulating one qubit. Buttons apply H, X and Z and LEDs display the
     // state of the qubit.

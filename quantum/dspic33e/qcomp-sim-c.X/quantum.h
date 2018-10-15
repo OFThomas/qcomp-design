@@ -50,6 +50,9 @@ extern "C" {
   
     // 2x2 matrix multiplication
     void mat_mul(Matrix2 M, Vector V);
+    
+    // 2x2 complex matrix multiplication
+    void mat_mul_cmplx(CMatrix2 M, CVector V);
 
     // Add a global phase to make first amplitude positive
     void fix_phase(Vector V);

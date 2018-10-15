@@ -102,9 +102,9 @@ void mat_mul(Matrix2 M, Vector V) {
 }
 
 // 2x2 complex matrix multiplication
-void cmat_mul(CMatrix2 M, CVector V) {
+void mat_mul_cmplx(CMatrix2 M, CVector V) {
     Complex a, b;
-    cmul(M[0][0],V[0],a);
+    cmul(M[0][0],V[0],a); 
     cmul(M[0][1],V[1],b);
     cadd(a,b,V[0]);
     cmul(M[1][0],V[0],a);

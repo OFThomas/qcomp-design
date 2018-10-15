@@ -20,7 +20,7 @@ void mat_mul_test() {
   Vector V;
   init_state(V, ZERO);
     
-    Matrix2 X = {0}, Z = {0}, H = {0};
+    Matrix2 X = {{0}}, Z = {{0}}, H = {{0}};
     make_ops(X, Z, H);
     
     // Start the timer
@@ -44,7 +44,7 @@ void mat_mul_test() {
     
 }
 
-// Testing the speed of 2^15 2x2 real matrix multiplications
+// Testing the speed of 2^15 2x2 complex matrix multiplications
 void mat_mul_test_cmplx() {
     
     // Define state vector
@@ -53,9 +53,8 @@ void mat_mul_test_cmplx() {
     CVector V;
     init_state_cmplx(V, ZERO);
     
-    CMatrix2 X = {0}, Y = {0}, Z = {0}, H = {0};
+    CMatrix2 X = {{{0}}}, Y = {{{0}}}, Z = {{{0}}}, H = {{{0}}};
     make_ops_cmplx(X, Y, Z, H);
-    while(1);
     
     // Start the timer
     start_timer();
@@ -63,7 +62,7 @@ void mat_mul_test_cmplx() {
     // Do a complex matrix multiplication test
     unsigned int n = 0;
     while (n < 32) {
-        cmat_mul(X, V);
+        mat_mul_cmplx(X, V);
         n++;
     }
 
@@ -84,7 +83,7 @@ void mat_mul_test_cmplx() {
 void one_qubit() {
     
     // Define quantum operations
-    Matrix2 X = {0}, Z = {0}, H = {0};
+    Matrix2 X = {{0}}, Z = {{0}}, H = {{0}};
     make_ops(X, Z, H);
 
     // Define state vector
