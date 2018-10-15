@@ -14,16 +14,16 @@
 // Testing the speed of 2^15 2x2 matrix multiplications
 void mat_mul_test() {
     
-    // Start the timer
-    start_timer();
-    
-    // Define state vector
+        // Define state vector
     // |0> = (1,0)
     // |1> = (0,1)
     Vector V = {0.9999694824, 0.0};
     
-    Matrix2 Z, X, H;
+    Matrix2 X = {0}, Z = {0}, H = {0};
     make_ops(X, Z, H);
+    
+    // Start the timer
+    start_timer();
     
     // Do a matrix multiplication test
     unsigned int n = 0;
@@ -48,13 +48,14 @@ void mat_mul_test() {
 void one_qubit() {
     
     // Define quantum operations
-    Matrix2 Z, X, H;
+    Matrix2 X = {0}, Z = {0}, H = {0};
     make_ops(X, Z, H);
 
     // Define state vector
     // |0> = (1,0)
     // |1> = (0,1)
-    Vector V = {0.9999694824, 0.0};
+    Vector V;
+    init_state(V, ONE);
     
     // Show qubit state
     show_state(V);

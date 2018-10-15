@@ -43,7 +43,7 @@ void leds_off(void) {
   set_led(red, off);
 }
 
-#define PERIOD 5000000
+#define PERIOD 500000
 // Flash LED a number of times
 void flash_led(int color, int number) {
     unsigned long int m = 0, n = 0; // You need 32 bit types for this
@@ -60,11 +60,7 @@ void flash_led(int color, int number) {
 
 // Flash all the LEDs a number of times
 void flash_all(int number) {
-    
-    // Start the timer
-    start_timer();
-    
-    
+
     unsigned long int m = 0, n = 0; // You need 32 bit types for this
     while(n < number) {
         set_led(red, on);
@@ -77,9 +73,4 @@ void flash_all(int number) {
         while(m < PERIOD) m++;
         n++;
     }
-     
-    // Read the timer
-    unsigned long int time = read_timer();
-    
-    while(1);
 }

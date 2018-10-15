@@ -17,9 +17,12 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-    // Matrix4 type
+    // Basis states
+    typedef enum {ZERO, ONE, PLUS, MINUS} State;
     
-
+    // Matrix4 type
+    typedef signed _Fract Matrix4[4][4];
+    
     // Matrix2 type
     typedef signed _Fract Matrix2[2][2];
 
