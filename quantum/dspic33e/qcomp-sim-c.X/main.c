@@ -30,6 +30,9 @@
 
 int main(void) {
 
+    // Change clock speed
+    setup_clock();
+    
     // Setup input/output (LEDs and buttons)
     setup_io();
 

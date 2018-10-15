@@ -15,6 +15,7 @@
 //          = 8 MHz * 50/(2 * 2)
 //          = 50MHz
 //
+// It is important to set of the configuration bits correc
 void setup_clock() {
     // Use Primary Oscillator with PLL --------------------------------
     // Prepare PLL settings for clock switch - New clock (Fosc) = 50MHz
@@ -22,15 +23,11 @@ void setup_clock() {
     CLKDIV = 0x3040; // N1 = 2; N2 = 2
     // Set new oscillator selection - primary clock with PLL
     __builtin_write_OSCCONH(0x3); // (refer to 'Oscillator Module' FRM)     
-    // OSCCONL Unlock Sequence
-    //MOV     #OSCCONL, w1    ; Store address of OSCCONL in w1
-    OSCCON = 0x46; // Unlock OSCCONL for writing
-    OSCCONL = 0x57; //   (refer to 'Oscillator Module' FRM)  
-    // Enable Clock Switch
-    OSCCONbits.OSWEN = 1; // Set OSWEN bit to request clock switch
+    // Set OSWEN bit to request clock switch
+    __builtin_write_OSCCONL(OSCCON | 0x1); // (refer to 'Oscillator Module' FRM)   
     while(OSCCONbits.OSWEN != 0)
         ; // Wait for OSWEN to be cleared
-    while(OSCCONbits.LOCK != 0)
+    while(OSCCONbits.LOCK != 1)
         ; // Wait for PLL to lock
 }
 

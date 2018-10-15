@@ -13,9 +13,6 @@
 
 // Testing the speed of 2^15 2x2 matrix multiplications
 void mat_mul_test() {
-
-    // Change clock speed
-    setup_clock();
     
     // Start the timer
     start_timer();
