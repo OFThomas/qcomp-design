@@ -53,8 +53,9 @@ void mat_mul_test_cmplx() {
     CVector V;
     init_state_cmplx(V, ZERO);
     
-    CMatrix2 X = {0}, Z = {0}, H = {0};
-    make_ops_cmplx(X, Z, H);
+    CMatrix2 X = {0}, Y = {0}, Z = {0}, H = {0};
+    make_ops_cmplx(X, Y, Z, H);
+    while(1);
     
     // Start the timer
     start_timer();
