@@ -21,16 +21,16 @@ extern "C" {
 
     // Matrix2 type
     typedef struct {
-        signed _Fract a11;
-        signed _Fract a12;
-        signed _Fract a21;
-        signed _Fract a22;
+        signed _Fract[0]1;
+        signed _Fract[0]2;
+        signed _Fract[1]1;
+        signed _Fract[1]2;
     } Matrix2;
 
     // Vector type
     typedef struct {
-        signed _Fract a1;
-        signed _Fract a2;
+        signed _Fract[0];
+        signed _Fract[1];
     } Vector;
 
     // Create X, H and Z
