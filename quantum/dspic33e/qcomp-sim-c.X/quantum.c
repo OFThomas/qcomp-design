@@ -21,38 +21,34 @@ void mat_mul(Matrix2 M, Vector V) {
 }
 
 // Add a global phase to make first amplitude positive
-Vector fix_phase(Vector V) {
-  Vector W = V; 
+void fix_phase(Vector V) {
   signed _Fract phase = -1.0;
   if (V[0] < 0.0) {
-    W[0] = V[0] * phase;
-    W[1] = V[1] * phase;
+    V[0] *= phase;
+    V[1] *= phase;
   }
-  return W;
 }
 
 // Clean the state: return the closest state out of |0>, |1>, |+> and |->
-Vector clean_state(Vector V) {
-    Vector W;
+void clean_state(Vector V) {
     if (V[0] > 0.99) {
-      W[0] = 0.9999694824; // The |0> state
-      W[1] = 0.0;
+      V[0] = 0.9999694824; // The |0> state
+      V[1] = 0.0;
     }
     else if ((V[1] > 0.99) || (V[1] < -0.99)) {
-      W[0] = 0.0; // The |1> state
-      W[1] = 0.9999694824;
+      V[0] = 0.0; // The |1> state
+      V[1] = 0.9999694824;
     }
     else if ((0.70 < V[0]) && (V[0] < 0.71)) {
       if (V[1] > 0.0){
-        W[0] = 0.7071067812; // The |+> state
-        W[1] = 0.7071067812;
+        V[0] = 0.7071067812; // The |+> state
+        V[1] = 0.7071067812;
       }
       else {
-        W[0] = 0.7071067812; // The |-> state
-        W[1] = -0.7071067812;
+        V[0] = 0.7071067812; // The |-> state
+        V[1] = -0.7071067812;
       }
     }
-    return W;
 }
 
 // Show the qubit state on the LEDs

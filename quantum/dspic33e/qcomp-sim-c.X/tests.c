@@ -25,12 +25,13 @@ void mat_mul_test() {
     // |1> = (0,1)
     Vector V = {0.9999694824, 0.0};
     
-    Matrix2 X = make_X();
+    Matrix2 Z, X, H;
+    make_ops(X, Z, H);
     
     // Do a matrix multiplication test
     unsigned int n = 0;
     while (n < 32) {
-        V = mat_mul(X, V);
+        mat_mul(X, V);
         n++;
     }
 
@@ -48,8 +49,10 @@ void mat_mul_test() {
 // Simulating one qubit. Buttons apply H, X and Z and LEDs display the
 // state of the qubit.
 void one_qubit() {
+    
     // Define quantum operations
-    Matrix2 H = make_H(), X = make_X(), Z = make_Z();
+    Matrix2 Z, X, H;
+    make_ops(X, Z, H);
 
     // Define state vector
     // |0> = (1,0)
@@ -71,17 +74,17 @@ void one_qubit() {
 
         // Apply operation
         if (btn1 == on)
-            V = mat_mul(H, V); // Multiply H by V, put result in V
+            mat_mul(H, V); // Multiply H by V, put result in V
         if (btn2 == on)
-            V = mat_mul(X, V); // Multiply X by V, put result in V
+            mat_mul(X, V); // Multiply X by V, put result in V
         if (btn3 == on)
-            V = mat_mul(Z, V); // Multiply Z by V, put result in V
+            mat_mul(Z, V); // Multiply Z by V, put result in V
 
         // Add a global phase to make first amplitude positive
-        V = fix_phase(V);
+        fix_phase(V);
 
         // Clean state
-        V = clean_state(V);
+        clean_state(V);
 
         // Show qubit state
         show_state(V);
