@@ -26,7 +26,7 @@ void mat_mul_test() {
     
     // Do a matrix multiplication test
     unsigned int n = 0;
-    while (n < 32) {
+    while (n < 32768) {
         V = mat_mul(X, V);
         n++;
     }
