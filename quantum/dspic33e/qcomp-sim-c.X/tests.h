@@ -24,6 +24,10 @@ extern "C" {
     // state of the qubit.
     void one_qubit();
     
+    // Simulating one qubit with complex amplitudes. Buttons apply H, X, Y and Z 
+    // and LEDs display the state of the qubit.
+    void one_qubit_cmplx();
+    
 #ifdef	__cplusplus
 }
 #endif

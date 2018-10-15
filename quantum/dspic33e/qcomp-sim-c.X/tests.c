@@ -28,7 +28,7 @@ void mat_mul_test() {
     
     // Do a matrix multiplication test
     unsigned int n = 0;
-    while (n < 32) {
+    while (n < 32768) {
         mat_mul(X, V);
         n++;
     }
@@ -61,7 +61,7 @@ void mat_mul_test_cmplx() {
     
     // Do a complex matrix multiplication test
     unsigned int n = 0;
-    while (n < 32) {
+    while (n < 32768) {
         mat_mul_cmplx(X, V);
         n++;
     }
@@ -121,6 +121,64 @@ void one_qubit() {
 
         // Show qubit state
         show_state(V);
+
+        // Wait for all the buttons to be released
+        while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {
+            btn1 = read_btn(sw1);
+            btn2 = read_btn(sw2);
+            btn3 = read_btn(sw3);
+        }
+
+        // Short delay to stop button bouncing
+        unsigned long int cnt = 0; // 32 bit int
+        while (cnt < 100000) cnt++;
+
+    }
+}
+
+// Simulating one qubit with complex amplitudes. Buttons apply H, X, Y and Z 
+// and LEDs display the state of the qubit.
+void one_qubit_cmplx() {
+    
+    // Define quantum operations
+    CMatrix2 X = {{{0}}}, Y = {{{0}}}, Z = {{{0}}}, H = {{{0}}};
+    make_ops_cmplx(X, Y, Z, H);
+
+    // Define state vector
+    // |0> = (1,0)
+    // |1> = (0,1)
+    CVector V;
+    init_state_cmplx(V, ZERO);
+    
+    // Show qubit state
+    show_state_cmplx(V);
+
+    while (1 == 1) {
+
+        // Wait for user to choose an operation
+        int btn1 = off, btn2 = off, btn3 = off;
+        while ((btn1 == off) && (btn2 == off) && (btn3 == off)) {
+            btn1 = read_btn(sw1);
+            btn2 = read_btn(sw2);
+            btn3 = read_btn(sw3);
+        }
+
+        // Apply operation
+        if (btn1 == on)
+            mat_mul_cmplx(H, V); // Multiply H by V, put result in V
+        if (btn2 == on)
+            mat_mul_cmplx(X, V); // Multiply X by V, put result in V
+        if (btn3 == on)
+            mat_mul_cmplx(Z, V); // Multiply Z by V, put result in V
+
+        // Add a global phase to make first amplitude positive
+        fix_phase_cmplx(V);
+
+        // Clean state
+        clean_state_cmplx(V);
+
+        // Show qubit state
+        show_state_cmplx(V);
 
         // Wait for all the buttons to be released
         while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {

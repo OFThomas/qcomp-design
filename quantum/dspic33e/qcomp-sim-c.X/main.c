@@ -49,7 +49,9 @@ int main(void) {
     //mat_mul_test();
 
     // Run complex matrix multiplication test
-    mat_mul_test_cmplx();
+    //mat_mul_test_cmplx();
     
+    // Simulate one complex qubit
+    one_qubit_cmplx();
     return 0;
 }

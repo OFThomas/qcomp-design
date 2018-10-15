@@ -18,7 +18,7 @@ extern "C" {
 #include "xc.h"
   
     // Basis states
-    typedef enum {ZERO, ONE, PLUS, MINUS} State;
+    typedef enum {ZERO, ONE, PLUS, MINUS, iPLUS, iMINUS} State;
     
     // Basic fractional time
     typedef signed _Fract Q15; 
@@ -57,12 +57,23 @@ extern "C" {
     // Add a global phase to make first amplitude positive
     void fix_phase(Vector V);
     
+    // Add a global phase to make first complex amplitude positive
+    // This only works for certain states (zero, one, plus, minus, etc.)
+    void fix_phase_cmplx(CVector V);
+    
     // Clean the state: return the closest state out of
     // 0>, |1>, |+> and |->
     void clean_state(Vector V);
     
+    // Clean the state: return the closest state out of 
+    // |0>, |1>, |+> , |->, |D> and |A>
+    void clean_state_cmplx(CVector V);
+    
     // Show the qubit state on the LEDs
     void show_state(Vector V);
+    
+    // Show the qubit state on the LEDs
+    void show_state_cmplx(CVector V);
     
 #ifdef	__cplusplus
 }
