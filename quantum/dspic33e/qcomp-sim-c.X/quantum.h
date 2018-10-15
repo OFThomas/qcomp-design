@@ -17,9 +17,11 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-    // to add matrix4
+    // Matrix4 type
+    
 
     // Matrix2 type
+<<<<<<< HEAD
     typedef struct {
         signed _Fract[0][0];
         signed _Fract[0][1];
@@ -32,6 +34,12 @@ extern "C" {
         signed _Fract[0];
         signed _Fract[1];
     } Vector;
+=======
+    typedef signed _Fract Matrix2[2][2];
+
+    // Vector type
+    typedef signed _Fract Vector[2];
+>>>>>>> c072d4188e5c9bd535595c84188ec4cd1da0296b
 
     // Create X, H and Z
     Matrix2 make_X();
