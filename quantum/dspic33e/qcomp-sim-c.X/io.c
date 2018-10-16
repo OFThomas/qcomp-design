@@ -11,9 +11,21 @@
 
 // Set up LEDs and buttons on port D 
 int setup_io(void) {
-  // Set up the input/output
-  ANSELD = 0x0000; // Set port D to digital
-  TRISD = 0x20C0; // Set lines 0,1,2 as output; 6,7,13 as input 
+    // Set up the input/output
+    ANSELD = 0x0000; // Set port D to digital
+    TRISD = 0x20C0; // Set lines 0,1,2 as output; 6,7,13 as input 
+    // Setup timers for flashing LEDs
+    T4CON = 0x0000; // Reset the timer control registers
+    T5CON = 0x0000;
+    // Set up timer 4 in 32 bit mode with timer 5
+    // Clock prescaler 1:1, internal oscillator source.
+    T4CON = 0x0008;
+    // No need to change anything in T3CON
+    // Reset TMR2, TMR3, PR2 and PR3
+    TMR4 = 0x0000;
+    TMR5 = 0x0000;
+    PR4 = 0xFFFF; // Highest possible period
+    PR5 = 0xFFFF;
   return 0;
 }
   

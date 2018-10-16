@@ -51,7 +51,7 @@ void setup_timer() {
     // Set up timer 2 in 32 bit mode with timer 3
     // Clock prescaler 1:1, internal oscillator source.
     T2CON = 0x0008;
-    // Node need to change anything in T3CON
+    // No need to change anything in T3CON
     // Reset TMR2, TMR3, PR2 and PR3
     TMR2 = 0x0000;
     TMR3 = 0x0000;
