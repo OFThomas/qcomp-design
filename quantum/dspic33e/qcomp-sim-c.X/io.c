@@ -20,13 +20,51 @@ int setup_io(void) {
     // Set up timer 4 in 32 bit mode with timer 5
     // Clock prescaler 1:1, internal oscillator source.
     T4CON = 0x0008;
-    // No need to change anything in T3CON
-    // Reset TMR2, TMR3, PR2 and PR3
+    // No need to change anything in T5CON
+    // Reset TMR4, TMR5, PR4 and PR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
-    PR4 = 0xFFFF; // Highest possible period
-    PR5 = 0xFFFF;
+    PR4 = 0x0000; // Set flashing period
+    PR5 = 0x0001;
+    // Setup interrupts for timer 5
+    IEC1bits.T5IE = 1; // Enable the interrupt
+    IFS1bits.T5IF = 0; // Clear the interrupt flag
   return 0;
+}
+
+// Global LED state paramete
+struct {
+    int strobe; // Bit set the LEDs which are strobing 
+} led_state = {0};
+    
+// Interrupt service routine for timer 4
+void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
+    // Flip the state of the LEDs which are strobing
+    LATD ^= led_state.strobe;
+    // Reset the timer
+    TMR4 = 0x0000;
+    TMR5 = 0x0000;
+    // Clear Timer4 interrupt flag
+    IFS1bits.T5IF = 0;
+}
+
+// Set LEDs flashing
+void start_strobe(int leds) {
+    // Reset TMR4, TMR5
+    TMR4 = 0x0000;
+    TMR5 = 0x0000;
+    // Turn on LEDs
+    LATD |= leds;
+    // Set the strobe variable
+    led_state.strobe = leds;
+    // Turn timer 4 on
+    T4CONbits.TON = 1;
+}
+
+// Stop LEDs flashing
+void stop_strobe() {
+    T4CONbits.TON = 0; // Turn timer 4 off
+    
 }
   
 // Turn a particular LED on or off

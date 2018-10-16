@@ -193,3 +193,8 @@ void one_qubit_cmplx() {
 
     }
 }
+
+// Dimmable LEDs 
+void dim_leds() {
+    
+}

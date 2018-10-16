@@ -40,7 +40,7 @@ int main(void) {
     setup_timer();
     
     // Flash LEDs
-    flash_all(5);
+    //flash_all(5);
 
     // Simulate one qubit
     //one_qubit();
@@ -52,6 +52,10 @@ int main(void) {
     //mat_mul_test_cmplx();
     
     // Simulate one complex qubit
-    one_qubit_cmplx();
+    //one_qubit_cmplx();
+    
+    start_strobe((1 << red) + (1 << green) + (1 << amber));
+    
+    while(1);
     return 0;
 }

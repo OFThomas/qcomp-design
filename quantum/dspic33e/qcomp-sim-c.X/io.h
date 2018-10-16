@@ -47,6 +47,9 @@ extern "C" {
     
     // Flash all the LEDs a number of times
     void flash_all(int number);
+    
+    // Set LEDs flashing indefinitely
+    void start_strobe(int leds);
 
 #ifdef	__cplusplus
 }
