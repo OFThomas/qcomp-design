@@ -150,15 +150,15 @@ void fix_phase(Vector V) {
 // Add a global phase to make first complex amplitude positive
 // This only works for certain states (zero, one, plus, minus, etc.)
 void fix_phase_cmplx(CVector V) {
+    CMatrix2 phase_90 = {{{0}}};
+    phase_90[0][0][1] = 0.9999694824;
+    phase_90[1][1][1] = 0.9999694824;   
+    CMatrix2 phase_270 = {{{0}}};
+    phase_270[0][0][1] = -1.0;
+    phase_270[1][1][1] = -1.0;    
     CMatrix2 phase_180 = {{{0}}};
     phase_180[0][0][0] = -1.0;
     phase_180[1][1][0] = -1.0;
-    CMatrix2 phase_90 = {{{0}}};
-    phase_90[0][0][1] = 0.9999694824;
-    phase_90[1][1][1] = 0.9999694824;    
-    CMatrix2 phase_270 = {{{0}}};
-    phase_270[0][0][1] = -1.0;
-    phase_270[1][1][1] = -1.0;
     if (V[0][0] < -0.1) {
         mat_mul_cmplx(phase_180, V);
     } else if (V[0][1] < -0.1) {
@@ -207,8 +207,8 @@ void clean_state_cmplx(CVector V) {
         } else if (V[0][1] > 0.1) {
             init_state_cmplx(V, iPLUS);
         } else {
-            init_state_cmplx(V, iMINUS);            
-      }
+            init_state_cmplx(V, iMINUS);
+        }
     }
 }
 
@@ -233,6 +233,9 @@ void show_state(Vector V) {
 
 // Show the qubit state on the LEDs
 void show_state_cmplx(CVector V) {
+    // Turn all the LEDs off
+    leds_off();
+    // Show current state of qubit on the LEDs
     if (V[0][0] > 0.99) {
         set_led(red, on); // The |0> state
     } else if ((V[1][0] > 0.99) || (V[1][0] < -0.99)) {
