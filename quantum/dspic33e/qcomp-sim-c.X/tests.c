@@ -196,5 +196,39 @@ void one_qubit_cmplx() {
 
 // Dimmable LEDs 
 void dim_leds() {
+    // Setup initial duty period
+    unsigned int duty = 0x0100;
+    
+    // loop 
+    while(1 == 1) {
+        //
+        
+        // Read two buttons
+        int btn1 = off, btn3 = off;
+        btn1 = read_btn(sw1);
+        btn3 = read_btn(sw3);
+        // Alter duty cycle
+        if (btn1 == on && duty < 0x1CF2) {
+            duty++;
+        }
+        if (btn3 == on && duty > 0x10) {
+            duty--;
+        }
+        
+        // Reset TMR4, TMR5
+        TMR4 = 0x0000;
+        TMR5 = 0x0000;
+        // Set the duty period
+        PR4 = duty;
+        // Turn on LEDs
+        LATD |= 0x0007;
+        // Turn timer 4 on
+        T4CONbits.TON = 1;
+        
+        
+        // Delay of total period
+        unsigned long int cnt = 0; // 32 bit int
+        while (cnt < 500) cnt++;
+    }
     
 }

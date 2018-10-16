@@ -28,6 +28,9 @@ extern "C" {
     // and LEDs display the state of the qubit.
     void one_qubit_cmplx();
     
+    // Dimmable LEDs 
+    void dim_leds();
+    
 #ifdef	__cplusplus
 }
 #endif

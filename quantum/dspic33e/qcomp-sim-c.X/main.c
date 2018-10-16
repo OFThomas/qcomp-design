@@ -54,7 +54,9 @@ int main(void) {
     // Simulate one complex qubit
     //one_qubit_cmplx();
     
-    start_strobe((1 << red) + (1 << green) + (1 << amber));
+    //start_strobe((1 << red) + (1 << green) + (1 << amber));
+    
+    dim_leds();
     
     while(1);
     return 0;

@@ -25,7 +25,7 @@ int setup_io(void) {
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     PR4 = 0x0000; // Set flashing period
-    PR5 = 0x0001;
+    PR5 = 0x0000;
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
     IFS1bits.T5IF = 0; // Clear the interrupt flag
@@ -40,10 +40,12 @@ struct {
 // Interrupt service routine for timer 4
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     // Flip the state of the LEDs which are strobing
-    LATD ^= led_state.strobe;
+    LATD = 0x0000; // Need to think about this
     // Reset the timer
     TMR4 = 0x0000;
     TMR5 = 0x0000;
+    // Prevent it from getting trapped!
+    PR4 = 0xFFFF;
     // Clear Timer4 interrupt flag
     IFS1bits.T5IF = 0;
 }
