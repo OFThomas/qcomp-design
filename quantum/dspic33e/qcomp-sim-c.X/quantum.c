@@ -6,7 +6,7 @@
  * 
  */
 
-#include "io.h"
+#include "io.h"                             
 #include "quantum.h"
 
 // Complex addition
@@ -26,8 +26,10 @@ void make_ops(Matrix2 X, Matrix2 Z, Matrix2 H) {
     // Assume the elements are all equal to zero
     X[0][1] = 0.9999694824; // X
     X[1][0] = 0.9999694824;
+    
     Z[0][0] = 0.9999694824; // Z
     Z[1][1] = -1.0;
+    
     H[0][0] = 0.7071067812; // H
     H[0][1] = 0.7071067812;
     H[1][0] = 0.7071067812;
@@ -39,10 +41,13 @@ void make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H) {
     // Assume the elements are all equal to zero
     X[0][1][0] = 0.9999694824; // X
     X[1][0][0] = 0.9999694824;
+    
     Y[0][1][1] = -1.0; // Y
     Y[1][0][1] = 0.9999694824;
+    
     Z[0][0][0] = 0.9999694824; // Z
     Z[1][1][0] = -1.0;
+
     H[0][0][0] = 0.7071067812; // H
     H[0][1][0] = 0.7071067812;
     H[1][0][0] = 0.7071067812;
@@ -195,6 +200,7 @@ void clean_state(Vector V) {
 void clean_state_cmplx(CVector V) {
     if (V[0][0] > 0.99) {
         init_state_cmplx(V, ZERO);
+        // add abs?
     } else if ((V[1][0] > 0.99) || (V[1][0] < -0.99)) {
         init_state_cmplx(V, ONE);
     } else if ((V[1][1] > 0.99) || (V[1][1] < -0.99)) {

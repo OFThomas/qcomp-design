@@ -1,6 +1,7 @@
 \documentclass{article}
 
 \usepackage{tikz}
+\usepackage{physics}
 
 \begin{document}
 \title{Quantum computer architecture}
@@ -71,4 +72,19 @@ art quantum processors}
 \item Tried the same $2\times 2$ matrix multiplication test, which takes significantly longer in C. There might be a way of making it faster, or just embedding assembly language.
 \end{itemize}
 
+\section{Two qubit tests}
+
+There are 4 states for each qubit, $\ket{0}, \ket{1}, \ket{+}, \ket{-}$, we think there
+are less than $3^3$ states for two qubits which means we can test a two qubit operation
+with the 3 LEDs.
+
+$ b_1 b_2 b_3$
+qubit 1 is button 1, qubit 2 is button 2, button 3 is the two-qubit gate.
+
+\begin{itemize}
+    \item Choose a qubit
+    \item choose a gate
+\end{itemize}
+
+decoding will use \textit{On, Off, Flashing} 
 \end{document}
