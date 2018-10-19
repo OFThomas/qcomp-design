@@ -38,11 +38,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PKOBSKDEPlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-<<<<<<< HEAD
         <languageToolchainVersion>1.26</languageToolchainVersion>
-=======
-        <languageToolchainVersion>1.35</languageToolchainVersion>
->>>>>>> 9f0df3421b03f3f7e099ac257f1976918c5cfbb4
         <platform>2</platform>
       </toolsSet>
       <packs>
