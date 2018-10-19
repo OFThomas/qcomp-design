@@ -29,6 +29,12 @@ extern "C" {
 
 #define off 0
 #define on 1
+    
+    // Global LED strobing state parameter
+    typedef struct {
+        int strobe_leds; // Bit set the LEDs which are strobing 
+        int strobe_state; // Bit zero is the current state (on/off)
+    } LED_GLOBAL;
 
     // Set up LEDs and buttons on port D 
     int setup_io(void);
@@ -49,7 +55,13 @@ extern "C" {
     void flash_all(int number);
     
     // Set LEDs flashing indefinitely
-    void start_strobe(int leds);
+    void start_strobe();
+    
+    // Set an LED strobing
+    void set_strobe(int color, int state);
+    
+    // Toggle LED strobe
+    void toggle_strobe(int color);
 
 #ifdef	__cplusplus
 }

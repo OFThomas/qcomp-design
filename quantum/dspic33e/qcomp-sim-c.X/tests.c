@@ -194,7 +194,8 @@ void one_qubit_cmplx() {
     }
 }
 
-// Dimmable LEDs 
+// Dimmable LEDs
+// ** NOTE: This won't work any more with the T4/T5 interrupt routine **
 void dim_leds() {
     // Setup initial duty period
     unsigned int duty = 0x0100;
@@ -231,4 +232,42 @@ void dim_leds() {
         while (cnt < 500) cnt++;
     }
     
+}
+
+// Multi LED strobing test
+void multi_led_strobe() { 
+    // Start strobing
+    start_strobe();
+    
+    while (1 == 1) {
+        // Read two buttons
+        int btn1 = off, btn2 = off, btn3 = off;
+        btn1 = read_btn(sw1);
+        btn2 = read_btn(sw2);
+        btn3 = read_btn(sw3);
+        
+        // Alter strobing
+        if (btn1 == on) {
+            //set_strobe(red, on);
+            toggle_strobe(red);
+        } else if (btn2 == on) {
+            //set_strobe(amber, on);
+            toggle_strobe(amber);
+        } else if (btn3 == on) {
+            //set_strobe(green, on);
+            toggle_strobe(green);
+        }
+        
+         // Wait for all the buttons to be released
+        while ((btn1 == on) || (btn2 == on) || (btn3 == on)) {
+            btn1 = read_btn(sw1);
+            btn2 = read_btn(sw2);
+            btn3 = read_btn(sw3);
+        }
+
+        // Short delay to stop button bouncing
+        unsigned long int cnt = 0; // 32 bit int
+        while (cnt < 100000) cnt++;
+        
+    }
 }

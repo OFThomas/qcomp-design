@@ -24,7 +24,7 @@ int setup_io(void) {
     // Reset TMR4, TMR5, PR4 and PR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
-    PR4 = 0x0000; // Set flashing period
+    PR4 = 0x0000; // Reset registers
     PR5 = 0x0000;
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
@@ -32,33 +32,36 @@ int setup_io(void) {
   return 0;
 }
 
-// Global LED state paramete
-struct {
-    int strobe; // Bit set the LEDs which are strobing 
-} led_state = {0};
+// Global LED strobing state parameter
+LED_GLOBAL led_global = {0};
     
 // Interrupt service routine for timer 4
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
-    // Flip the state of the LEDs which are strobing
-    LATD = 0x0000; // Need to think about this
+    // Read the state and change to next state
+    led_global.strobe_state ^= 1; // Flip bit zero
+    if (led_global.strobe_state == 1) {
+        // Turn on LEDs
+        LATD |= (led_global.strobe_leds);
+    } else {
+        // Turn off LEDs
+        LATD &= ~(led_global.strobe_leds);
+    }
+
     // Reset the timer
     TMR4 = 0x0000;
     TMR5 = 0x0000;
-    // Prevent it from getting trapped!
-    PR4 = 0xFFFF;
     // Clear Timer4 interrupt flag
     IFS1bits.T5IF = 0;
 }
 
 // Set LEDs flashing
-void start_strobe(int leds) {
+void start_strobe() {
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
-    // Turn on LEDs
-    LATD |= leds;
-    // Set the strobe variable
-    led_state.strobe = leds;
+    // Set flashing period
+    PR4 = 0x0000;
+    PR5 = 0x0080;
     // Turn timer 4 on
     T4CONbits.TON = 1;
 }
@@ -68,7 +71,29 @@ void stop_strobe() {
     T4CONbits.TON = 0; // Turn timer 4 off
     
 }
+
+// Set an LED strobing
+void set_strobe(int color, int state) {
+    extern LED_GLOBAL led_global;
+    switch(state) {
+        case on: // Start the strobing
+            LATD &= ~(1 << color);
+            led_global.strobe_leds |= (1 << color);
+            break;
+        case off:
+            LATD &= ~(1 << color);
+            led_global.strobe_leds &= ~(1 << color);
+            break;
+    }
+}
   
+// Toggle LED strobe
+void toggle_strobe(int color) {
+    extern LED_GLOBAL led_global;
+    LATD &= ~(1 << color);
+    led_global.strobe_leds ^= (1 << color);
+}
+
 // Turn a particular LED on or off
 int set_led(int color, int state) {
   if (state == on)

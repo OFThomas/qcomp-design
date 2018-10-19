@@ -31,6 +31,9 @@ extern "C" {
     // Dimmable LEDs 
     void dim_leds();
     
+    // Multi LED strobing test
+    void multi_led_strobe();
+    
 #ifdef	__cplusplus
 }
 #endif

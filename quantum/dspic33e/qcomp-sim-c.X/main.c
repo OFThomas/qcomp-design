@@ -56,7 +56,10 @@ int main(void) {
     
     //start_strobe((1 << red) + (1 << green) + (1 << amber));
     
-    dim_leds();
+    //dim_leds();
+    
+    // Test multi LED strobing
+    multi_led_strobe();
     
     while(1);
     return 0;
