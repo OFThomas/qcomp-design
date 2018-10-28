@@ -1,0 +1,13 @@
+* Test org mode
+** Heading 1
+*** Heading 3
+| Table  | Col1   | Col2   |
+|--------+--------+--------|
+| Thing1 | Thing2 | Thing3 |
+|        |        |        |
+*** Lists
+  1) Thing1
+  2) Thing2
+  3) Thing3
+     - Label1 :: Thing1
+     - Label2 :: Thing2 
