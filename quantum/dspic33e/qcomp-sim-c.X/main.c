@@ -27,6 +27,7 @@
 #include "quantum.h"
 #include "tests.h"
 #include "time.h"
+#include "spi.h"
 
 int main(void) {
 
@@ -38,6 +39,9 @@ int main(void) {
 
     // Setup the timer
     setup_timer();
+    
+    // Setup SPI interface
+    setup_spi();
     
     // Flash LEDs
     //flash_all(5);

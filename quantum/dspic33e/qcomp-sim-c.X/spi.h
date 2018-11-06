@@ -1,15 +1,12 @@
 /*
  * File: spi.h
  * 
- * Description: Header file for input output functions. Include it at the
- * top of any C source file which uses buttons and LEDs. It also defines
- * various constants representing the positions of the buttons and LEDs 
- * on port D.
+ * Description: SPI communication functions
  *
  */
 
-#ifndef IO_H
-#define	IO_H
+#ifndef SPI_H
+#define	SPI_H
 
 #ifdef	__cplusplus
 extern "C" {
@@ -18,11 +15,12 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-
+// Set up serial peripheral interface
+int setup_spi(void);
 
 #ifdef	__cplusplus
 }
 #endif
 
-#endif	/* IO_H */
+#endif	/* SPI_H */
 
