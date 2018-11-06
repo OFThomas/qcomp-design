@@ -184,3 +184,25 @@ int set_external_led() {
     return 0;
     
 }
+
+// Switch between normal and special mode
+//
+// The mode switch for the TLC591x chip is a bit tricky because it 
+// involves synchronising the control lines LE(ED1) and OE(ED2) on Port D 
+// with the SPI clock. To initiate a mode switch, OE(ED2) must be brought 
+// low for one clock cycle, and then the value of LE(ED1) two clock cycles
+// later determines the new mode. See the diagrams on page 19 of the
+// datasheet
+//
+// So long as the timing is not strict, we can probably implement the
+// mode switch by starting a non-blocking transfer of 1 byte to the device
+// (which starts the SPI clock), followed by clearing OE(ED2) momentarily 
+// and then setting the value of LE(ED1) as required. So long as those 
+// two things happen before the SPI clock finishes the procedure will
+// probably work. (The reason is the lack of max timing parameters on page
+// 9 for the setup and hold time for ED1 and ED2, which can therefore 
+// presumably be longer than one clock cycle.)
+//
+int TLC591x_mode_switch(int mode) {
+    return 0;
+}
