@@ -30,6 +30,10 @@ extern "C" {
 #define off 0
 #define on 1
     
+// Control for TLC591x chip on Port D
+#define LE 3
+#define OE 4
+    
     // Global LED strobing state parameter
     typedef struct {
         int strobe_leds; // Bit set the LEDs which are strobing 

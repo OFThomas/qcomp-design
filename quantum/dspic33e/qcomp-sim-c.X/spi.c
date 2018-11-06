@@ -70,12 +70,21 @@ int setup_spi(void) {
 }
 
 // Send a byte to the SPI peripheral
+//
+// This function can be improved -- it currently blocks
+// execution until the transfer is finished. The correct
+// way to do it is to configure the SPI interrupts. 
 int send_byte(int data) {
     // Check that the transmit buffer is empty
     if(SPI1STATbits.SPITBF == 0) {
         // Write data to the SPI buffer
         SPI1BUF = data;
         // Transmission starts automatically
+        // Wait for the operation to finish
+        while(SPI1STATbits.SPIRBF != 1)
+            ; // Do nothing
+        // Read the receive buffer (just to clear the SPIRBF flag)
+        int rx = SPI1BUF;
         return 0;
     } else {
         // Unable to transmit

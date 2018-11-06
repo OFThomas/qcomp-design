@@ -8,6 +8,7 @@
 
 #include "io.h"
 #include "time.h"
+#include "spi.h"
 
 // Set up LEDs and buttons on port D 
 int setup_io(void) {
@@ -150,4 +151,36 @@ void flash_all(int number) {
         while(m < PERIOD) m++;
         n++;
     }
+}
+
+// Turn on an LED via the external display driver
+//
+// On power on, the chip (TLC591x) is in normal mode which means that
+// the clocked bytes sent to the chip set which LEDs are on and which 
+// are off (as opposed to setting the current of the LEDs)
+//
+// To write to the device, use the SPI module to write a byte to the
+// SDI pin on the chip. Then momentarily set the LE(ED1) pin to latch
+// the data onto the output register. Finally, bring the OE(ED2) pin low
+// to enable the current sinking to turn on the LEDs. See the timing diagram 
+// on page 17 of the datasheet for details.  
+//
+// LE(ED1) and OE(ED2) will be on Port D 
+//
+int set_external_led() {
+    // Write data to the device using SPI
+    send_byte(0x01);
+    
+    // Bring LE high momentarily
+    LATD |= (1 << LE); // Set LE(ED1) pin
+    unsigned long int n = 0;
+    while(n < 100000) // How long should this be? 
+        n++;
+    LATD &= ~(1 << LE); // Clear LE(ED1) pin
+    
+    // Bring the output enable low
+    LATD &= ~(1 << OE); // Clear OE(ED2) pin
+    
+    return 0;
+    
 }
