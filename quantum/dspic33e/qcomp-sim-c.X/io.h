@@ -34,9 +34,17 @@ extern "C" {
 #define LE 3
 #define OE 4
     
+// COntrol lines for SNx4HC165 chip
+#define SH 5
+#define CLK_INH 8
+    
     // Pins for LE and OE on port D
     // OE = RD4 = uC:81 = J1:28 = J10:14
     // LE = RD3 = uC:78 = J1:40 = J11:18
+    
+    // Pins for SH and CLK_INH on port D
+    // SH = RD5 = uC: = 
+    // CLK_INH = RD8 = uC:
     
     // Global LED strobing state parameter
     typedef struct {
