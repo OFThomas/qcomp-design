@@ -162,7 +162,7 @@ void flash_all(int number) {
 // are off (as opposed to setting the current of the LEDs)
 //
 // To write to the device, use the SPI module to write a byte to the
-// SDI pin on the chip. Then momentarily set the LE(ED1) pin to latch
+// SDI 1 pin on the chip. Then momentarily set the LE(ED1) pin to latch
 // the data onto the output register. Finally, bring the OE(ED2) pin low
 // to enable the current sinking to turn on the LEDs. See the timing diagram 
 // on page 17 of the datasheet for details.  
@@ -191,20 +191,37 @@ int set_external_led(int data) {
 //
 // The mode switch for the TLC591x chip is a bit tricky because it 
 // involves synchronising the control lines LE(ED1) and OE(ED2) on Port D 
-// with the SPI clock. To initiate a mode switch, OE(ED2) must be brought 
+// with the SPI 1 clock. To initiate a mode switch, OE(ED2) must be brought 
 // low for one clock cycle, and then the value of LE(ED1) two clock cycles
 // later determines the new mode. See the diagrams on page 19 of the
 // datasheet
 //
 // So long as the timing is not strict, we can probably implement the
 // mode switch by starting a non-blocking transfer of 1 byte to the device
-// (which starts the SPI clock), followed by clearing OE(ED2) momentarily 
+// (which starts the SPI 1 clock), followed by clearing OE(ED2) momentarily 
 // and then setting the value of LE(ED1) as required. So long as those 
-// two things happen before the SPI clock finishes the procedure will
+// two things happen before the SPI 1 clock finishes the procedure will
 // probably work. (The reason is the lack of max timing parameters on page
 // 9 for the setup and hold time for ED1 and ED2, which can therefore 
 // presumably be longer than one clock cycle.)
 //
 int TLC591x_mode_switch(int mode) {
     return 0;
+}
+
+
+// Read external buttons
+//
+// The external buttons are interfaced to the microcontroller via a shift
+// register. Data is shifted in a byte at a time using the SPI 3 module. The
+// sequence to read the buttons is as follows:
+//
+// 1) Momentarily bring SH low to latch button data into the shift registers
+// 2) Bring CLK_INH low to enable the clock input on the shift register
+// 3) Start the SPI 3 clock and read data in via the SDI 3 line
+//
+// The control lines SH and CLK_INH are on port D
+//
+int read_external_buttons() {
+    
 }
