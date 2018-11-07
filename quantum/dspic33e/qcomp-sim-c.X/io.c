@@ -171,7 +171,7 @@ void flash_all(int number) {
 //
 int set_external_led(int data) {
     // Write data to the device using SPI
-    send_byte(data);
+    send_byte_spi_1(data);
     
     // Bring LE high momentarily
     LATD |= (1 << LE); // Set LE(ED1) pin

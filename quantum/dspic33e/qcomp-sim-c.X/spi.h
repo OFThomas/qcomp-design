@@ -18,8 +18,11 @@ extern "C" {
 // Set up serial peripheral interface
 int setup_spi(void);
 
-// Send a byte to the SPI peripheral
-int send_byte(int data);
+// Send a byte to the SPI1 peripheral
+int send_byte_spi_1(int data);
+
+// Recieve a byte from the SPI3 peripheral
+int read_byte_spi_3();
 
 #ifdef	__cplusplus
 }
