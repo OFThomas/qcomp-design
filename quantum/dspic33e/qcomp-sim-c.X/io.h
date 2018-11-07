@@ -34,6 +34,10 @@ extern "C" {
 #define LE 3
 #define OE 4
     
+    // Pins for LE and OE on port D
+    // OE = RD4 = uC:81 = J1:28 = J10:14
+    // LE = RD3 = uC:78 = J1:40 = J11:18
+    
     // Global LED strobing state parameter
     typedef struct {
         int strobe_leds; // Bit set the LEDs which are strobing 
@@ -66,6 +70,9 @@ extern "C" {
     
     // Toggle LED strobe
     void toggle_strobe(int color);
+    
+    // Set an led on the display driver
+    int set_external_led(int data);
 
 #ifdef	__cplusplus
 }

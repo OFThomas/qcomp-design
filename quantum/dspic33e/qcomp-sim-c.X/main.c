@@ -63,8 +63,24 @@ int main(void) {
     //dim_leds();
     
     // Test multi LED strobing
-    multi_led_strobe();
+    //multi_led_strobe();
     
-    while(1);
+    // Test the SPI
+    //while(1==1) {
+    //    send_byte(0xFF);
+    //}
+
+    int counter = 0;
+    unsigned long int m = 0;
+    while(1 == 1) {
+        while(m < 1000000) m++;
+        m = 0;
+        set_external_led(counter);
+        counter++;
+        if(counter == 16) 
+            counter = 0;
+    }
+    
+    while(1==1);
     return 0;
 }

@@ -30,6 +30,8 @@ int setup_io(void) {
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
     IFS1bits.T5IF = 0; // Clear the interrupt flag
+    // Set the OE pin high
+    LATD |= (1 << OE); // Set OE(ED2) pin
   return 0;
 }
 
@@ -167,9 +169,9 @@ void flash_all(int number) {
 //
 // LE(ED1) and OE(ED2) will be on Port D 
 //
-int set_external_led() {
+int set_external_led(int data) {
     // Write data to the device using SPI
-    send_byte(0x01);
+    send_byte(data);
     
     // Bring LE high momentarily
     LATD |= (1 << LE); // Set LE(ED1) pin
