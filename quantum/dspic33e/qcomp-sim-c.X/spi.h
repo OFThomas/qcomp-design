@@ -1,7 +1,7 @@
-/*
- * File: spi.h
+/**
+ * @file spi.h
  * 
- * Description: SPI communication functions
+ * @brief Description: SPI communication functions
  *
  */
 

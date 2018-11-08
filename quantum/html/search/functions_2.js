@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dim_5fleds',['dim_leds',['../tests_8c.html#a2d083ac668202be3079ea3ce2170b608',1,'dim_leds():&#160;tests.c'],['../tests_8h.html#a2d083ac668202be3079ea3ce2170b608',1,'dim_leds():&#160;tests.c']]]
+  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
 ];

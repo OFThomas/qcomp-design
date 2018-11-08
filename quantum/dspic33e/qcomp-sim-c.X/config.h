@@ -1,7 +1,7 @@
-/*
- * File: config.h
+/**
+ * @file config.h
  * 
- * Description: Include this once at the top of main
+ * @brief Description: Include this once at the top of main
  * 
  */
 

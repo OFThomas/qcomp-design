@@ -1,7 +1,7 @@
-/*
- * File: tests.h
+/**
+ * @file tests.h
  * 
- * Description: Header file containing all the tests we performed
+ * @brief Description: Header file containing all the tests we performed
  * 
  */
 #ifndef TESTS_H

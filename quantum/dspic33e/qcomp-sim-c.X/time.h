@@ -1,7 +1,7 @@
-/*
- * File: time.h
+/**
+ * @file time.h
  * 
- * Description: Header file containing all the timing functions
+ * @brief Description: Header file containing all the timing functions
  * 
  */
 

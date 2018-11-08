@@ -1,7 +1,7 @@
-/*
- * File: tests.c
+/**
+ * @file tests.c
  * 
- * Description: Contains all the tests we have performed on the micro-
+ * @brief Description: Contains all the tests we have performed on the micro-
  * controller
  *
  */
