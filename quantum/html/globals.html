@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Quantum computer microprocessor demo for outreach: Globals</title>
+<title>Quantum Computer Outreach Project: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Quantum computer microprocessor demo for outreach
+   <div id="projectname">Quantum Computer Outreach Project
    </div>
   </td>
  </tr>
@@ -71,9 +71,6 @@ $(function() {
 <li>amber
 : <a class="el" href="io_8h.html#a847be6f7bedcc14fe4b1d7aa7967b6b4">io.h</a>
 </li>
-<li>arrays()
-: <a class="el" href="arrays_8f90.html#a0d9854d09e87ec2122893336fcbf26ec">arrays.f90</a>
-</li>
 </ul>
 
 
@@ -88,6 +85,9 @@ $(function() {
 <li>clean_state_cmplx()
 : <a class="el" href="quantum_8c.html#a095e05198bcbc1a30c96ee4b7152d05a">quantum.c</a>
 , <a class="el" href="quantum_8h.html#a095e05198bcbc1a30c96ee4b7152d05a">quantum.h</a>
+</li>
+<li>CLK_INH
+: <a class="el" href="io_8h.html#add9f9ba2b507da6c31d80a0740057813">io.h</a>
 </li>
 <li>CMatrix2
 : <a class="el" href="quantum_8h.html#aed5c82d83699fd4f037dd58a8267cf36">quantum.h</a>
@@ -186,24 +186,21 @@ $(function() {
 : <a class="el" href="quantum_8c.html#a76969689d1e9d9beb9532b102ca1556c">quantum.c</a>
 , <a class="el" href="quantum_8h.html#a76969689d1e9d9beb9532b102ca1556c">quantum.h</a>
 </li>
-<li>mat_add()
-: <a class="el" href="arrays_8f90.html#a8aa9a289fa4459b9ad093ac98c12d263">arrays.f90</a>
-</li>
 <li>mat_mul()
-: <a class="el" href="quantum_8h.html#a94abc2d5720f2f3655f1b3913632e083">quantum.h</a>
-, <a class="el" href="quantum_8c.html#a94abc2d5720f2f3655f1b3913632e083">quantum.c</a>
+: <a class="el" href="quantum_8c.html#a94abc2d5720f2f3655f1b3913632e083">quantum.c</a>
+, <a class="el" href="quantum_8h.html#a94abc2d5720f2f3655f1b3913632e083">quantum.h</a>
 </li>
 <li>mat_mul_cmplx()
 : <a class="el" href="quantum_8c.html#a7020396a02b4bf762a2e3e6d9246daca">quantum.c</a>
 , <a class="el" href="quantum_8h.html#a7020396a02b4bf762a2e3e6d9246daca">quantum.h</a>
 </li>
 <li>mat_mul_test()
-: <a class="el" href="tests_8c.html#a167158f758c7c9582b4c62cc55f48d85">tests.c</a>
-, <a class="el" href="tests_8h.html#a167158f758c7c9582b4c62cc55f48d85">tests.h</a>
+: <a class="el" href="tests_8h.html#a167158f758c7c9582b4c62cc55f48d85">tests.h</a>
+, <a class="el" href="tests_8c.html#a167158f758c7c9582b4c62cc55f48d85">tests.c</a>
 </li>
 <li>mat_mul_test_cmplx()
-: <a class="el" href="tests_8c.html#adf78434b92ca2d57c247014c077e4d6b">tests.c</a>
-, <a class="el" href="tests_8h.html#adf78434b92ca2d57c247014c077e4d6b">tests.h</a>
+: <a class="el" href="tests_8h.html#adf78434b92ca2d57c247014c077e4d6b">tests.h</a>
+, <a class="el" href="tests_8c.html#adf78434b92ca2d57c247014c077e4d6b">tests.c</a>
 </li>
 <li>Matrix2
 : <a class="el" href="quantum_8h.html#afaf79d7b6800ed7021679fbc79febee6">quantum.h</a>
@@ -267,6 +264,13 @@ $(function() {
 : <a class="el" href="io_8c.html#a5c2b76dada8dc8a2d65249074843867c">io.c</a>
 , <a class="el" href="io_8h.html#a5c2b76dada8dc8a2d65249074843867c">io.h</a>
 </li>
+<li>read_byte_spi_3()
+: <a class="el" href="spi_8h.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316">spi.h</a>
+, <a class="el" href="spi_8c.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316">spi.c</a>
+</li>
+<li>read_external_buttons()
+: <a class="el" href="io_8c.html#adb3900100235e97827ad327ea028bd1d">io.c</a>
+</li>
 <li>read_timer()
 : <a class="el" href="time_8h.html#a090eb53ad8f2ac5a1cf66a9b24e66613">time.h</a>
 , <a class="el" href="time_8c.html#a090eb53ad8f2ac5a1cf66a9b24e66613">time.c</a>
@@ -282,20 +286,21 @@ $(function() {
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>send_byte()
-: <a class="el" href="spi_8c.html#a12aa6d6eaf663d11a7d139e3cbbd0f37">spi.c</a>
-, <a class="el" href="spi_8h.html#a12aa6d6eaf663d11a7d139e3cbbd0f37">spi.h</a>
+<li>send_byte_spi_1()
+: <a class="el" href="spi_8c.html#a53c0133f470cb46ff0efdfeb734073cc">spi.c</a>
+, <a class="el" href="spi_8h.html#a53c0133f470cb46ff0efdfeb734073cc">spi.h</a>
 </li>
 <li>set_external_led()
-: <a class="el" href="io_8c.html#af3475edc94aa82350ec13a4c06c5d6c8">io.c</a>
+: <a class="el" href="io_8h.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3">io.h</a>
+, <a class="el" href="io_8c.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3">io.c</a>
 </li>
 <li>set_led()
 : <a class="el" href="io_8c.html#a31fb0fd759d90940706a83347642f59e">io.c</a>
 , <a class="el" href="io_8h.html#a31fb0fd759d90940706a83347642f59e">io.h</a>
 </li>
 <li>set_strobe()
-: <a class="el" href="io_8c.html#a89d0c0b5eee8cda66adde23080acd0bd">io.c</a>
-, <a class="el" href="io_8h.html#a89d0c0b5eee8cda66adde23080acd0bd">io.h</a>
+: <a class="el" href="io_8h.html#a89d0c0b5eee8cda66adde23080acd0bd">io.h</a>
+, <a class="el" href="io_8c.html#a89d0c0b5eee8cda66adde23080acd0bd">io.c</a>
 </li>
 <li>setup_clock()
 : <a class="el" href="time_8c.html#aaad9fc8eb63b077e9ad3d72a2092f27c">time.c</a>
@@ -310,24 +315,27 @@ $(function() {
 , <a class="el" href="spi_8h.html#a2f33aae32ee0a2b5a3651ec80d9d3a94">spi.h</a>
 </li>
 <li>setup_timer()
-: <a class="el" href="time_8c.html#a4e7127f2f48fb1c538bbd67fe921c58c">time.c</a>
-, <a class="el" href="time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c">time.h</a>
+: <a class="el" href="time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c">time.h</a>
+, <a class="el" href="time_8c.html#a4e7127f2f48fb1c538bbd67fe921c58c">time.c</a>
+</li>
+<li>SH
+: <a class="el" href="io_8h.html#a4453478cd8b3bf96df84fe861cb78600">io.h</a>
 </li>
 <li>show_state()
-: <a class="el" href="quantum_8c.html#a0a7b2c56783b3327d051eaa9feaec851">quantum.c</a>
-, <a class="el" href="quantum_8h.html#a0a7b2c56783b3327d051eaa9feaec851">quantum.h</a>
+: <a class="el" href="quantum_8h.html#a0a7b2c56783b3327d051eaa9feaec851">quantum.h</a>
+, <a class="el" href="quantum_8c.html#a0a7b2c56783b3327d051eaa9feaec851">quantum.c</a>
 </li>
 <li>show_state_cmplx()
 : <a class="el" href="quantum_8c.html#af0c354cf89ab1645abf13c387bb31f3b">quantum.c</a>
 , <a class="el" href="quantum_8h.html#af0c354cf89ab1645abf13c387bb31f3b">quantum.h</a>
 </li>
 <li>start_strobe()
-: <a class="el" href="io_8c.html#a577efab9f22ad4ed19f6a728100821a7">io.c</a>
-, <a class="el" href="io_8h.html#a577efab9f22ad4ed19f6a728100821a7">io.h</a>
+: <a class="el" href="io_8h.html#a577efab9f22ad4ed19f6a728100821a7">io.h</a>
+, <a class="el" href="io_8c.html#a577efab9f22ad4ed19f6a728100821a7">io.c</a>
 </li>
 <li>start_timer()
-: <a class="el" href="time_8c.html#aaedac22c55880495505bf375e0e132c1">time.c</a>
-, <a class="el" href="time_8h.html#aaedac22c55880495505bf375e0e132c1">time.h</a>
+: <a class="el" href="time_8h.html#aaedac22c55880495505bf375e0e132c1">time.h</a>
+, <a class="el" href="time_8c.html#aaedac22c55880495505bf375e0e132c1">time.c</a>
 </li>
 <li>State
 : <a class="el" href="quantum_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8">quantum.h</a>

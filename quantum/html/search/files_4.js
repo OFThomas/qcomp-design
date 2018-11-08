@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['p33ep512mu810_2einc',['p33EP512MU810.inc',['../p33EP512MU810_8inc.html',1,'']]]
+  ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
+  ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
+  ['spi_2eo_2ed',['spi.o.d',['../spi_8o_8d.html',1,'']]]
 ];

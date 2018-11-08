@@ -1,4 +1,4 @@
-/*
+/**
  * File: spi.c
  * 
  * Description: Functions for communicating with serial devices
@@ -10,6 +10,7 @@
 // Set up serial peripheral interface
 int setup_spi(void) {
     
+    /** Pin mappings.
     // --- Pin mappings and codes ---
     // J10:41 = J1:91 = uC:70 = RPI74 (PPS code: 0100 1010)
     // J10:44 = J1:93 = uC:9 = RPI52 (PPS code: 0011 0100)
@@ -32,7 +33,7 @@ int setup_spi(void) {
     
     // TODO -- should clear the ANSEL registers here to
     // It's probably not strictly necessary (already clear)
-    
+    */
     // Unlock pin remappings
     __builtin_write_OSCCONL(OSCCON & ~(1<<6));
     

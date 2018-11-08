@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Quantum computer microprocessor demo for outreach: dspic33e/qcomp-sim-c.X/io.h File Reference</title>
+<title>Quantum Computer Outreach Project: dspic33e/qcomp-sim-c.X/io.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Quantum computer microprocessor demo for outreach
+   <div id="projectname">Quantum Computer Outreach Project
    </div>
   </td>
  </tr>
@@ -114,6 +114,10 @@ Macros</h2></td></tr>
 <tr class="separator:aa4d6abc7b58eb11e517993df83b7f0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7122a6e5d75b5f8b7f00c7130df40407"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a7122a6e5d75b5f8b7f00c7130df40407">OE</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a7122a6e5d75b5f8b7f00c7130df40407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4453478cd8b3bf96df84fe861cb78600"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a4453478cd8b3bf96df84fe861cb78600">SH</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a4453478cd8b3bf96df84fe861cb78600"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9f9ba2b507da6c31d80a0740057813"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#add9f9ba2b507da6c31d80a0740057813">CLK_INH</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:add9f9ba2b507da6c31d80a0740057813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -135,6 +139,8 @@ Functions</h2></td></tr>
 <tr class="separator:a89d0c0b5eee8cda66adde23080acd0bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8abb07633ea7d3ab2bd8c9d082feb65a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a">toggle_strobe</a> (int color)</td></tr>
 <tr class="separator:a8abb07633ea7d3ab2bd8c9d082feb65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39bcaebdcb8bd807f98d7f22f0a0a7e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3">set_external_led</a> (int data)</td></tr>
+<tr class="separator:a39bcaebdcb8bd807f98d7f22f0a0a7e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a847be6f7bedcc14fe4b1d7aa7967b6b4"></a>
@@ -145,6 +151,20 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define amber&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="add9f9ba2b507da6c31d80a0740057813"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add9f9ba2b507da6c31d80a0740057813">&#9670;&nbsp;</a></span>CLK_INH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CLK_INH&#160;&#160;&#160;8</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -229,6 +249,20 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define red&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4453478cd8b3bf96df84fe861cb78600"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4453478cd8b3bf96df84fe861cb78600">&#9670;&nbsp;</a></span>SH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SH&#160;&#160;&#160;5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -353,6 +387,24 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>btn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39bcaebdcb8bd807f98d7f22f0a0a7e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39bcaebdcb8bd807f98d7f22f0a0a7e3">&#9670;&nbsp;</a></span>set_external_led()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int set_external_led </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

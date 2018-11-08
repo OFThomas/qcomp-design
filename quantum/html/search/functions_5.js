@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['init_5fstate',['init_state',['../quantum_8c.html#a2f8328dde6295b8b932381d765c12fc7',1,'init_state(Vector V, State s):&#160;quantum.c'],['../quantum_8h.html#a2f8328dde6295b8b932381d765c12fc7',1,'init_state(Vector V, State s):&#160;quantum.c']]],
-  ['init_5fstate_5fcmplx',['init_state_cmplx',['../quantum_8c.html#acfe35ae6348bc1e3b84cada1954eb194',1,'init_state_cmplx(CVector V, State s):&#160;quantum.c'],['../quantum_8h.html#acfe35ae6348bc1e3b84cada1954eb194',1,'init_state_cmplx(CVector V, State s):&#160;quantum.c']]]
+  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
 ];

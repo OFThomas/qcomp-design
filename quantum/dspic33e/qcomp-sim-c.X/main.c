@@ -70,6 +70,7 @@ int main(void) {
     //    send_byte(0xFF);
     //}
 
+    /*
     int counter = 0;
     unsigned long int m = 0;
     while(1 == 1) {
@@ -80,7 +81,7 @@ int main(void) {
         if(counter == 16) 
             counter = 0;
     }
-    
+    */
     while(1==1);
     return 0;
 }
