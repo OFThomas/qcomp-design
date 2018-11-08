@@ -43,8 +43,8 @@ extern "C" {
     // LE = RD3 = uC:78 = J1:40 = J11:18
     
     // Pins for SH and CLK_INH on port D
-    // SH = RD5 = uC: = 
-    // CLK_INH = RD8 = uC:
+    // SH = RD5 = uC:82 = J1:25 = J10:13
+    // CLK_INH = RD8 = uC:68 = J1:58 = J11:25
     
     // Global LED strobing state parameter
     typedef struct {
