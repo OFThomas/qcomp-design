@@ -11,9 +11,7 @@
 #include "time.h"
 #include "spi.h"
 
-/** @brief Set up LEDs and buttons on port D 
-* @param OE global var for OE
-*/
+/// @brief Set up LEDs and buttons on port D 
 int setup_io(void) {
     // Set up the input/output
     ANSELD = 0x0000; // Set port D to digital
@@ -38,7 +36,7 @@ int setup_io(void) {
   return 0;
 }
 
-/// @brief Global LED strobing state parameter
+/// @param led_global  Global LED strobing state parameter
 LED_GLOBAL led_global = {0};
     
 /// @brief Interrupt service routine for timer 4
@@ -79,11 +77,8 @@ void stop_strobe() {
     
 }
 
-/** @brief Set an LED strobing
-* @param color LED pin to strobe
-* @param state help
-*/
-  void set_strobe(int color, int state) {
+/// @brief Set an LED strobing
+void set_strobe(int color, int state) {
     extern LED_GLOBAL led_global;
     switch(state) {
         case on: // Start the strobing
@@ -97,19 +92,14 @@ void stop_strobe() {
     }
 }
   
-/** @brief Toggle LED strobe
-* @param color 
-*/
+/// @brief Toggle LED strobe
 void toggle_strobe(int color) {
     extern LED_GLOBAL led_global;
     LATD &= ~(1 << color);
     led_global.strobe_leds ^= (1 << color);
 }
 
-/** @brief Turn a particular LED on or off
-* @param color 
-* @param state
-*/
+/// @brief Turn a particular LED on or off
   int set_led(int color, int state) {
   if (state == on)
     LATD |= (1 << color);
@@ -118,9 +108,7 @@ void toggle_strobe(int color) {
   return 0;
 }
 
-/** @brief Read the state of a push button
-* @param btn
-*/
+/// @brief Read the state of a push button
   int read_btn(int btn) {
   if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
     return -1;
@@ -138,10 +126,7 @@ void leds_off(void) {
 }
 
 #define PERIOD 500000
-/** @brief Flash LED a number of times
-* @param color
-* @param number
-*/
+/// @brief Flash LED a number of times
   void flash_led(int color, int number) {
     unsigned long int m = 0, n = 0; // You need 32 bit types for this
     while(n < number) {
@@ -155,9 +140,7 @@ void leds_off(void) {
     }
 }
 
-/** @brief Flash all the LEDs a number of times
-* @param number
-*/
+/// @brief Flash all the LEDs a number of times
   void flash_all(int number) {
 
     unsigned long int m = 0, n = 0; // You need 32 bit types for this

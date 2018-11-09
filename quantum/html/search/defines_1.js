@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clk_5finh',['CLK_INH',['../io_8h.html#add9f9ba2b507da6c31d80a0740057813',1,'io.h']]]
+  ['red',['red',['../io_8h.html#ab435487e41a1d42d4379464e35f873b4',1,'io.h']]]
 ];

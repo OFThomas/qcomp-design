@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
-  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]]
+  ['read_5fbtn',['read_btn',['../io_8c.html#a5c2b76dada8dc8a2d65249074843867c',1,'read_btn(int btn):&#160;io.c'],['../io_8h.html#a5c2b76dada8dc8a2d65249074843867c',1,'read_btn(int btn):&#160;io.c']]],
+  ['read_5fbyte_5fspi_5f3',['read_byte_spi_3',['../spi_8c.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316',1,'read_byte_spi_3():&#160;spi.c'],['../spi_8h.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316',1,'read_byte_spi_3():&#160;spi.c']]],
+  ['read_5fexternal_5fbuttons',['read_external_buttons',['../io_8c.html#adb3900100235e97827ad327ea028bd1d',1,'io.c']]]
 ];

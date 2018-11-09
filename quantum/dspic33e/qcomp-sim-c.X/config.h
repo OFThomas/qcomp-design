@@ -1,7 +1,9 @@
 /**
  * @file config.h
  * 
- * @brief Description: Include this once at the top of main
+ * @brief General config settings #pragma for microcontroller 
+ *
+ * Description: Include this once at the top of main
  * 
  */
 

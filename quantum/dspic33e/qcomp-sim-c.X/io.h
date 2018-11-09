@@ -18,7 +18,7 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-// Locations of LEDs and buttons on Port D
+/// Locations of LEDs and buttons on Port D
 #define red 0
 #define amber 1
 #define green 2
@@ -30,14 +30,15 @@ extern "C" {
 #define off 0
 #define on 1
     
-// Control for TLC591x chip on Port D
+/// Control for TLC591x chip on Port D
 #define LE 3
 #define OE 4
     
-// COntrol lines for SNx4HC165 chip
+/// COntrol lines for SNx4HC165 chip
 #define SH 5
 #define CLK_INH 8
-    
+   
+    /** @brief pin mappings
     // Pins for LE and OE on port D
     // OE = RD4 = uC:81 = J1:28 = J10:14
     // LE = RD3 = uC:78 = J1:40 = J11:18
@@ -45,41 +46,52 @@ extern "C" {
     // Pins for SH and CLK_INH on port D
     // SH = RD5 = uC:82 = J1:25 = J10:13
     // CLK_INH = RD8 = uC:68 = J1:58 = J11:25
-    
-    // Global LED strobing state parameter
+    */
+
+    /// @brief Global LED strobing state parameter
     typedef struct {
-        int strobe_leds; // Bit set the LEDs which are strobing 
-        int strobe_state; // Bit zero is the current state (on/off)
+        int strobe_leds; ///< Bit set the LEDs which are strobing 
+        int strobe_state; ///< Bit zero is the current state (on/off)
     } LED_GLOBAL;
 
-    // Set up LEDs and buttons on port D 
+    /// Set up LEDs and buttons on port D 
     int setup_io(void);
     
-    // Turn a particular LED on or off
+    /// @brief Turn a particular LED on or off
+    /// @param color 
+    /// @param state
     int set_led(int color, int state);
 
-    // Read the state of a push button
+    /// @brief Read the state of a push button
+    /// @param btn
     int read_btn(int btn);
     
-    // Turn all the LEDs off
+    /// @brief Turn all the LEDs off
     void leds_off(void);
     
-    // Flash one LED a number of times
+    /// @brief Flash one LED a number of times
+    /// @param color
+    /// @param number
     void flash_led(int color, int number);
     
-    // Flash all the LEDs a number of times
+    /// @brief Flash all the LEDs a number of times
+    /// @param number
     void flash_all(int number);
     
-    // Set LEDs flashing indefinitely
+    /// Set LEDs flashing indefinitely
     void start_strobe();
     
-    // Set an LED strobing
+    /// @brief Set an LED strobing
+    /// @param color
+    /// @param state
     void set_strobe(int color, int state);
     
-    // Toggle LED strobe
+    /// @brief Toggle LED strobe
+    /// @param color
     void toggle_strobe(int color);
     
-    // Set an led on the display driver
+    /// @brief Set an led on the display driver
+    /// @param data
     int set_external_led(int data);
 
 #ifdef	__cplusplus

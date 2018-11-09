@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['set_5fexternal_5fled',['set_external_led',['../io_8c.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3',1,'set_external_led(int data):&#160;io.c'],['../io_8h.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3',1,'set_external_led(int data):&#160;io.c']]],
-  ['set_5fled',['set_led',['../io_8c.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c'],['../io_8h.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c']]],
-  ['set_5fstrobe',['set_strobe',['../io_8c.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c'],['../io_8h.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c']]],
-  ['setup_5fio',['setup_io',['../io_8c.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c'],['../io_8h.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c']]],
-  ['setup_5fspi',['setup_spi',['../spi_8c.html#a2f33aae32ee0a2b5a3651ec80d9d3a94',1,'setup_spi(void):&#160;spi.c'],['../spi_8h.html#a2f33aae32ee0a2b5a3651ec80d9d3a94',1,'setup_spi(void):&#160;spi.c']]],
-  ['start_5fstrobe',['start_strobe',['../io_8c.html#a577efab9f22ad4ed19f6a728100821a7',1,'start_strobe():&#160;io.c'],['../io_8h.html#a577efab9f22ad4ed19f6a728100821a7',1,'start_strobe():&#160;io.c']]],
-  ['stop_5fstrobe',['stop_strobe',['../io_8c.html#abf2ffa488fe1b7213a84d0cd00fbea03',1,'io.c']]]
+  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['make_5fops',['make_ops',['../quantum_8c.html#af18f0bc0dddd8eadce3e39969dba684a',1,'make_ops(Matrix2 X, Matrix2 Z, Matrix2 H):&#160;quantum.c'],['../quantum_8h.html#af18f0bc0dddd8eadce3e39969dba684a',1,'make_ops(Matrix2 X, Matrix2 Z, Matrix2 H):&#160;quantum.c']]],
+  ['make_5fops_5fcmplx',['make_ops_cmplx',['../quantum_8c.html#a76969689d1e9d9beb9532b102ca1556c',1,'make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H):&#160;quantum.c'],['../quantum_8h.html#a76969689d1e9d9beb9532b102ca1556c',1,'make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H):&#160;quantum.c']]],
+  ['mat_5fmul',['mat_mul',['../quantum_8c.html#a94abc2d5720f2f3655f1b3913632e083',1,'mat_mul(Matrix2 M, Vector V):&#160;quantum.c'],['../quantum_8h.html#a94abc2d5720f2f3655f1b3913632e083',1,'mat_mul(Matrix2 M, Vector V):&#160;quantum.c']]],
+  ['mat_5fmul_5fcmplx',['mat_mul_cmplx',['../quantum_8c.html#a7020396a02b4bf762a2e3e6d9246daca',1,'mat_mul_cmplx(CMatrix2 M, CVector V):&#160;quantum.c'],['../quantum_8h.html#a7020396a02b4bf762a2e3e6d9246daca',1,'mat_mul_cmplx(CMatrix2 M, CVector V):&#160;quantum.c']]]
 ];

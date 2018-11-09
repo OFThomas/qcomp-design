@@ -15,13 +15,14 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 
-// Set up serial peripheral interface
+/// Set up serial peripheral interface
 int setup_spi(void);
 
-// Send a byte to the SPI1 peripheral
+/// Send a byte to the SPI1 peripheral
+/// @param data byte to be sent to SPI1
 int send_byte_spi_1(int data);
 
-// Recieve a byte from the SPI3 peripheral
+/// Recieve a byte from the SPI3 peripheral
 int read_byte_spi_3();
 
 #ifdef	__cplusplus
