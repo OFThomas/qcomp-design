@@ -13,7 +13,7 @@ var searchData=
   ['show_5fstate_5fcmplx',['show_state_cmplx',['../quantum_8c.html#af0c354cf89ab1645abf13c387bb31f3b',1,'show_state_cmplx(CVector V):&#160;quantum.c'],['../quantum_8h.html#af0c354cf89ab1645abf13c387bb31f3b',1,'show_state_cmplx(CVector V):&#160;quantum.c']]],
   ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
   ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
-  ['spi_2eo_2ed',['spi.o.d',['../spi_8o_8d.html',1,'']]],
+  ['spi_2eo_2ed',['spi.o.d',['../debug_2spi_8o_8d.html',1,'(Global Namespace)'],['../production_2spi_8o_8d.html',1,'(Global Namespace)']]],
   ['start_5fstrobe',['start_strobe',['../io_8c.html#a577efab9f22ad4ed19f6a728100821a7',1,'start_strobe():&#160;io.c'],['../io_8h.html#a577efab9f22ad4ed19f6a728100821a7',1,'start_strobe():&#160;io.c']]],
   ['start_5ftimer',['start_timer',['../time_8c.html#aaedac22c55880495505bf375e0e132c1',1,'start_timer():&#160;time.c'],['../time_8h.html#aaedac22c55880495505bf375e0e132c1',1,'start_timer():&#160;time.c']]],
   ['state',['State',['../quantum_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8',1,'quantum.h']]],
