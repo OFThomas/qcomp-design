@@ -180,7 +180,7 @@ int set_external_led(int data) {
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
     unsigned long int n = 0;
-    while(n < 100000) /// @todo How long should this be? 
+    while(n < 1000000) /// @todo How long should this be? 
         n++;
     LATD &= ~(1 << LE); // Clear LE(ED1) pin
     
