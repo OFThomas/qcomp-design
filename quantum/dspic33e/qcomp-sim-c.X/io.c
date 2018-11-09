@@ -176,6 +176,31 @@ void leds_off(void) {
 int set_external_led(int data) {
     // Write data to the device using SPI
     send_byte_spi_1(data);
+    // Bring LE high momentarily
+    LATD |= (1 << LE); /// Set LE(ED1) pin
+    unsigned long int n = 0;
+    while(n < 1000000) /// @todo How long should this be? 
+        n++;
+    LATD &= ~(1 << LE); // Clear LE(ED1) pin
+    
+    // Bring the output enable low
+    LATD &= ~(1 << OE); // Clear OE(ED2) pin
+    
+    return 0;
+    
+}
+
+/** @brief SENDING 2 8bit numbers for cascaded LED Drivers
+//
+// LE(ED1) and OE(ED2) will be on Port D 
+* @param data_1 1st byte to send to 1st LED driver
+* @param data_2 2nd byte for 2nd LED set
+ */
+int set_external_led_2(int data_1, int data_2) {
+    /// Write data to the device 1 using SPI
+   send_byte_spi_1(data_1);
+    /// write data_2 to driver 2 
+    send_byte_spi_1(data_2);
     
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
@@ -190,6 +215,7 @@ int set_external_led(int data) {
     return 0;
     
 }
+
 
 /** 
  * @brief Switch between normal and special mode

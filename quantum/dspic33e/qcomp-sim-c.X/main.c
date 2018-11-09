@@ -78,14 +78,14 @@ int main(void) {
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */
-    int counter = 36;
+    unsigned int counter = 0;
     int step = 0;
     int flag = 0;
     unsigned long int m = 0;
     while(1 == 1) {
-        while(m < 100000) m++;
+        while(m < 1000000) m++;
         m = 0;
-        set_external_led(counter);
+        set_external_led_2(counter, 25500);
         if(flag==0){
             step=4;
             flag=1;
@@ -95,8 +95,8 @@ int main(void) {
             flag=0;
         }
         counter += step;
-        if(counter == 288) 
-            counter = 36;
+        if(counter >= 256) 
+            counter = 0;
         
     }
     
