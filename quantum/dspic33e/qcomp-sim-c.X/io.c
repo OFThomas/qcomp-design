@@ -11,6 +11,11 @@
 #include "time.h"
 #include "spi.h"
 
+int led_rgb(int device, int R, int G, int B){
+    color = (R*4) + (G*2) + B; 
+    return (color << (device*3));
+}
+
 /// @brief Set up LEDs and buttons on port D 
 int setup_io(void) {
     // Set up the input/output
