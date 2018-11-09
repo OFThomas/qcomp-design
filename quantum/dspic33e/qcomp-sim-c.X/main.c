@@ -85,7 +85,7 @@ int main(void) {
     while(1 == 1) {
         while(m < 1000000) m++;
         m = 0;
-        set_external_led_2(counter, 25500);
+        set_external_led(counter + (counter<<8) );
         if(flag==0){
             step=4;
             flag=1;
