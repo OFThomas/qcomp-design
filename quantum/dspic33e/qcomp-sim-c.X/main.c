@@ -83,21 +83,31 @@ int main(void) {
     int flag = 0;
     unsigned long int m = 0;
     while(1 == 1) {
-        while(m < 1000000) m++;
+        while(m < 100000) m++;
         m = 0;
-        set_external_led(counter + (counter<<8) );
+        set_external_led(counter);
         if(flag==0){
-            step=4;
-            flag=1;
+            step=4<<8;
+            flag++;
         }
         else if(flag==1){
+            step=32<<8;
+            flag++;
+        }
+        else if(flag==2){
+            step=4;
+            flag++;
+        }
+        else if(flag==3){
             step=32;
             flag=0;
         }
         counter += step;
-        if(counter >= 256) 
+        if(counter == (0xFCFC+(4<<8))){ 
             counter = 0;
-        
+            flag = 0;
+            step = 0;
+        }
     }
     
         // LATD |= (1 << SH); // Set SH pin
