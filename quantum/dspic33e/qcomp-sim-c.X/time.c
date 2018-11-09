@@ -1,7 +1,7 @@
-/*
- * File: time.c
+/**
+ * @file time.c
  * 
- * Description: Functions to control the on chip timers
+ * @brief Description: Functions to control the on chip timers
  * 
  */
 

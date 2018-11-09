@@ -1,7 +1,11 @@
-/*
- * File:   main.c
+/**
+ * @file main.c
+ * @author J R Scott
+ * @date 8/11/18
  *
- * Description: Contains an example of fixed precision 2x2 matrix multiplication 
+ * @brief The main function
+ *
+ * @detail Description: Contains an example of fixed precision 2x2 matrix multiplication 
  * for applying operations to a single qubit. The only operations included
  * are H, X and Z so that everything is real (this can be extended later).
  * 
@@ -13,7 +17,7 @@
  * controller too or if you're using windows you're better of downloading
  * and installing MPLAB-X https://www.microchip.com/mplab/mplab-x-ide.
  *
- * Notes: You also need the microchip xc16 compilers which
+ * @note You also need the microchip xc16 compilers which
  * are available from https://www.microchip.com/mplab/compilers 
  *
  */
@@ -70,7 +74,10 @@ int main(void) {
     //    send_byte(0xFF);
     //}
 
-    
+    /**
+     * @brief Loop to cycle through LEDs 0 - 15
+     *
+     */
     int counter = 0;
     unsigned long int m = 0;
     while(1 == 1) {

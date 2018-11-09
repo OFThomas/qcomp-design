@@ -1,8 +1,9 @@
-/*
- * File: io.c
+/**
+ * @file io.c
+ * @brief Contains all the functions for reading buttons and writing to LEDs
  * 
- * Description: Contains all the functions for reading buttons and writing to
- * LEDs
+ * @author J Scott
+ * @date 8/11/18
  *
  */
 
@@ -10,7 +11,9 @@
 #include "time.h"
 #include "spi.h"
 
-// Set up LEDs and buttons on port D 
+/** @brief Set up LEDs and buttons on port D 
+* @param OE global var for OE
+*/
 int setup_io(void) {
     // Set up the input/output
     ANSELD = 0x0000; // Set port D to digital
@@ -30,15 +33,16 @@ int setup_io(void) {
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
     IFS1bits.T5IF = 0; // Clear the interrupt flag
-    // Set the OE pin high
-    LATD |= (1 << OE); // Set OE(ED2) pin
+    /// Set the OE pin high
+    LATD |= (1 << OE); /// Set OE(ED2) pin
   return 0;
 }
 
-// Global LED strobing state parameter
+/// @brief Global LED strobing state parameter
 LED_GLOBAL led_global = {0};
     
-// Interrupt service routine for timer 4
+/// @brief Interrupt service routine for timer 4
+/// @note I have no idea what this line means...
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     // Read the state and change to next state
     led_global.strobe_state ^= 1; // Flip bit zero
@@ -57,7 +61,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     IFS1bits.T5IF = 0;
 }
 
-// Set LEDs flashing
+/// @brief Set LEDs flashing
 void start_strobe() {
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
@@ -69,14 +73,17 @@ void start_strobe() {
     T4CONbits.TON = 1;
 }
 
-// Stop LEDs flashing
+/// @brief Stop LEDs flashing
 void stop_strobe() {
     T4CONbits.TON = 0; // Turn timer 4 off
     
 }
 
-// Set an LED strobing
-void set_strobe(int color, int state) {
+/** @brief Set an LED strobing
+* @param color LED pin to strobe
+* @param state help
+*/
+  void set_strobe(int color, int state) {
     extern LED_GLOBAL led_global;
     switch(state) {
         case on: // Start the strobing
@@ -90,15 +97,20 @@ void set_strobe(int color, int state) {
     }
 }
   
-// Toggle LED strobe
+/** @brief Toggle LED strobe
+* @param color 
+*/
 void toggle_strobe(int color) {
     extern LED_GLOBAL led_global;
     LATD &= ~(1 << color);
     led_global.strobe_leds ^= (1 << color);
 }
 
-// Turn a particular LED on or off
-int set_led(int color, int state) {
+/** @brief Turn a particular LED on or off
+* @param color 
+* @param state
+*/
+  int set_led(int color, int state) {
   if (state == on)
     LATD |= (1 << color);
   else
@@ -106,17 +118,19 @@ int set_led(int color, int state) {
   return 0;
 }
 
-// Read the state of a push button
-int read_btn(int btn) {
+/** @brief Read the state of a push button
+* @param btn
+*/
+  int read_btn(int btn) {
   if ((btn != sw1) && (btn != sw2) && (btn != sw3)) {
     return -1;
   } else {
-    // How well do you know C
+    /// @note How well do you know C
     return (((PORTD & (1 << btn)) >> btn) ^ 0x0001);
   }
 }
 
-// Turn all the LEDs off
+/// @brief Turn all the LEDs off
 void leds_off(void) {
   set_led(green, off);
   set_led(amber, off);
@@ -124,8 +138,11 @@ void leds_off(void) {
 }
 
 #define PERIOD 500000
-// Flash LED a number of times
-void flash_led(int color, int number) {
+/** @brief Flash LED a number of times
+* @param color
+* @param number
+*/
+  void flash_led(int color, int number) {
     unsigned long int m = 0, n = 0; // You need 32 bit types for this
     while(n < number) {
         set_led(color, on);
@@ -138,8 +155,10 @@ void flash_led(int color, int number) {
     }
 }
 
-// Flash all the LEDs a number of times
-void flash_all(int number) {
+/** @brief Flash all the LEDs a number of times
+* @param number
+*/
+  void flash_all(int number) {
 
     unsigned long int m = 0, n = 0; // You need 32 bit types for this
     while(n < number) {
@@ -155,7 +174,8 @@ void flash_all(int number) {
     }
 }
 
-// Turn on an LED via the external display driver
+/** 
+ * @brief Turn on an LED via the external display driver
 //
 // On power on, the chip (TLC591x) is in normal mode which means that
 // the clocked bytes sent to the chip set which LEDs are on and which 
@@ -168,15 +188,16 @@ void flash_all(int number) {
 // on page 17 of the datasheet for details.  
 //
 // LE(ED1) and OE(ED2) will be on Port D 
-//
+* @param data the byte to send to LED driver
+*/
 int set_external_led(int data) {
     // Write data to the device using SPI
     send_byte_spi_1(data);
     
     // Bring LE high momentarily
-    LATD |= (1 << LE); // Set LE(ED1) pin
+    LATD |= (1 << LE); /// Set LE(ED1) pin
     unsigned long int n = 0;
-    while(n < 100000) // How long should this be? 
+    while(n < 100000) /// @todo How long should this be? 
         n++;
     LATD &= ~(1 << LE); // Clear LE(ED1) pin
     
@@ -187,7 +208,8 @@ int set_external_led(int data) {
     
 }
 
-// Switch between normal and special mode
+/** 
+ * @brief Switch between normal and special mode
 //
 // The mode switch for the TLC591x chip is a bit tricky because it 
 // involves synchronising the control lines LE(ED1) and OE(ED2) on Port D 
@@ -204,13 +226,14 @@ int set_external_led(int data) {
 // probably work. (The reason is the lack of max timing parameters on page
 // 9 for the setup and hold time for ED1 and ED2, which can therefore 
 // presumably be longer than one clock cycle.)
-//
+* @param mode 
+* @todo mode switcher for LED Driver
+*/
 int TLC591x_mode_switch(int mode) {
     return 0;
 }
 
-
-// Read external buttons
+/** @brief Read external buttons
 //
 // The external buttons are interfaced to the microcontroller via a shift
 // register. Data is shifted in a byte at a time using the SPI 3 module. The
@@ -222,6 +245,8 @@ int TLC591x_mode_switch(int mode) {
 //
 // The control lines SH and CLK_INH are on port D
 //
+* @todo read buttons
+*/
 int read_external_buttons() {
     
 }

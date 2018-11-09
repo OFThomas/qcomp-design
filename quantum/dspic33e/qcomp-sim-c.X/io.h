@@ -1,7 +1,7 @@
-/*
- * File: io.h
+/**
+ * @file: io.h
  * 
- * Description: Header file for input output functions. Include it at the
+ * @brief Description: Header file for input output functions. Include it at the
  * top of any C source file which uses buttons and LEDs. It also defines
  * various constants representing the positions of the buttons and LEDs 
  * on port D.

@@ -1,7 +1,7 @@
-/*
- * File: quantum.h
+/**
+ * @file quantum.h
  * 
- * Description: Header file containing all the matrix arithmetic for 
+ * @brief Description: Header file containing all the matrix arithmetic for 
  * simulating a single qubit.
  * 
  */

@@ -1,7 +1,7 @@
-/*
- * File: quantum.c
+/**
+ * @file quantum.c
  * 
- * Description: Contains matrix and vector arithmetic for simulating 
+ * @brief Description: Contains matrix and vector arithmetic for simulating 
  * one qubit.
  * 
  */

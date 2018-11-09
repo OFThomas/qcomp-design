@@ -1,7 +1,7 @@
 /**
- * File: spi.c
+ * @file spi.c
  * 
- * Description: Functions for communicating with serial devices
+ * @brief Description: Functions for communicating with serial devices
  *
  */
 
@@ -10,7 +10,7 @@
 // Set up serial peripheral interface
 int setup_spi(void) {
     
-    /** Pin mappings.
+    /** @brief Pin mappings.
     // --- Pin mappings and codes ---
     // J10:41 = J1:91 = uC:70 = RPI74 (PPS code: 0100 1010)
     // J10:44 = J1:93 = uC:9 = RPI52 (PPS code: 0011 0100)
@@ -31,7 +31,7 @@ int setup_spi(void) {
     // SPI 3 Data Out (SDO3) PPS code: 011111 (0x1F)
     // SPI 3 Slave Select PPS code: 100001
     
-    // TODO -- should clear the ANSEL registers here to
+    // @todo TODO -- should clear the ANSEL registers here to
     // It's probably not strictly necessary (already clear)
     */
     // Unlock pin remappings
@@ -53,7 +53,8 @@ int setup_spi(void) {
     
     // Lock pin remappings
     __builtin_write_OSCCONL(OSCCON | (1<<6));
-    
+   
+    /** @note
     // SPI 1 clock configuration
     //
     // SCK1 = F_CY / (Primary Prescaler * Secondary Prescaler)
@@ -61,6 +62,7 @@ int setup_spi(void) {
     // Assuming that F_CY = 50MHz, and the prescalers are 4 and 1,
     // the SPI clock frequency will be 12.5MHz.
     // 
+    */
     SPI1CON1bits.PPRE = 0x2; // Primary Prescaler = 4
     SPI1CON1bits.SPRE = 0x7; // Secondary Prescaler = 1
     

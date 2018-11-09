@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['oe',['OE',['../io_8h.html#a7122a6e5d75b5f8b7f00c7130df40407',1,'io.h']]],
-  ['off',['off',['../io_8h.html#aa8df4166084b06f1e80d3510e5dcf7e1',1,'io.h']]],
-  ['on',['on',['../io_8h.html#a42cc7dae7a40abcb545fc41730fa1476',1,'io.h']]],
-  ['one',['ONE',['../quantum_8h.html#a5d74787dedbc4e11c1ab15bf487e61f8a7a725f13af144bdef532d0389ba75e0d',1,'quantum.h']]],
-  ['one_5fqubit',['one_qubit',['../tests_8c.html#ab1d0936cc198e048895800ba59b00e88',1,'one_qubit():&#160;tests.c'],['../tests_8h.html#ab1d0936cc198e048895800ba59b00e88',1,'one_qubit():&#160;tests.c']]],
-  ['one_5fqubit_5fcmplx',['one_qubit_cmplx',['../tests_8c.html#aef0ef93502bb146779f3714350240cfb',1,'one_qubit_cmplx():&#160;tests.c'],['../tests_8h.html#aef0ef93502bb146779f3714350240cfb',1,'one_qubit_cmplx():&#160;tests.c']]]
+  ['tests_2ec',['tests.c',['../tests_8c.html',1,'']]],
+  ['tests_2eh',['tests.h',['../tests_8h.html',1,'']]],
+  ['time_2ec',['time.c',['../time_8c.html',1,'']]],
+  ['time_2eh',['time.h',['../time_8h.html',1,'']]],
+  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
+  ['todo_20list',['Todo List',['../todo.html',1,'']]],
+  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]]
 ];
