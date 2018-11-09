@@ -78,15 +78,26 @@ int main(void) {
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */
-    int counter = 0;
+    unsigned int counter = 0;
+    int step = 0;
+    int flag = 0;
     unsigned long int m = 0;
     while(1 == 1) {
         while(m < 1000000) m++;
         m = 0;
-        set_external_led(counter);
-        counter++;
-        if(counter == 16) 
+        set_external_led_2(counter, 25500);
+        if(flag==0){
+            step=4;
+            flag=1;
+        }
+        else if(flag==1){
+            step=32;
+            flag=0;
+        }
+        counter += step;
+        if(counter >= 256) 
             counter = 0;
+        
     }
     
         // LATD |= (1 << SH); // Set SH pin

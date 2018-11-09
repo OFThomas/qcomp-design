@@ -93,6 +93,11 @@ extern "C" {
     /// @brief Set an led on the display driver
     /// @param data
     int set_external_led(int data);
+    
+    /// @brief 2 LED DRIVERS
+    /// @param data_1 1 driver
+    /// @param data_2 2nd Driver
+    int set_external_led_2(int data_1, int data_2);
 
 #ifdef	__cplusplus
 }
