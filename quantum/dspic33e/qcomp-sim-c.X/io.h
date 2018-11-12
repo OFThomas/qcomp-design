@@ -126,6 +126,12 @@ extern "C" {
      */
     int led_cycle_test();
     
+    /**
+     * @brief Update the buttons array (see declaration above) 
+     * 
+     */
+    int read_external_buttons(); 
+    
 #ifdef	__cplusplus
 }
 #endif

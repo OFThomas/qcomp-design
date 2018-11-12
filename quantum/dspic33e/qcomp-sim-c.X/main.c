@@ -47,9 +47,24 @@ int main(void) {
     // Setup SPI interface
     setup_spi();
 
-    //while(1) send_byte_spi_1(0);
+    /**
+     * @brief Reading button state
+     * 
+     * The button states are written into an array of type BUTTON_ARRAY
+     * whose 
+     */
+    extern int buttons[16]; /// Global variable for button state
+    read_external_buttons(); /// Update the buttons variable
+    if(buttons[0] == 1)
+        ; /// Do something if button 0 has been pressed...
     
-    /** @breif Example use of RGB LEDs -- won't do anything yet
+    
+    /** @brief Example use of RGB LEDs -- won't do anything yet
+     * 
+     * Just pass the values of R, G and B to the function along with the led
+     * index (which can just be an integer, like qubit number). The exact 
+     * mapping of indices to LED lines in the display driver will be in the 
+     * io.h file. 
      */
     _Fract R = 0.6; // Colours
     _Fract G = 0.2;

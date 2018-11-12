@@ -11,6 +11,14 @@
 #include "time.h"
 #include "spi.h"
 
+/** @brief Contains the button states
+ * 
+ * Each entry in the array is either 1 if the button is 
+ * pressed or 0 if not. The array is accessed globally using
+ * `extern buttons;' in a *.c file. Read buttons array us updated
+ * by calling read_external_buttons
+ */
+int buttons[16];
 
 /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
 /// @param device input LED number to change
