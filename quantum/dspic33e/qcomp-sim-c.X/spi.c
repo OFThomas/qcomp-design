@@ -47,7 +47,7 @@ int setup_spi(void) {
     RPOR6bits.RP85R = 0x20; ///< Put SCK3 on J10:7
     RPOR6bits.RP87R = 0x1F; ///< Put SDO3 on J10:5
     // Configure the SPI 3 input pins
-    RPINR29bits.SDI3R = 0x4A; ///< Put SDI3 on J10:44
+    RPINR29bits.SDI3R = 0x34; ///< Put SDI3 on J10:44
     // The clock pin also needs to be configured as an input
     RPINR29bits.SCK3R = 0x55; ///< Set SCK3 on J10:7 as input
     
@@ -88,7 +88,7 @@ int setup_spi(void) {
     // Assuming that F_CY = 50MHz, and the prescalers are 4 and 1,
     // the SPI clock frequency will be 12.5MHz.
     // 
-    SPI3CON1bits.PPRE = 0x2; // Primary Prescaler = 4
+    SPI3CON1bits.PPRE = 0x1; // Primary Prescaler = 16
     SPI3CON1bits.SPRE = 0x7; // Secondary Prescaler = 1
     
     // SPI3CON1 Register Settings
@@ -141,13 +141,13 @@ int read_byte_spi_3() {
     // Check that the transmit buffer is empty
     if(SPI3STATbits.SPITBF == 0) {
         // Write dummy data to the SPI buffer
-        SPI1BUF = 0;
+        SPI3BUF = 0;
         // Transmission starts automatically
         // Wait for the operation to finish
-        while(SPI1STATbits.SPIRBF != 1)
+        while(SPI3STATbits.SPIRBF != 1)
             ; // Do nothing
         // Read the receive buffer
-        int data = SPI1BUF;
+        int data = SPI3BUF;
         return data;
     } else {
         // Unable to start operation

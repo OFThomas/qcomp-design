@@ -75,6 +75,35 @@ int main(void) {
     //}
 
     /**
+    int out = 0;
+    while(1){
+        // Bring SH low momentarily
+        LATD &= ~(1 << SH); /// SH pin
+        unsigned long int n = 0;
+        while(n < 10) /// @todo How long should this be? 
+            n++;
+        LATD |= (1 << SH); // Set SH pin again
+    
+        unsigned long int i = 0;
+        while(i < 100) /// @todo How long should this be? 
+            i++;
+        
+        LATD &= ~(1 << CLK_INH); /// CLK_INH low pin
+        out = read_byte_spi_3();
+        if(out != 0) break;
+        
+        LATD |= (1 << CLK_INH);
+    }
+    */
+    int out = 0;
+    while(1){
+        out = read_byte_spi_3();
+    if(out != 0) break;
+    }
+    
+    //while(1) send_byte_spi_1(0);
+    
+    /**
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */

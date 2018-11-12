@@ -57,7 +57,11 @@ int setup_io(void) {
     IFS1bits.T5IF = 0; // Clear the interrupt flag
     /// Set the OE pin high
     LATD |= (1 << OE); /// Set OE(ED2) pin
-  return 0;
+    /// Set the SH pin high
+    LATD |= (1 << SH); /// Set SH pin
+    /// set CLK_INH high while buttons are pressed
+    LATD |= (1 << CLK_INH);
+    return 0;
 }
 
 /// @param led_global  Global LED strobing state parameter
