@@ -1,7 +1,7 @@
 var searchData=
 [
   ['send_5fbyte_5fspi_5f1',['send_byte_spi_1',['../spi_8c.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c'],['../spi_8h.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c']]],
-  ['set_5fexternal_5fled',['set_external_led',['../io_8c.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3',1,'set_external_led(int data):&#160;io.c'],['../io_8h.html#a39bcaebdcb8bd807f98d7f22f0a0a7e3',1,'set_external_led(int data):&#160;io.c']]],
+  ['set_5fexternal_5fled',['set_external_led',['../io_8h.html#a8fb054cbfa5ed66af9fc8697f8677d91',1,'io.h']]],
   ['set_5fled',['set_led',['../io_8c.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c'],['../io_8h.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c']]],
   ['set_5fstrobe',['set_strobe',['../io_8c.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c'],['../io_8h.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c']]],
   ['setup_5fio',['setup_io',['../io_8c.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c'],['../io_8h.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c']]],

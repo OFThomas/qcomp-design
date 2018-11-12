@@ -245,6 +245,23 @@ int TLC591x_mode_switch(int mode) {
     return 0;
 }
 
+/**
+ * 
+ * @param led_index
+ * @param R red value between 0 & 1 
+ * @param G green value between 0 & 1
+ * @param B blue value between 0 & 1
+ * @return 0 if successful, -1 otherwise
+ * 
+ * Use the function to set the RGB level of an LED. The LED is chosen
+ * using the @param led_index. The @param R, @param G and @param B are
+ * numbers between 0 and 1 (not including 1) indicating the amount of 
+ * each color. The function returns 0 if successful and -1 otherwise.   
+ */
+int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
+    return 0; // Just for now -- proper function coming soon...
+}
+
 /** @brief Read external buttons
 //
 // The external buttons are interfaced to the microcontroller via a shift

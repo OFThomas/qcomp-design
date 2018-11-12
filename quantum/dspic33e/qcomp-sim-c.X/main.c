@@ -125,6 +125,16 @@ int main(void) {
         
     //while(1) send_byte_spi_1(0);
     
+    /** @breif Example use of RGB LEDs
+     */
+    _Fract R = 0.6; // Colours
+    _Fract G = 0.2;
+    _Fract B = 0.1;
+    int led_index = 2; // LED number
+    // Set RGB LED number 2
+    set_external_led(led_index, R, G, B);
+
+    
     /**
      * @brief Loop to cycle through LEDs 0 - 15
      *

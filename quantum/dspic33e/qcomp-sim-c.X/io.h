@@ -90,19 +90,23 @@ extern "C" {
     /// @param color
     void toggle_strobe(int color);
     
-    /// @brief Send a byte to the display driver
-    /// @param data
+    /** @brief Send a byte to the display driver
+     * @param data
+     * 
+     * Don't use this function to write to LEDs -- use the set_external_led
+     * function
+     */
     int write_display_driver(int data);
     
     /**
-     * 
      * @param led_index
-     * @param r
-     * @param g
-     * @param b
+     * @param R red value between 0 & 1 
+     * @param G green value between 0 & 1
+     * @param B blue value between 0 & 1
+     * @return 0 if successful, -1 otherwise
      * 
      * Use the function to set the RGB level of an LED. The LED is chosen
-     * using the @param led_index. The @param r, @param g and @param b are
+     * using the @param led_index. The @param R, @param G and @param B are
      * numbers between 0 and 1 (not including 1) indicating the amount of 
      * each color. The function returns 0 if successful and -1 otherwise.   
      */
