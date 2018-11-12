@@ -18,13 +18,11 @@
 /// @param G green value between 0 & 1
 /// @param B blue value between 0 & 1
 /// @return Returns int to be sent to LED Driver 
-int led_color_int(int device, int R, int G, int B){
+int led_color_int(int device, int R, int G, int B) {
 
-    int color;
+    int color = 0;
     int led_output;
-
-    color = 0;
-   
+    
     /// convention RGB -> 000
     color = (R*4) + (G*2) + B;
 
@@ -205,7 +203,7 @@ void leds_off(void) {
 // LE(ED1) and OE(ED2) will be on Port D 
 * @param data the byte to send to LED driver
 */
-int set_external_led(int data) {
+int write_display_driver(int data) {
     // Write data to the device using SPI
     send_byte_spi_1(data);
     // Bring LE high momentarily
@@ -262,5 +260,5 @@ int TLC591x_mode_switch(int mode) {
 * @todo read buttons
 */
 int read_external_buttons() {
-    
+    return 0;
 }

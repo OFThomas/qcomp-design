@@ -125,7 +125,7 @@ int send_byte_spi_1(int data) {
             ; // Do nothing
         // Read the receive buffer (just to clear the SPIRBF flag)
         int rx = SPI1BUF;
-        return 0;
+        return rx; // Should be zero -- removes unused variable warning
     } else {
         // Unable to transmit
         return -1;

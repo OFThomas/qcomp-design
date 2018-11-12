@@ -34,7 +34,7 @@ void mat_mul_test() {
     }
 
     // Read the timer
-    unsigned long int time = read_timer();
+    //unsigned long int time = read_timer();
     
     // Show that the test is finished
     set_led(red, on);
@@ -67,7 +67,7 @@ void mat_mul_test_cmplx() {
     }
 
     // Read the timer
-    unsigned long int time = read_timer();
+    //unsigned long int time = read_timer();
     
     // Show that the test is finished
     set_led(red, on);

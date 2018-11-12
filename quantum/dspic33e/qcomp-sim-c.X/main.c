@@ -99,13 +99,23 @@ int main(void) {
         //set_external_led(out2);
         
         
-        set_external_led(led_color_int(0, (out1 == 1) , (out1 == 2), (out1 == 4)));
+        write_display_driver(
+                led_color_int(
+                    0,
+                    (out1 == 1) , 
+                    (out1 == 2), 
+                    (out1 == 4))
+                );
         
         
-        int b = led_color_int(0, (out1 & 1), ((out1 >> 1) & 1), ((out1 >> 2) & 1));
+        int b = led_color_int(0, 
+                (out1 & 1), 
+                ((out1 >> 1) & 1), 
+                ((out1 >> 2) & 1));
         
         int a = 0;
-        a ++;
+        a += b; // Put a breakpoint here
+        
       //  if((out1 != 0 ) || (out2 != 0)){
        //     read_byte_spi_3();
        // }
@@ -128,7 +138,7 @@ int main(void) {
     while(j <= 36) {
         while(m < 10000) m++;
         m = 0;
-        set_external_led(counter);
+        write_display_driver(counter);
         if(flag==0){
             step=4<<8;
             flag++;

@@ -90,10 +90,32 @@ extern "C" {
     /// @param color
     void toggle_strobe(int color);
     
-    /// @brief Set an led on the display driver
+    /// @brief Send a byte to the display driver
     /// @param data
-    int set_external_led(int data);
+    int write_display_driver(int data);
+    
+    /**
+     * 
+     * @param led_index
+     * @param r
+     * @param g
+     * @param b
+     * 
+     * Use the function to set the RGB level of an LED. The LED is chosen
+     * using the @param led_index. The @param r, @param g and @param b are
+     * numbers between 0 and 1 (not including 1) indicating the amount of 
+     * each color. The function returns 0 if successful and -1 otherwise.   
+     */
+    int set_external_led(int led_index, _Fract r, _Fract g, _Fract b);
 
+    /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
+    /// @param device input LED number to change
+    /// @param R red value between 0 & 1 
+    /// @param G green value between 0 & 1
+    /// @param B blue value between 0 & 1
+    /// @return Returns int to be sent to LED Driver 
+    int led_color_int(int device, int R, int G, int B);
+    
 #ifdef	__cplusplus
 }
 #endif
