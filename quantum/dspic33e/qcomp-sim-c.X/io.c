@@ -11,9 +11,28 @@
 #include "time.h"
 #include "spi.h"
 
-int led_rgb(int device, int R, int G, int B){
-    color = (R*4) + (G*2) + B; 
-    return (color << (device*3));
+
+/// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
+/// @param device input LED number to change
+/// @param R red value between 0 & 1 
+/// @param G green value between 0 & 1
+/// @param B blue value between 0 & 1
+/// @return Returns int to be sent to LED Driver 
+int led_color_int(int device, int R, int G, int B){
+
+    int color;
+    int led_output;
+
+    color = 0;
+   
+    /// convention RGB -> 000
+    color = (R*4) + (G*2) + B;
+
+    /// Each LED takes 3 lines, assumes there are no gaps between LED channels
+    /// "device" goes between 0 to 2^n -1
+    led_output = (color << (device*3));
+    
+    return led_output;
 }
 
 /// @brief Set up LEDs and buttons on port D 

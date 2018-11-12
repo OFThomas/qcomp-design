@@ -1,4 +1,3 @@
-
 #include "stdio.h"
 
 /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
