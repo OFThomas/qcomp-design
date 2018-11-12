@@ -74,45 +74,59 @@ int main(void) {
     //    send_byte(0xFF);
     //}
 
-    /**
-    int out = 0;
+    while(1){
+    
+    int out1 = 0;
+    int out2 = 0;
     while(1){
         // Bring SH low momentarily
         LATD &= ~(1 << SH); /// SH pin
         unsigned long int n = 0;
-        while(n < 10) /// @todo How long should this be? 
+        while(n < 5) /// @todo How long should this be? 
             n++;
         LATD |= (1 << SH); // Set SH pin again
     
-        unsigned long int i = 0;
-        while(i < 100) /// @todo How long should this be? 
-            i++;
+       // unsigned long int i = 0;
+       // while(i < 20) /// @todo How long should this be? 
+       //     i++;
         
-        LATD &= ~(1 << CLK_INH); /// CLK_INH low pin
-        out = read_byte_spi_3();
-        if(out != 0) break;
+        // LATD &= ~(1 << CLK_INH); /// CLK_INH low pin
+
+        out1 = read_byte_spi_3();
+        out2 = read_byte_spi_3();
         
-        LATD |= (1 << CLK_INH);
+        //set_external_led(out1);
+        //set_external_led(out2);
+        
+        
+        set_external_led(led_color_int(0, (out1 == 1) , (out1 == 2), (out1 == 4)));
+        
+        
+        int b = led_color_int(0, (out1 & 1), ((out1 >> 1) & 1), ((out1 >> 2) & 1));
+        
+        int a = 0;
+        a ++;
+      //  if((out1 != 0 ) || (out2 != 0)){
+       //     read_byte_spi_3();
+       // }
+        
+       // LATD |= (1 << CLK_INH);
     }
-    */
-    int out = 0;
-    while(1){
-        out = read_byte_spi_3();
-    if(out != 0) break;
-    }
-    
+        
     //while(1) send_byte_spi_1(0);
     
     /**
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */
+    
     unsigned int counter = 0;
     int step = 0;
     int flag = 0;
+    int j = 0;
     unsigned long int m = 0;
-    while(1 == 1) {
-        while(m < 100000) m++;
+    while(j <= 36) {
+        while(m < 10000) m++;
         m = 0;
         set_external_led(counter);
         if(flag==0){
@@ -137,8 +151,10 @@ int main(void) {
             flag = 0;
             step = 0;
         }
+        j++;
     }
-    
+    }
+
         // LATD |= (1 << SH); // Set SH pin
        // LATD |= (1 << CLK_INH); // Set CLK pin
 

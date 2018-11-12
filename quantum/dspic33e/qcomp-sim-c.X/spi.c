@@ -69,7 +69,7 @@ int setup_spi(void) {
     // SPI1CON1 Register Settings
     SPI1CON1bits.DISSCK = 0; // Internal serial clock is enabled
     SPI1CON1bits.DISSDO = 0; // SDOx pin is controlled by the module
-    SPI1CON1bits.MODE16 = 1; // Communication is byte-wide (8 bits)
+    SPI1CON1bits.MODE16 = 0; // Communication is byte-wide (8 bits)
     SPI1CON1bits.MSTEN = 1;  // Master mode enabled
     SPI1CON1bits.SMP = 0;    // Input data is sampled at the middle of 
                              // data output time
@@ -94,11 +94,11 @@ int setup_spi(void) {
     // SPI3CON1 Register Settings
     SPI3CON1bits.DISSCK = 0; // Internal serial clock is enabled
     SPI3CON1bits.DISSDO = 0; // SDOx pin is controlled by the module
-    SPI3CON1bits.MODE16 = 1; // Communication is byte-wide (8 bits)
+    SPI3CON1bits.MODE16 = 0; // Communication is byte-wide (8 bits)
     SPI3CON1bits.MSTEN = 1;  // Master mode enabled
     SPI3CON1bits.SMP = 0;    // Input data is sampled at the middle of 
                              // data output time
-    SPI3CON1bits.CKE = 0;    // Serial output data changes on transition from
+    SPI3CON1bits.CKE = 1;    // Serial output data changes on transition from
                              // Idle clock state to active clock state
     SPI3CON1bits.CKP = 0;    // Idle state for clock is a low level;
                              // active state is a high level
@@ -142,7 +142,8 @@ int read_byte_spi_3() {
     if(SPI3STATbits.SPITBF == 0) {
         // Write dummy data to the SPI buffer
         SPI3BUF = 0;
-        // Transmission starts automatically
+        // Trans-
+        // mission starts automatically
         // Wait for the operation to finish
         while(SPI3STATbits.SPIRBF != 1)
             ; // Do nothing
@@ -150,7 +151,8 @@ int read_byte_spi_3() {
 	  return -2; // Overflow
 	}
         // Read the receive buffer
-        int data = SPI3BUF;
+        int data = 0;
+        data = SPI3BUF;
         return data;
     } else {
         // Unable to start operation

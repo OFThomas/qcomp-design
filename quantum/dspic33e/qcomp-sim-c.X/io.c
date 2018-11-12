@@ -30,7 +30,7 @@ int led_color_int(int device, int R, int G, int B){
 
     /// Each LED takes 3 lines, assumes there are no gaps between LED channels
     /// "device" goes between 0 to 2^n -1
-    led_output = (color << (device*3));
+    led_output = (color << (2));
     
     return led_output;
 }
@@ -40,6 +40,10 @@ int setup_io(void) {
     // Set up the input/output
     ANSELD = 0x0000; // Set port D to digital
     TRISD = 0x20C0; // Set lines 0,1,2 as output; 6,7,13 as input 
+    ///< Set port c digital for spi3
+    ANSELC = 0x0000; // Set port C to digital
+    TRISC = 0x0010; // Set line 4 as input 
+    
     // Setup timers for flashing LEDs
     T4CON = 0x0000; // Reset the timer control registers
     T5CON = 0x0000;
@@ -207,7 +211,7 @@ int set_external_led(int data) {
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
     unsigned long int n = 0;
-    while(n < 1000000) /// @todo How long should this be? 
+    while(n < 10) /// @todo How long should this be? 
         n++;
     LATD &= ~(1 << LE); // Clear LE(ED1) pin
     
