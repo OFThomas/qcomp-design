@@ -146,6 +146,9 @@ int read_byte_spi_3() {
         // Wait for the operation to finish
         while(SPI3STATbits.SPIRBF != 1)
             ; // Do nothing
+	if(SPI3STATbits.SPIROV == 1) {
+	  return -2; // Overflow
+	}
         // Read the receive buffer
         int data = SPI3BUF;
         return data;
