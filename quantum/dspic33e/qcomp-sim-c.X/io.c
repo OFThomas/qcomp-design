@@ -284,6 +284,7 @@ int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
 //
 * @todo read buttons
 */
+#define BTN_CHIP_NUMBER 2
 int read_external_buttons() {
     // Bring SH low momentarily
     LATD &= ~(1 << SH); /// SH pin
@@ -293,8 +294,17 @@ int read_external_buttons() {
     LATD |= (1 << SH); // Set SH pin again
 
     // Read the button states
-    int btn_data = read_byte_spi_3();
-    return btn_data; /// @todo Needs to loop over the number of chips
+    int btn_byte = 0;
+    // Loop over the number of chips
+    for(int r = 0; r < BTN_CHIP_NUMBER; r++) {
+        btn_byte = read_byte_spi_3();
+        // loop over the bits in the byte
+        for(int s = 0; s < 8; s++) {
+            buttons[s] = ((btn_byte >> s) & 1); // Update the button array
+        }
+    }
+    return 0;
+    /// @todo button remappings...
 }
 
 /**
