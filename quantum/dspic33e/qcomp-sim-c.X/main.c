@@ -46,86 +46,10 @@ int main(void) {
     
     // Setup SPI interface
     setup_spi();
-    
-    // Flash LEDs
-    //flash_all(5);
 
-    // Simulate one qubit
-    //one_qubit();
-
-    // Run matrix multiplication test
-    //mat_mul_test();
-
-    // Run complex matrix multiplication test
-    //mat_mul_test_cmplx();
-    
-    // Simulate one complex qubit
-    //one_qubit_cmplx();
-    
-    //start_strobe((1 << red) + (1 << green) + (1 << amber));
-    
-    //dim_leds();
-    
-    // Test multi LED strobing
-    //multi_led_strobe();
-    
-    // Test the SPI
-    //while(1==1) {
-    //    send_byte(0xFF);
-    //}
-
-    while(1){
-    
-    int out1 = 0;
-    int out2 = 0;
-    while(1){
-        // Bring SH low momentarily
-        LATD &= ~(1 << SH); /// SH pin
-        unsigned long int n = 0;
-        while(n < 5) /// @todo How long should this be? 
-            n++;
-        LATD |= (1 << SH); // Set SH pin again
-    
-       // unsigned long int i = 0;
-       // while(i < 20) /// @todo How long should this be? 
-       //     i++;
-        
-        // LATD &= ~(1 << CLK_INH); /// CLK_INH low pin
-
-        out1 = read_byte_spi_3();
-        out2 = read_byte_spi_3();
-        
-        //set_external_led(out1);
-        //set_external_led(out2);
-        
-        
-        write_display_driver(
-                led_color_int(
-                    0,
-                    (out1 == 1) , 
-                    (out1 == 2), 
-                    (out1 == 4))
-                );
-        
-        
-        int b = led_color_int(0, 
-                (out1 & 1), 
-                ((out1 >> 1) & 1), 
-                ((out1 >> 2) & 1));
-        
-        int a = 0;
-        a += b; // Put a breakpoint here
-        
-      //  if((out1 != 0 ) || (out2 != 0)){
-       //     read_byte_spi_3();
-       // }
-        
-       // LATD |= (1 << CLK_INH);
-    }
-        
     //while(1) send_byte_spi_1(0);
     
-    /** @breif Example use of RGB LEDs
+    /** @breif Example use of RGB LEDs -- won't do anything yet
      */
     _Fract R = 0.6; // Colours
     _Fract G = 0.2;
@@ -134,49 +58,6 @@ int main(void) {
     // Set RGB LED number 2
     set_external_led(led_index, R, G, B);
 
-    
-    /**
-     * @brief Loop to cycle through LEDs 0 - 15
-     *
-     */
-    
-    unsigned int counter = 0;
-    int step = 0;
-    int flag = 0;
-    int j = 0;
-    unsigned long int m = 0;
-    while(j <= 36) {
-        while(m < 10000) m++;
-        m = 0;
-        write_display_driver(counter);
-        if(flag==0){
-            step=4<<8;
-            flag++;
-        }
-        else if(flag==1){
-            step=32<<8;
-            flag++;
-        }
-        else if(flag==2){
-            step=4;
-            flag++;
-        }
-        else if(flag==3){
-            step=32;
-            flag=0;
-        }
-        counter += step;
-        if(counter == (0xFCFC+(4<<8))){ 
-            counter = 0;
-            flag = 0;
-            step = 0;
-        }
-        j++;
-    }
-    }
-
-        // LATD |= (1 << SH); // Set SH pin
-       // LATD |= (1 << CLK_INH); // Set CLK pin
 
     while(1==1);
     return 0;

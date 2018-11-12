@@ -277,5 +277,52 @@ int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
 * @todo read buttons
 */
 int read_external_buttons() {
+    // Bring SH low momentarily
+    LATD &= ~(1 << SH); /// SH pin
+    unsigned long int n = 0;
+    while (n < 5) /// @todo How long should this be? 
+        n++;
+    LATD |= (1 << SH); // Set SH pin again
+
+    // Read the button states
+    int btn_data = read_byte_spi_3();
+    return btn_data; /// @todo Needs to loop over the number of chips
+}
+
+/**
+ * @brief Loop to cycle through LEDs 0 - 15
+ *
+ */
+int led_cycle_test() {
+    unsigned int counter = 0;
+    int step = 0;
+    int flag = 0;
+    int j = 0;
+    unsigned long int m = 0;
+    while (j <= 36) {
+        while (m < 10000) m++;
+        m = 0;
+        write_display_driver(counter);
+        if (flag == 0) {
+            step = 4 << 8;
+            flag++;
+        } else if (flag == 1) {
+            step = 32 << 8;
+            flag++;
+        } else if (flag == 2) {
+            step = 4;
+            flag++;
+        } else if (flag == 3) {
+            step = 32;
+            flag = 0;
+        }
+        counter += step;
+        if (counter == (0xFCFC + (4 << 8))) {
+            counter = 0;
+            flag = 0;
+            step = 0;
+        }
+        j++;
+    }
     return 0;
 }

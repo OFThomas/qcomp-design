@@ -119,6 +119,12 @@ extern "C" {
     /// @param B blue value between 0 & 1
     /// @return Returns int to be sent to LED Driver 
     int led_color_int(int device, int R, int G, int B);
+
+    /**
+     * @brief Loop to cycle through LEDs 0 - 15
+     *
+     */
+    int led_cycle_test();
     
 #ifdef	__cplusplus
 }
