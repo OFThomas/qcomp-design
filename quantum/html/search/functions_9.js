@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['write_5fdisplay_5fdriver',['write_display_driver',['../io_8c.html#a4fb3be99e715a9a88ba1d1a670ea0ab4',1,'write_display_driver(int data):&#160;io.c'],['../io_8h.html#a4fb3be99e715a9a88ba1d1a670ea0ab4',1,'write_display_driver(int data):&#160;io.c']]]
+  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
+  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]]
 ];

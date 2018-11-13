@@ -11,6 +11,7 @@
 #include "quantum.h"
 #include "time.h"
 
+/**
 // Testing the speed of 2^15 2x2 real matrix multiplications
 void mat_mul_test() {
     
@@ -43,7 +44,7 @@ void mat_mul_test() {
     while(1 == 1);
     
 }
-
+*/
 // Testing the speed of 2^15 2x2 complex matrix multiplications
 void mat_mul_test_cmplx() {
     
@@ -77,7 +78,7 @@ void mat_mul_test_cmplx() {
     
 }
 
-
+/**
 // Simulating one qubit. Buttons apply H, X and Z and LEDs display the
 // state of the qubit.
 void one_qubit() {
@@ -135,6 +136,7 @@ void one_qubit() {
 
     }
 }
+ */
 
 // Simulating one qubit with complex amplitudes. Buttons apply H, X, Y and Z 
 // and LEDs display the state of the qubit.

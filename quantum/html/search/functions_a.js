@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
-  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]]
+  ['update_5fdisplay_5fbuffer',['update_display_buffer',['../io_8c.html#ac706462aa1fceb4eb8a80bdbc9004c03',1,'update_display_buffer(int index, int R, int G, int B):&#160;io.c'],['../io_8h.html#ae121dd2b026fd48dcbf2c499124c1ea5',1,'update_display_buffer(int led_index, int R, int G, int B):&#160;io.c']]]
 ];
