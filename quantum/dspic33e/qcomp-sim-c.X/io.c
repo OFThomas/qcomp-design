@@ -111,17 +111,19 @@ unsigned _Fract isr_limit = 0.8; /// The max value for isr_counter
  * in comparison to what the eye can see. For example, once every 100us.
  * 
  * Each time the routine is called, it increments counters corresponding to
- * RGB line of every LED. Once these counters reach thresholds, that have been 
+ * RGB line of every LED. Once these counters reach thresholds that have been 
  * set globally in another function, the interrupt routine turns off the 
- * corresponding LED line. Once the 
+ * corresponding LED line. Once the isr counter has reached a different (fixed)
+ * threshold value, the whole routine resets. In this way the LEDs are turned
+ * on and off repeatedly with adjustable duty cycles.
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     extern LED led[LED_NUM];
     // Check all the LED counters
     int rgb_update[3] = {1,1,1};
     for(int i = 0; i < LED_NUM; i++) {
-        // Reset the tmp variable to zero
-        for(int m=0; m<3; m++) rgb_update[m] = 0;
+        // Reset the tmp variable to 1 (All LEDs ON)
+        for(int m=0; m<3; m++) rgb_update[m] = 1;
         // Check if the RGB lines need to change
         /// when counter is reached turn led OFF rgb_update=0
         if(led[i].n_R > led[i].N_R) rgb_update[0] = 0; 
@@ -184,16 +186,23 @@ void setup_external_leds() {
     led[3].G_line = 6; led[3].G_chip = 1;
     led[3].B_line = 7; led[3].B_chip = 1;
     
-    /// Turn all LEDs off
-    for (int n = 0; n < LED_NUM; n++)
-        set_external_led(n, 0, 0, 0);
-
+    /// Initialise parameters to zero
+    for (int i = 0; i < LED_NUM; i++) {
+        set_external_led(i, 0, 0, 0); // Set brightnesses to zero
+        led[i].n_R = led[i].n_G = led[i].n_B = 0; // Set counters to zero
+    }
+    
+    /// Initialise display buffer to zero
+    for (int i = 0; i < DISPLAY_CHIP_NUM; i++)
+        display_buf[i] = 0;
+    
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     // Set flashing period
     PR4 = 0x0000;
-    PR5 = 0x8000;
+    PR5 = 0x0080;
+    
     // Turn timer 4 on
     T4CONbits.TON = 1;
 }

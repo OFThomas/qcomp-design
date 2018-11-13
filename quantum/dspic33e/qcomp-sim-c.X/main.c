@@ -80,11 +80,8 @@ int main(void) {
     
     init_state_cmplx(state_v, ZERO);
     // led 0, r=0, b=0, g=0
-   set_external_led(0, 0.8, 0, 0);
-    
-    extern LED led[LED_NUM];
-    
-        
+    set_external_led(0, 0.8, 0, 0);
+   
     while(1==1);
 
     
