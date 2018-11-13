@@ -118,7 +118,7 @@ unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     extern LED led[LED_NUM];
     // Check all the LED counters
-    int rgb_update[3] = {0,0,0};
+    int rgb_update[3] = {1,1,1};
     for(int i = 0; i < LED_NUM; i++) {
         // Reset the tmp variable to zero
         for(int m=0; m<3; m++) rgb_update[m] = 0;
