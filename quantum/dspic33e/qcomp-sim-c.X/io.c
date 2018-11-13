@@ -91,10 +91,14 @@ int display_buf[DISPLAY_CHIP_NUM] = {0};
  * The type is _Fract because it is easier to directly compare two _Fracts
  * than attempt multiplication of integers and _Fracts (which isn't 
  * supported) The limit is not 1 because _Fract types do not go up to 1.
+ * 
+ * It's probably a good idea to make sure the isr_res counter doesn't overflow
+ * (by ensuring that isr_res + isr_limit does not exceed 0.999..., the max 
+ * value of unsigned _Fract).
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0.1; /// Counter resolution
-unsigned _Fract isr_limit = 0.8; /// The max value for isr_counter
+unsigned _Fract isr_res = 0.01; /// Counter resolution
+const unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
  * 
@@ -199,7 +203,7 @@ void setup_external_leds() {
     TMR5 = 0x0000;
     // Set flashing period
     PR4 = 0x0000;
-    PR5 = 0x0080;
+    PR5 = 0x0008;
     
     // Turn timer 4 on
     T4CONbits.TON = 1;
