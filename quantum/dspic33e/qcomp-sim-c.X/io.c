@@ -167,30 +167,37 @@ void setup_external_leds() {
     extern LED led[LED_NUM];
 
     /// Initialise LED lines
-    led[0].R_line = 2;
-    led[0].G_line = 3;
-    led[0].B_line = 4;
+    /// channels
+    led[0].R_line = 4;
+    led[0].G_line = 2;
+    led[0].B_line = 3;
+    
     led[1].R_line = 5;
     led[1].G_line = 6;
     led[1].B_line = 7;
-    led[0].R_line = 0;
-    led[0].G_line = 0;
-    led[0].B_line = 0;
-    led[1].R_line = 0;
-    led[1].G_line = 0;
-    led[1].B_line = 0;
+    // byte number
+    led[0].R_chip = 0;
+    led[0].G_chip = 0;
+    led[0].B_chip = 0;
+    
+    led[1].R_chip = 0;
+    led[1].G_chip = 0;
+    led[1].B_chip = 0;
+    
     led[2].R_line = 2;
     led[2].G_line = 3;
     led[2].B_line = 4;
+    
     led[3].R_line = 5;
     led[3].G_line = 6;
     led[3].B_line = 7;
-    led[2].R_line = 1;
-    led[2].G_line = 1;
-    led[2].B_line = 1;
-    led[3].R_line = 1;
-    led[3].G_line = 1;
-    led[3].B_line = 1;
+    
+    led[2].R_chip = 1;
+    led[2].G_chip = 1;
+    led[2].B_chip = 1;
+    led[3].R_chip = 1;
+    led[3].G_chip = 1;
+    led[3].B_chip = 1;
     
     /// Turn all LEDs off
     for (int n = 0; n < LED_NUM; n++)
@@ -201,7 +208,7 @@ void setup_external_leds() {
     TMR5 = 0x0000;
     // Set flashing period
     PR4 = 0x0000;
-    PR5 = 0x0008;
+    PR5 = 0x0080;
     // Turn timer 4 on
     T4CONbits.TON = 1;
 }
@@ -325,12 +332,12 @@ int update_display_buffer(int index, int R, int G, int B) {
     if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
     else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
     
-    if(R==0) display_buf[led[index].G_chip] &= ~(1 << led[index].G_line);
+    
+    if(G==0) display_buf[led[index].G_chip] &= ~(1 << led[index].G_line);
     else display_buf[led[index].G_chip] |= (1 << led[index].G_line);
     
-    if(R==0) display_buf[led[index].B_chip] &= ~(1 << led[index].B_line);
+    if(B==0) display_buf[led[index].B_chip] &= ~(1 << led[index].B_line);
     else display_buf[led[index].B_chip] |= (1 << led[index].B_line);
-    
     
     return 0;
 }
