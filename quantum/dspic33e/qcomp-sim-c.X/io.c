@@ -169,6 +169,8 @@ void setup_external_leds() {
     led[1].G = 5; led[1].B = 6; led[1].R = 7; 
     led[2].G = 10; led[2].B = 11; led[2].R = 12;     
     led[3].G = 13; led[3].B = 14; led[3].R = 15;
+    
+    
 
     /// Turn all LEDs off
     for (int n = 0; n < LED_NUM; n++)
@@ -300,8 +302,8 @@ int update_display_buffer(int index, int R, int G, int B) {
     byte_num = 0;
     // for(int i=led[index].R; i >= 8; i -= 8) byte_num ++;
     
-    if(R==0) display_buf[byte_num] &= ~(1 << led[index].R);
-    else display_buf[byte_num] |= (1 << led[index].R);
+    if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
+    else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
         
     return 0;
 }
