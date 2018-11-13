@@ -79,7 +79,7 @@ int setup_io(void) {
 LED_GLOBAL led_global = {0};
 
 /// The LED array. Not to be used globally
-LED led[LED_NUM]; 
+LED led[LED_NUM] = {0}; 
 
 #define DISPLAY_CHIP_NUM 2
 /// Display buffer to be written to display driver
@@ -165,13 +165,33 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 void setup_external_leds() {
     /// Setup up external LED lines
     extern LED led[LED_NUM];
-    led[0].G = 2; led[0].B = 3; led[0].R = 4; 
-    led[1].G = 5; led[1].B = 6; led[1].R = 7; 
-    led[2].G = 10; led[2].B = 11; led[2].R = 12;     
-    led[3].G = 13; led[3].B = 14; led[3].R = 15;
-    
-    
 
+    /// Initialise LED lines
+    led[0].R_line = 2;
+    led[0].G_line = 3;
+    led[0].B_line = 4;
+    led[1].R_line = 5;
+    led[1].G_line = 6;
+    led[1].B_line = 7;
+    led[0].R_line = 0;
+    led[0].G_line = 0;
+    led[0].B_line = 0;
+    led[1].R_line = 0;
+    led[1].G_line = 0;
+    led[1].B_line = 0;
+    led[2].R_line = 2;
+    led[2].G_line = 3;
+    led[2].B_line = 4;
+    led[3].R_line = 5;
+    led[3].G_line = 6;
+    led[3].B_line = 7;
+    led[2].R_line = 1;
+    led[2].G_line = 1;
+    led[2].B_line = 1;
+    led[3].R_line = 1;
+    led[3].G_line = 1;
+    led[3].B_line = 1;
+    
     /// Turn all LEDs off
     for (int n = 0; n < LED_NUM; n++)
         set_external_led(n, 0, 0, 0);

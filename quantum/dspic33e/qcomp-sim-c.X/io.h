@@ -69,9 +69,12 @@ extern "C" {
      * the N_* variables which used the fractional type.
      */
     typedef struct {
-        int R; /// The line number for red
-        int G; /// the line number for green
-        int B; /// The line number for blue
+        int R_line; /// The line number for red
+        int G_line; /// the line number for green
+        int B_line; /// The line number for blue
+        int R_chip; /// The line number for red
+        int G_chip; /// the line number for green
+        int B_chip; /// The line number for blue
         unsigned _Fract N_R; /// The R brightness
         unsigned _Fract N_G; /// The G brightness
         unsigned _Fract N_B; /// The B brightness
