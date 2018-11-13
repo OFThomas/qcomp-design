@@ -71,6 +71,14 @@ int setup_io(void) {
     LATD |= (1 << SH); /// Set SH pin
     /// set CLK_INH high while buttons are pressed
     LATD |= (1 << CLK_INH);
+    
+    /// Setup up external LED lines
+    extern LED led[LED_NUM];
+    led[0].R = 2; led[0].R = 3; led[0].R = 4; 
+    led[1].R = 5; led[1].R = 6; led[1].R = 7; 
+    led[2].R = 10; led[1].R = 11; led[1].R = 12;     
+    led[3].R = 13; led[1].R = 14; led[1].R = 15; 
+    
     return 0;
 }
 

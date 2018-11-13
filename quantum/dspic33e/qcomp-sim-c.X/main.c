@@ -65,7 +65,7 @@ int main(void) {
      * index (which can just be an integer, like qubit number). The exact 
      * mapping of indices to LED lines in the display driver will be in the 
      * io.h file. 
-     */
+     */ 
     _Fract R = 0.6; // Colours
     _Fract G = 0.2;
     _Fract B = 0.1;
