@@ -72,13 +72,6 @@ int setup_io(void) {
     /// set CLK_INH high while buttons are pressed
     LATD |= (1 << CLK_INH);
     
-    /// Setup up external LED lines
-    extern LED led[LED_NUM];
-    led[0].R = 2; led[0].R = 3; led[0].R = 4; 
-    led[1].R = 5; led[1].R = 6; led[1].R = 7; 
-    led[2].R = 10; led[1].R = 11; led[1].R = 12;     
-    led[3].R = 13; led[1].R = 14; led[1].R = 15; 
-    
     return 0;
 }
 
@@ -163,7 +156,18 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 }
 
 /// @brief Set external variable RGB LEDs
-void start_external_leds() {
+void setup_external_leds() {
+    /// Setup up external LED lines
+    extern LED led[LED_NUM];
+    led[0].R = 2; led[0].G = 3; led[0].B = 4; 
+    led[1].R = 5; led[1].G = 6; led[1].B = 7; 
+    led[2].R = 10; led[2].G = 11; led[2].B = 12;     
+    led[3].R = 13; led[3].G = 14; led[3].B = 15;
+
+    /// Turn all LEDs off
+    for (int n = 0; n < LED_NUM; n++)
+        set_external_led(n, 0, 0, 0);
+
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
@@ -175,9 +179,8 @@ void start_external_leds() {
 }
 
 /// @brief Stop LEDs flashing
-void stop_strobe() {
-    T4CONbits.TON = 0; // Turn timer 4 off
-    
+void stop_external_leds() {
+    T4CONbits.TON = 0; // Turn timer 4 off   
 }
 
 /// @brief Set an LED strobing
@@ -378,8 +381,15 @@ int TLC591x_mode_switch(int mode) {
  * numbers between 0 and 1 (not including 1) indicating the amount of 
  * each color. The function returns 0 if successful and -1 otherwise.   
  */
-int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
-    return 0; // Just for now -- proper function coming soon...
+int set_external_led(int index, 
+        unsigned _Fract R, 
+        unsigned _Fract G,
+        unsigned _Fract B) {
+    extern LED led[LED_NUM];
+    led[index].N_R = R;
+    led[index].N_G = G;
+    led[index].N_B = B;
+    return 0;
 }
 
 /** @brief Read external buttons

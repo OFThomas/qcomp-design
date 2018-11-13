@@ -46,6 +46,9 @@ int main(void) {
     
     // Setup SPI interface
     setup_spi();
+    
+    // Setup the external LEDs
+    setup_external_leds();
 
     /**
      * @brief Reading button state
