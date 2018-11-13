@@ -53,7 +53,36 @@ extern "C" {
         int strobe_leds; ///< Bit set the LEDs which are strobing 
         int strobe_state; ///< Bit zero is the current state (on/off)
     } LED_GLOBAL;
+    
+    /**
+     *  @brief Each LED has the following type
+     * 
+     * The type holds the information about the position of the RGB lines
+     * in the display driver array and also the brightness of the RGB lines.
+     * The counters are used by a timer interrupt service routine pulse the
+     * RGB LEDs at a specified rate.
+     * 
+     * The type of the counter is _Fract to facilitate easy comparison with
+     * the N_* variables which used the fractional type.
+     */
+    typedef struct {
+        int R; /// The line number for red
+        int G; /// the line number for green
+        int B; /// The line number for blue
+        int S_R; /// The red led state
+        int S_G; /// the green led state
+        int S_B; /// The blue led state
+        _Fract N_R; /// The R brightness
+        unsigned _Fract N_G; /// The G brightness
+        unsigned _Fract N_B; /// The B brightness
+        unsigned _Fract n_R; /// Counter for R -- do not modify
+        unsigned _Fract n_G; /// Counter for G -- do not modify
+        unsigned _Fract n_B; /// Counter for B -- do not modify
+    } LED;
 
+    
+#define LED_NUM 4 /// The number of LEDs
+    
     /// Set up LEDs and buttons on port D 
     int setup_io(void);
     
@@ -89,6 +118,16 @@ extern "C" {
     /// @brief Toggle LED strobe
     /// @param color
     void toggle_strobe(int color);
+
+    /**
+     * 
+     * @param led_index LED number to modify
+     * @param R Intended value of the R led
+     * @param G Intended value of the G led
+     * @param B Intended value of the B led
+     * @return 0 if successful
+     */
+    int update_display_buffer(int led_index, int R, int G, int B);
     
     /** @brief Send a byte to the display driver
      * @param data
@@ -96,7 +135,7 @@ extern "C" {
      * Don't use this function to write to LEDs -- use the set_external_led
      * function
      */
-    int write_display_driver(int data);
+    int write_display_driver(int * data);
     
     /**
      * @param led_index

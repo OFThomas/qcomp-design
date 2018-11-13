@@ -55,8 +55,9 @@ void setup_timer() {
     // Reset TMR2, TMR3, PR2 and PR3
     TMR2 = 0x0000;
     TMR3 = 0x0000;
-    PR2 = 0xFFFF; // Highest possible period
-    PR3 = 0xFFFF;
+    PR2 = 0xFFFF; // Set the period
+    PR3 = 0x0000;
+    /// @todo distinguish between the two different timers here...
 }
 
 // Reset the timer

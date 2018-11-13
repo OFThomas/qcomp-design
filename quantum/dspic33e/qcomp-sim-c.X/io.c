@@ -76,20 +76,77 @@ int setup_io(void) {
 
 /// @param led_global  Global LED strobing state parameter
 LED_GLOBAL led_global = {0};
-    
-/// @brief Interrupt service routine for timer 4
-/// @note I have no idea what this line means...
-void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
-    // Read the state and change to next state
-    led_global.strobe_state ^= 1; // Flip bit zero
-    if (led_global.strobe_state == 1) {
-        // Turn on LEDs
-        LATD |= (led_global.strobe_leds);
-    } else {
-        // Turn off LEDs
-        LATD &= ~(led_global.strobe_leds);
-    }
 
+/// The LED array. Not to be used globally
+LED led[LED_NUM]; 
+
+#define DISPLAY_CHIP_NUM 2
+/// Display buffer to be written to display driver
+int display_buf[DISPLAY_CHIP_NUM];
+
+/** @brief Counter for the interrupt service routine _T5Interrupt
+ * 
+ * These variables are for keeping track of the interrupt based LED pulsing.
+ * The type is _Fract because it is easier to directly compare two _Fracts
+ * than attempt multiplication of integers and _Fracts (which isn't 
+ * supported) The limit is not 1 because _Fract types do not go up to 1.
+ */
+unsigned _Fract isr_counter = 0; /// Counter value
+unsigned _Fract isr_res = 0; /// Counter resolution
+unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
+
+/** @brief Interrupt service routine for timer 4
+ * 
+ * Interrupt service routines are automatically called by the microcontroller
+ * when an event occurs. In this case, _T5Interrupt is called when the 32 bit
+ * timer formed from T4 and T5 reaches its preset period. The silly name and
+ * sill attributes are so that the compiler can correctly map the function in 
+ * the microcontroller memory. More details of interrupts and interrupt vectors 
+ * can be found in the compiler manual and the dsPIC33E datasheet.
+ * 
+ * The job of this routine is to control the modulated brightnesses of the 
+ * RBG LEDs. This routine is set to be called periodically with a very long
+ * period on the time scale of microcontroller operations, but very fast
+ * in comparison to what the eye can see. For example, once every 100us.
+ * 
+ * Each time the routine is called, it increments counters corresponding to
+ * RGB line of every LED. Once these counters reach thresholds, that have been 
+ * set globally in another function, the interrupt routine turns off the 
+ * corresponding LED line. Once the 
+ */
+void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
+    
+    // Check all the LED counters
+    int rgb_update[3] = {0,0,0};
+    for(int n=0; n<LED_NUM; n++) {
+        // Reset the tmp variable to zero
+        for(int m=0; m<3; m++) rgb_update[m] = 0;
+        // Check if the RGB lines need to change
+        if(led[n].n_R > led[n].N_R) rgb_update[0] = 1; 
+        else led[n].n_R += isr_res; /// Increment the LED RGB counter
+        if(led[n].n_G > led[n].N_G) rgb_update[1] = 1;
+        else led[n].n_G += isr_res; /// Increment the LED RGB counter
+        if(led[n].n_B > led[n].N_B) rgb_update[2] = 1;
+        else led[n].n_B += isr_res; /// Increment the LED RGB counter
+        // Update the display buffer
+        update_display_buffer(n,rgb_update[0],rgb_update[1],rgb_update[2]);    
+    }
+    // Write the display buffer data to the display drivers
+    write_display_driver(display_buf);
+    
+    // Add an increment to the ISR counter
+    isr_counter += isr_res; 
+  
+    // Check if counter has reached the limit
+    if(isr_counter > isr_limit) {
+        isr_counter = 0; /// Reset the counter
+        /// @todo turn on all the LEDs back on
+        /// Reset all the counters
+        for (int n = 0; n < LED_NUM; n++) {
+            led[n].n_R = led[n].n_G = led[n].n_B = 0;
+        }
+    }
+    
     // Reset the timer
     TMR4 = 0x0000;
     TMR5 = 0x0000;
@@ -194,7 +251,53 @@ void leds_off(void) {
         n++;
     }
 }
-
+/**
+ * 
+ * @param index LED number to modify
+ * @param R Intended value of the R led
+ * @param G Intended value of the G led
+ * @param B Intended value of the B led
+ * @return 0 if successful
+ * 
+ * Could this get any worse!
+ * 
+ * This function is supposed to make the display writing process 
+ * more efficient. It updates a global display buffer which is 
+ * written periodically to the led display drivers. Instead of the display
+ * driver function re-reading the desired state of all the LED lines every 
+ * time it is called, this function can be used to update only the lines
+ * that have changed.
+ * 
+ * There are quite a few potential bugs in here, mainly array out of bounds
+ * if the DISPLAY_CHIP_NUM is not set correctly or the LED RGB lines are 
+ * wrong. (Or if there are just bugs.)
+ */
+int update_display_buffer(int index, int R, int G, int B) {
+    // Global variables
+    extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
+    extern LED led[LED_NUM]; // @todo hmmmmmm! ...
+    // Which byte to modify
+    int byte_num;
+    // Set or clear the R line
+    byte_num = 0;
+    for(int r=led[index].R; r >= 8; r -= 8) byte_num ++;
+    if(R==0) display_buf[byte_num] &= ~(1 << led[index].R);
+    else display_buf[byte_num] |= (1 << led[index].R);
+    // Set or clear the G line
+    byte_num = 0;
+    for(int r=led[index].G; r >= 8; r -= 8) byte_num ++;
+    if(G==0) display_buf[byte_num] &= ~(1 << led[index].G);
+    else display_buf[byte_num] |= (1 << led[index].G);
+    // Set or clear the B line
+    byte_num = 0;
+    for(int r=led[index].B; r >= 8; r -= 8) byte_num ++;
+    if(B==0) display_buf[byte_num] &= ~(1 << led[index].B);
+    else display_buf[byte_num] |= (1 << led[index].B);
+    
+    return 0;
+}
+  
+  
 /** 
  * @brief Turn on an LED via the external display driver
 //
@@ -209,11 +312,11 @@ void leds_off(void) {
 // on page 17 of the datasheet for details.  
 //
 // LE(ED1) and OE(ED2) will be on Port D 
-* @param data the byte to send to LED driver
+* @param data[] an array of bytes to send to LED driver
 */
-int write_display_driver(int data) {
+int write_display_driver(int * data) {
     // Write data to the device using SPI
-    send_byte_spi_1(data);
+    for(int n=0; n<DISPLAY_CHIP_NUM; n++) send_byte_spi_1(data[n]);
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
     unsigned long int n = 0;
@@ -284,7 +387,7 @@ int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
 //
 * @todo read buttons
 */
-#define BTN_CHIP_NUMBER 2
+#define BTN_CHIP_NUM 2
 int read_external_buttons() {
     // Bring SH low momentarily
     LATD &= ~(1 << SH); /// SH pin
@@ -296,7 +399,7 @@ int read_external_buttons() {
     // Read the button states
     int btn_byte = 0;
     // Loop over the number of chips
-    for(int r = 0; r < BTN_CHIP_NUMBER; r++) {
+    for(int r = 0; r < BTN_CHIP_NUM; r++) {
         btn_byte = read_byte_spi_3();
         // loop over the bits in the byte
         for(int s = 0; s < 8; s++) {
@@ -320,7 +423,8 @@ int led_cycle_test() {
     while (j <= 36) {
         while (m < 10000) m++;
         m = 0;
-        write_display_driver(counter);
+        /// @todo This won't work now:
+        /// write_display_driver(counter);
         if (flag == 0) {
             step = 4 << 8;
             flag++;
