@@ -17,6 +17,7 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
+#include <stdbool.h>
 
 /// Locations of LEDs and buttons on Port D
 #define red 0
@@ -77,9 +78,6 @@ extern "C" {
         unsigned _Fract N_R; /// The R brightness
         unsigned _Fract N_G; /// The G brightness
         unsigned _Fract N_B; /// The B brightness
-        unsigned _Fract n_R; /// Counter for R -- do not modify
-        unsigned _Fract n_G; /// Counter for G -- do not modify
-        unsigned _Fract n_B; /// Counter for B -- do not modify
     } LED;
     
     /// Set up LEDs and buttons on port D 
@@ -126,7 +124,7 @@ extern "C" {
      * @param B Intended value of the B led
      * @return 0 if successful
      */
-    int update_display_buffer(int led_index, int R, int G, int B);
+    int update_display_buffer(int led_index, bool R, bool G, bool B);
     
     /** @brief Send a byte to the display driver
      * 

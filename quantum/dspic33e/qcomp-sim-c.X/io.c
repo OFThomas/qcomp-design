@@ -10,6 +10,7 @@
 #include "io.h"
 #include "time.h"
 #include "spi.h"
+#include <stdbool.h>
 
 /** @brief Contains the button states
  * 
@@ -125,19 +126,13 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 
     /// Loop over all the LEDs (the index i). 
     for(int i = 0; i < LED_NUM; i++) {
-        // Define a tmp variable which starts off as 1 (LED ON)
-        int tmp[3] = {1,1,1};
-        // Check if the RGB lines need to change
-        /// when counter is reached turn led OFF rgb_update=0
-        if(led[i].n_R > led[i].N_R) tmp[0] = 0; 
-        else led[i].n_R += isr_res; /// Increment the LED RGB counter
-        if(led[i].n_G > led[i].N_G) tmp[1] = 0;
-        else led[i].n_G += isr_res; /// Increment the LED RGB counter
-        if(led[i].n_B > led[i].N_B) tmp[2] = 0;
-        else led[i].n_B += isr_res; /// Increment the LED RGB counter
         // Update the display buffer
-        update_display_buffer(i, tmp[0], tmp[1], tmp[2]);    
+        bool R = (isr_counter > led[i].N_R);
+        bool G = (isr_counter > led[i].N_R);
+        bool B = (isr_counter > led[i].N_R);
+        update_display_buffer(i, R, G, B);
     }
+
     // Write the display buffer data to the display drivers
     write_display_driver();
     
@@ -150,8 +145,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         /// Turn on all the LEDs back on
         for (int i = 0; i < LED_NUM; i++){
             update_display_buffer(i, 1, 1, 1);
-            /// Reset all the counters
-            led[i].n_R = led[i].n_G = led[i].n_B = 0;
         }
         // Update the display driver
         write_display_driver();
@@ -185,10 +178,8 @@ void setup_external_leds(void) {
     led[3].B[1] = 7; led[3].B[0] = 1;
     
     /// Initialise parameters to zero
-    for (int i = 0; i < LED_NUM; i++) {
+    for (int i = 0; i < LED_NUM; i++)
         set_external_led(i, 0, 0, 0); // Set brightnesses to zero
-        led[i].n_R = led[i].n_G = led[i].n_B = 0; // Set counters to zero
-    }
     
     /// Initialise display buffer to zero
     for (int i = 0; i < DISPLAY_CHIP_NUM; i++)
@@ -310,18 +301,18 @@ void leds_off(void) {
  * if the DISPLAY_CHIP_NUM is not set correctly or the LED RGB lines are 
  * wrong. (Or if there are just bugs.)
  */
-int update_display_buffer(int n, int R, int G, int B) {
+int update_display_buffer(int n, bool R, bool G, bool B) {
 
     /// Set or clear the red LED of the nth LED 
-    if(R==0) display_buf[led[n].R[0]] &= ~(1 << led[n].R[1]);
+    if(R == false) display_buf[led[n].R[0]] &= ~(1 << led[n].R[1]);
     else display_buf[led[n].R[0]] |= (1 << led[n].R[1]);
     
     /// Set or clear the red LED of the nth LED
-    if(G==0) display_buf[led[n].G[0]] &= ~(1 << led[n].G[1]);
+    if(G == false) display_buf[led[n].G[0]] &= ~(1 << led[n].G[1]);
     else display_buf[led[n].G[0]] |= (1 << led[n].G[1]);
     
     /// Set or clear the red LED of the nth LED
-    if(B==0) display_buf[led[n].B[0]] &= ~(1 << led[n].B[1]);
+    if(B == false) display_buf[led[n].B[0]] &= ~(1 << led[n].B[1]);
     else display_buf[led[n].B[0]] |= (1 << led[n].B[1]);
     
     return 0;
