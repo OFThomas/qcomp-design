@@ -93,8 +93,8 @@ int display_buf[DISPLAY_CHIP_NUM] = {0};
  * supported) The limit is not 1 because _Fract types do not go up to 1.
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0.01; /// Counter resolution
-unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
+unsigned _Fract isr_res = 0.1; /// Counter resolution
+unsigned _Fract isr_limit = 0.8; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
  * 
@@ -302,9 +302,21 @@ int update_display_buffer(int index, int R, int G, int B) {
     byte_num = 0;
     // for(int i=led[index].R; i >= 8; i -= 8) byte_num ++;
     
+<<<<<<< HEAD
     if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
     else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
         
+=======
+    if(R==0) display_buf[byte_num] &= ~(1 << led[index].R);
+    else display_buf[byte_num] |= (1 << led[index].R);
+    
+    if(G==0) display_buf[byte_num] &= ~(1 << led[index].G);
+    else display_buf[byte_num] |= (1 << led[index].G);
+    
+    if(B==0) display_buf[byte_num] &= ~(1 << led[index].B);
+    else display_buf[byte_num] |= (1 << led[index].B);
+    
+>>>>>>> c03ee844e8acb9cb300a13f7bc3a9586b55f9ee2
     return 0;
 }
   
