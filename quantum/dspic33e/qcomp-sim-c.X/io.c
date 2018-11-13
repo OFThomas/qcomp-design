@@ -324,6 +324,7 @@ int update_display_buffer(int index, int R, int G, int B) {
 */
 int write_display_driver(int * data) {
     // Write data to the device using SPI
+    /// @todo Does the high byte or low byte go first?
     for(int n=0; n<DISPLAY_CHIP_NUM; n++) send_byte_spi_1(data[n]);
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
