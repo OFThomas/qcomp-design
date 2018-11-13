@@ -86,7 +86,7 @@ extern "C" {
     int setup_io(void);
     
     /// @brief Set external variable RGB LEDs
-    void setup_external_leds();
+    void setup_external_leds(void);
     
     /// @brief Turn a particular LED on or off
     /// @param color 
@@ -133,7 +133,7 @@ extern "C" {
      * Don't use this function to write to LEDs -- use the set_external_led
      * function
      */
-    int write_display_driver();
+    int write_display_driver(void);
     
     /**
      * @param led_index
@@ -164,13 +164,13 @@ extern "C" {
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */
-    int led_cycle_test();
+    int led_cycle_test(void);
     
     /**
      * @brief Update the buttons array (see declaration above) 
      * 
      */
-    int read_external_buttons(); 
+    int read_external_buttons(void); 
     
 #ifdef	__cplusplus
 }

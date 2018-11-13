@@ -151,11 +151,9 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         /// @todo turn on all the LEDs back on
         for (int i = 0; i < LED_NUM; i++){
             update_display_buffer(i, 1, 1, 1);
-            write_display_driver(display_buf);
+            write_display_driver();
             /// Reset all the counters
-            led[i].n_R = 0;
-            led[i].n_G = 0;
-            led[i].n_B = 0;
+            led[i].n_R = led[i].n_G = led[i].n_B = 0;
         }
     }
     
@@ -167,7 +165,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 }
 
 /// @brief Set external variable RGB LEDs
-void setup_external_leds() {
+void setup_external_leds(void) {
     /// Setup up external LED lines
     extern LED led[LED_NUM];
 
@@ -210,7 +208,7 @@ void setup_external_leds() {
 }
 
 /// @brief Stop LEDs flashing
-void stop_external_leds() {
+void stop_external_leds(void) {
     T4CONbits.TON = 0; // Turn timer 4 off   
 }
 
@@ -347,7 +345,7 @@ int update_display_buffer(int index, int R, int G, int B) {
  *
  * LE(ED1) and OE(ED2) will be on Port D 
  */
-int write_display_driver() {
+int write_display_driver(void) {
     /// Global variables
     extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
     // Write the display buffer to the device using SPI
@@ -432,7 +430,7 @@ int set_external_led(int index,
 * @todo read buttons
 */
 #define BTN_CHIP_NUM 2
-int read_external_buttons() {
+int read_external_buttons(void) {
     // Bring SH low momentarily
     LATD &= ~(1 << SH); /// SH pin
     unsigned long int n = 0;
@@ -458,7 +456,7 @@ int read_external_buttons() {
  * @brief Loop to cycle through LEDs 0 - 15
  *
  */
-int led_cycle_test() {
+int led_cycle_test(void) {
     unsigned int counter = 0;
     int step = 0;
     int flag = 0;
