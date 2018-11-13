@@ -65,16 +65,15 @@ extern "C" {
      * The counters are used by a timer interrupt service routine pulse the
      * RGB LEDs at a specified rate.
      * 
+     * The position of the LED lines are contained in an array
+     * 
      * The type of the counter is _Fract to facilitate easy comparison with
      * the N_* variables which used the fractional type.
      */
     typedef struct {
-        int R_line; /// The line number for red
-        int G_line; /// the line number for green
-        int B_line; /// The line number for blue
-        int R_chip; /// The line number for red
-        int G_chip; /// the line number for green
-        int B_chip; /// The line number for blue
+        int R[2]; /// Red mapping array: [chip number, line number]
+        int G[2]; /// Green mapping array
+        int B[2]; /// Blue mapping array
         unsigned _Fract N_R; /// The R brightness
         unsigned _Fract N_G; /// The G brightness
         unsigned _Fract N_B; /// The B brightness

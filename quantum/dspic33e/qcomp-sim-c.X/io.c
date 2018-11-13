@@ -78,8 +78,8 @@ int setup_io(void) {
 /// @param led_global  Global LED strobing state parameter
 LED_GLOBAL led_global = {0};
 
-/// The LED array. Not to be used globally
-LED led[LED_NUM] = {0}; 
+/// The LED array 
+LED led[LED_NUM]; 
 
 #define DISPLAY_CHIP_NUM 2
 /// Display buffer to be written to display driver
@@ -169,22 +169,23 @@ void setup_external_leds() {
     extern LED led[LED_NUM];
 
     /// Initialise LED lines
-    /// channels       /// Byte numbers
-    led[0].R_line = 4; led[0].R_chip = 0;
-    led[0].G_line = 2; led[0].G_chip = 0;
-    led[0].B_line = 3; led[0].B_chip = 0;
     
-    led[1].R_line = 5; led[1].R_chip = 0;
-    led[1].G_line = 6; led[1].G_chip = 0;
-    led[1].B_line = 7; led[1].B_chip = 0;
+    
+    led[0].R[1] = 4; led[0].R[0] = 0;
+    led[0].G[1] = 2; led[0].G[0] = 0;
+    led[0].B[1] = 3; led[0].B[0] = 0;
+    
+    led[1].R[1] = 5; led[1].R[0] = 0;
+    led[1].G[1] = 6; led[1].G[0] = 0;
+    led[1].B[1] = 7; led[1].B[0] = 0;
 
-    led[2].R_line = 2; led[2].R_chip = 1;
-    led[2].G_line = 3; led[2].G_chip = 1;
-    led[2].B_line = 4; led[2].B_chip = 1;
+    led[2].R[1] = 2; led[2].R[0] = 1;
+    led[2].G[1] = 3; led[2].G[0] = 1;
+    led[2].B[1] = 4; led[2].B[0] = 1;
     
-    led[3].R_line = 5; led[3].R_chip = 1;
-    led[3].G_line = 6; led[3].G_chip = 1;
-    led[3].B_line = 7; led[3].B_chip = 1;
+    led[3].R[1] = 5; led[3].R[0] = 1;
+    led[3].G[1] = 6; led[3].G[0] = 1;
+    led[3].B[1] = 7; led[3].B[0] = 1;
     
     /// Initialise parameters to zero
     for (int i = 0; i < LED_NUM; i++) {
@@ -316,22 +317,16 @@ int update_display_buffer(int index, int R, int G, int B) {
     // Global variables
     extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
     extern LED led[LED_NUM]; // @todo hmmmmmm! ...
-    // Which byte to modify
-    int byte_num;
-    
-    // Set or clear the R line
-    byte_num = 0;
-    // for(int i=led[index].R; i >= 8; i -= 8) byte_num ++;
 
-    if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
-    else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
+    if(R==0) display_buf[led[index].R[0]] &= ~(1 << led[index].R[1]);
+    else display_buf[led[index].R[0]] |= (1 << led[index].R[1]);
     
     
-    if(G==0) display_buf[led[index].G_chip] &= ~(1 << led[index].G_line);
-    else display_buf[led[index].G_chip] |= (1 << led[index].G_line);
+    if(G==0) display_buf[led[index].G[0]] &= ~(1 << led[index].G[1]);
+    else display_buf[led[index].G[0]] |= (1 << led[index].G[1]);
     
-    if(B==0) display_buf[led[index].B_chip] &= ~(1 << led[index].B_line);
-    else display_buf[led[index].B_chip] |= (1 << led[index].B_line);
+    if(B==0) display_buf[led[index].B[0]] &= ~(1 << led[index].B[1]);
+    else display_buf[led[index].B[0]] |= (1 << led[index].B[1]);
     
     return 0;
 }

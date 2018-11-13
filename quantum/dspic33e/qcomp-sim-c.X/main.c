@@ -69,12 +69,6 @@ int main(void) {
      * mapping of indices to LED lines in the display driver will be in the 
      * io.h file. 
      */ 
-    _Fract R = 1; // Colours
-    _Fract G = 0;
-    _Fract B = 0;
-    int led_index = 1; // LED number
-    // Set RGB LED number 2
-    //set_external_led(led_index, R, G, B);
 
     CVector state_v;
     
