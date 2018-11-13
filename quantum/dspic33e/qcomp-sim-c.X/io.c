@@ -167,37 +167,22 @@ void setup_external_leds() {
     extern LED led[LED_NUM];
 
     /// Initialise LED lines
-    /// channels
-    led[0].R_line = 4;
-    led[0].G_line = 2;
-    led[0].B_line = 3;
+    /// channels       /// Byte numbers
+    led[0].R_line = 4; led[0].R_chip = 0;
+    led[0].G_line = 2; led[0].G_chip = 0;
+    led[0].B_line = 3; led[0].B_chip = 0;
     
-    led[1].R_line = 5;
-    led[1].G_line = 6;
-    led[1].B_line = 7;
-    // byte number
-    led[0].R_chip = 0;
-    led[0].G_chip = 0;
-    led[0].B_chip = 0;
+    led[1].R_line = 5; led[1].R_chip = 0;
+    led[1].G_line = 6; led[1].G_chip = 0;
+    led[1].B_line = 7; led[1].B_chip = 0;
+
+    led[2].R_line = 2; led[2].R_chip = 1;
+    led[2].G_line = 3; led[2].G_chip = 1;
+    led[2].B_line = 4; led[2].B_chip = 1;
     
-    led[1].R_chip = 0;
-    led[1].G_chip = 0;
-    led[1].B_chip = 0;
-    
-    led[2].R_line = 2;
-    led[2].G_line = 3;
-    led[2].B_line = 4;
-    
-    led[3].R_line = 5;
-    led[3].G_line = 6;
-    led[3].B_line = 7;
-    
-    led[2].R_chip = 1;
-    led[2].G_chip = 1;
-    led[2].B_chip = 1;
-    led[3].R_chip = 1;
-    led[3].G_chip = 1;
-    led[3].B_chip = 1;
+    led[3].R_line = 5; led[3].R_chip = 1;
+    led[3].G_line = 6; led[3].G_chip = 1;
+    led[3].B_line = 7; led[3].B_chip = 1;
     
     /// Turn all LEDs off
     for (int n = 0; n < LED_NUM; n++)
