@@ -72,13 +72,6 @@ int setup_io(void) {
     /// set CLK_INH high while buttons are pressed
     LATD |= (1 << CLK_INH);
     
-    /// Setup up external LED lines
-    extern LED led[LED_NUM];
-    led[0].R = 2; led[0].R = 3; led[0].R = 4; 
-    led[1].R = 5; led[1].R = 6; led[1].R = 7; 
-    led[2].R = 10; led[1].R = 11; led[1].R = 12;     
-    led[3].R = 13; led[1].R = 14; led[1].R = 15; 
-    
     return 0;
 }
 
@@ -86,11 +79,11 @@ int setup_io(void) {
 LED_GLOBAL led_global = {0};
 
 /// The LED array. Not to be used globally
-LED led[LED_NUM]; 
+LED led[LED_NUM] = {0}; 
 
 #define DISPLAY_CHIP_NUM 2
 /// Display buffer to be written to display driver
-int display_buf[DISPLAY_CHIP_NUM];
+int display_buf[DISPLAY_CHIP_NUM] = {0};
 
 /** @brief Counter for the interrupt service routine _T5Interrupt
  * 
@@ -100,8 +93,8 @@ int display_buf[DISPLAY_CHIP_NUM];
  * supported) The limit is not 1 because _Fract types do not go up to 1.
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0; /// Counter resolution
-unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
+unsigned _Fract isr_res = 0.1; /// Counter resolution
+unsigned _Fract isr_limit = 0.8; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
  * 
@@ -123,21 +116,23 @@ unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
  * corresponding LED line. Once the 
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
-    
+    extern LED led[LED_NUM];
     // Check all the LED counters
-    int rgb_update[3] = {0,0,0};
-    for(int n=0; n<LED_NUM; n++) {
+    int rgb_update[3] = {1,1,1};
+    for(int i = 0; i < LED_NUM; i++) {
         // Reset the tmp variable to zero
         for(int m=0; m<3; m++) rgb_update[m] = 0;
         // Check if the RGB lines need to change
-        if(led[n].n_R > led[n].N_R) rgb_update[0] = 1; 
-        else led[n].n_R += isr_res; /// Increment the LED RGB counter
-        if(led[n].n_G > led[n].N_G) rgb_update[1] = 1;
-        else led[n].n_G += isr_res; /// Increment the LED RGB counter
-        if(led[n].n_B > led[n].N_B) rgb_update[2] = 1;
-        else led[n].n_B += isr_res; /// Increment the LED RGB counter
+        /// when counter is reached turn led OFF rgb_update=0
+        if(led[i].n_R > led[i].N_R) rgb_update[0] = 0; 
+        else led[i].n_R += isr_res; /// Increment the LED RGB counter
+        if(led[i].n_G > led[i].N_G) rgb_update[1] = 0;
+        else led[i].n_G += isr_res; /// Increment the LED RGB counter
+        if(led[i].n_B > led[i].N_B) rgb_update[2] = 0;
+        else led[i].n_B += isr_res; /// Increment the LED RGB counter
         // Update the display buffer
-        update_display_buffer(n,rgb_update[0],rgb_update[1],rgb_update[2]);    
+        /// @todo pass in display_buf should be passed explicitly - check this performance 
+        update_display_buffer(i, rgb_update[0], rgb_update[1], rgb_update[2]);    
     }
     // Write the display buffer data to the display drivers
     write_display_driver(display_buf);
@@ -149,9 +144,13 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     if(isr_counter > isr_limit) {
         isr_counter = 0; /// Reset the counter
         /// @todo turn on all the LEDs back on
-        /// Reset all the counters
-        for (int n = 0; n < LED_NUM; n++) {
-            led[n].n_R = led[n].n_G = led[n].n_B = 0;
+        for (int i = 0; i < LED_NUM; i++){
+            update_display_buffer(i, 1, 1, 1);
+            write_display_driver(display_buf);
+            /// Reset all the counters
+            led[i].n_R = 0;
+            led[i].n_G = 0;
+            led[i].n_B = 0;
         }
     }
     
@@ -163,21 +162,60 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 }
 
 /// @brief Set external variable RGB LEDs
-void start_external_leds() {
+void setup_external_leds() {
+    /// Setup up external LED lines
+    extern LED led[LED_NUM];
+
+    /// Initialise LED lines
+    /// channels
+    led[0].R_line = 4;
+    led[0].G_line = 2;
+    led[0].B_line = 3;
+    
+    led[1].R_line = 5;
+    led[1].G_line = 6;
+    led[1].B_line = 7;
+    // byte number
+    led[0].R_chip = 0;
+    led[0].G_chip = 0;
+    led[0].B_chip = 0;
+    
+    led[1].R_chip = 0;
+    led[1].G_chip = 0;
+    led[1].B_chip = 0;
+    
+    led[2].R_line = 2;
+    led[2].G_line = 3;
+    led[2].B_line = 4;
+    
+    led[3].R_line = 5;
+    led[3].G_line = 6;
+    led[3].B_line = 7;
+    
+    led[2].R_chip = 1;
+    led[2].G_chip = 1;
+    led[2].B_chip = 1;
+    led[3].R_chip = 1;
+    led[3].G_chip = 1;
+    led[3].B_chip = 1;
+    
+    /// Turn all LEDs off
+    for (int n = 0; n < LED_NUM; n++)
+        set_external_led(n, 0, 0, 0);
+
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     // Set flashing period
     PR4 = 0x0000;
-    PR5 = 0x0080;
+    PR5 = 0x8000;
     // Turn timer 4 on
     T4CONbits.TON = 1;
 }
 
 /// @brief Stop LEDs flashing
-void stop_strobe() {
-    T4CONbits.TON = 0; // Turn timer 4 off
-    
+void stop_external_leds() {
+    T4CONbits.TON = 0; // Turn timer 4 off   
 }
 
 /// @brief Set an LED strobing
@@ -286,21 +324,20 @@ int update_display_buffer(int index, int R, int G, int B) {
     extern LED led[LED_NUM]; // @todo hmmmmmm! ...
     // Which byte to modify
     int byte_num;
+    
     // Set or clear the R line
     byte_num = 0;
-    for(int r=led[index].R; r >= 8; r -= 8) byte_num ++;
-    if(R==0) display_buf[byte_num] &= ~(1 << led[index].R);
-    else display_buf[byte_num] |= (1 << led[index].R);
-    // Set or clear the G line
-    byte_num = 0;
-    for(int r=led[index].G; r >= 8; r -= 8) byte_num ++;
-    if(G==0) display_buf[byte_num] &= ~(1 << led[index].G);
-    else display_buf[byte_num] |= (1 << led[index].G);
-    // Set or clear the B line
-    byte_num = 0;
-    for(int r=led[index].B; r >= 8; r -= 8) byte_num ++;
-    if(B==0) display_buf[byte_num] &= ~(1 << led[index].B);
-    else display_buf[byte_num] |= (1 << led[index].B);
+    // for(int i=led[index].R; i >= 8; i -= 8) byte_num ++;
+
+    if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
+    else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
+    
+    
+    if(G==0) display_buf[led[index].G_chip] &= ~(1 << led[index].G_line);
+    else display_buf[led[index].G_chip] |= (1 << led[index].G_line);
+    
+    if(B==0) display_buf[led[index].B_chip] &= ~(1 << led[index].B_line);
+    else display_buf[led[index].B_chip] |= (1 << led[index].B_line);
     
     return 0;
 }
@@ -366,7 +403,7 @@ int TLC591x_mode_switch(int mode) {
 }
 
 /**
- * 
+ * @brief Updates color properties of global led array
  * @param led_index
  * @param R red value between 0 & 1 
  * @param G green value between 0 & 1
@@ -378,8 +415,15 @@ int TLC591x_mode_switch(int mode) {
  * numbers between 0 and 1 (not including 1) indicating the amount of 
  * each color. The function returns 0 if successful and -1 otherwise.   
  */
-int set_external_led(int led_index, _Fract r, _Fract g, _Fract b) {
-    return 0; // Just for now -- proper function coming soon...
+int set_external_led(int index, 
+        unsigned _Fract R, 
+        unsigned _Fract G,
+        unsigned _Fract B) {
+    extern LED led[LED_NUM];
+    led[index].N_R = R;
+    led[index].N_G = G;
+    led[index].N_B = B;
+    return 0;
 }
 
 /** @brief Read external buttons

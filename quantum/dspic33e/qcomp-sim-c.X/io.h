@@ -37,6 +37,9 @@ extern "C" {
 /// COntrol lines for SNx4HC165 chip
 #define SH 5
 #define CLK_INH 8
+    
+/// The number of external LEDs  
+#define LED_NUM 4 
    
     /** @brief pin mappings
     // Pins for LE and OE on port D
@@ -66,25 +69,25 @@ extern "C" {
      * the N_* variables which used the fractional type.
      */
     typedef struct {
-        int R; /// The line number for red
-        int G; /// the line number for green
-        int B; /// The line number for blue
-        int S_R; /// The red led state
-        int S_G; /// the green led state
-        int S_B; /// The blue led state
-        _Fract N_R; /// The R brightness
+        int R_line; /// The line number for red
+        int G_line; /// the line number for green
+        int B_line; /// The line number for blue
+        int R_chip; /// The line number for red
+        int G_chip; /// the line number for green
+        int B_chip; /// The line number for blue
+        unsigned _Fract N_R; /// The R brightness
         unsigned _Fract N_G; /// The G brightness
         unsigned _Fract N_B; /// The B brightness
         unsigned _Fract n_R; /// Counter for R -- do not modify
         unsigned _Fract n_G; /// Counter for G -- do not modify
         unsigned _Fract n_B; /// Counter for B -- do not modify
     } LED;
-
-    
-#define LED_NUM 4 /// The number of LEDs
     
     /// Set up LEDs and buttons on port D 
     int setup_io(void);
+    
+    /// @brief Set external variable RGB LEDs
+    void setup_external_leds();
     
     /// @brief Turn a particular LED on or off
     /// @param color 
@@ -106,9 +109,6 @@ extern "C" {
     /// @brief Flash all the LEDs a number of times
     /// @param number
     void flash_all(int number);
-    
-    /// @brief Set external variable RGB LEDs
-    void start_external_leds();
     
     /// @brief Set an LED strobing
     /// @param color
@@ -149,7 +149,10 @@ extern "C" {
      * numbers between 0 and 1 (not including 1) indicating the amount of 
      * each color. The function returns 0 if successful and -1 otherwise.   
      */
-    int set_external_led(int led_index, _Fract r, _Fract g, _Fract b);
+    int set_external_led(int led_index,
+            unsigned _Fract R,
+            unsigned _Fract G,
+            unsigned _Fract B);
 
     /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
     /// @param device input LED number to change

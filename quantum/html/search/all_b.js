@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['write_5fdisplay_5fdriver',['write_display_driver',['../io_8c.html#a4fb3be99e715a9a88ba1d1a670ea0ab4',1,'write_display_driver(int data):&#160;io.c'],['../io_8h.html#a4fb3be99e715a9a88ba1d1a670ea0ab4',1,'write_display_driver(int data):&#160;io.c']]]
+  ['q15',['Q15',['../quantum_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92',1,'quantum.h']]],
+  ['quantum_2ec',['quantum.c',['../quantum_8c.html',1,'']]],
+  ['quantum_2eh',['quantum.h',['../quantum_8h.html',1,'']]]
 ];

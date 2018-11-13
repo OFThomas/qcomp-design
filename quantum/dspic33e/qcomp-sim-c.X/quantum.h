@@ -53,12 +53,14 @@ extern "C" {
     /// Initialise a real state vector
     /// @param V vector
     /// @param s state 
+    /// @return nothing
     void init_state(Vector V, State s);
     
     /// Initialise a complex state vector
     /// @param V complex vector
     /// @param s complex state
-    void init_state_cmplx(CVector V, State s);
+    /// @return returns 0
+    int init_state_cmplx(CVector V, State s);
   
     /// 2x2 matrix multiplication
     /// @param M real matrix 

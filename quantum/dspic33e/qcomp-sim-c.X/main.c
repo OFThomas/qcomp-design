@@ -46,6 +46,9 @@ int main(void) {
     
     // Setup SPI interface
     setup_spi();
+    
+    // Setup the external LEDs
+    setup_external_leds();
 
     /**
      * @brief Reading button state
@@ -66,14 +69,24 @@ int main(void) {
      * mapping of indices to LED lines in the display driver will be in the 
      * io.h file. 
      */ 
-    _Fract R = 0.6; // Colours
-    _Fract G = 0.2;
-    _Fract B = 0.1;
-    int led_index = 2; // LED number
+    _Fract R = 1; // Colours
+    _Fract G = 0;
+    _Fract B = 0;
+    int led_index = 1; // LED number
     // Set RGB LED number 2
-    set_external_led(led_index, R, G, B);
+    //set_external_led(led_index, R, G, B);
 
-
+    CVector state_v;
+    
+    init_state_cmplx(state_v, ZERO);
+    // led 0, r=0, b=0, g=0
+   set_external_led(0, 0.8, 0, 0);
+    
+    extern LED led[LED_NUM];
+    
+        
     while(1==1);
+
+    
     return 0;
 }

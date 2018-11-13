@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['read_5fbtn',['read_btn',['../io_8c.html#a5c2b76dada8dc8a2d65249074843867c',1,'read_btn(int btn):&#160;io.c'],['../io_8h.html#a5c2b76dada8dc8a2d65249074843867c',1,'read_btn(int btn):&#160;io.c']]],
-  ['read_5fbyte_5fspi_5f3',['read_byte_spi_3',['../spi_8c.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316',1,'read_byte_spi_3():&#160;spi.c'],['../spi_8h.html#a8fc6c7d53d6ec7bd0ddd4e23c550e316',1,'read_byte_spi_3():&#160;spi.c']]],
-  ['read_5fexternal_5fbuttons',['read_external_buttons',['../io_8c.html#adb3900100235e97827ad327ea028bd1d',1,'io.c']]],
-  ['red',['red',['../io_8h.html#ab435487e41a1d42d4379464e35f873b4',1,'io.h']]]
+  ['le',['LE',['../io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7',1,'io.h']]],
+  ['led',['LED',['../structLED.html',1,'LED'],['../io_8c.html#a11ae3bccffd844c51949ca06b0b52279',1,'led():&#160;io.c']]],
+  ['led_5fcolor_5fint',['led_color_int',['../io_8c.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c'],['../io_8h.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c']]],
+  ['led_5fcycle_5ftest',['led_cycle_test',['../io_8c.html#a47d16173e3ee9b856287fac47763fefa',1,'led_cycle_test():&#160;io.c'],['../io_8h.html#a47d16173e3ee9b856287fac47763fefa',1,'led_cycle_test():&#160;io.c']]],
+  ['led_5fglobal',['LED_GLOBAL',['../structLED__GLOBAL.html',1,'LED_GLOBAL'],['../io_8c.html#a3240a0ec7160d6bae6cc4a7bab8494c7',1,'led_global():&#160;io.c']]],
+  ['led_5fnum',['LED_NUM',['../io_8h.html#a77440c4104ae0a7368936ff87a3d3260',1,'io.h']]],
+  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
 ];
