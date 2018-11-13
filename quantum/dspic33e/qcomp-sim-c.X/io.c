@@ -78,7 +78,7 @@ int setup_io(void) {
 /// @param led_global  Global LED strobing state parameter
 LED_GLOBAL led_global = {0};
 
-/// The LED array 
+/// The LED array -- global in this file
 LED led[LED_NUM]; 
 
 #define DISPLAY_CHIP_NUM 2
@@ -122,22 +122,21 @@ const unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
  * on and off repeatedly with adjustable duty cycles.
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
-    extern LED led[LED_NUM];
-    int rgb_update[3] = {1,1,1};
+
     /// Loop over all the LEDs (the index i). 
     for(int i = 0; i < LED_NUM; i++) {
-        // Reset the tmp variable rgb_update to 1 (all LEDs ON)
-        for(int m=0; m<3; m++) rgb_update[m] = 1;
+        // Define a tmp variable which starts off as 1 (LED ON)
+        int tmp[3] = {1,1,1};
         // Check if the RGB lines need to change
         /// when counter is reached turn led OFF rgb_update=0
-        if(led[i].n_R > led[i].N_R) rgb_update[0] = 0; 
+        if(led[i].n_R > led[i].N_R) tmp[0] = 0; 
         else led[i].n_R += isr_res; /// Increment the LED RGB counter
-        if(led[i].n_G > led[i].N_G) rgb_update[1] = 0;
+        if(led[i].n_G > led[i].N_G) tmp[1] = 0;
         else led[i].n_G += isr_res; /// Increment the LED RGB counter
-        if(led[i].n_B > led[i].N_B) rgb_update[2] = 0;
+        if(led[i].n_B > led[i].N_B) tmp[2] = 0;
         else led[i].n_B += isr_res; /// Increment the LED RGB counter
         // Update the display buffer
-        update_display_buffer(i, rgb_update[0], rgb_update[1], rgb_update[2]);    
+        update_display_buffer(i, tmp[0], tmp[1], tmp[2]);    
     }
     // Write the display buffer data to the display drivers
     write_display_driver();
@@ -148,13 +147,14 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     // Check if counter has reached the limit
     if(isr_counter > isr_limit) {
         isr_counter = 0; /// Reset the counter
-        /// @todo turn on all the LEDs back on
+        /// Turn on all the LEDs back on
         for (int i = 0; i < LED_NUM; i++){
             update_display_buffer(i, 1, 1, 1);
-            write_display_driver();
             /// Reset all the counters
             led[i].n_R = led[i].n_G = led[i].n_B = 0;
         }
+        // Update the display driver
+        write_display_driver();
     }
     
     // Reset the timer
@@ -166,8 +166,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 
 /// @brief Set external variable RGB LEDs
 void setup_external_leds(void) {
-    /// Setup up external LED lines
-    extern LED led[LED_NUM];
 
     /// Initialise LED lines
     led[0].R[1] = 4; led[0].R[0] = 0;
@@ -312,20 +310,19 @@ void leds_off(void) {
  * if the DISPLAY_CHIP_NUM is not set correctly or the LED RGB lines are 
  * wrong. (Or if there are just bugs.)
  */
-int update_display_buffer(int index, int R, int G, int B) {
-    // Global variables
-    extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
-    extern LED led[LED_NUM]; // @todo hmmmmmm! ...
+int update_display_buffer(int n, int R, int G, int B) {
 
-    if(R==0) display_buf[led[index].R[0]] &= ~(1 << led[index].R[1]);
-    else display_buf[led[index].R[0]] |= (1 << led[index].R[1]);
+    /// Set or clear the red LED of the nth LED 
+    if(R==0) display_buf[led[n].R[0]] &= ~(1 << led[n].R[1]);
+    else display_buf[led[n].R[0]] |= (1 << led[n].R[1]);
     
+    /// Set or clear the red LED of the nth LED
+    if(G==0) display_buf[led[n].G[0]] &= ~(1 << led[n].G[1]);
+    else display_buf[led[n].G[0]] |= (1 << led[n].G[1]);
     
-    if(G==0) display_buf[led[index].G[0]] &= ~(1 << led[index].G[1]);
-    else display_buf[led[index].G[0]] |= (1 << led[index].G[1]);
-    
-    if(B==0) display_buf[led[index].B[0]] &= ~(1 << led[index].B[1]);
-    else display_buf[led[index].B[0]] |= (1 << led[index].B[1]);
+    /// Set or clear the red LED of the nth LED
+    if(B==0) display_buf[led[n].B[0]] &= ~(1 << led[n].B[1]);
+    else display_buf[led[n].B[0]] |= (1 << led[n].B[1]);
     
     return 0;
 }
