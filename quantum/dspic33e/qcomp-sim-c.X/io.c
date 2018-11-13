@@ -324,7 +324,14 @@ int update_display_buffer(int index, int R, int G, int B) {
 
     if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
     else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
-
+    
+    if(R==0) display_buf[led[index].G_chip] &= ~(1 << led[index].G_line);
+    else display_buf[led[index].G_chip] |= (1 << led[index].G_line);
+    
+    if(R==0) display_buf[led[index].B_chip] &= ~(1 << led[index].B_line);
+    else display_buf[led[index].B_chip] |= (1 << led[index].B_line);
+    
+    
     return 0;
 }
   
