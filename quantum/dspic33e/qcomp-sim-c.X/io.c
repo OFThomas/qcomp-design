@@ -154,8 +154,8 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     IFS1bits.T5IF = 0;
 }
 
-/// @brief Set LEDs flashing
-void start_strobe() {
+/// @brief Set external variable RGB LEDs
+void start_external_leds() {
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;

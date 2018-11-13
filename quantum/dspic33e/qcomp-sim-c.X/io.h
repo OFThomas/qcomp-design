@@ -107,8 +107,8 @@ extern "C" {
     /// @param number
     void flash_all(int number);
     
-    /// Set LEDs flashing indefinitely
-    void start_strobe();
+    /// @brief Set external variable RGB LEDs
+    void start_external_leds();
     
     /// @brief Set an LED strobing
     /// @param color

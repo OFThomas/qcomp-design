@@ -235,6 +235,7 @@ void dim_leds() {
 }
 
 // Multi LED strobing test
+/* This won't work anymore
 void multi_led_strobe() { 
     // Start strobing
     start_strobe();
@@ -271,3 +272,4 @@ void multi_led_strobe() {
         
     }
 }
+*/
