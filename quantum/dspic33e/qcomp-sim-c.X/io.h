@@ -37,6 +37,9 @@ extern "C" {
 /// COntrol lines for SNx4HC165 chip
 #define SH 5
 #define CLK_INH 8
+    
+/// The number of external LEDs  
+#define LED_NUM 4 
    
     /** @brief pin mappings
     // Pins for LE and OE on port D
@@ -76,9 +79,6 @@ extern "C" {
         unsigned _Fract n_G; /// Counter for G -- do not modify
         unsigned _Fract n_B; /// Counter for B -- do not modify
     } LED;
-
-    
-#define LED_NUM 4 /// The number of LEDs
     
     /// Set up LEDs and buttons on port D 
     int setup_io(void);

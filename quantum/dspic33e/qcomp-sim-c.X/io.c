@@ -93,7 +93,7 @@ int display_buf[DISPLAY_CHIP_NUM];
  * supported) The limit is not 1 because _Fract types do not go up to 1.
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0; /// Counter resolution
+unsigned _Fract isr_res = 0.01; /// Counter resolution
 unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
@@ -119,7 +119,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     
     // Check all the LED counters
     int rgb_update[3] = {0,0,0};
-    for(int n=0; n<LED_NUM; n++) {
+    for(int n = 0; n < LED_NUM; n++) {
         // Reset the tmp variable to zero
         for(int m=0; m<3; m++) rgb_update[m] = 0;
         // Check if the RGB lines need to change
@@ -130,7 +130,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         if(led[n].n_B > led[n].N_B) rgb_update[2] = 1;
         else led[n].n_B += isr_res; /// Increment the LED RGB counter
         // Update the display buffer
-        update_display_buffer(n,rgb_update[0],rgb_update[1],rgb_update[2]);    
+        update_display_buffer(n, rgb_update[0], rgb_update[1], rgb_update[2]);    
     }
     // Write the display buffer data to the display drivers
     write_display_driver(display_buf);
