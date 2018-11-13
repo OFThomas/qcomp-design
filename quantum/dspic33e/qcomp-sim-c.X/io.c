@@ -119,10 +119,10 @@ unsigned _Fract isr_limit = 0.8; /// The max value for isr_counter
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     extern LED led[LED_NUM];
-    // Check all the LED counters
     int rgb_update[3] = {1,1,1};
+    /// Loop over all the LEDs (the index i). 
     for(int i = 0; i < LED_NUM; i++) {
-        // Reset the tmp variable to 1 (All LEDs ON)
+        // Reset the tmp variable rgb_update to 1 (all LEDs ON)
         for(int m=0; m<3; m++) rgb_update[m] = 1;
         // Check if the RGB lines need to change
         /// when counter is reached turn led OFF rgb_update=0
@@ -133,11 +133,10 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         if(led[i].n_B > led[i].N_B) rgb_update[2] = 0;
         else led[i].n_B += isr_res; /// Increment the LED RGB counter
         // Update the display buffer
-        /// @todo pass in display_buf should be passed explicitly - check this performance 
         update_display_buffer(i, rgb_update[0], rgb_update[1], rgb_update[2]);    
     }
     // Write the display buffer data to the display drivers
-    write_display_driver(display_buf);
+    write_display_driver();
     
     // Add an increment to the ISR counter
     isr_counter += isr_res; 
@@ -169,8 +168,6 @@ void setup_external_leds() {
     extern LED led[LED_NUM];
 
     /// Initialise LED lines
-    
-    
     led[0].R[1] = 4; led[0].R[0] = 0;
     led[0].G[1] = 2; led[0].G[0] = 0;
     led[0].B[1] = 3; led[0].B[0] = 0;
@@ -330,28 +327,29 @@ int update_display_buffer(int index, int R, int G, int B) {
     
     return 0;
 }
-  
-  
+
 /** 
  * @brief Turn on an LED via the external display driver
-//
-// On power on, the chip (TLC591x) is in normal mode which means that
-// the clocked bytes sent to the chip set which LEDs are on and which 
-// are off (as opposed to setting the current of the LEDs)
-//
-// To write to the device, use the SPI module to write a byte to the
-// SDI 1 pin on the chip. Then momentarily set the LE(ED1) pin to latch
-// the data onto the output register. Finally, bring the OE(ED2) pin low
-// to enable the current sinking to turn on the LEDs. See the timing diagram 
-// on page 17 of the datasheet for details.  
-//
-// LE(ED1) and OE(ED2) will be on Port D 
-* @param data[] an array of bytes to send to LED driver
-*/
-int write_display_driver(int * data) {
-    // Write data to the device using SPI
-    /// @todo Does the high byte or low byte go first?
-    for(int n=0; n<DISPLAY_CHIP_NUM; n++) send_byte_spi_1(data[n]);
+ *
+ * On power on, the chip (TLC591x) is in normal mode which means that
+ * the clocked bytes sent to the chip set which LEDs are on and which 
+ * are off (as opposed to setting the current of the LEDs)
+ *
+ * To write to the device, use the SPI module to write a byte to the
+ * SDI 1 pin on the chip. Then momentarily set the LE(ED1) pin to latch
+ * the data onto the output register. Finally, bring the OE(ED2) pin low
+ * to enable the current sinking to turn on the LEDs. See the timing diagram 
+ * on page 17 of the datasheet for details.  
+ *
+ * LE(ED1) and OE(ED2) will be on Port D 
+ */
+int write_display_driver() {
+    /// Global variables
+    extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
+    // Write the display buffer to the device using SPI
+    for (int n = 0; n < DISPLAY_CHIP_NUM; n++) 
+        send_byte_spi_1(display_buf[n]);
+    
     // Bring LE high momentarily
     LATD |= (1 << LE); /// Set LE(ED1) pin
     unsigned long int n = 0;
@@ -368,25 +366,25 @@ int write_display_driver(int * data) {
 
 /** 
  * @brief Switch between normal and special mode
-//
-// The mode switch for the TLC591x chip is a bit tricky because it 
-// involves synchronising the control lines LE(ED1) and OE(ED2) on Port D 
-// with the SPI 1 clock. To initiate a mode switch, OE(ED2) must be brought 
-// low for one clock cycle, and then the value of LE(ED1) two clock cycles
-// later determines the new mode. See the diagrams on page 19 of the
-// datasheet
-//
-// So long as the timing is not strict, we can probably implement the
-// mode switch by starting a non-blocking transfer of 1 byte to the device
-// (which starts the SPI 1 clock), followed by clearing OE(ED2) momentarily 
-// and then setting the value of LE(ED1) as required. So long as those 
-// two things happen before the SPI 1 clock finishes the procedure will
-// probably work. (The reason is the lack of max timing parameters on page
-// 9 for the setup and hold time for ED1 and ED2, which can therefore 
-// presumably be longer than one clock cycle.)
-* @param mode 
-* @todo mode switcher for LED Driver
-*/
+ *
+ * The mode switch for the TLC591x chip is a bit tricky because it 
+ * involves synchronising the control lines LE(ED1) and OE(ED2) on Port D 
+ * with the SPI 1 clock. To initiate a mode switch, OE(ED2) must be brought 
+ * low for one clock cycle, and then the value of LE(ED1) two clock cycles
+ * later determines the new mode. See the diagrams on page 19 of the
+ * datasheet
+ *
+ * So long as the timing is not strict, we can probably implement the
+ * mode switch by starting a non-blocking transfer of 1 byte to the device
+ * (which starts the SPI 1 clock), followed by clearing OE(ED2) momentarily 
+ * and then setting the value of LE(ED1) as required. So long as those 
+ * two things happen before the SPI 1 clock finishes the procedure will
+ * probably work. (The reason is the lack of max timing parameters on page
+ * 9 for the setup and hold time for ED1 and ED2, which can therefore 
+ * presumably be longer than one clock cycle.)
+ * @param mode 
+ * @todo mode switcher for LED Driver
+ */
 int TLC591x_mode_switch(int mode) {
     return 0;
 }

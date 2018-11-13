@@ -129,12 +129,11 @@ extern "C" {
     int update_display_buffer(int led_index, int R, int G, int B);
     
     /** @brief Send a byte to the display driver
-     * @param data
      * 
      * Don't use this function to write to LEDs -- use the set_external_led
      * function
      */
-    int write_display_driver(int * data);
+    int write_display_driver();
     
     /**
      * @param led_index
