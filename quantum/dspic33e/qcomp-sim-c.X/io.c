@@ -301,22 +301,10 @@ int update_display_buffer(int index, int R, int G, int B) {
     // Set or clear the R line
     byte_num = 0;
     // for(int i=led[index].R; i >= 8; i -= 8) byte_num ++;
-    
-<<<<<<< HEAD
+
     if(R==0) display_buf[led[index].R_chip] &= ~(1 << led[index].R_line);
     else display_buf[led[index].R_chip] |= (1 << led[index].R_line);
-        
-=======
-    if(R==0) display_buf[byte_num] &= ~(1 << led[index].R);
-    else display_buf[byte_num] |= (1 << led[index].R);
-    
-    if(G==0) display_buf[byte_num] &= ~(1 << led[index].G);
-    else display_buf[byte_num] |= (1 << led[index].G);
-    
-    if(B==0) display_buf[byte_num] &= ~(1 << led[index].B);
-    else display_buf[byte_num] |= (1 << led[index].B);
-    
->>>>>>> c03ee844e8acb9cb300a13f7bc3a9586b55f9ee2
+
     return 0;
 }
   
