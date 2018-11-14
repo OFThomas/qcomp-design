@@ -72,42 +72,34 @@ int main(void) {
      */ 
 
     CVector3 state_vect;
-    
-<<<<<<< HEAD
-    while(1==1){
+/*
+    while (1 == 1) {
 
-    qubit_test_3(state_vect);
-    qubit_display_3(state_vect);
-=======
-    //qubit_test_3(state_vect);
-    //qubit_display_3(state_vect);
->>>>>>> afd67a3bad6d7677118e85e9d711fdcde5299320
-    
-    int counter=0;
-    while(counter<1000000){
-        counter++;
+        qubit_test_3(state_vect);
+        qubit_display_3(state_vect);
+
+        long int counter = 0;
+        while (counter < 1000000) {
+            counter++;
+        }
+        CMatrix2 X, Y, Z, H;
+        make_ops_cmplx(X, Y, Z, H);
+
+        qubit_op_3(0, X, state_vect);
+        qubit_display_3(state_vect);
+
+        counter = 0;
+        while (counter < 1000000) {
+            counter++;
+        }
+        
     }
+    */
+    
+    Complex state[16]; // Make a 4 qubit state vector -- length 16 
+    
+    
 
-    qubit_op_3(0,X,state_vect ); 
-    qubit_display_3(state_vect);
-    
-    }
-    //set_external_led(0, 0.8, 0, 0);
-    
-<<<<<<< HEAD
-=======
-    //while(1==1);
->>>>>>> afd67a3bad6d7677118e85e9d711fdcde5299320
-
-    //init_state_cmplx(state_v, ZERO);
-    
-    
-    
-    // led 0, r=0, b=0, g=0
-    //for(int i=0; i<100; i++);
-    //while(1 == 1) {
-    //    set_external_led(0, 0.5, 0, 0);
-    //}
     while (1 == 1) {
         for (_Fract i = 0; i < 0.99; i += 0.001) {
             long int counter = 0;

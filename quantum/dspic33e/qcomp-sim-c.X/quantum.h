@@ -13,7 +13,7 @@
 extern "C" {
 #endif
 
-#define one_Q15 0.9999694824
+#define ONE_Q15 0.9999694824
 
 #include "p33EP512MU810.h"
 #include "xc.h"
@@ -39,6 +39,9 @@ extern "C" {
     /// cvector for 3 qubits 
     /// 2^3 complex numbers  
     typedef Q15 CVector3[8][2];
+    
+    // General state vector
+    typedef Q15 CVectorN[][2];
 
     /// Create complex X, Y, Z and H
     /// @param X Pauli X c-Matrix
@@ -46,6 +49,10 @@ extern "C" {
     /// @param H Hadamard c-matrix
     /// @param Y Pauli Y c-matrix
     void make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H);
+    
+    /// Initialise state to the vacuum (zero apart from the first position)
+    /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
+    void zero_state(Complex state[], int N);
     
     /// Initialise a complex state vector
     /// @param V complex vector

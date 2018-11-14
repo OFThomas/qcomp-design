@@ -9,29 +9,18 @@
 #include "algo.h"
 #include <math.h>
 
-/// initialise to vacuum
-void qubit_test_3(CVector3 state) {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 2; j++) {
-            state[i][j] = 0.0;
-        }
-    }
-    state[0][0] = 0.9999694824;
-    //state[0][0] = 0.707;
-    //state[1][0] = 0.707;
-}
 
 /// get state amplitudes
-
-void qubit_display_3(CVector3 state) {
+/// Here N is the number of qubits
+void qubit_display(CVectorN state, int N) {
     Q15 zero_amp;
     Q15 one_amp;
     int index;
     int n_max;
     int j_max;
 
-    /// qubit 0, 1 and 2
-    for (int i = 0; i < 3; i++) {
+    /// qubit 0, 1, 2, ... N-1
+    for (int i = 0; i < N; i++) {
         zero_amp = 0;
         one_amp = 0;
         /// loop over n, 2^(current qubit)
@@ -63,8 +52,8 @@ void qubit_display_3(CVector3 state) {
 /// @param state state vector containing amplitudes 
 void qubit_op_3(int qubit, CMatrix2 op, CVector3 state) {
 
-Q15 temp1 = 0;
-Q15 temp2 = 0;
+//Q15 temp1 = 0;
+//Q15 temp2 = 0;
 
 // do row 1 of op onto all pairs of state vectors
 // e.g. qubit 0, pairs of values are
@@ -91,12 +80,12 @@ n_max = pow(2, qubit);
     /// Loop here for each contribution to the zero and one amplitude
     for (int n = 0; n < n_max; n++) {
         /// 2^(total qbits - current) 
-        j_max = pow(2, 2-i);
+        j_max = pow(2, 2-qubit);
 
         /// loop over j
         for (int j = 0; j < j_max; j++) {
             /// n + j * 2^(i+1)
-            index = n + (pow(2, i + 1) * j);
+            index = n + (pow(2, qubit + 1) * j);
             /// zeros n 
             //zero_amp += pow(state[index][0],2);
             /// ones index are always n+1 for zero amps 

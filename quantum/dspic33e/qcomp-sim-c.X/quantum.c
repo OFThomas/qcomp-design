@@ -82,6 +82,17 @@ int init_state_cmplx(CVector V, State s) {
     return 0;
 }
 
+/// Initialise state to the vacuum (zero apart from the first position)
+/// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
+void zero_state(Complex state[], int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < 2; j++) {
+            state[i][j] = 0.0;
+        }
+    }
+    state[0][0] = ONE_Q15;
+}
+
 // 2x2 complex matrix multiplication
 void mat_mul_cmplx(CMatrix2 M, CVector V, int i, int j) {
     Complex a, b, c, d;
