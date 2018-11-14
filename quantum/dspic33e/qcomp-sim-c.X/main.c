@@ -76,6 +76,13 @@ int main(void) {
     qubit_test_3(state_vect);
     qubit_display_3(state_vect);
     
+    int counter=0;
+    while(counter<1000000){
+        counter++;
+    }
+
+    qubit_op_3(0,X,state_vect ); 
+    qubit_display_3(state_vect);
     //set_external_led(0, 0.8, 0, 0);
     
     while(1==1);

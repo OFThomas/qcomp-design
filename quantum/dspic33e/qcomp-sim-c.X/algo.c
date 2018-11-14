@@ -78,14 +78,32 @@ Q15 temp2 = 0;
 // temp1 = a(000) + b(001) -> new (000) val
 // temp2 = c(000) + d(001) -> new (001) val
 
-int i;
-int j;
+int n_max;
+int j_max;
+int index;
 
-i=0;
-j=1;
+// qubit zero entries are adjacent 2^0
+// qubit 1 entries are 2^1 apart etc...
 
-mat_mul_cmplx(op, state, i, j);
+/// loop over n, 2^(current qubit)
+n_max = pow(2, qubit);
 
+    /// Loop here for each contribution to the zero and one amplitude
+    for (int n = 0; n < n_max; n++) {
+        /// 2^(total qbits - current) 
+        j_max = pow(2, 2-i);
+
+        /// loop over j
+        for (int j = 0; j < j_max; j++) {
+            /// n + j * 2^(i+1)
+            index = n + (pow(2, i + 1) * j);
+            /// zeros n 
+            //zero_amp += pow(state[index][0],2);
+            /// ones index are always n+1 for zero amps 
+            //one_amp += pow(state[index + n_max][0],2);
+            mat_mul_cmplx(op, state, index, index + n_max);
+        }
+    }
 }
 
 
