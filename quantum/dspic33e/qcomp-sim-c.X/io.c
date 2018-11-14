@@ -123,7 +123,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         bool R = (isr_counter > led[i].N_R);
         bool G = (isr_counter > led[i].N_G);
         bool B = (isr_counter > led[i].N_B);
-        update_display_buffer(i, R, G, B);
+        update_display_buffer(i, R, G, B); // Add changes to data buffer
     }
     
     // Add an increment to the ISR counter
@@ -133,7 +133,8 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         /// Reset the counter
         isr_counter = 0; 
         /// Turn on all the LEDs back on
-        for (int i = 0; i < LED_NUM; i++) update_display_buffer(i, 1, 1, 1);
+        for (int i = 0; i < LED_NUM; i++) 
+            update_display_buffer(i, 1, 1, 1); // Add changes to data buffer
     }
     
     // Write the display buffer data to the display drivers
