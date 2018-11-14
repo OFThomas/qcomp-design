@@ -50,6 +50,14 @@ extern "C" {
     /// for 4x4 matrix multiplication.
     void mat_mul(Complex M[2][2], Complex V[], int i, int j);
 
+    /** apply operator
+     * @param state state vector containing amplitudes 
+     * @param k qubit number to apply 2x2 matrix to
+     * @param N total number of qubits in the state
+     * @param op 2x2 operator to be applied
+     */
+    void qubit_op(Complex state[], int k, int N, Complex op[2][2]);
+    
     /**
      * @brief Display the state amplitudes on LEDs
      * @param state Pass in the state vector
