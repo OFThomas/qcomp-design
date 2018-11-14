@@ -74,9 +74,17 @@ int main(void) {
     
     init_state_cmplx(state_v, ZERO);
     // led 0, r=0, b=0, g=0
-    set_external_led(0, 0.8, 0, 0);
-   
-    while(1==1);
+    //for(int i=0; i<100; i++);
+    //while(1 == 1) {
+    //    set_external_led(0, 0.5, 0, 0);
+    //}
+    while(1==1) {
+        for(_Fract i=0; i<0.99; i+=0.001) {
+            long int counter = 0;
+            while(counter < 10000) counter ++;
+            set_external_led(0, i, 0, 1.0-i);
+        }
+    }
 
     
     return 0;

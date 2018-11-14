@@ -97,8 +97,8 @@ int display_buf[DISPLAY_CHIP_NUM] = {0};
  * value of unsigned _Fract).
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0.01; /// Counter resolution
-const unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
+unsigned _Fract isr_res = 0.1; /// Counter resolution
+const unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
  * 
@@ -126,6 +126,12 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         update_display_buffer(i, R, G, B); // Add changes to data buffer
     }
     
+    /// Write the display buffer data to the display drivers
+    /// It's important this line goes here rather than after the the final 
+    /// update_display_buffer below. Otherwise you get a flicker due to the
+    /// LEDs all coming on at the start of this loop
+    write_display_driver();
+    
     // Add an increment to the ISR counter
     isr_counter += isr_res; 
     // Check if counter has reached the limit
@@ -136,9 +142,6 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
         for (int i = 0; i < LED_NUM; i++) 
             update_display_buffer(i, 1, 1, 1); // Add changes to data buffer
     }
-    
-    // Write the display buffer data to the display drivers
-    write_display_driver();
     
     // Reset the timer
     TMR4 = 0x0000;
@@ -179,8 +182,8 @@ void setup_external_leds(void) {
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     // Set flashing period
-    PR4 = 0x0000;
-    PR5 = 0x0080;
+    PR4 = 0x8000;
+    PR5 = 0x0000;
     
     // Turn timer 4 on
     T4CONbits.TON = 1;
