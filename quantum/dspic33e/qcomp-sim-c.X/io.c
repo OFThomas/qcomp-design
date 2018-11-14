@@ -180,7 +180,7 @@ void setup_external_leds(void) {
     TMR5 = 0x0000;
     // Set flashing period
     PR4 = 0x0000;
-    PR5 = 0x0008;
+    PR5 = 0x0080;
     
     // Turn timer 4 on
     T4CONbits.TON = 1;
