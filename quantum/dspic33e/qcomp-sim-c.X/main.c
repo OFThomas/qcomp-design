@@ -100,28 +100,6 @@ int main(void) {
     zero_state(state, 16); // Set the state to the vacuum
     qubit_display(state, 4); // Display the state for four qubits
 
-    /*
-    while (1 == 1) {
-        for (_Fract i = 0; i < 0.99; i += 0.001) {
-            long int counter = 0;
-            while (counter < 1000) counter++;
-            set_external_led(0, i, 0, 1.0 - i);
-            set_external_led(1, 1.0-i, 0, i);
-            set_external_led(2, i, 0, 1.0 - i);
-            set_external_led(3, 1.0-i, 0, i);
-        }
-        for (_Fract i = 0; i < 0.99; i += 0.001) {
-            long int counter = 0;
-            while (counter < 1000) counter++;
-            set_external_led(0, 1.0-i, 0, i);
-            set_external_led(1, i, 0, 1.0-i);
-            set_external_led(2, 1.0-i, 0, i);
-            set_external_led(3, i, 0, 1.0-i);
-            
-        }
-    }
-     * */
-
         
     while(1); //Really important!
     return 0;

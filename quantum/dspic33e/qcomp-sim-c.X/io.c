@@ -470,3 +470,28 @@ int led_cycle_test(void) {
     }
     return 0;
 }
+
+/**
+ * @brief Routine to test the set_external_led function
+ */
+void varying_leds(void) {
+    while (1 == 1) {
+        for (_Fract i = 0; i < 0.99; i += 0.001) {
+            long int counter = 0;
+            while (counter < 1000) counter++;
+            set_external_led(0, i, 0, 1.0 - i);
+            set_external_led(1, 1.0 - i, 0, i);
+            set_external_led(2, i, 0, 1.0 - i);
+            set_external_led(3, 1.0 - i, 0, i);
+        }
+        for (_Fract i = 0; i < 0.99; i += 0.001) {
+            long int counter = 0;
+            while (counter < 1000) counter++;
+            set_external_led(0, 1.0 - i, 0, i);
+            set_external_led(1, i, 0, 1.0 - i);
+            set_external_led(2, 1.0 - i, 0, i);
+            set_external_led(3, i, 0, 1.0 - i);
+
+        }
+    }
+}

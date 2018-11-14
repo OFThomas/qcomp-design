@@ -182,22 +182,6 @@ void show_state_cmplx(CVector V) {
     }
 }
 
-// squaring function
-Q15 sq(Q15 num){
-    return num*num;
-}
-
-/// power function
-/// computes a^b
-/**int pow(int a, int b){
-    int val = 1;
-    for(int i=0; i<=b; i++){
-        val = val * a;
-    }
-    return val;
-}
- */
-
 /**
  * @brief Display the state amplitudes on LEDs
  * @param state Pass in the state vector
