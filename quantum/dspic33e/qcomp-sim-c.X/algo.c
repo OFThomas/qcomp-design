@@ -10,41 +10,7 @@
 #include <math.h>
 
 
-/// get state amplitudes
-/// Here N is the number of qubits
-void qubit_display(CVectorN state, int N) {
-    Q15 zero_amp;
-    Q15 one_amp;
-    int index;
-    int n_max;
-    int j_max;
 
-    /// qubit 0, 1, 2, ... N-1
-    for (int i = 0; i < N; i++) {
-        zero_amp = 0;
-        one_amp = 0;
-        /// loop over n, 2^(current qubit)
-        n_max = pow(2, i);
-
-        /// Loop here for each contribution to the zero and one amplitude
-        for (int n = 0; n < n_max; n++) {
-            /// 2^(total qbits - current) 
-            j_max = pow(2, 2-i);
-
-            /// loop over j
-            for (int j = 0; j < j_max; j++) {
-                /// n + j * 2^(i+1)
-                index = n + (pow(2, i + 1) * j);
-                /// zeros n 
-                zero_amp += pow(state[index][0],2);
-                /// ones index are always n+1 for zero amps 
-                one_amp += pow(state[index + n_max][0],2);
-            }
-        }
-        /// update leds for each qubits average zer0 and one amps
-        set_external_led(i, zero_amp,0,one_amp);
-    }
-}
 
 /// apply operator
 /// @param qubit qubit number to apply 2x2 matrix to

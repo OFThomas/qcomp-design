@@ -11,6 +11,4 @@ void qubit_test_3(CVector3 state);
 /// @param state state vector containing amplitudes 
 void qubit_op_3(int qubit, CMatrix2 op, CVector3 state);
 
-void qubit_display_3(CVector3 state);
-
 

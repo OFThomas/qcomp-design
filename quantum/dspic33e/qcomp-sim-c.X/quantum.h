@@ -17,6 +17,7 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
+#include <math.h>
   
     /// Basis states
     typedef enum {ZERO, ONE, PLUS, MINUS, iPLUS, iMINUS} State;
@@ -80,12 +81,16 @@ extern "C" {
     /// Show the qubit state on the LEDs
     /// @param V complex vector 
     void show_state_cmplx(CVector V);
-   
-    // squaring function
-    Q15 sq(Q15 num);
 
-    // power function
-    ///int pow(int a, int b);
+    /**
+     * @brief Display the state amplitudes on LEDs
+     * @param state Pass in the state vector
+     * @param N The total number of qubits
+     * 
+     * @note Currently the function only displays superpositions using the
+     * red and blue colors.
+     */
+    void qubit_display(Complex state[], int N);
 
 #ifdef	__cplusplus
 }

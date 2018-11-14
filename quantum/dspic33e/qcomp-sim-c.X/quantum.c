@@ -86,6 +86,7 @@ int init_state_cmplx(CVector V, State s) {
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
 void zero_state(Complex state[], int N) {
     for (int i = 0; i < N; i++) {
+        // Loop over the real and imaginary parts
         for (int j = 0; j < 2; j++) {
             state[i][j] = 0.0;
         }
@@ -197,5 +198,45 @@ Q15 sq(Q15 num){
 }
  */
 
+/**
+ * @brief Display the state amplitudes on LEDs
+ * @param state Pass in the state vector
+ * @param N The total number of qubits
+ * 
+ * @note Currently the function only displays superpositions using the
+ * red and blue colors.
+ */
+void qubit_display(Complex state[], int N) {
+    Q15 zero_amp;
+    Q15 one_amp;
+    int index;
+    int n_max;
+    int j_max;
 
+    /// qubit 0, 1, 2, ... N-1
+    for (int i = 0; i < N; i++) {
+        zero_amp = 0;
+        one_amp = 0;
+        /// loop over n, 2^(current qubit)
+        n_max = pow(2, i);
+
+        /// Loop here for each contribution to the zero and one amplitude
+        for (int n = 0; n < n_max; n++) {
+            /// 2^(total qbits - current) 
+            j_max = pow(2, N-1-i);
+
+            /// loop over j
+            for (int j = 0; j < j_max; j++) {
+                /// n + j * 2^(i+1)
+                index = n + (pow(2, i + 1) * j);
+                /// zeros n 
+                zero_amp += pow(state[index][0],2);
+                /// ones index are always n+1 for zero amps 
+                one_amp += pow(state[index + n_max][0],2);
+            }
+        }
+        /// update leds for each qubits average zer0 and one amps
+        set_external_led(i, zero_amp, 0, one_amp);
+    }
+}
 
