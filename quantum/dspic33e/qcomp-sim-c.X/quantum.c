@@ -115,7 +115,7 @@ void qubit_display(Complex state[], int N) {
  * @param N total number of qubits in the state
  * @param op 2x2 operator to be applied
  */
-void qubit_op(Complex state[], int k, int N, Complex op[2][2]) {
+void single_qubit_op(Complex state[], int k, int N, Complex op[2][2]) {
 
 //Q15 temp1 = 0;
 //Q15 temp2 = 0;

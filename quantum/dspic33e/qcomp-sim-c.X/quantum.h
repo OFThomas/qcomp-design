@@ -56,7 +56,7 @@ extern "C" {
      * @param N total number of qubits in the state
      * @param op 2x2 operator to be applied
      */
-    void qubit_op(Complex state[], int k, int N, Complex op[2][2]);
+    void single_qubit_op(Complex state[], int k, int N, Complex op[2][2]);
     
     /**
      * @brief Display the state amplitudes on LEDs
