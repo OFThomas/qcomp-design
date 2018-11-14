@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
-  ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]]
+  ['quantum_2ec',['quantum.c',['../quantum_8c.html',1,'']]],
+  ['quantum_2eh',['quantum.h',['../quantum_8h.html',1,'']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['led_5fcolor_5fint',['led_color_int',['../io_8c.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c'],['../io_8h.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c']]],
-  ['led_5fcycle_5ftest',['led_cycle_test',['../io_8c.html#a47d16173e3ee9b856287fac47763fefa',1,'led_cycle_test():&#160;io.c'],['../io_8h.html#a47d16173e3ee9b856287fac47763fefa',1,'led_cycle_test():&#160;io.c']]],
-  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
+  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['make_5fops',['make_ops',['../quantum_8c.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c'],['../quantum_8h.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c']]],
+  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]]
 ];

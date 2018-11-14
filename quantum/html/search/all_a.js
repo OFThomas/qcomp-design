@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['one_5fqubit_5fcmplx',['one_qubit_cmplx',['../tests_8c.html#aef0ef93502bb146779f3714350240cfb',1,'one_qubit_cmplx():&#160;tests.c'],['../tests_8h.html#aef0ef93502bb146779f3714350240cfb',1,'one_qubit_cmplx():&#160;tests.c']]]
+  ['n_5fb',['N_B',['../structLED.html#ab8c58fff50f5a3e62bddbf1d41d19b3f',1,'LED']]],
+  ['n_5fg',['N_G',['../structLED.html#a6054598e9b4d400c9ada40e8e2922ee2',1,'LED']]],
+  ['n_5fr',['N_R',['../structLED.html#a15d684728fa755efcdbfc6d213521792',1,'LED']]]
 ];

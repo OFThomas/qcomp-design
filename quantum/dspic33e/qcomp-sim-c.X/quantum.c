@@ -166,7 +166,7 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * 
  */
 void qubit_display(Complex state[], int N) {
-    /// Loop over all qubits 0, 1, 2, ... N-1
+    /// Loop over all qubits k = 0, 1, 2, ... N-1
     for (int k = 0; k < N; k ++) {
         Q15 zero_amp = 0;
         Q15 one_amp = 0;
@@ -180,7 +180,7 @@ void qubit_display(Complex state[], int N) {
                 one_amp += pow(state[root + (int)pow(2,k) + step][0],2);
             }
         }
-        /// update leds for each qubits average zer0 and one amps
+        /// update leds for each qubits average zero and one amps
         set_external_led(k, zero_amp, 0, one_amp);
     }
 }
@@ -188,36 +188,65 @@ void qubit_display(Complex state[], int N) {
 /** apply operator
  * @param state state vector containing amplitudes 
  * @param qubit qubit number to apply 2x2 matrix to
- * @param Qnum total number of qubits in the state
+ * @param N total number of qubits in the state
  * @param op 2x2 operator to be applied
+ * 
+ * This routine applies a single qubit gate to the state vector @param state.
+ * Consider the three qubit case, with amplitudes shown in the table below:
+ * 
+ *      index     binary   amplitude 
+ *      ----------------------------- 
+ *        0       0 0 0       a_0
+ *        1       0 0 1       a_1 
+ *        2       0 1 0       a_2
+ *        3       0 1 1       a_3
+ *        4       1 0 0       a_4
+ *        5       1 0 1       a_5
+ *        6       1 1 0       a_6
+ *        7       1 1 1       a_7
+ *      -----------------------------
+ *      Qubit:    2 1 0
+ * 
+ * If a single qubit operation is applied to qubit 2, then the 2x2 matrix 
+ * must be applied to all pairs of (0,1) in the first column, with the numbers
+ * in the other columns fixed. In other words, the following indices are paired:
+ * 
+ *       (0+0) (1+0) (2+0) (3+0)
+ *       (4+0) (5+0) (6+0) (7+0)
+ * 
+ * where the top line corresponds to the ZERO amplitude and the bottom row
+ * corresponds to the ONE amplitude. 
+ * 
+ * Similarly, for qubit 1 the pairings are:
+ * 
+ *       (0+0) (0+4) (1+0) (1+4)
+ *       (2+0) (2+4) (3+0) (3+4)
+ * 
+ * And for qubit 0 the pairings are:
+ * 
+ *       (0+0) (0+2) (0+4) (0+6)
+ *       (1+0) (1+2) (1+4) (1+6)
+ * 
+ * These numbers are exactly the same as the previous function, which means
+ * the same nested loops can be used to perform operation. Now, the index
+ * 
+ *      root + step 
+ * 
+ * refers to the ZERO amplitude (the first element in the column vector to
+ * be multiplied by the 2x2 matrix), and the index
+ * 
+ *      root + 2^k + step
+ * 
+ * corresponds to the ONE entry.
+ * 
  */
-void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
-
-    // do row 1 of op onto all pairs of state vectors
-    // e.g. qubit 0, pairs of values are
-    // 000, 001
-    // then
-    // 010, 011
-    // etc.
-    //
-    // op   ( a b ) * ( 000 ) = (temp1)
-    //      ( c d )   ( 001 )   (temp2)
-    // temp1 = a(000) + b(001) -> new (000) val
-    // temp2 = c(000) + d(001) -> new (001) val
-
-    // qubit zero entries are adjacent 2^0
-    // qubit 1 entries are 2^1 apart etc...
-
-    int index;
-    int n_max = pow(2, qubit); // loop over n, 2^(current qubit)
-    int j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits -1 - current) 
-    /// Loop here for each contribution to the zero and one amplitude
-    for (int n = 0; n < n_max; n++) {
-        /// loop over j
-        for (int j = 0; j < j_max; j++) {
-            /// n + j * 2^(k+1)
-            index = n + (j * pow(2, qubit + 1));
-            mat_mul(op, state, index, index + n_max);
+void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
+    /// ROOT loop
+    for (int root = 0; root < pow(2, k); root++) {
+        /// STEP loop
+        for (int step = 0; step < pow(2, N); step += pow(2, k+1)) {
+            /// First index is ZERO, second index is ONE
+            mat_mul(op, state, root + step, root + (int) pow(2, k) + step);
         }
     }
 }

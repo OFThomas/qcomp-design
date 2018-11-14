@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['n_5fb',['N_B',['../structLED.html#ab8c58fff50f5a3e62bddbf1d41d19b3f',1,'LED::N_B()'],['../structLED.html#ae413d4fb01f1e55b50cb0a8560ba6e8d',1,'LED::n_B()']]],
-  ['n_5fg',['n_G',['../structLED.html#a199c080a4092d3028426362ec146a279',1,'LED::n_G()'],['../structLED.html#a6054598e9b4d400c9ada40e8e2922ee2',1,'LED::N_G()']]],
-  ['n_5fr',['n_R',['../structLED.html#ae790929196268202d2d35ba7dcee09c3',1,'LED::n_R()'],['../structLED.html#a15d684728fa755efcdbfc6d213521792',1,'LED::N_R()']]]
+  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
+  ['make_5fops',['make_ops',['../quantum_8c.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c'],['../quantum_8h.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c']]],
+  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]]
 ];

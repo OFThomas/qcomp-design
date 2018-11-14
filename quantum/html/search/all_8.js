@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
-  ['make_5fops',['make_ops',['../quantum_8h.html#af18f0bc0dddd8eadce3e39969dba684a',1,'quantum.h']]],
-  ['make_5fops_5fcmplx',['make_ops_cmplx',['../quantum_8c.html#a76969689d1e9d9beb9532b102ca1556c',1,'make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H):&#160;quantum.c'],['../quantum_8h.html#a76969689d1e9d9beb9532b102ca1556c',1,'make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H):&#160;quantum.c']]],
-  ['mat_5fmul',['mat_mul',['../quantum_8h.html#a94abc2d5720f2f3655f1b3913632e083',1,'quantum.h']]],
-  ['mat_5fmul_5fcmplx',['mat_mul_cmplx',['../quantum_8c.html#a7020396a02b4bf762a2e3e6d9246daca',1,'mat_mul_cmplx(CMatrix2 M, CVector V):&#160;quantum.c'],['../quantum_8h.html#a7020396a02b4bf762a2e3e6d9246daca',1,'mat_mul_cmplx(CMatrix2 M, CVector V):&#160;quantum.c']]],
-  ['mat_5fmul_5ftest_5fcmplx',['mat_mul_test_cmplx',['../tests_8c.html#adf78434b92ca2d57c247014c077e4d6b',1,'mat_mul_test_cmplx():&#160;tests.c'],['../tests_8h.html#adf78434b92ca2d57c247014c077e4d6b',1,'mat_mul_test_cmplx():&#160;tests.c']]],
-  ['matrix2',['Matrix2',['../quantum_8h.html#afaf79d7b6800ed7021679fbc79febee6',1,'quantum.h']]],
-  ['matrix4',['Matrix4',['../quantum_8h.html#a6f7c013c5b964a662135ebebb4d0a282',1,'quantum.h']]]
+  ['le',['LE',['../io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7',1,'io.h']]],
+  ['led',['LED',['../structLED.html',1,'LED'],['../io_8c.html#a11ae3bccffd844c51949ca06b0b52279',1,'led():&#160;io.c']]],
+  ['led_5fcolor_5fint',['led_color_int',['../io_8c.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c'],['../io_8h.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c']]],
+  ['led_5fcycle_5ftest',['led_cycle_test',['../io_8c.html#ae1bf99f09184b0112291c5eaa0832fb6',1,'led_cycle_test(void):&#160;io.c'],['../io_8h.html#ae1bf99f09184b0112291c5eaa0832fb6',1,'led_cycle_test(void):&#160;io.c']]],
+  ['led_5fglobal',['LED_GLOBAL',['../structLED__GLOBAL.html',1,'LED_GLOBAL'],['../io_8c.html#a3240a0ec7160d6bae6cc4a7bab8494c7',1,'led_global():&#160;io.c']]],
+  ['led_5fnum',['LED_NUM',['../io_8h.html#a77440c4104ae0a7368936ff87a3d3260',1,'io.h']]],
+  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
 ];
