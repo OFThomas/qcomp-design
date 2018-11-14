@@ -115,8 +115,8 @@ void qubit_display(Complex state[], int Qnum) {
 
 /** apply operator
  * @param state state vector containing amplitudes 
- * @param k qubit number to apply 2x2 matrix to
- * @param N total number of qubits in the state
+ * @param qubit qubit number to apply 2x2 matrix to
+ * @param Qnum total number of qubits in the state
  * @param op 2x2 operator to be applied
  */
 void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
@@ -142,11 +142,9 @@ void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
 
     /// loop over n, 2^(current qubit)
     n_max = pow(2, qubit);
-
+    j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits - current) 
     /// Loop here for each contribution to the zero and one amplitude
     for (int n = 0; n < n_max; n++) {
-        /// 2^(total qbits - current) 
-        j_max = pow(2, Qnum - qubit - 1);
         /// loop over j
         for (int j = 0; j < j_max; j++) {
             /// n + j * 2^(k+1)
