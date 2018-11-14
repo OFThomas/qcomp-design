@@ -38,7 +38,7 @@ extern "C" {
     
     /// Initialise state to the vacuum (zero apart from the first position)
     /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
-    void zero_state(Complex state[], int N);
+    void zero_state(Complex state[], int Qnum);
   
     /// 2x2 complex matrix multiplication
     /// @param M complex matrix
@@ -52,21 +52,21 @@ extern "C" {
 
     /** apply operator
      * @param state state vector containing amplitudes 
-     * @param k qubit number to apply 2x2 matrix to
-     * @param N total number of qubits in the state
+     * @param qubit qubit number to apply 2x2 matrix to
+     * @param Qnum total number of qubits in the state
      * @param op 2x2 operator to be applied
      */
-    void single_qubit_op(Complex state[], int k, int N, Complex op[2][2]);
+    void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum);
     
     /**
      * @brief Display the state amplitudes on LEDs
      * @param state Pass in the state vector
-     * @param N The total number of qubits
+     * @param Qnum The total number of qubits
      * 
      * @note Currently the function only displays superpositions using the
      * red and blue colors.
      */
-    void qubit_display(Complex state[], int N);
+    void qubit_display(Complex state[], int Qnum);
 
 #ifdef	__cplusplus
 }

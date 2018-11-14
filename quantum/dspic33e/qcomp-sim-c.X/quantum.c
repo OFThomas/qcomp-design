@@ -42,13 +42,16 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
 
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
-void zero_state(Complex state[], int N) {
+void zero_state(Complex state[], int Qnum) {
+    int N = pow(2, Qnum);
     for (int i = 0; i < N; i++) {
+
         // Loop over the real and imaginary parts
         for (int j = 0; j < 2; j++) {
             state[i][j] = 0.0;
         }
     }
+    /// @note oh the clarity! 
     state[0][0] = ONE_Q15;
 }
 
@@ -75,12 +78,13 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * @note Currently the function only displays superpositions using the
  * red and blue colors.
  */
-void qubit_display(Complex state[], int N) {
+void qubit_display(Complex state[], int Qnum) {
     Q15 zero_amp;
     Q15 one_amp;
     int index;
     int n_max;
     int j_max;
+    int N = pow(2, Qnum);
 
     /// qubit 0, 1, 2, ... N-1
     for (int i = 0; i < N; i++) {
@@ -115,7 +119,7 @@ void qubit_display(Complex state[], int N) {
  * @param N total number of qubits in the state
  * @param op 2x2 operator to be applied
  */
-void single_qubit_op(Complex state[], int k, int N, Complex op[2][2]) {
+void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
 
     //Q15 temp1 = 0;
     //Q15 temp2 = 0;
@@ -140,17 +144,17 @@ void single_qubit_op(Complex state[], int k, int N, Complex op[2][2]) {
     // qubit 1 entries are 2^1 apart etc...
 
     /// loop over n, 2^(current qubit)
-    n_max = pow(2, k);
+    n_max = pow(2, qubit);
 
     /// Loop here for each contribution to the zero and one amplitude
     for (int n = 0; n < n_max; n++) {
         /// 2^(total qbits - current) 
-        j_max = pow(2, 2 - k);
+        j_max = pow(2, Qnum - qubit - 1);
 
         /// loop over j
         for (int j = 0; j < j_max; j++) {
             /// n + j * 2^(k+1)
-            index = n + (j * pow(2, k + 1));
+            index = n + (j * pow(2, qubit + 1));
             mat_mul(op, state, index, index + n_max);
         }
     }

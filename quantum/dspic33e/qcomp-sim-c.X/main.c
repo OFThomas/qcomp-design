@@ -51,26 +51,27 @@ int main(void) {
     // Setup the external LEDs
     setup_external_leds();
 
-    /**
-     * @brief Reading button state
-     * 
-     * The button states are written into an array of type BUTTON_ARRAY
-     * whose 
-     */
+    ///
+    /// @brief Reading button state
+    /// 
+    /// The button states are written into an array of type BUTTON_ARRAY
+    /// whose 
+    ///
     extern int buttons[16]; /// Global variable for button state
     read_external_buttons(); /// Update the buttons variable
     if(buttons[0] == 1)
         ; /// Do something if button 0 has been pressed...
 
-    
     Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
     make_ops(X, Y, Z, H);
-    
-    Complex state[16]; // Make a 4 qubit state vector of length 16 
-    zero_state(state, 16); // Set the state to the vacuum
-    qubit_display(state, 4); // Display the state for four qubits
+   
+    int num_qubits = 3;
+
+    Complex state[pow(2,num_qubits)]; // Make a 3 qubit state vector of length 8 
+    zero_state(state, num_qubits); // Set the state to the vacuum
+    qubit_display(state, num_qubits); // Display the state for four qubits
 
         
-    while(1); //Really important!
+    while(1); ///< @note Really important!
     return 0;
 }
