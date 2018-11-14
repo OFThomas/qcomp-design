@@ -72,6 +72,8 @@ int main(void) {
 
     single_qubit_op(X, 0, state, NUM_QUBITS); // Apply X to 0th qubit    
     
+    qubit_display(state, NUM_QUBITS); // Display the state
+    
     while(1); ///< @note Really important!
     return 0;
 }
