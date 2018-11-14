@@ -120,9 +120,9 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     /// Loop over all the LEDs (the index i). 
     for(int i = 0; i < LED_NUM; i++) {
         /// Decide whether R, G or B should be turned off
-        bool R = (isr_counter > led[i].N_R);
-        bool G = (isr_counter > led[i].N_G);
-        bool B = (isr_counter > led[i].N_B);
+        bool R = (isr_counter < led[i].N_R);
+        bool G = (isr_counter < led[i].N_G);
+        bool B = (isr_counter < led[i].N_B);
         update_display_buffer(i, R, G, B); // Add changes to data buffer
     }
     
