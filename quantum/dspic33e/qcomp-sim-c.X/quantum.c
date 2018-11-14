@@ -153,35 +153,6 @@ void clean_state_cmplx(CVector V) {
     }
 }
 
-// Show the qubit state on the LEDs
-void show_state_cmplx(CVector V) {
-    // Turn all the LEDs off
-    leds_off();
-    // Show current state of qubit on the LEDs
-    if (V[0][0] > 0.99) {
-        set_led(red, on); // The |0> state
-    } else if ((V[1][0] > 0.99) || (V[1][0] < -0.99)) {
-        set_led(green, on); // The |1> state
-    } else if ((V[1][1] > 0.99) || (V[1][1] < -0.99)) {
-        set_led(green, on); // The |1> state
-    } else if ((0.70 < V[0][0]) && (V[0][0] < 0.71)) {
-        set_led(red, on); // A superposition state
-        set_led(green, on);
-        if (V[1][0] > 0.1) {
-            // Plus
-            set_led(amber, off);
-        } else if (V[1][0] < -0.1) {
-            // Minus
-            set_led(amber, on);
-        } else if (V[0][1] > 0.1) {
-            // iPlus
-           flash_led(amber,10);
-        } else {
-           flash_led(amber,5);        
-      }
-    }
-}
-
 /**
  * @brief Display the state amplitudes on LEDs
  * @param state Pass in the state vector
