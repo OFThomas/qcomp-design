@@ -64,7 +64,7 @@ int main(void) {
 
     
     Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    make_ops_cmplx(X, Y, Z, H);
+    make_ops(X, Y, Z, H);
     
     Complex state[16]; // Make a 4 qubit state vector of length 16 
     zero_state(state, 16); // Set the state to the vacuum

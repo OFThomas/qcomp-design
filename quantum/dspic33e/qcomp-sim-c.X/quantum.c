@@ -22,7 +22,7 @@ void cmul(Complex a, Complex b, Complex result) {
 }
 
 // Create complex X, Y, Z and H
-void make_ops_cmplx(Complex X[2][2], Complex Y[2][2], 
+void make_ops(Complex X[2][2], Complex Y[2][2], 
         Complex Z[2][2], Complex H[2][2]) {
     // Assume the elements are all equal to zero
     X[0][1][0] = 0.9999694824; // X
@@ -53,7 +53,7 @@ void zero_state(Complex state[], int N) {
 }
 
 // 2x2 complex matrix multiplication
-void mat_mul_cmplx(Complex M[2][2], Complex V[], int i, int j) {
+void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
     Complex a, b, c, d;
     cmul(M[0][0],V[i],a); 
     cmul(M[0][1],V[j],b);
@@ -155,7 +155,7 @@ n_max = pow(2,k);
             //zero_amp += pow(state[index][0],2);
             /// ones index are always n+1 for zero amps 
             //one_amp += pow(state[index + n_max][0],2);
-            mat_mul_cmplx(op, state, index, index + n_max);
+            mat_mul(op, state, index, index + n_max);
         }
     }
 }

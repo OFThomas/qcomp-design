@@ -33,7 +33,7 @@ extern "C" {
     /// @param Z Pauli Z c-matrix
     /// @param H Hadamard c-matrix
     /// @param Y Pauli Y c-matrix
-    void make_ops_cmplx(Complex X[2][2], Complex Y[2][2], 
+    void make_ops(Complex X[2][2], Complex Y[2][2], 
             Complex Z[2][2], Complex H[2][2]);
     
     /// Initialise state to the vacuum (zero apart from the first position)
@@ -45,7 +45,10 @@ extern "C" {
     /// @param V complex vector
     /// @param i integer first element of state vector
     /// @param j integer second element of state vector
-    void mat_mul_cmplx(Complex M[2][2], Complex V[], int i, int j);
+    /// @todo Because of the way the array types work (you can't pass a 
+    /// multidimensional array of unknown size) we will also need a function
+    /// for 4x4 matrix multiplication.
+    void mat_mul(Complex M[2][2], Complex V[], int i, int j);
 
     /**
      * @brief Display the state amplitudes on LEDs
