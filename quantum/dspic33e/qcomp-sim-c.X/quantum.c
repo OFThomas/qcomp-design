@@ -83,27 +83,18 @@ int init_state_cmplx(CVector V, State s) {
 }
 
 // 2x2 complex matrix multiplication
-void mat_mul_cmplx(CMatrix2 M, CVector V) {
+void mat_mul_cmplx(CMatrix2 M, CVector V, int i, int j) {
     Complex a, b, c, d;
-    cmul(M[0][0],V[0],a); 
-    cmul(M[0][1],V[1],b);
+    cmul(M[0][0],V[i],a); 
+    cmul(M[0][1],V[j],b);
     cadd(a,b,c);
-    cmul(M[1][0],V[0],a);
-    cmul(M[1][1],V[1],b);
+    cmul(M[1][0],V[i],a);
+    cmul(M[1][1],V[j],b);
     cadd(a,b,d);
-    V[0][0] = c[0];
-    V[0][1] = c[1];
-    V[1][0] = d[0];
-    V[1][1] = d[1];
-}
-
-// Add a global phase to make first amplitude positive
-void fix_phase(Vector V) {
-  signed _Fract phase = -1.0;
-  if (V[0] < 0.0) {
-    V[0] *= phase;
-    V[1] *= phase;
-  }
+    V[i][0] = c[0];
+    V[i][1] = c[1];
+    V[j][0] = d[0];
+    V[j][1] = d[1];
 }
 
 // Add a global phase to make first complex amplitude positive
@@ -119,33 +110,11 @@ void fix_phase_cmplx(CVector V) {
     phase_180[0][0][0] = -1.0;
     phase_180[1][1][0] = -1.0;
     if (V[0][0] < -0.1) {
-        mat_mul_cmplx(phase_180, V);
+        mat_mul_cmplx(phase_180, V, 0, 1);
     } else if (V[0][1] < -0.1) {
-        mat_mul_cmplx(phase_90, V);
+        mat_mul_cmplx(phase_90, V, 0, 1);
     } else if (V[0][1] > 0.1) {
-        mat_mul_cmplx(phase_270, V);
-    }
-}
-
-// Clean the state: return the closest state out of |0>, |1>, |+> and |->
-void clean_state(Vector V) {
-    if (V[0] > 0.99) {
-      V[0] = 0.9999694824; // The |0> state
-      V[1] = 0.0;
-    }
-    else if ((V[1] > 0.99) || (V[1] < -0.99)) {
-      V[0] = 0.0; // The |1> state
-      V[1] = 0.9999694824;
-    }
-    else if ((0.70 < V[0]) && (V[0] < 0.71)) {
-      if (V[1] > 0.0){
-        V[0] = 0.7071067812; // The |+> state
-        V[1] = 0.7071067812;
-      }
-      else {
-        V[0] = 0.7071067812; // The |-> state
-        V[1] = -0.7071067812;
-      }
+        mat_mul_cmplx(phase_270, V, 0, 1);
     }
 }
 
@@ -205,3 +174,16 @@ void show_state_cmplx(CVector V) {
 Q15 sq(Q15 num){
     return num*num;
 }
+
+// power function
+/// computes a^b
+int pow(int a, int b){
+    int val = 1;
+    for(int i=0; i<=b; i++){
+    val = val * a;
+    }
+    return val;
+}
+
+
+

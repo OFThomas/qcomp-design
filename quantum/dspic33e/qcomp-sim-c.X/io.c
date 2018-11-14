@@ -182,14 +182,11 @@ void setup_external_leds(void) {
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     // Set flashing period
-<<<<<<< HEAD
-    PR4 = 0x0000;
-    PR5 = 0x0080;
-=======
+
+    // or theses HEAD ERROR
     PR4 = 0x8000;
     PR5 = 0x0000;
-    
->>>>>>> e64539a006e7a7f329f3b1100e6e9c6f3bd3a00d
+
     // Turn timer 4 on
     T4CONbits.TON = 1;
 }

@@ -45,6 +45,9 @@ void mat_mul_test() {
     
 }
 */
+
+/** 
+ * SORRY I'VE BROKEN THIS
 // Testing the speed of 2^15 2x2 complex matrix multiplications
 void mat_mul_test_cmplx() {
     
@@ -77,6 +80,7 @@ void mat_mul_test_cmplx() {
     while(1 == 1);
     
 }
+ */
 
 /**
 // Simulating one qubit. Buttons apply H, X and Z and LEDs display the
@@ -167,11 +171,11 @@ void one_qubit_cmplx() {
 
         // Apply operation
         if (btn1 == on)
-            mat_mul_cmplx(H, V); // Multiply H by V, put result in V
+            mat_mul_cmplx(H, V, 0, 1); // Multiply H by V, put result in V
         if (btn2 == on)
-            mat_mul_cmplx(X, V); // Multiply X by V, put result in V
+            mat_mul_cmplx(X, V, 0, 1); // Multiply X by V, put result in V
         if (btn3 == on)
-            mat_mul_cmplx(Z, V); // Multiply Z by V, put result in V
+            mat_mul_cmplx(Z, V, 0, 1); // Multiply Z by V, put result in V
 
         // Add a global phase to make first amplitude positive
         fix_phase_cmplx(V);
