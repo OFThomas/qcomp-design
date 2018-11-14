@@ -166,13 +166,10 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * 
  */
 void qubit_display(Complex state[], int N) {
-    Q15 zero_amp;
-    Q15 one_amp;
-
     /// Loop over all qubits 0, 1, 2, ... N-1
     for (int k = 0; k < N; k ++) {
-        zero_amp = 0;
-        one_amp = 0;
+        Q15 zero_amp = 0;
+        Q15 one_amp = 0;
         /// ROOT loop
         for(int root = 0; root < pow(2,k); root ++) {
             /// STEP loop
