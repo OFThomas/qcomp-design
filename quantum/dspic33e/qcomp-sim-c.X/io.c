@@ -324,8 +324,7 @@ int update_display_buffer(int n, bool R, bool G, bool B) {
  * LE(ED1) and OE(ED2) will be on Port D 
  */
 int write_display_driver(void) {
-    /// Global variables
-    extern int display_buf[DISPLAY_CHIP_NUM]; /// @todo hmmm...
+
     // Write the display buffer to the device using SPI
     for (int n = 0; n < DISPLAY_CHIP_NUM; n++) 
         send_byte_spi_1(display_buf[n]);
@@ -386,7 +385,6 @@ int set_external_led(int index,
         unsigned _Fract R, 
         unsigned _Fract G,
         unsigned _Fract B) {
-    extern LED led[LED_NUM];
     led[index].N_R = R;
     led[index].N_G = G;
     led[index].N_B = B;
