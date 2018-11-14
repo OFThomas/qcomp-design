@@ -133,16 +133,12 @@ void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
     // temp1 = a(000) + b(001) -> new (000) val
     // temp2 = c(000) + d(001) -> new (001) val
 
-    int n_max;
-    int j_max;
-    int index;
-
     // qubit zero entries are adjacent 2^0
     // qubit 1 entries are 2^1 apart etc...
 
-    /// loop over n, 2^(current qubit)
-    n_max = pow(2, qubit);
-    j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits - current) 
+    int index;
+    int n_max = pow(2, qubit); // loop over n, 2^(current qubit)
+    int j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits - current) 
     /// Loop here for each contribution to the zero and one amplitude
     for (int n = 0; n < n_max; n++) {
         /// loop over j
