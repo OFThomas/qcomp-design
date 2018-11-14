@@ -95,7 +95,7 @@ void qubit_display(Complex state[], int Qnum) {
 
         /// Loop here for each contribution to the zero and one amplitude
         for (int n = 0; n < n_max; n++) {
-            /// 2^(total qbits - current) 
+            /// 2^(total qbits - 1 - current) 
             j_max = pow(2, N-1-i);
 
             /// loop over j
@@ -121,9 +121,6 @@ void qubit_display(Complex state[], int Qnum) {
  */
 void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
 
-    //Q15 temp1 = 0;
-    //Q15 temp2 = 0;
-
     // do row 1 of op onto all pairs of state vectors
     // e.g. qubit 0, pairs of values are
     // 000, 001
@@ -144,6 +141,7 @@ void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
     // qubit 1 entries are 2^1 apart etc...
 
     /// loop over n, 2^(current qubit)
+<<<<<<< HEAD
     n_max = pow(2, qubit);
 
     /// Loop here for each contribution to the zero and one amplitude
@@ -151,6 +149,12 @@ void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
         /// 2^(total qbits - current) 
         j_max = pow(2, Qnum - qubit - 1);
 
+=======
+    n_max = pow(2, k);
+    j_max = pow(2, N-1-k);
+    for (int n = 0; n < n_max; n++) {
+        /// 2^(total qbits - 1 - current) 
+>>>>>>> 1696bade2c4abf3bdc90768da165a7b53e84adc9
         /// loop over j
         for (int j = 0; j < j_max; j++) {
             /// n + j * 2^(k+1)
