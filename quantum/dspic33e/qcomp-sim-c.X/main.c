@@ -32,6 +32,7 @@
 #include "tests.h"
 #include "time.h"
 #include "spi.h"
+#include "algo.h"
 
 int main(void) {
 
@@ -76,16 +77,30 @@ int main(void) {
     // Set RGB LED number 2
     //set_external_led(led_index, R, G, B);
 
-    CVector state_v;
+    CVector3 state_vect;
     
-    init_state_cmplx(state_v, ZERO);
-    // led 0, r=0, b=0, g=0
-    for( int i = 0; i <= 3; i++){
-   set_external_led(i, 0.5, 0.5, 0.5);
-    }
-    extern LED led[LED_NUM];
+    3qubit_test(state_vect);
+    // qubit 0 to 2
+    //for(int i=0; i <= 3; i++){
+        int zero_amp = 0;
+        int one_amp = 0;
+        // 8 states
+        // zero amps are first 4 
+        // 0 1 2 3
+        // 0 1 4 5
+        // 0 2 4 6
+        for(int j=0; j <= 4; j++){
+            zero_amp += sq(state_vect[j][0]);    
+        }
+        // one amps are last 4
+        // 4 5 6 7
+        // 2 3 6 7
+        // 1 3 5 7
+        for(int k=4; k<= 8; k++){
+            one_amp += sq(state_vect[k][0]);
+        }
+        set_external_led(0, zero_amp, one_amp, 0);
     
-        
     while(1==1);
 
     

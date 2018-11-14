@@ -13,6 +13,8 @@
 extern "C" {
 #endif
 
+#define one_Q15 0.9999694824
+
 #include "p33EP512MU810.h"
 #include "xc.h"
   
@@ -26,16 +28,17 @@ extern "C" {
     typedef Q15 Complex[2];
     
     /// Matrix4 type
-    typedef Q15 Matrix4[4][4];
     typedef Q15 CMatrix4[4][4][2];
   
     /// Matrix2 type
-    typedef Q15 Matrix2[2][2];
     typedef Q15 CMatrix2[2][2][2];
 
     /// Vector type
-    typedef Q15 Vector[2];
     typedef Q15 CVector[2][2];
+
+    /// cvector for 3 qubits 
+    /// 2^3 complex numbers  
+    typedef Q15 CVector3[8][2];
 
     /// Create real? X, Z, H
     /// @param X Pauli x matrix
@@ -98,7 +101,10 @@ extern "C" {
     /// Show the qubit state on the LEDs
     /// @param V complex vector 
     void show_state_cmplx(CVector V);
-    
+   
+    // squaring function
+    Q15 sq(Q15 num);
+
 #ifdef	__cplusplus
 }
 #endif
