@@ -22,7 +22,8 @@ void cmul(Complex a, Complex b, Complex result) {
 }
 
 // Create complex X, Y, Z and H
-void make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H) {
+void make_ops_cmplx(Complex X[2][2], Complex Y[2][2], 
+        Complex Z[2][2], Complex H[2][2]) {
     // Assume the elements are all equal to zero
     X[0][1][0] = 0.9999694824; // X
     X[1][0][0] = 0.9999694824;
@@ -39,49 +40,6 @@ void make_ops_cmplx(CMatrix2 X, CMatrix2 Y, CMatrix2 Z, CMatrix2 H) {
     H[1][1][0] = -0.7071067812;
 }
 
-// Initialise complex state vector
-int init_state_cmplx(CVector V, State s) {
-    switch(s) {
-        case ZERO:
-            V[0][0] = 0.9999694824;
-            V[0][1] = 0.0;
-            V[1][0] = 0.0;
-            V[1][1] = 0.0;
-            break;
-        case ONE:
-            V[0][0] = 0.0;
-            V[0][1] = 0.0;
-            V[1][0] = 0.9999694824;
-            V[1][1] = 0.0;
-            break;
-        case PLUS:
-            V[0][0] = 0.7071067812;
-            V[0][1] = 0.0;
-            V[1][0] = 0.7071067812;
-            V[1][1] = 0.0;
-            break;
-        case MINUS:
-            V[0][0] = 0.7071067812;
-            V[0][1] = 0.0;
-            V[1][0] = -0.7071067812;
-            V[1][1] = 0.0;
-            break;
-        case iPLUS:
-            V[0][0] = 0.7071067812;
-            V[0][1] = 0.0;
-            V[1][0] = 0.0;
-            V[1][1] = 0.7071067812;
-            break;
-        case iMINUS:
-            V[0][0] = 0.7071067812;
-            V[0][1] = 0.0;
-            V[1][0] = 0.0;
-            V[1][1] = -0.7071067812;
-            break;
-    }
-    return 0;
-}
-
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
 void zero_state(Complex state[], int N) {
@@ -95,7 +53,7 @@ void zero_state(Complex state[], int N) {
 }
 
 // 2x2 complex matrix multiplication
-void mat_mul_cmplx(CMatrix2 M, CVector V, int i, int j) {
+void mat_mul_cmplx(Complex M[2][2], Complex V[], int i, int j) {
     Complex a, b, c, d;
     cmul(M[0][0],V[i],a); 
     cmul(M[0][1],V[j],b);
@@ -107,79 +65,6 @@ void mat_mul_cmplx(CMatrix2 M, CVector V, int i, int j) {
     V[i][1] = c[1];
     V[j][0] = d[0];
     V[j][1] = d[1];
-}
-
-// Add a global phase to make first complex amplitude positive
-// This only works for certain states (zero, one, plus, minus, etc.)
-void fix_phase_cmplx(CVector V) {
-    CMatrix2 phase_90 = {{{0}}};
-    phase_90[0][0][1] = 0.9999694824;
-    phase_90[1][1][1] = 0.9999694824;   
-    CMatrix2 phase_270 = {{{0}}};
-    phase_270[0][0][1] = -1.0;
-    phase_270[1][1][1] = -1.0;    
-    CMatrix2 phase_180 = {{{0}}};
-    phase_180[0][0][0] = -1.0;
-    phase_180[1][1][0] = -1.0;
-    if (V[0][0] < -0.1) {
-        mat_mul_cmplx(phase_180, V, 0, 1);
-    } else if (V[0][1] < -0.1) {
-        mat_mul_cmplx(phase_90, V, 0, 1);
-    } else if (V[0][1] > 0.1) {
-        mat_mul_cmplx(phase_270, V, 0, 1);
-    }
-}
-
-// Clean the state: return the closest state out of 
-// |0>, |1>, |+> , |->, |D> and |A>
-void clean_state_cmplx(CVector V) {
-    if (V[0][0] > 0.99) {
-        init_state_cmplx(V, ZERO);
-        // add abs?
-    } else if ((V[1][0] > 0.99) || (V[1][0] < -0.99)) {
-        init_state_cmplx(V, ONE);
-    } else if ((V[1][1] > 0.99) || (V[1][1] < -0.99)) {
-        init_state_cmplx(V, ONE);
-    } else if ((0.70 < V[0][0]) && (V[0][0] < 0.71)) {
-        if (V[1][0] > 0.1) {
-            init_state_cmplx(V, PLUS);
-        } else if (V[1][0] < -0.1) {
-            init_state_cmplx(V, MINUS);
-        } else if (V[0][1] > 0.1) {
-            init_state_cmplx(V, iPLUS);
-        } else {
-            init_state_cmplx(V, iMINUS);
-        }
-    }
-}
-
-// Show the qubit state on the LEDs
-void show_state_cmplx(CVector V) {
-    // Turn all the LEDs off
-    leds_off();
-    // Show current state of qubit on the LEDs
-    if (V[0][0] > 0.99) {
-        set_led(red, on); // The |0> state
-    } else if ((V[1][0] > 0.99) || (V[1][0] < -0.99)) {
-        set_led(green, on); // The |1> state
-    } else if ((V[1][1] > 0.99) || (V[1][1] < -0.99)) {
-        set_led(green, on); // The |1> state
-    } else if ((0.70 < V[0][0]) && (V[0][0] < 0.71)) {
-        set_led(red, on); // A superposition state
-        set_led(green, on);
-        if (V[1][0] > 0.1) {
-            // Plus
-            set_led(amber, off);
-        } else if (V[1][0] < -0.1) {
-            // Minus
-            set_led(amber, on);
-        } else if (V[0][1] > 0.1) {
-            // iPlus
-           flash_led(amber,10);
-        } else {
-           flash_led(amber,5);        
-      }
-    }
 }
 
 /**
@@ -230,7 +115,7 @@ void qubit_display(Complex state[], int N) {
  * @param N total number of qubits in the state
  * @param op 2x2 operator to be applied
  */
-void qubit_op(Complex state, int k, int N, CMatrix2 op) {
+void qubit_op(Complex state, int k, int N, Complex op[2][2]) {
 
 //Q15 temp1 = 0;
 //Q15 temp2 = 0;

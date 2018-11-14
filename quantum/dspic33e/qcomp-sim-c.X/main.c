@@ -5,7 +5,7 @@
  *
  * @brief The main function
  *
- * @detail Description: Contains an example of fixed precision 2x2 matrix multiplication 
+ * @detail Contains an example of fixed precision 2x2 matrix multiplication 
  * for applying operations to a single qubit. The only operations included
  * are H, X and Z so that everything is real (this can be extended later).
  * 
@@ -61,40 +61,10 @@ int main(void) {
     read_external_buttons(); /// Update the buttons variable
     if(buttons[0] == 1)
         ; /// Do something if button 0 has been pressed...
+
     
-    
-    /** @brief Example use of RGB LEDs -- won't do anything yet
-     * 
-     * Just pass the values of R, G and B to the function along with the led
-     * index (which can just be an integer, like qubit number). The exact 
-     * mapping of indices to LED lines in the display driver will be in the 
-     * io.h file. 
-     */ 
-
-    //CVector3 state_vect;
-/*
-    while (1 == 1) {
-
-        qubit_test_3(state_vect);
-        qubit_display_3(state_vect);
-
-        long int counter = 0;
-        while (counter < 1000000) {
-            counter++;
-        }
-        CMatrix2 X, Y, Z, H;
-        make_ops_cmplx(X, Y, Z, H);
-
-        qubit_op_3(0, X, state_vect);
-        qubit_display_3(state_vect);
-
-        counter = 0;
-        while (counter < 1000000) {
-            counter++;
-        }
-        
-    }
-    */
+    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
+    make_ops_cmplx(X, Y, Z, H);
     
     Complex state[16]; // Make a 4 qubit state vector of length 16 
     zero_state(state, 16); // Set the state to the vacuum
