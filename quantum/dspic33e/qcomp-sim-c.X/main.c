@@ -73,7 +73,6 @@ int main(void) {
 
     CVector3 state_vect;
     
-<<<<<<< HEAD
     3qubit_test(state_vect);
     // qubit 0 to 2
     //for(int i=0; i <= 3; i++){
@@ -97,7 +96,7 @@ int main(void) {
         set_external_led(0, zero_amp, one_amp, 0);
     
     while(1==1);
-=======
+
     init_state_cmplx(state_v, ZERO);
     // led 0, r=0, b=0, g=0
     //for(int i=0; i<100; i++);
@@ -111,7 +110,6 @@ int main(void) {
             set_external_led(0, i, 0, 1.0-i);
         }
     }
->>>>>>> e64539a006e7a7f329f3b1100e6e9c6f3bd3a00d
 
     
     return 0;
