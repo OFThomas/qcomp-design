@@ -10,7 +10,6 @@
 #include "io.h"
 #include "time.h"
 #include "spi.h"
-#include <stdbool.h>
 
 /** @brief Contains the button states
  * 
@@ -115,18 +114,12 @@ const unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
  * period on the time scale of microcontroller operations, but very fast
  * in comparison to what the eye can see. For example, once every 100us.
  * 
- * Each time the routine is called, it increments counters corresponding to
- * RGB line of every LED. Once these counters reach thresholds that have been 
- * set globally in another function, the interrupt routine turns off the 
- * corresponding LED line. Once the isr counter has reached a different (fixed)
- * threshold value, the whole routine resets. In this way the LEDs are turned
- * on and off repeatedly with adjustable duty cycles.
  */
 void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 
     /// Loop over all the LEDs (the index i). 
     for(int i = 0; i < LED_NUM; i++) {
-        // Decide whether R, G or B should be on or off
+        /// Decide whether R, G or B should be turned off
         bool R = (isr_counter > led[i].N_R);
         bool G = (isr_counter > led[i].N_G);
         bool B = (isr_counter > led[i].N_B);
@@ -137,15 +130,12 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     
     // Add an increment to the ISR counter
     isr_counter += isr_res; 
-  
     // Check if counter has reached the limit
     if(isr_counter > isr_limit) {
-        isr_counter = 0; /// Reset the counter
+        /// Reset the counter
+        isr_counter = 0; 
         /// Turn on all the LEDs back on
-        for (int i = 0; i < LED_NUM; i++){
-            update_display_buffer(i, 1, 1, 1);
-        }
-        // Update the display driver
+        for (int i = 0; i < LED_NUM; i++) update_display_buffer(i, 1, 1, 1);
         write_display_driver();
     }
     
