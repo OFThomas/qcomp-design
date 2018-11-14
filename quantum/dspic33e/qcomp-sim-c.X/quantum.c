@@ -168,11 +168,10 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
 void qubit_display(Complex state[], int N) {
     /// Loop over all qubits k = 0, 1, 2, ... N-1
     for (int k = 0; k < N; k ++) {
-        Q15 zero_amp = 0;
-        Q15 one_amp = 0;
-        /// ROOT loop
+        Q15 zero_amp = 0, one_amp = 0;
+        /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < pow(2,k); root ++) {
-            /// STEP loop
+            /// STEP loop: starts at 0, increases in steps of 2^(k+1)
             for(int step = 0; step < pow(2,N); step += pow(2,k+1)) {
                 /// Zeros are at the index root + step
                 zero_amp += pow(state[root + step][0],2);
@@ -228,7 +227,7 @@ void qubit_display(Complex state[], int N) {
  *       (1+0) (1+2) (1+4) (1+6)
  * 
  * These numbers are exactly the same as the previous function, which means
- * the same nested loops can be used to perform operation. Now, the index
+ * the same nested loops can be used to perform operation. Now the index
  * 
  *      root + step 
  * 
@@ -241,9 +240,9 @@ void qubit_display(Complex state[], int N) {
  * 
  */
 void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
-    /// ROOT loop
+    /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, k); root++) {
-        /// STEP loop
+        /// STEP loop: starts at 0, increases in steps of 2^(k+1)
         for (int step = 0; step < pow(2, N); step += pow(2, k+1)) {
             /// First index is ZERO, second index is ONE
             mat_mul(op, state, root + step, root + (int) pow(2, k) + step);
