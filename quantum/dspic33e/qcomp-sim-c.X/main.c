@@ -65,10 +65,9 @@ int main(void) {
     Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
     make_ops(X, Y, Z, H);
    
-    int num_qubits = 3;
-    Complex state[8]; // Make a 3 qubit state vector of length 8 
-    zero_state(state, num_qubits); // Set the state to the vacuum
-    qubit_display(state, num_qubits); // Display the state for four qubits
+    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
+    zero_state(state, NUM_QUBITS); // Set the state to the vacuum
+    qubit_display(state, NUM_QUBITS); // Display the state for four qubits
 
         
     while(1); ///< @note Really important!

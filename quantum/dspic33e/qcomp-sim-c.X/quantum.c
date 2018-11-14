@@ -138,7 +138,7 @@ void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum) {
 
     int index;
     int n_max = pow(2, qubit); // loop over n, 2^(current qubit)
-    int j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits - current) 
+    int j_max = pow(2, Qnum - qubit - 1); /// 2^(total qbits -1 - current) 
     /// Loop here for each contribution to the zero and one amplitude
     for (int n = 0; n < n_max; n++) {
         /// loop over j
