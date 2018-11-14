@@ -73,10 +73,10 @@ int main(void) {
 
     CVector3 state_vect;
     
-    //qubit_test_3(state_vect);
-    //qubit_display_3(state_vect);
+    qubit_test_3(state_vect);
+    qubit_display_3(state_vect);
     
-   set_external_led(0, 0.8, 0, 0);
+    //set_external_led(0, 0.8, 0, 0);
     
     while(1==1);
 

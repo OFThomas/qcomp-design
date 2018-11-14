@@ -175,15 +175,16 @@ Q15 sq(Q15 num){
     return num*num;
 }
 
-// power function
+/// power function
 /// computes a^b
-int pow(int a, int b){
+/**int pow(int a, int b){
     int val = 1;
     for(int i=0; i<=b; i++){
-    val = val * a;
+        val = val * a;
     }
     return val;
 }
+ */
 
 
 

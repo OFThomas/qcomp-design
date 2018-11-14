@@ -78,7 +78,7 @@ extern "C" {
     Q15 sq(Q15 num);
 
     // power function
-    int pow(int a, int b);
+    ///int pow(int a, int b);
 
 #ifdef	__cplusplus
 }

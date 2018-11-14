@@ -158,17 +158,17 @@ void setup_external_leds(void) {
     led[0].G[1] = 2; led[0].G[0] = 0;
     led[0].B[1] = 3; led[0].B[0] = 0;
     
-    led[1].R[1] = 5; led[1].R[0] = 0;
-    led[1].G[1] = 6; led[1].G[0] = 0;
-    led[1].B[1] = 7; led[1].B[0] = 0;
+    led[1].R[1] = 7; led[1].R[0] = 0;
+    led[1].G[1] = 5; led[1].G[0] = 0;
+    led[1].B[1] = 6; led[1].B[0] = 0;
 
-    led[2].R[1] = 2; led[2].R[0] = 1;
-    led[2].G[1] = 3; led[2].G[0] = 1;
-    led[2].B[1] = 4; led[2].B[0] = 1;
+    led[2].R[1] = 4; led[2].R[0] = 1;
+    led[2].G[1] = 2; led[2].G[0] = 1;
+    led[2].B[1] = 3; led[2].B[0] = 1;
     
-    led[3].R[1] = 5; led[3].R[0] = 1;
-    led[3].G[1] = 6; led[3].G[0] = 1;
-    led[3].B[1] = 7; led[3].B[0] = 1;
+    led[3].R[1] = 7; led[3].R[0] = 1;
+    led[3].G[1] = 5; led[3].G[0] = 1;
+    led[3].B[1] = 6; led[3].B[0] = 1;
     
     /// Initialise parameters to zero
     for (int i = 0; i < LED_NUM; i++)
