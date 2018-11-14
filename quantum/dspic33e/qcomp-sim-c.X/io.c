@@ -97,8 +97,8 @@ int display_buf[DISPLAY_CHIP_NUM] = {0};
  * value of unsigned _Fract).
  */
 unsigned _Fract isr_counter = 0; /// Counter value
-unsigned _Fract isr_res = 0.1; /// Counter resolution
-const unsigned _Fract isr_limit = 0.99; /// The max value for isr_counter
+unsigned _Fract isr_res = 0.01; /// Counter resolution
+const unsigned _Fract isr_limit = 0.95; /// The max value for isr_counter
 
 /** @brief Interrupt service routine for timer 4
  * 
@@ -181,10 +181,9 @@ void setup_external_leds(void) {
     // Reset TMR4, TMR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
+    
     // Set flashing period
-
-    // or theses HEAD ERROR
-    PR4 = 0x8000;
+    PR4 = 0x0800;
     PR5 = 0x0000;
 
     // Turn timer 4 on

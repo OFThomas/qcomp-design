@@ -73,10 +73,15 @@ int main(void) {
 
     CVector3 state_vect;
     
+<<<<<<< HEAD
     while(1==1){
 
     qubit_test_3(state_vect);
     qubit_display_3(state_vect);
+=======
+    //qubit_test_3(state_vect);
+    //qubit_display_3(state_vect);
+>>>>>>> afd67a3bad6d7677118e85e9d711fdcde5299320
     
     int counter=0;
     while(counter<1000000){
@@ -89,6 +94,10 @@ int main(void) {
     }
     //set_external_led(0, 0.8, 0, 0);
     
+<<<<<<< HEAD
+=======
+    //while(1==1);
+>>>>>>> afd67a3bad6d7677118e85e9d711fdcde5299320
 
     //init_state_cmplx(state_v, ZERO);
     
@@ -99,11 +108,22 @@ int main(void) {
     //while(1 == 1) {
     //    set_external_led(0, 0.5, 0, 0);
     //}
-    while(1==1) {
-        for(_Fract i=0; i<0.99; i+=0.001) {
+    while (1 == 1) {
+        for (_Fract i = 0; i < 0.99; i += 0.001) {
             long int counter = 0;
-            while(counter < 10000) counter ++;
-            set_external_led(0, i, 0, 1.0-i);
+            while (counter < 1000) counter++;
+            set_external_led(0, i, 0, 1.0 - i);
+            set_external_led(1, 0, i, 1.0 - i);
+            set_external_led(2, i, 1.0 - i, 0);
+            set_external_led(3, i, 0.5, 1.0 - i);
+        }
+        for (_Fract i = 0; i < 0.99; i += 0.001) {
+            long int counter = 0;
+            while (counter < 1000) counter++;
+            set_external_led(0, 1.0-i, 0, i);
+            set_external_led(1, 0, 1.0-i, i);
+            set_external_led(2, 1.0-i, i, 0);
+            set_external_led(3, 1.0-i, 0.5, i);
         }
     }
 
