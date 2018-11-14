@@ -17,6 +17,7 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
+#include <stdbool.h>
 
 /// Locations of LEDs and buttons on Port D
 #define red 0
@@ -65,29 +66,25 @@ extern "C" {
      * The counters are used by a timer interrupt service routine pulse the
      * RGB LEDs at a specified rate.
      * 
+     * The position of the LED lines are contained in an array
+     * 
      * The type of the counter is _Fract to facilitate easy comparison with
      * the N_* variables which used the fractional type.
      */
     typedef struct {
-        int R_line; /// The line number for red
-        int G_line; /// the line number for green
-        int B_line; /// The line number for blue
-        int R_chip; /// The line number for red
-        int G_chip; /// the line number for green
-        int B_chip; /// The line number for blue
+        int R[2]; /// Red mapping array: [chip number, line number]
+        int G[2]; /// Green mapping array
+        int B[2]; /// Blue mapping array
         unsigned _Fract N_R; /// The R brightness
         unsigned _Fract N_G; /// The G brightness
         unsigned _Fract N_B; /// The B brightness
-        unsigned _Fract n_R; /// Counter for R -- do not modify
-        unsigned _Fract n_G; /// Counter for G -- do not modify
-        unsigned _Fract n_B; /// Counter for B -- do not modify
     } LED;
     
     /// Set up LEDs and buttons on port D 
     int setup_io(void);
     
     /// @brief Set external variable RGB LEDs
-    void setup_external_leds();
+    void setup_external_leds(void);
     
     /// @brief Turn a particular LED on or off
     /// @param color 
@@ -127,15 +124,14 @@ extern "C" {
      * @param B Intended value of the B led
      * @return 0 if successful
      */
-    int update_display_buffer(int led_index, int R, int G, int B);
+    int update_display_buffer(int led_index, bool R, bool G, bool B);
     
     /** @brief Send a byte to the display driver
-     * @param data
      * 
      * Don't use this function to write to LEDs -- use the set_external_led
      * function
      */
-    int write_display_driver(int * data);
+    int write_display_driver(void);
     
     /**
      * @param led_index
@@ -166,13 +162,13 @@ extern "C" {
      * @brief Loop to cycle through LEDs 0 - 15
      *
      */
-    int led_cycle_test();
+    int led_cycle_test(void);
     
     /**
      * @brief Update the buttons array (see declaration above) 
      * 
      */
-    int read_external_buttons(); 
+    int read_external_buttons(void); 
     
 #ifdef	__cplusplus
 }
