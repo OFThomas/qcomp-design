@@ -77,36 +77,114 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * 
  * @note Currently the function only displays superpositions using the
  * red and blue colors.
+ * 
+ * The routine works by adding up the squares of the amplitudes corresponding
+ * to each state of a given qubit. Suppose there are three qubits. Then the
+ * state vector is given by
+ * 
+ *      index     binary   amplitude 
+ *      ----------------------------- 
+ *        0       0 0 0       a_0
+ *        1       0 0 1       a_1 
+ *        2       0 1 0       a_2
+ *        3       0 1 1       a_3
+ *        4       1 0 0       a_4
+ *        5       1 0 1       a_5
+ *        6       1 1 0       a_6
+ *        7       1 1 1       a_7
+ *      -----------------------------
+ *      Qubit:    2 1 0
+ * 
+ * Consider qubit 2. The value of the ZERO state is formed by adding up all
+ * the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 
+ * and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and 
+ * 7. 
+ * 
+ * So the amplitudes for qubit 2 are
+ * 
+ * ZERO: (a_0)^2 + (a_1)^2 + (a_2)^2 + (a_3)^2
+ * ONE:  (a_4)^2 + (a_5)^2 + (a_6)^2 + (a_7)^2
+ * 
+ * Corresponding to the following indices:
+ * 
+ * ZERO: 0+0, 1+0, 2+0, 3+0
+ * ONE:  4+0, 5+0, 6+0, 7+0
+ * 
+ * For qubit 1 the indices are:
+ * 
+ * ZERO: 0+0, 0+4, 1+0, 1+4
+ * ONE:  2+0, 2+4, 3+0, 3+4
+ * 
+ * And for qubit 0 the indices are:
+ * 
+ * ZERO: 0+0, 0+2, 0+4, 0+6
+ * ONE:  1+0, 1+2, 1+4, 1+6
+ * 
+ * The examples above are supposed to show the general pattern. For N qubits,
+ * qubit number k, the ZERO and ONE states are given by summing all the square
+ * amplitudes corresponding to the following indices:
+ * 
+ * ZERO: n + (2^(k+1) * j), where n = 0, 1, ..., 2^k - 1 
+ *                          and   j = 0, 1, ..., 2^(N-k-2)
+ * 
+ * ONE:  n + (2^(k+1) * j), where n = 2^k, 2^k + 1, ..., 2^(k+1) - 1  
+ *                          and   j = 0, 1, ..., 2^(N-k-2)
+ * 
+ * The amplitudes are obtained by summing over both n and j. Notice that there
+ * is an edge condition when k = N-1. There, j apparently ranges from 0 to -1.
+ * In this case, the only value of j is 0. The condition arises because of the
+ * way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) 
+ * gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must
+ * be multiplied by 2^(-1). The key point is that the second term should not
+ * ever equal 2^N, so j should stop at 0. 
+ * 
+ * The above indices can be expressed as the sum of a ROOT and a STEP as 
+ * follows:
+ * 
+ * index = ROOT + STEP
+ * 
+ * where ROOT ranges from 0 to 2^k-1. This corresponds to the n values that
+ * give rise to ZERO. The indices for ONE can be obtained by adding 2^k to root.
+ * The STEP = j is a multiple of 2^(k+1) starting from zero that does not equal 
+ * or exceed 2^N. ROOT can be realised using the following for loop:
+ * 
+ * for(int root = 0; root \< 2^k; root ++) {
+ *      ...
+ *      // ZERO index
+ *      root;
+ *      // ONE index
+ *      root + 2^k; 
+ * } 
+ * 
+ * Then the STEP component can be realised as 
+ * 
+ * for(int step = 0; step \< 2^N; step += 2^(k+1)) {
+ *      // Add the following to root...
+ *      step;
+ * }
+ * 
+ * 
  */
-void qubit_display(Complex state[], int Qnum) {
+void qubit_display(Complex state[], int N) {
     Q15 zero_amp;
     Q15 one_amp;
-    int index;
-    int n_max;
-    int j_max;
-    int N = pow(2, Qnum);
 
-    /// qubit 0, 1, 2, ... N-1
-    for (int i = 0; i < N; i++) {
+    /// Loop over all qubits 0, 1, 2, ... N-1
+    for (int k = 0; k < N; k ++) {
         zero_amp = 0;
         one_amp = 0;
-        /// loop over n, 2^(current qubit)
-        n_max = pow(2, i);
-        j_max = pow(2, N-1-i); /// 2^(total qbits - 1 - current) 
-        /// Loop here for each contribution to the zero and one amplitude
-        for (int n = 0; n < n_max; n++) {
-            /// loop over j
-            for (int j = 0; j < j_max; j++) {
-                /// n + j * 2^(i+1)
-                index = n + (pow(2, i + 1) * j);
-                /// zeros n 
-                zero_amp += pow(state[index][0],2);
-                /// ones index are always n+1 for zero amps 
-                one_amp += pow(state[index + n_max][0],2);
+        /// ROOT loop
+        for(int root = 0; root < pow(2,k); root ++) {
+            /// STEP loop
+            for(int step = 0; step < pow(2,N); step += pow(2,k+1)) {
+                /// Zeros are at the index root + step
+                zero_amp += pow(state[root + step][0],2);
+                /// Ones are at the index root + 2^k + step
+                one_amp += pow(state[root + (int)pow(2,k) + step][0],2);
             }
         }
         /// update leds for each qubits average zer0 and one amps
-        set_external_led(i, zero_amp, 0, one_amp);
+        set_external_led(k, zero_amp, 0, one_amp);
     }
 }
 
