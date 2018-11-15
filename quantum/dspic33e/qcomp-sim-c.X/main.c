@@ -73,32 +73,20 @@ int main(void) {
 
     delay();
     
+    /// Start of the PROGRAM!
     while(1){
     
-    // X on q0
-    single_qubit_op(X, 0, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // H on q2
-    single_qubit_op(H, 2, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // H q2
-    single_qubit_op(H, 2, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // X q0
-    single_qubit_op(X, 0, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
+        /// Apply X to qubit 0 
+        /// Then display the state 
+        /// Then wait for 100,000
+        gate(X, 0, state, NUM_QUBITS);
+        
+        gate(H, 2, state, NUM_QUBITS);
+        
+        gate(H, 2, state, NUM_QUBITS);
+        
+        gate(X, 0, state, NUM_QUBITS);
+        
     }
     while(1); ///< @note Really important!
     return 0;
