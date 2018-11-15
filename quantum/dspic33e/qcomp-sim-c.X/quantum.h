@@ -38,6 +38,8 @@ extern "C" {
     
     /// Initialise state to the vacuum (zero apart from the first position)
     /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
+    /// @param state complex state vector 
+    /// @param Qnum int total number of qubits 
     void zero_state(Complex state[], int Qnum);
   
     /// 2x2 complex matrix multiplication
@@ -52,6 +54,15 @@ extern "C" {
 
 
     /// 4x4 complex matrix multiplication
+    /// @param M 4x4 complex matrix
+    /// @param V complex state vector
+    /// @param i first element of V 
+    /// @param j second element of V
+    /// @param k third element of V
+    /// @param l Fourth element of V
+    /// @note this function is never used as we realised that a 2-qubit gate is a reduced
+    /// form of a single qubit gate...
+    /// @todo remove or make this general? It might not even be needed :(
     void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l);
             
      /** apply operator
@@ -63,6 +74,11 @@ extern "C" {
     void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum);
     
     /// apply controlled 2x2 op
+    /// @param op single qubit unitary 2x2
+    /// @param ctrl control qubit number (0,1,..,n-1)
+    /// @param targ target qubit number (0,1,...,n-1)
+    /// @param state complex state vector
+    /// @param N total number of qubits 
     void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N);
     
 

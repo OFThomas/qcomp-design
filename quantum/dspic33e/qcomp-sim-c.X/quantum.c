@@ -26,7 +26,7 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
         Complex Z[2][2], Complex H[2][2]) {
     // Assume the elements are all equal to zero
     
-    /// IMPLICIT NONE!!!
+    /// @note IMPLICIT NONE!!!
     for(int i=0; i < 2; i++){
         for(int j=0; j<2; j++){
             for(int k=0; k<2; k++){
@@ -342,6 +342,8 @@ void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
 /// 01( 0  1  0  0   )
 /// 10( 0  0 u00 u01 )
 /// 11( 0  0 u10 u11 )
+/// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
+// elements
 void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, targ); root++) {
@@ -350,10 +352,24 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
+            ///
+            /// @note sorry.
+            /// this checks for the first element of the state vector i.e. the target 
+            /// qubits |0> and checks that the state vector element is one which the 
+            /// control qubit has a |1> state -> (root + step)
+            ///
+            /// The second element of the state vector to take is then the first
+            /// +2^(target qubit number). This also needs to be checked that the control
+            /// qubit is in the |1>. 
+            /// @todo This expression can probably be simplified or broken over lines.
             if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
-            mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
+                mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
             }
         }
     }
 }
+
+/// @todo state sorting function.
+/// searches the state vector for the largest amplitude states. Then returns the RGB
+/// values for each of them to be displayed 
 
