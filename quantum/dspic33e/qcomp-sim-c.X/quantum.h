@@ -18,6 +18,7 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 #include <math.h>
+#include <stdbool.h>
   
     /// Basis states
     typedef enum {ZERO, ONE, PLUS, MINUS, iPLUS, iMINUS} State;
