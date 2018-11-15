@@ -22,6 +22,21 @@ void cmul(Complex a, Complex b, Complex result) {
     result[1] = a[0] * b[1] + a[1] * b[0]; 
 }
 
+/**
+ * 
+ * @param a A complex number to find the absolute value of
+ * @return The absolute value
+ */
+Q15 absolute(Complex x) {
+    Complex y; // Conjugate of x
+    y[0] = x[0];
+    y[1] = -x[0];
+    Complex z;
+    cmul(x, y, z);
+    /// @todo Check that the complex part is small
+    return z[0]; // Return real part
+}
+
 // Create complex X, Y, Z and H
 void make_ops(Complex X[2][2], Complex Y[2][2], 
         Complex Z[2][2], Complex H[2][2]) {
@@ -372,21 +387,6 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
 
 /**
  * 
- * @param a A complex number to find the absolute value of
- * @return The absolute value
- */
-Q15 absolute(Complex x) {
-    Complex y; // Conjugate of x
-    y[0] = x[0];
-    y[1] = -x[0];
-    Complex z;
-    cmul(x, y, z);
-    /// @todo Check that the complex part is small
-    return z[0]; // Return real part
-}
-
-/**
- * 
  * @param state The state vector
  * @param num_qubits The number of qubits in the state vector
  * @return 
@@ -395,6 +395,7 @@ Q15 absolute(Complex x) {
  * magnitude. 
  * 
  */
+#define NUM_MAX_AMPS 3 /// Define the number of largest amplitudes to store
 int sort_states(Complex state[], int num_qubits){
     // number of elements in state vect
     int N = pow(2,num_qubits); 
@@ -403,7 +404,7 @@ int sort_states(Complex state[], int num_qubits){
     int count = 0;
     long int counter1;
     // max amp
-    Q15 max_amp[16]; /// Here too
+    Q15 max_amp[NUM_MAX_AMPS] = {0}; /// Array for 
 
     // initialise output to 0    
     for(int m=0; m<N; m++){
