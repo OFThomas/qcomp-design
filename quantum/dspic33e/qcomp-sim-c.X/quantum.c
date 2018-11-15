@@ -372,27 +372,52 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
 
 /**
  * 
+ * @param a A complex number to find the absolute value of
+ * @return The absolute value
+ */
+Q15 absolute(Complex x) {
+    Complex y; // Conjugate of x
+    y[0] = x[0];
+    y[1] = -x[0];
+    Complex z;
+    cmul(x, y, z);
+    /// @todo Check that the complex part is small
+    return z[0]; // Return real part
+}
+
+/**
+ * 
  * @param state The state vector
  * @param num_qubits The number of qubits in the state vector
  * @return 
+ * 
+ * This function finds the amplitude of the state vector with the largest
+ * magnitude. 
+ * 
  */
 int sort_states(Complex state[], int num_qubits){
     // number of elements in state vect
     int N = pow(2,num_qubits); 
     // output
-    int out_state[16];
+    int out_state[16]; /// These look hardcoded
     int count = 0;
     long int counter1;
     // max amp
-    Q15 max_amp[16];
+    Q15 max_amp[16]; /// Here too
 
     // initialise output to 0    
     for(int m=0; m<N; m++){
         max_amp[m] = 0.0;
         out_state[m] = 0;
     }
-    // Sorting happens?
+    /**
+     * Sort the state. Look through every element storing it if it is larger
+     * and than the previous largest element
+     */
     for(int j=0; j<N; j++){
+        /// Compute the magnitude of the element
+        Q15 current = absolute(state[j]);
+        
         if(max_amp[count] <= state[j][0]){
             // update new maximum val
             max_amp[count+1] = state[j][0];
