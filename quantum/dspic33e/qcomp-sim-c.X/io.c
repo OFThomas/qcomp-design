@@ -164,6 +164,13 @@ void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
     }
     
     /// @todo Get all the led data and write it to the the data buffer
+    for(int n=0; n<current->size; n++) {
+        set_external_led(
+                current->leds[n], 
+                current->rgb[n].R,
+                current->rgb[n].G,
+                current->rgb[n].B);
+    }
     
     // Reset the timer
     TMR6 = 0x0000;
