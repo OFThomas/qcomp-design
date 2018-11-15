@@ -375,8 +375,7 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
 /// values for each of them to be displayed 
 int sort_states(Complex state[], int num_qubits){
     // number of elements in state vect
-    int N;
-    N = pow(2,num_qubits); 
+    int N = pow(2,num_qubits); 
     // output
     int out_state[16];
     int count = 0;
@@ -408,17 +407,8 @@ int sort_states(Complex state[], int num_qubits){
     for(int l=1; l<=count; l++){
         /// display the states of three qubits
         for(int k=0; k<4; k++){
-<<<<<<< HEAD
-            int zero_amp=0;
-            int one_amp=0;
-            
-            one_amp=val_of_pos_bit(out_state[l],k);
-            zero_amp=1-one_amp;
-            if(one_amp > 0) zero_amp =0;
-=======
             int one_amp=(out_state[l] & (1 << k));
             int zero_amp=1-one_amp;
->>>>>>> a0ab09ab3a321c9212a7ba0c55c3247569da879f
             set_external_led(k, 0,zero_amp, one_amp);
             
         }
@@ -434,24 +424,4 @@ int sort_states(Complex state[], int num_qubits){
     }
 
 return 0;
-<<<<<<< HEAD
 }
-=======
-}
-
-/// int to binary function
-/// takes an int and a bit position
-/// returns 1 or 0 in the bit position of the int
-int val_of_pos_bit(int input, int pos){
-    // i.e. the is a 1 in the 'pos' bit
-    if( ((input) & (1 << pos)) == 1){
-    return 1;
-    }
-    //int c=0;
-   // while(c <2) c++;
-    //else return 0;
-   
-}
-
-
->>>>>>> 3ae2680ca7c44fd8ba04fb642b5bee370240c9df
