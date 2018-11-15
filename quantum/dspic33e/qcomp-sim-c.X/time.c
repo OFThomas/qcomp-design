@@ -88,3 +88,12 @@ unsigned long int read_timer() {
     count = (msw << 16) + lsw; // Add the msw to lsw to get the total count
     return count;
 }
+
+
+/// @brief Delay function!
+void delay(){
+long int counter = 0;
+    while(counter <= 1000000){
+        counter++;
+    }
+}

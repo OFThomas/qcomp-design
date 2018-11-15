@@ -25,6 +25,19 @@ void cmul(Complex a, Complex b, Complex result) {
 void make_ops(Complex X[2][2], Complex Y[2][2], 
         Complex Z[2][2], Complex H[2][2]) {
     // Assume the elements are all equal to zero
+    
+    /// IMPLICIT NONE!!!
+    for(int i=0; i < 2; i++){
+        for(int j=0; j<2; j++){
+            for(int k=0; k<2; k++){
+                X[i][j][k] = 0.0;
+                Y[i][j][k] = 0.0;
+                Z[i][j][k] = 0.0;
+                H[i][j][k] = 0.0;
+            }
+        }
+    }  
+    
     X[0][1][0] = 0.9999694824; // X
     X[1][0][0] = 0.9999694824;
     
@@ -180,7 +193,7 @@ void qubit_display(Complex state[], int N) {
             }
         }
         /// update leds for each qubits average zero and one amps
-        set_external_led(k, zero_amp, 0, one_amp);
+        set_external_led(k, 0,zero_amp, one_amp);
     }
 }
 
