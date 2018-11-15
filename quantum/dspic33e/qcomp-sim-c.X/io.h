@@ -18,6 +18,7 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 #include <stdbool.h>
+#include <stdlib.h>
 
 /// Locations of LEDs and buttons on Port D
 #define red 0

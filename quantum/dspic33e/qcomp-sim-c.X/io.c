@@ -190,6 +190,126 @@ void setup_external_leds(void) {
     T4CONbits.TON = 1;
 }
 
+/// @brief Global LED strobing state parameter
+
+/// @brief A type for holding red, green, blue values 
+typedef struct {
+    unsigned _Fract R; 
+    unsigned _Fract G; 
+    unsigned _Fract B;
+} RGB;
+
+/// @brief The basis for a linked list of states to cycle
+typedef struct cycle_node {
+    int * leds; ///< Array for the indices of LEDs 
+    RGB * rgb; ///< Array of corresponding RGB values
+    int size; ///< The size of the above arrays
+    struct cycle_node * next; ///< Pointer to the next item
+    struct cycle_node * previous; ///< Pointer to the previous item
+} cycle_node_t;
+
+/// The current element of the linked list
+cycle_node_t * head = NULL;
+
+/// Function for adding data to the linked list
+cycle_node_t * push(cycle_node_t * head, int * leds, RGB * rgb, int size) {
+    /// Set all the data in head
+    head -> leds = leds;
+    head -> rgb = rgb;
+    head -> size = size;
+    
+    /// Allocate the next element of the linked list
+    cycle_node_t * new_head = malloc(sizeof(cycle_node_t));
+    if(new_head == NULL) {
+        return NULL; /// Failed to allocate memory
+    }
+    new_head->next = NULL;
+    
+    /// Link the previous element
+    new_head->previous = head;
+    
+    /// Return the new head
+    return new_head;
+}
+
+/**
+ * @brief Add an item to the list of states to cycle
+ * 
+ * @param leds An array of LED indices 
+ * @param colors Corresponding RGB values for each LED
+ * @param size The size of both the above arrays
+ * 
+ * This function is used to add a set of LED states (RGB values) into the
+ * list of states being cycled. 
+ * 
+ * Repeatedly calling this function adds a new state to the end of the list
+ * of displayed states. LED states are shown in the order this function is
+ * called.
+ * 
+ * The implementation uses the linked list type cycle_node. Each call of
+ * this function adds a new element to the end of cycle node
+ * 
+ */
+int add_to_cycle(int leds[], RGB colors[], int size) {
+    
+    /// head is global in this function and all the other related functions 
+    
+    /// Allocate memory for the arrays
+    /// This memory is owned by the node not the calling function
+    int * leds_p = malloc(sizeof(int)*size);
+    RGB * colors_p = malloc(sizeof(RGB)*size);
+    if(leds_p == NULL || colors_p == NULL) 
+        return -1; // Failed to allocate memory
+    for(int n = 0; n < size; n++) {
+        leds_p[n] = leds[n];
+        colors_p[n] = colors[n];
+    }
+    
+    /// Link this data to the current node (head)
+    /// I'm a bit concerned about this line -- returning head
+    head = push(head, leds_p, colors_p, size);
+    if(head == NULL)
+        return -1; /// Failed to allocate memory
+    
+    return 0; // Success 
+}
+
+/**
+ * @brief Reset the LED display cycle
+ * 
+ * This function deletes all entries from the LED cycle and returns the 
+ * IO to the state where all LEDs are off.
+ * 
+ * After calling this function, states can be added to the cycle using 
+ * add_to_cycle
+ * 
+ */
+int reset_cycle(void) {
+    /// De-allocate any previous cycle_node linked list
+    while(head != NULL) {
+        // Delete the memory in this node
+        free(head->leds);
+        free(head->next);
+        free(head->rgb);
+        free(head->size);
+        
+        
+    }
+    
+    /// Allocate the first element of the linked list
+    head = malloc(sizeof(cycle_node_t));
+    if(head == NULL) {
+        return -1; /// Failed to allocate memory
+    }
+    head->next = NULL;
+    /// No need to initialise any data in the head
+    
+    return 0; // Success
+    
+}
+
+
+
 /// @brief Stop LEDs flashing
 void stop_external_leds(void) {
     T4CONbits.TON = 0; // Turn timer 4 off   
