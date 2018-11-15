@@ -169,7 +169,25 @@ extern "C" {
      * @brief Update the buttons array (see declaration above) 
      * 
      */
-    int read_external_buttons(void); 
+    int read_external_buttons(void);
+
+    /// @brief A type for holding red, green, blue values 
+
+    typedef struct {
+        unsigned _Fract R;
+        unsigned _Fract G;
+        unsigned _Fract B;
+    } RGB;
+
+    /// @brief The basis for a linked list of states to cycle
+
+    typedef struct cycle_node {
+        int * leds; ///< Array for the indices of LEDs 
+        RGB * rgb; ///< Array of corresponding RGB values
+        int size; ///< The size of the above arrays
+        struct cycle_node * next; ///< Pointer to the next item
+        struct cycle_node * previous; ///< Pointer to the previous item
+    } cycle_node_t;
     
 #ifdef	__cplusplus
 }

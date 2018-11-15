@@ -150,6 +150,28 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     IFS1bits.T5IF = 0;
 }
 
+/// Linked list pointers
+cycle_node_t * top = NULL; /// The top element
+cycle_node_t * head = NULL; /// The last element
+cycle_node_t * current = NULL; ///
+
+/// Timer 6 and 7 for cycling superposition states
+void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
+    
+    // Advance the current pointer
+    if(current != NULL) {
+        current = current->next;
+    }
+    
+    /// @todo Get all the led data and write it to the the data buffer
+    
+    // Reset the timer
+    TMR6 = 0x0000;
+    TMR7 = 0x0000;
+    // Clear Timer6 interrupt flag
+    IFS3bits.T7IF = 0;
+}
+    
 /// @brief Set external variable RGB LEDs
 void setup_external_leds(void) {
 
@@ -192,25 +214,6 @@ void setup_external_leds(void) {
 
 /// @brief Global LED strobing state parameter
 
-/// @brief A type for holding red, green, blue values 
-typedef struct {
-    unsigned _Fract R; 
-    unsigned _Fract G; 
-    unsigned _Fract B;
-} RGB;
-
-/// @brief The basis for a linked list of states to cycle
-typedef struct cycle_node {
-    int * leds; ///< Array for the indices of LEDs 
-    RGB * rgb; ///< Array of corresponding RGB values
-    int size; ///< The size of the above arrays
-    struct cycle_node * next; ///< Pointer to the next item
-    struct cycle_node * previous; ///< Pointer to the previous item
-} cycle_node_t;
-
-/// The current element of the linked list
-cycle_node_t * head = NULL;
-
 /// Function for adding data to the linked list
 cycle_node_t * push(cycle_node_t * head, int * leds, RGB * rgb, int size) {
     /// Set all the data in head
@@ -223,9 +226,9 @@ cycle_node_t * push(cycle_node_t * head, int * leds, RGB * rgb, int size) {
     if(new_head == NULL) {
         return NULL; /// Failed to allocate memory
     }
-    new_head->next = NULL;
+    new_head->next = top; /// Wrap the pointer back round to the start
     
-    /// Link the previous element
+    /// Link the previous element of the list
     new_head->previous = head;
     
     /// Return the new head
@@ -260,13 +263,14 @@ int add_to_cycle(int leds[], RGB colors[], int size) {
     RGB * colors_p = malloc(sizeof(RGB)*size);
     if(leds_p == NULL || colors_p == NULL) 
         return -1; // Failed to allocate memory
+    /// Copy across the data
     for(int n = 0; n < size; n++) {
         leds_p[n] = leds[n];
         colors_p[n] = colors[n];
     }
     
     /// Link this data to the current node (head)
-    /// I'm a bit concerned about this line -- returning head
+    /// The head which is returned is the new head
     head = push(head, leds_p, colors_p, size);
     if(head == NULL)
         return -1; /// Failed to allocate memory
@@ -287,21 +291,32 @@ int add_to_cycle(int leds[], RGB colors[], int size) {
 int reset_cycle(void) {
     /// De-allocate any previous cycle_node linked list
     while(head != NULL) {
-        // Delete the memory in this node
+        /// Delete the memory in this node
         free(head->leds);
         free(head->next);
         free(head->rgb);
-        free(head->size);
+        /// No need to delete the size member
         
+        /// Move to previous item in the list
+        head = head -> previous;
         
+        /// Delete the next object
+        free(head->next);
+        
+        /// This loop will exit when head == NULL, 
+        /// i.e. when head->previous == NULL (the bottom item of the list)
     }
+    
+    /// Assume head is NULL here
     
     /// Allocate the first element of the linked list
     head = malloc(sizeof(cycle_node_t));
     if(head == NULL) {
         return -1; /// Failed to allocate memory
     }
-    head->next = NULL;
+    top = head;
+    head->next = NULL;  /// To be allocated later
+    head->previous = NULL; /// This will remain NULL
     /// No need to initialise any data in the head
     
     return 0; // Success
