@@ -413,11 +413,8 @@ int sort_states(Complex state[], int num_qubits){
     for(int l=0; l<count; l++){
         /// display the states of three qubits
         for(int k=0; k<4; k++){
-            int zero_amp=0;
-            int one_amp=0;
-            
-            one_amp=val_of_pos_bit(out_state[l],k);
-            zero_amp=1-one_amp;
+            int one_amp=(out_state[l] & (1 << k));
+            int zero_amp=1-one_amp;
             set_external_led(k, 0,zero_amp, one_amp);
             
         }
@@ -434,17 +431,3 @@ int sort_states(Complex state[], int num_qubits){
 
 return 0;
 }
-
-/// int to binary function
-/// takes an int and a bit position
-/// returns 1 or 0 in the bit position of the int
-int val_of_pos_bit(int input, int pos){
-    int answer = 0;
-    // i.e. the is a 1 in the 'pos' bit
-    if( (input & (1 << pos)) == 1){
-    answer=1;
-    }
-return answer;
-}
-
-
