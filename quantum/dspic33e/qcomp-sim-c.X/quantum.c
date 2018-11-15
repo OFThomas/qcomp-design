@@ -402,28 +402,29 @@ int sort_states(Complex state[], int num_qubits){
     // max amp
     Q15 max[NUM_MAX_AMPS] = {0}; /// Array for largest amplitudes
     int index[NUM_MAX_AMPS] = {0}; /// To store the position of the amplitudes
-    
+
+    /*
 <<<<<<< HEAD
     
     /// Sort the state. Look through every element storing it if it is larger
     /// and than the previous largest element
     for(int j=0; j<N; j++){
 =======
-    /**
-     * Sort the state. 
-     * 
-     * max is always in ascending order. Elemen
-     */
-    int k = NUM_MAX_AMPS - 1;
-    for(int j=0; j<N; j++){            
->>>>>>> 40527106eadce3e4bd9254a62ec1d3e3b3aaec4b
+   // 
+    // * Sort the state. 
+    // * 
+   //  * max is always in ascending order. Elemen
+   //  
+   // int k = NUM_MAX_AMPS - 1;
+   // for(int j=0; j<N; j++){            
+//>>>>>>> 40527106eadce3e4bd9254a62ec1d3e3b3aaec4b
         /// Compute the magnitude of the element
-        if(absolute(state[j]) >= max[k]) {
-            max[k] = absolute(state[j]);
-            k++; /// Increment k to point to next position in max
-        }
-    }
-        
+//        if(absolute(state[j]) >= max[k]) {
+//            max[k] = absolute(state[j]);
+//            k++; /// Increment k to point to next position in max
+//        }
+//    }
+*/        
         /*
         
         if(max_amp[count] <= state[j][0]){
