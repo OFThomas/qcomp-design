@@ -3,4 +3,4 @@ cd latex
 make
 cd ..
 cp latex/*.pdf README.pdf
-#okular latex/*.pdf
+okular latex/*.pdf

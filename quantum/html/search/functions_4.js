@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['make_5fops',['make_ops',['../quantum_8c.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c'],['../quantum_8h.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c']]],
-  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]]
+  ['flash_5fall',['flash_all',['../io_8c.html#a24a09a687c0efdba91ec54b2853b2260',1,'flash_all(int number):&#160;io.c'],['../io_8h.html#a24a09a687c0efdba91ec54b2853b2260',1,'flash_all(int number):&#160;io.c']]],
+  ['flash_5fled',['flash_led',['../io_8c.html#a12adda62b67a14e911149c76376ce295',1,'flash_led(int color, int number):&#160;io.c'],['../io_8h.html#a12adda62b67a14e911149c76376ce295',1,'flash_led(int color, int number):&#160;io.c']]]
 ];
