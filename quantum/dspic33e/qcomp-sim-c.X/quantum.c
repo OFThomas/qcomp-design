@@ -8,6 +8,7 @@
 
 #include "io.h"                             
 #include "quantum.h"
+#include "time.h"
 
 // Complex addition
 void cadd(Complex a, Complex b, Complex result) {
@@ -372,4 +373,78 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
 /// @todo state sorting function.
 /// searches the state vector for the largest amplitude states. Then returns the RGB
 /// values for each of them to be displayed 
+int sort_states(Complex state[], int num_qubits){
+    // number of elements in state vect
+    int N;
+    N = pow(2,num_qubits); 
+    // output
+    int rgb[3];
+    int out_state[N];
+    int count = 0;
+    long int counter1;
+    // max amp
+    Q15 max_amp[N];
+
+    // initialise output to 0
+    for(int i=0; i<3; i++){
+        rgb[i]=0;   
+    }
+    
+    for(int m=0; m<N; m++){
+        max_amp[m] = 0.0;
+        out_state[m] = 0;
+    }
+    // Sorting happens?
+    for(int j=0; j<N; j++){
+        if(max_amp[count] <= state[j][0]){
+            // update new maximum val
+            max_amp[count+1] = state[j][0];
+            // save pos of maximal val
+            out_state[count] = j;
+            count++;
+        }
+
+    }
+    /// now have arrays of out_state and amplitudes of size count
+    /// need to decode int of the out_state to binary to find each quits state
+
+    while(1){
+    // loop over all max vals of the state 
+    for(int l=0; l<count; l++){
+        /// display the states of three qubits
+        for(int k=0; k<4; k++){
+            int zero_amp=0;
+            int one_amp=0;
+            
+            one_amp=val_of_pos_bit(out_state[l],k);
+            zero_amp=1-one_amp;
+            set_external_led(k, 0,zero_amp, one_amp);
+            
+        }
+
+        // let the user see
+        /// @todo wait for John to fix the timer so the microprocessor isn't locked out
+        // while displaying state 
+        counter1 = 0;
+        while(counter1 <= 200000){
+        counter1++;
+        }
+    }
+    }
+
+return 0;
+}
+
+/// int to binary function
+/// takes an int and a bit position
+/// returns 1 or 0 in the bit position of the int
+int val_of_pos_bit(int input, int pos){
+    int answer = 0;
+    // i.e. the is a 1 in the 'pos' bit
+    if( (input & (1 << pos)) == 1){
+    answer=1;
+    }
+return answer;
+}
+
 

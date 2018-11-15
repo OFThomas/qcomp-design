@@ -92,6 +92,11 @@ extern "C" {
      */
     void qubit_display(Complex state[], int Qnum);
 
+
+    int sort_states(Complex state[], int num_qubits);
+
+    int val_of_pos_bit(int input, int pos);
+
 #ifdef	__cplusplus
 }
 #endif
