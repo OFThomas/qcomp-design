@@ -24,13 +24,13 @@ void cmul(Complex a, Complex b, Complex result) {
 
 /**
  * 
- * @param a A complex number to find the absolute value of
+ * @param x A complex number to find the absolute value of
  * @return The absolute value
  */
 Q15 absolute(Complex x) {
     Complex y; // Conjugate of x
     y[0] = x[0];
-    y[1] = -x[0];
+    y[1] = -x[1];
     Complex z;
     cmul(x, y, z);
     /// @todo Check that the complex part is small
@@ -395,7 +395,7 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
  * magnitude. 
  * 
  */
-#define NUM_MAX_AMPS 3 /// Define the number of largest amplitudes to store
+#define NUM_MAX_AMPS 4 /// Define the number of largest amplitudes to store
 int sort_states(Complex state[], int num_qubits){
     // number of elements in state vector
     int N = pow(2,num_qubits); 
@@ -406,20 +406,19 @@ int sort_states(Complex state[], int num_qubits){
     Q15 max_amp[NUM_MAX_AMPS] = {0}; /// Array for largest amplitudes
     int amp_index[NUM_MAX_AMPS] = {0}; /// To store the position of the amplitudes
     
-    /**
-     * Sort the state. Look through every element storing it if it is larger
-     * and than the previous largest element
-     */
+    
+    /// Sort the state. Look through every element storing it if it is larger
+    /// and than the previous largest element
     for(int j=0; j<N; j++){
         /// Compute the magnitude of the element
         Q15 current = absolute(state[j]);
         
         if(max_amp[count] <= state[j][0]){
-            // update new maximum val
-            max_amp[count+1] = state[j][0];
-            // save pos of maximal val
-            amp_index[count+1] = j;
             count++;
+            // update new maximum val
+            max_amp[count] = state[j][0];
+            // save pos of maximal val
+            amp_index[count] = j;
         }
 
     }
@@ -431,8 +430,12 @@ int sort_states(Complex state[], int num_qubits){
     for(int l=1; l<=count; l++){
         /// display the states of three qubits
         for(int k=0; k<4; k++){
-            int one_amp=(amp_index[l] & (1 << k));
-            int zero_amp=1-one_amp;
+            /// I know this is wrong it returns one_amp as 0x0002
+            /// which means zero_amp becomes 0xFFFF because of overflow?
+            //
+            /// @note Changed to unsigned Fract to match set_external_led args in io.c
+            unsigned _Fract one_amp=(amp_index[l] & (1 << k));
+            unsigned _Fract zero_amp=1-one_amp;
             set_external_led(k, 0,zero_amp, one_amp);
             
         }
@@ -448,4 +451,34 @@ int sort_states(Complex state[], int num_qubits){
     }
 
 return 0;
+}
+
+/// @brief takes state vector, number of qubits and vector to write the nonzero elements
+/// of the statevector to.
+/// the disp_state elements are the nonzero elements of the state 
+/// e.g. state =  (00) = (1/r2) (Bell state)
+///               (01)   ( 0  )
+///               (10)   ( 0  )
+///               (11)   (1/r2)
+/// Then displ_state would have 2 elements
+/// disp_state = (0) standing for (00)
+///              (3)              (11)
+///
+/// @note we have to allocate disp_state to be the size of state, the function returns 
+/// count which tells us the first 'count' elements of disp_state to use.
+/// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
+/// as 3 which means take the first count-1 elements (in this case 2) of disp_state which 
+/// is 0,1 which is the correct elements
+int remove_zero_amp_states(Complex state[], int num_qubits, Complex disp_state[]){
+int N = pow(2,num_qubits);
+
+int count = 0;
+
+for(int i=0; i<N; i++){
+    if(absolute(state[i]) > 0){
+        disp_state[count] = i;
+        count++;
+    }
+}
+return count-1;
 }
