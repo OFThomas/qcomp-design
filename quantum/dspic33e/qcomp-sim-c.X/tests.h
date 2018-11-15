@@ -34,6 +34,8 @@ extern "C" {
     // Multi LED strobing test
     void multi_led_strobe();
     
+    /// delays for 100,000
+    void delay();
 #ifdef	__cplusplus
 }
 #endif

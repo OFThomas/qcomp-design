@@ -37,7 +37,6 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
             }
         }
     }  
-    
     X[0][1][0] = 0.9999694824; // X
     X[1][0][0] = 0.9999694824;
     
@@ -52,6 +51,39 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
     H[1][0][0] = 0.7071067812;
     H[1][1][0] = -0.7071067812;
 }
+
+void make_ops_4(Complex CNOT[4][4], Complex CPHASE[4][4], Complex SWAP){
+
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            for(int k=0; k<2; k++){
+                CNOT[i][j][k] = 0.0;
+                CPHASE[i][j][k] = 0.0;
+                SWAP[i][j][k] = 0.0;
+            }
+        }
+    }
+    /// [][] = row, col
+    // [2][3] is (0 0 0 0)
+    //           (0 0 0 0)
+    //           (0 0 0 1)
+    //           (0 0 0 0)
+    CNOT[0][0][0] = ONE_Q15;
+    CNOT[1][1][0] = ONE_Q15;
+    CNOT[2][3][0] = ONE_Q15;
+    CNOT[3][2][0] = ONE_Q15;
+
+    CPHASE[0][0][0] = ONE_Q15;
+    CPHASE[1][1][0] = ONE_Q15;
+    CPHASE[2][2][0] = ONE_Q15;
+    CPHASE[3][3][0] = -1.0;
+
+    SWAP[0][0][0] = ONE_Q15;
+    SWAP[1][2][0] = ONE_Q15;
+    SWAP[2][1][0] = ONE_Q15;
+    SWAP[3][3][0] = ONE_Q15;
+}
+
 
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
@@ -81,6 +113,46 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
     V[i][1] = c[1];
     V[j][0] = d[0];
     V[j][1] = d[1];
+}
+
+/// 4x4 matrix 
+void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
+
+    /// store results of each row multiplication 
+    Complex temp_in[4];
+    Complex temp_out[4];
+   
+    // initialise temp vars to zero 
+    for(int q=0; q<4; q++){
+        temp_in[q] = 0;
+        temp_out[q] = 0;
+    }
+
+    // ( a b c d )  * ( p )
+    // ( e f g h )    ( q )
+    // ( h i j k )    ( r ) 
+    // ( l m n o )    ( s )
+
+    // row 0,1,2,3 
+    for(int row=0; row< 4; row++){
+        /// 4 cols of V (i,h,k,l)
+        cmul(M[row][0], V[i], temp_in[0]);
+        cmul(M[row][1], V[j], temp_in[1]);
+        cmul(M[row][2], V[k], temp_in[2]);
+        cmul(M[row][3], V[l], temp_in[3]);
+        
+        /// add the 4 terms together and put into temp for that row
+        for(int n=0; n<4; n++){
+            cadd(temp_in[n], temp_out[row], temp_out[row]);
+        }   
+    }
+    // loop over real and complex parts write sums of rows into V elements
+    for(int c=0; c<2; c++){
+        V[i][c] = temp_out[0][c];
+        V[j][c] = temp_out[1][c];
+        V[k][c] = temp_out[2][c];
+        V[l][c] = temp_out[3][c];
+    }
 }
 
 /**
