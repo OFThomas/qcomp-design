@@ -370,9 +370,12 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
     }
 }
 
-/// @todo state sorting function.
-/// searches the state vector for the largest amplitude states. Then returns the RGB
-/// values for each of them to be displayed 
+/**
+ * 
+ * @param state The state vector
+ * @param num_qubits The number of qubits in the state vector
+ * @return 
+ */
 int sort_states(Complex state[], int num_qubits){
     // number of elements in state vect
     int N = pow(2,num_qubits); 
