@@ -93,7 +93,7 @@ unsigned long int read_timer() {
 /// @brief Delay function!
 void delay(){
 long int counter = 0;
-    while(counter <= 1000000){
+    while(counter <= 2000000){
         counter++;
     }
 }

@@ -52,7 +52,7 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
     H[1][1][0] = -0.7071067812;
 }
 
-void make_ops_4(Complex CNOT[4][4], Complex CPHASE[4][4], Complex SWAP){
+void make_ops_4(Complex CNOT[4][4], Complex CPHASE[4][4], Complex SWAP[4][4]){
 
     for(int i=0; i<4; i++){
         for(int j=0; j<4; j++){
@@ -124,10 +124,11 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
    
     // initialise temp vars to zero 
     for(int q=0; q<4; q++){
-        temp_in[q] = 0;
-        temp_out[q] = 0;
+        for(int r=0; r<2; r++){
+            temp_in[q][r] = 0.0;
+            temp_out[q][r] = 0.0;
+        }
     }
-
     // ( a b c d )  * ( p )
     // ( e f g h )    ( q )
     // ( h i j k )    ( r ) 
@@ -349,7 +350,7 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
-            if( ((root+step) & (1 << ctrl)) == 1){
+            if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
             mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
             }
         }

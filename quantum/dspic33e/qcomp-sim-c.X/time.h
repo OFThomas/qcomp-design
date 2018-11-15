@@ -33,6 +33,7 @@ extern "C" {
     // Read the timer
     unsigned long int read_timer();
     
+    void delay();
 
 #ifdef	__cplusplus
 }
