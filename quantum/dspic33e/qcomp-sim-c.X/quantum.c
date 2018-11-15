@@ -379,11 +379,11 @@ int sort_states(Complex state[], int num_qubits){
     N = pow(2,num_qubits); 
     // output
     int rgb[3];
-    int out_state[N];
+    int out_state[16];
     int count = 0;
     long int counter1;
     // max amp
-    Q15 max_amp[N];
+    Q15 max_amp[16];
 
     // initialise output to 0
     for(int i=0; i<3; i++){
@@ -400,7 +400,7 @@ int sort_states(Complex state[], int num_qubits){
             // update new maximum val
             max_amp[count+1] = state[j][0];
             // save pos of maximal val
-            out_state[count] = j;
+            out_state[count+1] = j;
             count++;
         }
 
@@ -410,7 +410,7 @@ int sort_states(Complex state[], int num_qubits){
 
     while(1){
     // loop over all max vals of the state 
-    for(int l=0; l<count; l++){
+    for(int l=1; l<=count; l++){
         /// display the states of three qubits
         for(int k=0; k<4; k++){
             int one_amp=(out_state[l] & (1 << k));
@@ -423,11 +423,31 @@ int sort_states(Complex state[], int num_qubits){
         /// @todo wait for John to fix the timer so the microprocessor isn't locked out
         // while displaying state 
         counter1 = 0;
-        while(counter1 <= 200000){
+        while(counter1 <= 1000000){
         counter1++;
         }
     }
     }
 
 return 0;
+<<<<<<< HEAD
 }
+=======
+}
+
+/// int to binary function
+/// takes an int and a bit position
+/// returns 1 or 0 in the bit position of the int
+int val_of_pos_bit(int input, int pos){
+    // i.e. the is a 1 in the 'pos' bit
+    if( ((input) & (1 << pos)) == 1){
+    return 1;
+    }
+    //int c=0;
+   // while(c <2) c++;
+    //else return 0;
+   
+}
+
+
+>>>>>>> 3ae2680ca7c44fd8ba04fb642b5bee370240c9df
