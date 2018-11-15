@@ -397,20 +397,15 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
  */
 #define NUM_MAX_AMPS 3 /// Define the number of largest amplitudes to store
 int sort_states(Complex state[], int num_qubits){
-    // number of elements in state vect
+    // number of elements in state vector
     int N = pow(2,num_qubits); 
     // output
-    int out_state[16]; /// These look hardcoded
     int count = 0;
     long int counter1;
     // max amp
-    Q15 max_amp[NUM_MAX_AMPS] = {0}; /// Array for 
-
-    // initialise output to 0    
-    for(int m=0; m<N; m++){
-        max_amp[m] = 0.0;
-        out_state[m] = 0;
-    }
+    Q15 max_amp[NUM_MAX_AMPS] = {0}; /// Array for largest amplitudes
+    int amp_index[NUM_MAX_AMPS] = {0}; /// To store the position of the amplitudes
+    
     /**
      * Sort the state. Look through every element storing it if it is larger
      * and than the previous largest element
@@ -423,7 +418,7 @@ int sort_states(Complex state[], int num_qubits){
             // update new maximum val
             max_amp[count+1] = state[j][0];
             // save pos of maximal val
-            out_state[count+1] = j;
+            amp_index[count+1] = j;
             count++;
         }
 
@@ -436,7 +431,7 @@ int sort_states(Complex state[], int num_qubits){
     for(int l=1; l<=count; l++){
         /// display the states of three qubits
         for(int k=0; k<4; k++){
-            int one_amp=(out_state[l] & (1 << k));
+            int one_amp=(amp_index[l] & (1 << k));
             int zero_amp=1-one_amp;
             set_external_led(k, 0,zero_amp, one_amp);
             
