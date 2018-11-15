@@ -378,18 +378,13 @@ int sort_states(Complex state[], int num_qubits){
     int N;
     N = pow(2,num_qubits); 
     // output
-    int rgb[3];
     int out_state[16];
     int count = 0;
     long int counter1;
     // max amp
     Q15 max_amp[16];
 
-    // initialise output to 0
-    for(int i=0; i<3; i++){
-        rgb[i]=0;   
-    }
-    
+    // initialise output to 0    
     for(int m=0; m<N; m++){
         max_amp[m] = 0.0;
         out_state[m] = 0;
@@ -418,6 +413,7 @@ int sort_states(Complex state[], int num_qubits){
             
             one_amp=val_of_pos_bit(out_state[l],k);
             zero_amp=1-one_amp;
+            if(one_amp > 0) zero_amp =0;
             set_external_led(k, 0,zero_amp, one_amp);
             
         }

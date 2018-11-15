@@ -91,7 +91,10 @@ int main(void) {
 
     
     gate(H, 1, state, NUM_QUBITS);
+    gate(H, 3, state, NUM_QUBITS);
     
+    gate(X, 0, state, NUM_QUBITS);
+    gate(X, 2, state, NUM_QUBITS);
     /// do CNOT_01 -> should stay vac 
     //two_gate(X, 1, 2, state, NUM_QUBITS);
 
