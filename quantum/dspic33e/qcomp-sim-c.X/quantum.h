@@ -62,6 +62,10 @@ extern "C" {
      */
     void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum);
     
+    /// apply controlled 2x2 op
+    void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N);
+    
+
     /**
      * @brief Display the state amplitudes on LEDs
      * @param state Pass in the state vector

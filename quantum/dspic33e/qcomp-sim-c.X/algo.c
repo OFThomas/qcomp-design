@@ -21,6 +21,12 @@ void gate(Complex op[2][2], int qubit, Complex state[], int num_qubits){
     delay();
 }
 
+void two_gate(Complex op[2][2], int ctrl, int targ, Complex state[], int num_qubits){
+    /// does controlled 2x2 operator 
+    controlled_qubit_op(op, ctrl, targ, state, num_qubits);
+    qubit_display(state, num_qubits);
+    delay();
+}
 
 /// repetition code
 //

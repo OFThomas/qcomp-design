@@ -334,3 +334,25 @@ void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
         }
     }
 }
+
+/// selective 2 qubit op function 
+///    00 01 10 11
+/// 00( 1  0  0  0   )
+/// 01( 0  1  0  0   )
+/// 10( 0  0 u00 u01 )
+/// 11( 0  0 u10 u11 )
+void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
+    /// ROOT loop: starts at 0, increases in steps of 1
+    for (int root = 0; root < pow(2, targ); root++) {
+        /// STEP loop: starts at 0, increases in steps of 2^(k+1)
+        for (int step = 0; step < pow(2, N); step += pow(2, targ+1)) {
+            /// First index is ZERO, second index is ONE
+            /// @note for 2 qubit case check if the index in the ctrl qubit 
+            /// is a 1 then apply the 2x2 unitary else do nothing
+            if( ((root+step) & (1 << ctrl)) == 1){
+            mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
+            }
+        }
+    }
+}
+

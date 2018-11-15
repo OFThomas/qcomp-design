@@ -75,7 +75,8 @@ int main(void) {
     
     /// Start of the PROGRAM!
     while(1){
-    
+
+   /*     
         /// Apply X to qubit 0 
         /// Then display the state 
         /// Then wait for 100,000
@@ -86,7 +87,21 @@ int main(void) {
         gate(H, 2, state, NUM_QUBITS);
         
         gate(X, 0, state, NUM_QUBITS);
-        
+    */
+
+    
+    //gate(H, 0, state, NUM_QUBITS);
+    
+    /// do CNOT_01 -> should stay vac 
+    two_gate(X, 0, 1, state, NUM_QUBITS);
+
+    /// X qubit 2
+    gate(X, 2, state, NUM_QUBITS);
+
+    /// do CNOT_23 -> should go 11
+    two_gate(X, 2,3,state, NUM_QUBITS);
+
+
     }
     while(1); ///< @note Really important!
     return 0;
