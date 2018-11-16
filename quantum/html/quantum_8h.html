@@ -81,13 +81,17 @@ $(function() {
 Include dependency graph for quantum.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8h" alt=""/></div>
-<!-- MAP 0 -->
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8h__dep__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8hdep" alt=""/></div>
-<!-- MAP 1 -->
+<map name="dspic33e_2qcomp-sim-c_8X_2quantum_8hdep" id="dspic33e_2qcomp-sim-c_8X_2quantum_8hdep">
+<area shape="rect" id="node2" href="algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,95,148,136"/>
+<area shape="rect" id="node3" href="main_8c.html" title="The main function. " alt="" coords="172,95,315,136"/>
+<area shape="rect" id="node4" href="quantum_8c.html" title="Description: Contains matrix and vector arithmetic for simulating one qubit. " alt="" coords="339,95,481,136"/>
+<area shape="rect" id="node5" href="tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="505,95,648,136"/>
+</map>
 </div>
 </div>
 <p><a href="quantum_8h_source.html">Go to the source code of this file.</a></p>
@@ -324,7 +328,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
 
 </div>
 </div>
@@ -391,7 +395,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>this function is never used as we realised that a 2-qubit gate is a reduced form of a single qubit gate... </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>remove or make this general? It might not even be needed :( </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>remove or make this general? It might not even be needed :( </dd></dl>
 <p>4x4 complex matrix multiplication </p>
 <p>store results of each row multiplication</p>
 <p>4 cols of V (i,h,k,l)</p>
@@ -442,19 +446,10 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors.</dd></dl>
-<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by </p><pre class="fragment"> index     binary   amplitude 
- ----------------------------- 
-   0       0 0 0       a_0
-   1       0 0 1       a_1 
-   2       0 1 0       a_2
-   3       0 1 1       a_3
-   4       1 0 0       a_4
-   5       1 0 1       a_5
-   6       1 1 0       a_6
-   7       1 1 1       a_7
- -----------------------------
- Qubit:    2 1 0
-</pre><p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
+<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by </p><h2>index binary amplitude </h2>
+<p>0 0 0 0 a0 1 0 0 1 a1 2 0 1 0 a2 3 0 1 1 a3 4 1 0 0 a4 5 1 0 1 a5 6 1 1 0 a6 </p><h2>7 1 1 1 a7 </h2>
+<p>Qubit: 2 1 0</p>
+<p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
 <li></li>
 </ol>
 <p>So the amplitudes for qubit 2 are</p>
@@ -527,8 +522,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>returns the number of elements to look at in disp_state.</dd></dl>
 <p>updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'</p>
-<p>the disp_state elements are the nonzero elements of the state e.g. state = (00) = (1/r2) (Bell state) (01) ( 0 ) (10) ( 0 ) (11) (1/r2) Then displ_state would have 2 elements disp_state = (0) standing for (00) (3) (11)</p>
-<dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
+<p>the disp_state elements are the nonzero elements of the state e.g. state = (00) = (1/r2) (Bell state) (01) ( 0 ) (10) ( 0 ) (11) (1/r2) Then displ_state would have 2 elements disp_state = (0) standing for (00) (3) (11) </p><dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
 
 </div>
 </div>
@@ -586,22 +580,13 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 </dl>
 <p>This routine applies a single qubit gate to the state vector </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state.</td><td>Consider the three qubit case, with amplitudes shown in the table below: <pre class="fragment"> index     binary   amplitude 
- ----------------------------- 
-   0       0 0 0       a_0
-   1       0 0 1       a_1 
-   2       0 1 0       a_2
-   3       0 1 1       a_3
-   4       1 0 0       a_4
-   5       1 0 1       a_5
-   6       1 1 0       a_6
-   7       1 1 1       a_7
- -----------------------------
- Qubit:    2 1 0
-</pre></td></tr>
+    <tr><td class="paramname">state.</td><td>Consider the three qubit case, with amplitudes shown in the table below: <h2>index binary amplitude </h2>
+</td></tr>
   </table>
   </dd>
 </dl>
+<p>0 0 0 0 a0 1 0 0 1 a1 2 0 1 0 a2 3 0 1 1 a3 4 1 0 0 a4 5 1 0 1 a5 6 1 1 0 a6 </p><h2>7 1 1 1 a7 </h2>
+<p>Qubit: 2 1 0</p>
 <p>If a single qubit operation is applied to qubit 2, then the 2x2 matrix must be applied to all pairs of (0,1) in the first column, with the numbers in the other columns fixed. In other words, the following indices are paired: </p><pre class="fragment">  (0+0) (1+0) (2+0) (3+0)
   (4+0) (5+0) (6+0) (7+0)
 </pre><p>where the top line corresponds to the ZERO amplitude and the bottom row corresponds to the ONE amplitude.</p>
@@ -644,8 +629,20 @@ sorry. this checks for the first element of the state vector i.e. the target qub
       </table>
 </div><div class="memdoc">
 <p>Array for largest amplitudes</p>
-<p>To store the position of the amplitudes </p>
+<p>To store the position of the amplitudes</p>
+<p>/ Sort the state. Look through every element storing it if it is larger / and than the previous largest element for(int j=0; j&lt;N; j++){ </p><pre class="fragment">     Sort the state. 
 
+     max is always in ascending order. Elemen
+</pre><p>int k = NUM_MAX_AMPS - 1; for(int j=0; j&lt;N; j++){ / Compute the magnitude of the element if(absolute(state[j]) &gt;= max[k]) { max[k] = absolute(state[j]); k++; /// Increment k to point to next position in max } }</p>
+<pre class="fragment">    if(max_amp[count] &lt;= state[j][0]){
+        count++;
+</pre><p> update new maximum val max_amp[count] = state[j][0]; save pos of maximal val amp_index[count] = j; }</p>
+<p>} / now have arrays of out_state and amplitudes of size count / need to decode int of the out_state to binary to find each quits state </p><pre class="fragment">while(1){
+</pre><p> loop over all max vals of the state for(int l=1; l&lt;=count; l++){ / display the states of three qubits for(int k=0; k&lt;4; k++){ / I know this is wrong it returns one_amp as 0x0002 / which means zero_amp becomes 0xFFFF because of overflow?</p>
+<p>/ </p><dl class="section note"><dt>Note</dt><dd>Changed to unsigned Fract to match set_external_led args in <a class="el" href="io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. ">io.c</a> unsigned _Fract one_amp=(amp_index[l] &amp; (1 &lt;&lt; k)); unsigned _Fract zero_amp=1-one_amp; set_external_led(k, 0,zero_amp, one_amp);</dd></dl>
+<p>}</p>
+<p>let the user see /</p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>wait for John to fix the timer so the microprocessor isn't locked out while displaying state counter1 = 0; while(counter1 &lt;= 1000000){ counter1++; } } }</dd></dl>
+<pre class="fragment"></pre>
 </div>
 </div>
 <a id="a2ddf4816d6adf12474058fd944b210d2"></a>

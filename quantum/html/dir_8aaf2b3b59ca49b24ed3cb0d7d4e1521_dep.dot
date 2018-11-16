@@ -1,9 +1,0 @@
-digraph "dspic33e/qcomp-sim-c.X/build/default/production" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  subgraph clusterdir_9e6e4680045fe047bae6186b494d9eef {
-    graph [ bgcolor="#ddddee", pencolor="black", label="default" fontname="Helvetica", fontsize="10", URL="dir_9e6e4680045fe047bae6186b494d9eef.html"]
-  dir_8aaf2b3b59ca49b24ed3cb0d7d4e1521 [shape=box, label="production", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_8aaf2b3b59ca49b24ed3cb0d7d4e1521.html"];
-  }
-}

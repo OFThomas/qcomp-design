@@ -183,17 +183,16 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
  * The routine works by adding up the squares of the amplitudes corresponding
  * to each state of a given qubit. Suppose there are three qubits. Then the
  * state vector is given by
- * 
  *      index     binary   amplitude 
  *      ----------------------------- 
- *        0       0 0 0       a_0
- *        1       0 0 1       a_1 
- *        2       0 1 0       a_2
- *        3       0 1 1       a_3
- *        4       1 0 0       a_4
- *        5       1 0 1       a_5
- *        6       1 1 0       a_6
- *        7       1 1 1       a_7
+ *        0       0 0 0       a0
+ *        1       0 0 1       a1 
+ *        2       0 1 0       a2
+ *        3       0 1 1       a3
+ *        4       1 0 0       a4
+ *        5       1 0 1       a5
+ *        6       1 1 0       a6
+ *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
  * 
@@ -265,7 +264,6 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
  *      step;
  * }
  * 
- * 
  */
 void qubit_display(Complex state[], int N) {
     /// Loop over all qubits k = 0, 1, 2, ... N-1
@@ -294,20 +292,19 @@ void qubit_display(Complex state[], int N) {
  * 
  * This routine applies a single qubit gate to the state vector @param state.
  * Consider the three qubit case, with amplitudes shown in the table below:
- * 
  *      index     binary   amplitude 
  *      ----------------------------- 
- *        0       0 0 0       a_0
- *        1       0 0 1       a_1 
- *        2       0 1 0       a_2
- *        3       0 1 1       a_3
- *        4       1 0 0       a_4
- *        5       1 0 1       a_5
- *        6       1 1 0       a_6
- *        7       1 1 1       a_7
+ *        0       0 0 0       a0
+ *        1       0 0 1       a1 
+ *        2       0 1 0       a2
+ *        3       0 1 1       a3
+ *        4       1 0 0       a4
+ *        5       1 0 1       a5
+ *        6       1 1 0       a6
+ *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
- * 
+ *
  * If a single qubit operation is applied to qubit 2, then the 2x2 matrix 
  * must be applied to all pairs of (0,1) in the first column, with the numbers
  * in the other columns fixed. In other words, the following indices are paired:
@@ -403,13 +400,10 @@ int sort_states(Complex state[], int num_qubits){
     Q15 max[NUM_MAX_AMPS] = {0}; /// Array for largest amplitudes
     int index[NUM_MAX_AMPS] = {0}; /// To store the position of the amplitudes
 
-    /*
-<<<<<<< HEAD
-    
+   /**
     /// Sort the state. Look through every element storing it if it is larger
     /// and than the previous largest element
-    for(int j=0; j<N; j++){
-=======
+   // for(int j=0; j<N; j++){
    // 
     // * Sort the state. 
     // * 
@@ -417,15 +411,13 @@ int sort_states(Complex state[], int num_qubits){
    //  
    // int k = NUM_MAX_AMPS - 1;
    // for(int j=0; j<N; j++){            
-//>>>>>>> 40527106eadce3e4bd9254a62ec1d3e3b3aaec4b
         /// Compute the magnitude of the element
 //        if(absolute(state[j]) >= max[k]) {
 //            max[k] = absolute(state[j]);
 //            k++; /// Increment k to point to next position in max
 //        }
-//    }
-*/        
-        /*
+//    }     
+        
         
         if(max_amp[count] <= state[j][0]){
             count++;
@@ -464,8 +456,7 @@ int sort_states(Complex state[], int num_qubits){
     }
     }
          * 
-         */
-
+    */
 return 0;
 }
 
@@ -479,7 +470,6 @@ return 0;
 /// Then displ_state would have 2 elements
 /// disp_state = (0) standing for (00)
 ///              (3)              (11)
-///
 /// @note we have to allocate disp_state to be the size of state, the function returns 
 /// count which tells us the first 'count' elements of disp_state to use.
 /// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
