@@ -377,11 +377,6 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
-<<<<<<< HEAD
-            bool check_1 = (root + step) & (1 << ctrl);
-            bool check_2 = (root + step + (int) pow(2, targ)) & (1 << ctrl);
-            if (check_1 && check_2) {
-=======
             ///
             /// @note sorry.
             /// this checks for the first element of the state vector i.e. the target 
@@ -393,7 +388,6 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// qubit is in the |1>. 
             /// @todo This expression can probably be simplified or broken over lines.
             if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
->>>>>>> db303dca0e396e6169fd00d58147e49d7bc27fff
                 mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
             }
         }
