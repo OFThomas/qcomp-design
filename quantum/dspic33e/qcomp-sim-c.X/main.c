@@ -69,48 +69,16 @@ int main(void) {
    
     
     /// Start of the PROGRAM!
+     while(1){
     
-         //vacuum
-    zero_state(state, NUM_QUBITS); // Set the state to the vacuum
-    qubit_display(state, NUM_QUBITS); // Display the state for four qubits
+        // nice to see
+        swap_test(state);
+         
+    
+    
+    
 
-    delay();
-    
-   /*     
-        /// Apply X to qubit 0 
-        /// Then display the state 
-        /// Then wait for 100,000
-        gate(X, 0, state, NUM_QUBITS);
-        
-        gate(H, 2, state, NUM_QUBITS);
-        
-        gate(H, 2, state, NUM_QUBITS);
-        
-        gate(X, 0, state, NUM_QUBITS);
-    */
-
-    
-    gate(H, 1, state, NUM_QUBITS);
-    gate(H, 3, state, NUM_QUBITS);
-    
-    gate(X, 0, state, NUM_QUBITS);
-    gate(X, 2, state, NUM_QUBITS);
-    /// do CNOT_01 -> should stay vac 
-    //two_gate(X, 1, 2, state, NUM_QUBITS);
-
-    //gate(X,3, state, NUM_QUBITS);
-    
-    //two_gate(X, 3, 0, state, NUM_QUBITS);
-    while(1){
-    sort_states(state, NUM_QUBITS);
-    
-    /// X qubit 2
-   // gate(X, 2, state, NUM_QUBITS);
-
-    /// do CNOT_23 -> should go 11
-    //two_gate(X, 2, 3, state, NUM_QUBITS);
-
-    }
+     }
     while(1); ///< @note Really important!
     return 0;
 }

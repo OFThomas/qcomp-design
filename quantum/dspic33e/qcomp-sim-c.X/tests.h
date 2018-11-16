@@ -13,6 +13,7 @@ extern "C" {
 
 #include "p33EP512MU810.h"
 #include "xc.h"
+#include "quantum.h"
 
     // Testing the speed of 2^15 2x2 matrix multiplications
     void mat_mul_test();
@@ -36,6 +37,10 @@ extern "C" {
     
     /// delays for 100,000
     void delay();
+    
+    /// swap test nice visuals
+    void swap_test(Complex state[]);
+    
 #ifdef	__cplusplus
 }
 #endif

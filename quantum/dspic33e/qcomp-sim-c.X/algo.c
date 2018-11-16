@@ -28,5 +28,15 @@ void two_gate(Complex op[2][2], int ctrl, int targ, Complex state[], int num_qub
     delay();
 }
 
+void swap(int q1, int q2, Complex state[], int num_qubits){
+    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
+    make_ops(X, Y, Z, H);
+    
+    controlled_qubit_op(X, q1, q2, state, num_qubits);
+    controlled_qubit_op(X, q2, q1, state, num_qubits);
+    controlled_qubit_op(X, q1, q2, state, num_qubits);
+    qubit_display(state, num_qubits);
+    delay();
+}
 /// repetition code
-//
+/// @todo this

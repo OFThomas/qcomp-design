@@ -89,6 +89,7 @@ extern "C" {
      * 
      * @note Currently the function only displays superpositions using the
      * red and blue colors.
+     * @todo rename to display_average
      */
     void qubit_display(Complex state[], int Qnum);
 
@@ -104,7 +105,7 @@ extern "C" {
     /// @param disp_state complex inout vector where the first n entries are the nonzero
     /// elements of 'state'
     /// @return returns the number of elements to look at in disp_state.
-    int remove_zero_amp_states(Complex state[], int num_qubits, Complex disp_state[]);
+    int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]);
 
 #ifdef	__cplusplus
 }
