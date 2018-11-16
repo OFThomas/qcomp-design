@@ -21,13 +21,14 @@ void swap_test(Complex state[]){
     delay();
      
     gate(H, 0, state, NUM_QUBITS);
-    gate(X, 1, state, NUM_QUBITS);
+    gate(X, 2, state, NUM_QUBITS);
 
     /// swap for ever!
     while(1){
     swap(0,1, state, NUM_QUBITS);
     swap(1,2, state, NUM_QUBITS);
-    swap(2,0, state, NUM_QUBITS);
+    swap(2,3, state, NUM_QUBITS);
+    swap(3,0, state, NUM_QUBITS);
     }
 }
 
