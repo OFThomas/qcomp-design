@@ -406,70 +406,8 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
  */
 #define NUM_MAX_AMPS 4 /// Define the number of largest amplitudes to store
 int sort_states(Complex state[], int num_qubits){
-    // number of elements in state vector
-    int N = pow(2,num_qubits); 
-    // max amp
-    Q15 max[NUM_MAX_AMPS] = {0}; /// Array for largest amplitudes
-    int index[NUM_MAX_AMPS] = {0}; /// To store the position of the amplitudes
-
-   /**
-    /// Sort the state. Look through every element storing it if it is larger
-    /// and than the previous largest element
-   // for(int j=0; j<N; j++){
-   // 
-    // * Sort the state. 
-    // * 
-   //  * max is always in ascending order. Elemen
-   //  
-   // int k = NUM_MAX_AMPS - 1;
-   // for(int j=0; j<N; j++){            
-        /// Compute the magnitude of the element
-//        if(absolute(state[j]) >= max[k]) {
-//            max[k] = absolute(state[j]);
-//            k++; /// Increment k to point to next position in max
-//        }
-//    }     
-        
-        
-        if(max_amp[count] <= state[j][0]){
-            count++;
-            // update new maximum val
-            max_amp[count] = state[j][0];
-            // save pos of maximal val
-            amp_index[count] = j;
-        }
-
-    }
-    /// now have arrays of out_state and amplitudes of size count
-    /// need to decode int of the out_state to binary to find each quits state
-
-    while(1){
-    // loop over all max vals of the state 
-    for(int l=1; l<=count; l++){
-        /// display the states of three qubits
-        for(int k=0; k<4; k++){
-            /// I know this is wrong it returns one_amp as 0x0002
-            /// which means zero_amp becomes 0xFFFF because of overflow?
-            //
-            /// @note Changed to unsigned Fract to match set_external_led args in io.c
-            unsigned _Fract one_amp=(amp_index[l] & (1 << k));
-            unsigned _Fract zero_amp=1-one_amp;
-            set_external_led(k, 0,zero_amp, one_amp);
-            
-        }
-
-        // let the user see
-        /// @todo wait for John to fix the timer so the microprocessor isn't locked out
-        // while displaying state 
-        counter1 = 0;
-        while(counter1 <= 1000000){
-        counter1++;
-        }
-    }
-    }
-         * 
-    */
-return 0;
+    /// @todo this function...
+    return 0;
 }
 
 /// @brief takes state vector, number of qubits and vector to write the nonzero elements
