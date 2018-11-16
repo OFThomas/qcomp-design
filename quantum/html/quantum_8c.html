@@ -122,7 +122,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
 <tr class="memdesc:aa22ddb54528109f39f37fa2949c3a6d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#aa22ddb54528109f39f37fa2949c3a6d9">More...</a><br /></td></tr>
 <tr class="separator:aa22ddb54528109f39f37fa2949c3a6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a65dbd3f2bfb00d98ef4e278b2b578b5f">controlled_qubit_op</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function 00 01 10 11 00( 1 0 0 0 ) 01( 0 1 0 0 ) 10( 0 0 u00 u01 ) 11( 0 0 u10 u11 ) checks that the control qubit is |1&gt; then does 2x2 unitary on remaining state vector  <a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">More...</a><br /></td></tr>
+<tr class="memdesc:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">More...</a><br /></td></tr>
 <tr class="separator:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a94844d5460515e4cbc5d3c2ef49ca680">sort_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="separator:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,8 +227,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
       </table>
 </div><div class="memdoc">
 
-<p>selective 2 qubit op function 00 01 10 11 00( 1 0 0 0 ) 01( 0 1 0 0 ) 10( 0 0 u00 u01 ) 11( 0 0 u10 u11 ) checks that the control qubit is |1&gt; then does 2x2 unitary on remaining state vector </p>
-<p>apply controlled 2x2 op </p>
+<p>selective 2 qubit op function </p>
+<p>apply controlled 2x2 op</p>
+<pre class="fragment">///    00 01 10 11
+/// 00( 1  0  0  0   )
+/// 01( 0  1  0  0   )
+/// 10( 0  0 u00 u01 )
+/// 11( 0  0 u10 u11 )
+/// </pre><p> checks that the control qubit is |1&gt; then does 2x2 unitary on remaining state vector </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
@@ -321,7 +327,12 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         </tr>
       </table>
 </div><div class="memdoc">
-<p>[][] = row, col </p>
+<dl class="section note"><dt>Note</dt><dd><pre class="fragment">/// [][] = row, col
+/// [2][3] is (0 0 0 0)
+///           (0 0 0 0)
+///           (0 0 0 1)
+///           (0 0 0 0)
+/// </pre> </dd></dl>
 
 </div>
 </div>
@@ -430,7 +441,11 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>4x4 matrix </p>
 <p>4x4 complex matrix multiplication </p>
 <p>store results of each row multiplication</p>
-<p>4 cols of V (i,h,k,l)</p>
+<pre class="fragment">/// ( a b c d )  * ( p )
+/// ( e f g h )    ( q )
+/// ( h i j k )    ( r ) 
+/// ( l m n o )    ( s )
+/// </pre><p>4 cols of V (i,h,k,l)</p>
 <p>add the 4 terms together and put into temp for that row </p>
 
 </div>
@@ -470,10 +485,20 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors.</dd></dl>
-<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by </p><h2>index binary amplitude </h2>
-<p>0 0 0 0 a0 1 0 0 1 a1 2 0 1 0 a2 3 0 1 1 a3 4 1 0 0 a4 5 1 0 1 a5 6 1 1 0 a6 </p><h2>7 1 1 1 a7 </h2>
-<p>Qubit: 2 1 0</p>
-<p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
+<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by</p>
+<pre class="fragment">*      index     binary   amplitude 
+*      ----------------------------- 
+*        0       0 0 0       a0
+*        1       0 0 1       a1 
+*        2       0 1 0       a2
+*        3       0 1 1       a3
+*        4       1 0 0       a4
+*        5       1 0 1       a5
+*        6       1 1 0       a6
+*        7       1 1 1       a7
+*      -----------------------------
+*      Qubit:    2 1 0
+* </pre><p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
 <li></li>
 </ol>
 <p>So the amplitudes for qubit 2 are</p>
@@ -537,7 +562,14 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 <p>takes state vector, number of qubits and vector to write the nonzero elements of the statevector to. </p>
 <p>updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'</p>
-<p>the disp_state elements are the nonzero elements of the state e.g. state = (00) = (1/r2) (Bell state) (01) ( 0 ) (10) ( 0 ) (11) (1/r2) Then displ_state would have 2 elements disp_state = (0) standing for (00) (3) (11) </p><dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
+<p>the disp_state elements are the nonzero elements of the state </p><pre class="fragment">/// e.g. state =  (00) = (1/r2) (Bell state) 
+///               (01)   ( 0  ) 
+///               (10)   ( 0  ) 
+///               (11)   (1/r2) 
+/// Then displ_state would have 2 elements 
+/// disp_state = (0) standing for (00) 
+///              (3)              (11) 
+/// </pre> <dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
 
 </div>
 </div>
@@ -591,14 +623,23 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 </dl>
 <p>This routine applies a single qubit gate to the state vector </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">state.</td><td>Consider the three qubit case, with amplitudes shown in the table below: <h2>index binary amplitude </h2>
-</td></tr>
+    <tr><td class="paramname">state.</td><td>Consider the three qubit case, with amplitudes shown in the table below:</td></tr>
   </table>
   </dd>
 </dl>
-<p>0 0 0 0 a0 1 0 0 1 a1 2 0 1 0 a2 3 0 1 1 a3 4 1 0 0 a4 5 1 0 1 a5 6 1 1 0 a6 </p><h2>7 1 1 1 a7 </h2>
-<p>Qubit: 2 1 0</p>
-<p>If a single qubit operation is applied to qubit 2, then the 2x2 matrix must be applied to all pairs of (0,1) in the first column, with the numbers in the other columns fixed. In other words, the following indices are paired: </p><pre class="fragment">  (0+0) (1+0) (2+0) (3+0)
+<pre class="fragment">*     index     binary   amplitude 
+*      ----------------------------- 
+*        0       0 0 0       a0
+*        1       0 0 1       a1 
+*        2       0 1 0       a2
+*        3       0 1 1       a3
+*        4       1 0 0       a4
+*        5       1 0 1       a5
+*        6       1 1 0       a6
+*        7       1 1 1       a7
+*      -----------------------------
+*      Qubit:    2 1 0
+* </pre><p>If a single qubit operation is applied to qubit 2, then the 2x2 matrix must be applied to all pairs of (0,1) in the first column, with the numbers in the other columns fixed. In other words, the following indices are paired: </p><pre class="fragment">  (0+0) (1+0) (2+0) (3+0)
   (4+0) (5+0) (6+0) (7+0)
 </pre><p>where the top line corresponds to the ZERO amplitude and the bottom row corresponds to the ONE amplitude.</p>
 <p>Similarly, for qubit 1 the pairings are: </p><pre class="fragment">  (0+0) (0+4) (1+0) (1+4)

@@ -79,11 +79,14 @@ void make_ops_4(Complex CNOT[4][4], Complex CPHASE[4][4], Complex SWAP[4][4]){
             }
         }
     }
+    /// @note 
+    /// \verbatim 
     /// [][] = row, col
-    // [2][3] is (0 0 0 0)
-    //           (0 0 0 0)
-    //           (0 0 0 1)
-    //           (0 0 0 0)
+    /// [2][3] is (0 0 0 0)
+    ///           (0 0 0 0)
+    ///           (0 0 0 1)
+    ///           (0 0 0 0)
+    /// \endverbatim
     CNOT[0][0][0] = ONE_Q15;
     CNOT[1][1][0] = ONE_Q15;
     CNOT[2][3][0] = ONE_Q15;
@@ -145,11 +148,12 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
             temp_out[q][r] = 0.0;
         }
     }
-    // ( a b c d )  * ( p )
-    // ( e f g h )    ( q )
-    // ( h i j k )    ( r ) 
-    // ( l m n o )    ( s )
-
+    /// \verbatim
+    /// ( a b c d )  * ( p )
+    /// ( e f g h )    ( q )
+    /// ( h i j k )    ( r ) 
+    /// ( l m n o )    ( s )
+    /// \endverbatim
     // row 0,1,2,3 
     for(int row=0; row< 4; row++){
         /// 4 cols of V (i,h,k,l)
@@ -183,6 +187,8 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
  * The routine works by adding up the squares of the amplitudes corresponding
  * to each state of a given qubit. Suppose there are three qubits. Then the
  * state vector is given by
+ * 
+ * \verbatim
  *      index     binary   amplitude 
  *      ----------------------------- 
  *        0       0 0 0       a0
@@ -195,7 +201,8 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
  *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
- * 
+ * \endverbatim
+ *
  * Consider qubit 2. The value of the ZERO state is formed by adding up all
  * the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 
  * and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and 
@@ -292,7 +299,9 @@ void qubit_display(Complex state[], int N) {
  * 
  * This routine applies a single qubit gate to the state vector @param state.
  * Consider the three qubit case, with amplitudes shown in the table below:
- *      index     binary   amplitude 
+ *
+ *   \verbatim
+ *     index     binary   amplitude 
  *      ----------------------------- 
  *        0       0 0 0       a0
  *        1       0 0 1       a1 
@@ -304,7 +313,8 @@ void qubit_display(Complex state[], int N) {
  *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
- *
+ * \endverbatim
+ * 
  * If a single qubit operation is applied to qubit 2, then the 2x2 matrix 
  * must be applied to all pairs of (0,1) in the first column, with the numbers
  * in the other columns fixed. In other words, the following indices are paired:
@@ -350,11 +360,13 @@ void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
 }
 
 /// selective 2 qubit op function 
+/// \verbatim
 ///    00 01 10 11
 /// 00( 1  0  0  0   )
 /// 01( 0  1  0  0   )
 /// 10( 0  0 u00 u01 )
 /// 11( 0  0 u10 u11 )
+/// \endverbatim
 /// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
 // elements
 void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
@@ -463,13 +475,15 @@ return 0;
 /// @brief takes state vector, number of qubits and vector to write the nonzero elements
 /// of the statevector to.
 /// the disp_state elements are the nonzero elements of the state 
-/// e.g. state =  (00) = (1/r2) (Bell state)
-///               (01)   ( 0  )
-///               (10)   ( 0  )
-///               (11)   (1/r2)
-/// Then displ_state would have 2 elements
-/// disp_state = (0) standing for (00)
-///              (3)              (11)
+/// \verbatim 
+/// e.g. state =  (00) = (1/r2) (Bell state) 
+///               (01)   ( 0  ) 
+///               (10)   ( 0  ) 
+///               (11)   (1/r2) 
+/// Then displ_state would have 2 elements 
+/// disp_state = (0) standing for (00) 
+///              (3)              (11) 
+/// \endverbatim 
 /// @note we have to allocate disp_state to be the size of state, the function returns 
 /// count which tells us the first 'count' elements of disp_state to use.
 /// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
