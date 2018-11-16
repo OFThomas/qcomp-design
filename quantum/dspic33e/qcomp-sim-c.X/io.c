@@ -10,6 +10,7 @@
 #include "io.h"
 #include "time.h"
 #include "spi.h"
+#include "algo.h"
 
 /** @brief Contains the button states
  * 
@@ -53,18 +54,29 @@ int setup_io(void) {
     // Setup timers for flashing LEDs
     T4CON = 0x0000; // Reset the timer control registers
     T5CON = 0x0000;
+    T6CON = 0x0000; // Reset the timer control registers
+    T7CON = 0x0000;
     // Set up timer 4 in 32 bit mode with timer 5
     // Clock prescaler 1:1, internal oscillator source.
     T4CON = 0x0008;
+    T6CON = 0x0008;
     // No need to change anything in T5CON
     // Reset TMR4, TMR5, PR4 and PR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     PR4 = 0x0000; // Reset registers
     PR5 = 0x0000;
+    // Reset TMR4, TMR5, PR4 and PR5
+    TMR6 = 0x0000;
+    TMR7 = 0x0000;
+    PR6 = 0x0000; // Reset registers
+    PR7 = 0x0000;
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
     IFS1bits.T5IF = 0; // Clear the interrupt flag
+    // Setup interrupts for timer 7
+    IEC3bits.T7IE = 1; // Enable the interrupt
+    IFS3bits.T7IF = 0; // Clear the interrupt flag
     /// Set the OE pin high
     LATD |= (1 << OE); /// Set OE(ED2) pin
     /// Set the SH pin high
@@ -150,32 +162,32 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     IFS1bits.T5IF = 0;
 }
 
-/// Linked list pointers
-cycle_node_t * first = NULL; /// The top element
-cycle_node_t * last = NULL; /// The last element
-cycle_node_t * current = NULL; ///
+#define MAX_CYCLE_LENGTH 16
+RGB cycle_colors[MAX_CYCLE_LENGTH][NUM_QUBITS];
+int last_row = 0;
+int cycle_counter = 0;
 
 /// Timer 6 and 7 for cycling superposition states
 void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
-    
-    // Advance the current pointer
-    if(current != NULL) {
-        current = current->next;
+
+    /// Write a row to the leds
+    for(int k=0; k<NUM_QUBITS; k++) {
+        set_external_led(k, 
+                cycle_colors[cycle_counter][k].R,
+                cycle_colors[cycle_counter][k].G,
+                cycle_colors[cycle_counter][k].B);
     }
     
-    /// @todo Get all the led data and write it to the the data buffer
-    for(int n=0; n<current->size; n++) {
-        set_external_led(
-                n, 
-                current->rgb[n].R,
-                current->rgb[n].G,
-                current->rgb[n].B);
-    }
+    cycle_counter++;
     
+    if(cycle_counter == last_row + 1) {
+        cycle_counter = 0;
+    }
+           
     // Reset the timer
     TMR6 = 0x0000;
     TMR7 = 0x0000;
-    // Clear Timer6 interrupt flag
+    // Clear Timer7 interrupt flag
     IFS3bits.T7IF = 0;
 }
     
@@ -219,28 +231,6 @@ void setup_external_leds(void) {
     T4CONbits.TON = 1;
 }
 
-/// @brief Global LED strobing state parameter
-
-/// Function for adding data to the linked list
-/// Pass in the pointer to the current 
-cycle_node_t * add_data(cycle_node_t * current, RGB * rgb, int size) {
-    /// Set all the data in current
-    current -> rgb = rgb;
-    current -> size = size;
-    
-    /// Allocate the next element of the linked list
-    cycle_node_t * next = malloc(sizeof(cycle_node_t));
-    if(next == NULL) {
-        return NULL; /// Failed to allocate memory
-    }
-    next->next = NULL; /// Set the next pointer to null
-    
-    /// Link the previous element of the list
-    next->previous = current;
-    
-    /// Return the new head
-    return next;
-}
 
 /**
  * @brief Add an item to the list of states to cycle
@@ -262,67 +252,27 @@ cycle_node_t * add_data(cycle_node_t * current, RGB * rgb, int size) {
  */
 int add_to_cycle(RGB colors[], int size) {
     
-    /// head is global in this function and all the other related functions 
-    
-    /// Allocate memory for the arrays
-    /// This memory is owned by the node not the calling function
-    RGB * colors_p = malloc(sizeof(RGB)*size);
-    if(colors_p == NULL) 
-        return -1; // Failed to allocate memory
-    /// Copy across the data
-    for(int n = 0; n < size; n++) {
-        colors_p[n] = colors[n];
+    /// Add the new colors to top of array
+    for(int k=0; k<NUM_QUBITS; k++) {
+        cycle_colors[last_row][k] = colors[k];
     }
+    last_row ++;
     
-    /// Link this data to the current node (current)
-    current = add_data(current, colors_p, size);
-    if(current == NULL)
-        return -1; /// Failed to allocate memory
+    if(last_row == MAX_CYCLE_LENGTH) {
+        return -1; // This is bad
+    }
     
     return 0; // Success 
 }
 
 /**
  * @brief Reset the LED display cycle
- * 
- * This function deletes all entries from the LED cycle and returns the 
- * IO to the state where all LEDs are off.
- * 
- * After calling this function, states can be added to the cycle using 
- * add_to_cycle
+_* @todo do it
  * 
  */
 int reset_cycle(void) {
-    /// De-allocate any previous cycle_node linked list
-    while(current != NULL) {
-        /// Delete the memory in this node
-        free(current->next);
-        free(current->rgb);
-        /// No need to delete the size member
-        
-        /// Move to previous item in the list
-        current = current -> previous;
-        
-        /// Delete the next object
-        free(current->next);
-        
-        /// This loop will exit when head == NULL, 
-        /// i.e. when head->previous == NULL (the bottom item of the list)
-    }
-    
-    /// Assume head is NULL here
-    
-    /// Allocate the first element of the linked list
-    head = malloc(sizeof(cycle_node_t));
-    if(head == NULL) {
-        return -1; /// Failed to allocate memory
-    }
-    top = head;
-    head->next = NULL;  /// To be allocated later
-    head->previous = NULL; /// This will remain NULL
-    /// No need to initialise any data in the head
-    
-    return 0; // Success
+    last_row = 0;
+    return 0;
     
 }
 

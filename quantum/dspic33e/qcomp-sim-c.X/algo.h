@@ -3,6 +3,16 @@
  *
  * @brief header file for algorithms
  */
+
+#ifndef ALG_H
+#define	ALG_H
+
+#ifdef	__cplusplus
+extern "C" {
+#endif
+    
+#include "quantum.h"
+
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
 
@@ -14,3 +24,11 @@ void two_gate(Complex op[2][2], int ctrl, int targ, Complex state[], int num_qub
 
 /// swap using 3 cNots
 void swap(int q1, int q2, Complex state[], int num_qubits);
+
+    
+#ifdef	__cplusplus
+}
+#endif
+
+#endif	/* ALG_H */
+
