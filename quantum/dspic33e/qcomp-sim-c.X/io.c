@@ -166,7 +166,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
     /// @todo Get all the led data and write it to the the data buffer
     for(int n=0; n<current->size; n++) {
         set_external_led(
-                current->leds[n], 
+                n, 
                 current->rgb[n].R,
                 current->rgb[n].G,
                 current->rgb[n].B);
@@ -222,9 +222,8 @@ void setup_external_leds(void) {
 /// @brief Global LED strobing state parameter
 
 /// Function for adding data to the linked list
-cycle_node_t * push(cycle_node_t * head, int * leds, RGB * rgb, int size) {
+cycle_node_t * push(cycle_node_t * head, RGB * rgb, int size) {
     /// Set all the data in head
-    head -> leds = leds;
     head -> rgb = rgb;
     head -> size = size;
     
@@ -260,25 +259,23 @@ cycle_node_t * push(cycle_node_t * head, int * leds, RGB * rgb, int size) {
  * this function adds a new element to the end of cycle node
  * 
  */
-int add_to_cycle(int leds[], RGB colors[], int size) {
+int add_to_cycle(RGB colors[], int size) {
     
     /// head is global in this function and all the other related functions 
     
     /// Allocate memory for the arrays
     /// This memory is owned by the node not the calling function
-    int * leds_p = malloc(sizeof(int)*size);
     RGB * colors_p = malloc(sizeof(RGB)*size);
-    if(leds_p == NULL || colors_p == NULL) 
+    if(colors_p == NULL) 
         return -1; // Failed to allocate memory
     /// Copy across the data
     for(int n = 0; n < size; n++) {
-        leds_p[n] = leds[n];
         colors_p[n] = colors[n];
     }
     
     /// Link this data to the current node (head)
     /// The head which is returned is the new head
-    head = push(head, leds_p, colors_p, size);
+    head = push(head, colors_p, size);
     if(head == NULL)
         return -1; /// Failed to allocate memory
     
@@ -299,7 +296,6 @@ int reset_cycle(void) {
     /// De-allocate any previous cycle_node linked list
     while(head != NULL) {
         /// Delete the memory in this node
-        free(head->leds);
         free(head->next);
         free(head->rgb);
         /// No need to delete the size member

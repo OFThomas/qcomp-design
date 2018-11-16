@@ -184,12 +184,17 @@ extern "C" {
     /// @brief The basis for a linked list of states to cycle
 
     typedef struct cycle_node {
-        int * leds; ///< Array for the indices of LEDs 
         RGB * rgb; ///< Array of corresponding RGB values
         int size; ///< The size of the above arrays
         struct cycle_node * next; ///< Pointer to the next item
         struct cycle_node * previous; ///< Pointer to the previous item
     } cycle_node_t;
+    
+    /// Add an element to the states to be cycled
+    int add_to_cycle(RGB colors[], int size);
+    
+    /// Reset the display cycle. Called before adding anything
+    int reset_cycle(void);
     
 #ifdef	__cplusplus
 }
