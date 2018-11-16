@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
-  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]]
+  ['qubit_5fdisplay',['qubit_display',['../quantum_8c.html#a1f85ec981f7f9d5658ac1a2b3abcbdd9',1,'qubit_display(Complex state[], int N):&#160;quantum.c'],['../quantum_8h.html#a5b30aceeaa6308c4c5478fc8078a5f16',1,'qubit_display(Complex state[], int Qnum):&#160;quantum.c']]]
 ];

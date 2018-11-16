@@ -43,13 +43,15 @@ extern "C" {
 #define LED_NUM 4 
    
     /** @brief pin mappings
+    // \verbatim
     // Pins for LE and OE on port D
     // OE = RD4 = uC:81 = J1:28 = J10:14
     // LE = RD3 = uC:78 = J1:40 = J11:18
-    
+    //
     // Pins for SH and CLK_INH on port D
     // SH = RD5 = uC:82 = J1:25 = J10:13
     // CLK_INH = RD8 = uC:68 = J1:58 = J11:25
+    // \endverbatim
     */
 
     /// @brief Global LED strobing state parameter

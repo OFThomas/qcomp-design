@@ -10,6 +10,26 @@
 #include "io.h"
 #include "quantum.h"
 #include "time.h"
+#include "algo.h"
+
+void swap_test(Complex state[]){
+    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
+    make_ops(X, Y, Z, H);
+
+    zero_state(state, NUM_QUBITS); // Set the state to the vacuum
+    qubit_display(state, NUM_QUBITS); // Display the state for four qubits
+    delay();
+     
+    gate(H, 0, state, NUM_QUBITS);
+    gate(X, 1, state, NUM_QUBITS);
+
+    /// swap for ever!
+    while(1){
+    swap(0,1, state, NUM_QUBITS);
+    swap(1,2, state, NUM_QUBITS);
+    swap(2,0, state, NUM_QUBITS);
+    }
+}
 
 /**
 // Testing the speed of 2^15 2x2 real matrix multiplications
