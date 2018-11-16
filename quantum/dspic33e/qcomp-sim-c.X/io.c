@@ -180,7 +180,7 @@ void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
     
     cycle_counter++;
     
-    if(cycle_counter == last_row + 1) {
+    if(cycle_counter == last_row) {
         cycle_counter = 0;
     }
            
@@ -226,9 +226,15 @@ void setup_external_leds(void) {
     // Set flashing period
     PR4 = 0x0800;
     PR5 = 0x0000;
+    
+    /// Set flashing period
+    PR6 = 0x0000;
+    PR7 = 0x0080;
 
     // Turn timer 4 on
     T4CONbits.TON = 1;
+    /// Turn timer 6 on
+    T6CONbits.TON = 1;
 }
 
 

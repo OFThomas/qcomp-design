@@ -315,14 +315,12 @@ void display_cycle(Complex state[], int N) {
             colors[k][j].B = 0;
             /// Look at the jth bit
             if((output[k] & (1 << j)) == 0) {
-                colors[k][j].G = 1;
+                colors[k][j].G = ONE_Q15;
             } else {
-                colors[k][j].B = 1;
+                colors[k][j].B = ONE_Q15;
             }
         }
     }
-
-
     /// Reset the cycle
     reset_cycle();
 
@@ -481,5 +479,5 @@ int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]) {
             count++;
         }
     }
-    return count - 1;
+    return count;
 }
