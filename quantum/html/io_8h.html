@@ -65,6 +65,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">io.h File Reference</div>  </div>
@@ -76,10 +77,13 @@ $(function() {
 <div class="textblock"><code>#include &quot;p33EP512MU810.h&quot;</code><br />
 <code>#include &quot;xc.h&quot;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for io.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="io_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2io_8h" alt=""/></div>
+<map name="dspic33e_2qcomp-sim-c_8X_2io_8h" id="dspic33e_2qcomp-sim-c_8X_2io_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -103,6 +107,12 @@ Data Structures</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLED.html">LED</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> has the following type.  <a href="structLED.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structRGB.html">RGB</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A type for holding red, green, blue values.  <a href="structRGB.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcycle__node.html">cycle_node</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The basis for a linked list of states to cycle.  <a href="structcycle__node.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
@@ -151,13 +161,20 @@ Macros</h2></td></tr>
 <tr class="memdesc:a77440c4104ae0a7368936ff87a3d3260"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of external LEDs. <br /></td></tr>
 <tr class="separator:a77440c4104ae0a7368936ff87a3d3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ae4014da852e67342bff08a1c4ebe4162"><td class="memItemLeft" align="right" valign="top"><a id="ae4014da852e67342bff08a1c4ebe4162"></a>
+typedef struct <a class="el" href="structcycle__node.html">cycle_node</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#ae4014da852e67342bff08a1c4ebe4162">cycle_node_t</a></td></tr>
+<tr class="memdesc:ae4014da852e67342bff08a1c4ebe4162"><td class="mdescLeft">&#160;</td><td class="mdescRight">The basis for a linked list of states to cycle. <br /></td></tr>
+<tr class="separator:ae4014da852e67342bff08a1c4ebe4162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#accd4a9c9edd862d4e50bf6a3740d9b82">setup_io</a> (void)</td></tr>
 <tr class="memdesc:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up LEDs and buttons on port D.  <a href="#accd4a9c9edd862d4e50bf6a3740d9b82">More...</a><br /></td></tr>
 <tr class="separator:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f0891d14ef2e6230b477700b9e3daad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a3f0891d14ef2e6230b477700b9e3daad">setup_external_leds</a> (void)</td></tr>
-<tr class="memdesc:a3f0891d14ef2e6230b477700b9e3daad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set external variable RGB LEDs.  <a href="#a3f0891d14ef2e6230b477700b9e3daad">More...</a><br /></td></tr>
+<tr class="memdesc:a3f0891d14ef2e6230b477700b9e3daad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set external variable <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> LEDs.  <a href="#a3f0891d14ef2e6230b477700b9e3daad">More...</a><br /></td></tr>
 <tr class="separator:a3f0891d14ef2e6230b477700b9e3daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31fb0fd759d90940706a83347642f59e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a31fb0fd759d90940706a83347642f59e">set_led</a> (int color, int state)</td></tr>
 <tr class="memdesc:a31fb0fd759d90940706a83347642f59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn a particular <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on or off.  <a href="#a31fb0fd759d90940706a83347642f59e">More...</a><br /></td></tr>
@@ -190,7 +207,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <tr class="memdesc:a1ed8267b4ddf885c2b33b13a8d38beb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates color properties of global led array.  <a href="#a1ed8267b4ddf885c2b33b13a8d38beb1">More...</a><br /></td></tr>
 <tr class="separator:a1ed8267b4ddf885c2b33b13a8d38beb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3f93a224b1c0993b55cb3534237300f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#af3f93a224b1c0993b55cb3534237300f">led_color_int</a> (int device, int R, int G, int B)</td></tr>
-<tr class="memdesc:af3f93a224b1c0993b55cb3534237300f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes led number &amp; RGB -&gt; returns integer for sending via SPI to set the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>.  <a href="#af3f93a224b1c0993b55cb3534237300f">More...</a><br /></td></tr>
+<tr class="memdesc:af3f93a224b1c0993b55cb3534237300f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes led number &amp; <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> -&gt; returns integer for sending via SPI to set the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>.  <a href="#af3f93a224b1c0993b55cb3534237300f">More...</a><br /></td></tr>
 <tr class="separator:af3f93a224b1c0993b55cb3534237300f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1bf99f09184b0112291c5eaa0832fb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#ae1bf99f09184b0112291c5eaa0832fb6">led_cycle_test</a> (void)</td></tr>
 <tr class="memdesc:ae1bf99f09184b0112291c5eaa0832fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop to cycle through LEDs 0 - 15.  <a href="#ae1bf99f09184b0112291c5eaa0832fb6">More...</a><br /></td></tr>
@@ -198,11 +215,60 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <tr class="memitem:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#aedb7c3f9a532bae5bd32330fb1f2f4b8">read_external_buttons</a> (void)</td></tr>
 <tr class="memdesc:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the buttons array (see declaration above)  <a href="#aedb7c3f9a532bae5bd32330fb1f2f4b8">More...</a><br /></td></tr>
 <tr class="separator:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb95f4bc07cf12c05c36cc94566c85c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#afb95f4bc07cf12c05c36cc94566c85c6">add_to_cycle</a> (<a class="el" href="structRGB.html">RGB</a> colors[], int size)</td></tr>
+<tr class="memdesc:afb95f4bc07cf12c05c36cc94566c85c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an element to the states to be cycled.  <a href="#afb95f4bc07cf12c05c36cc94566c85c6">More...</a><br /></td></tr>
+<tr class="separator:afb95f4bc07cf12c05c36cc94566c85c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca6175051cc2870aefd3c17e07822fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#afca6175051cc2870aefd3c17e07822fc">reset_cycle</a> (void)</td></tr>
+<tr class="memdesc:afca6175051cc2870aefd3c17e07822fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the display cycle. Called before adding anything.  <a href="#afca6175051cc2870aefd3c17e07822fc">More...</a><br /></td></tr>
+<tr class="separator:afca6175051cc2870aefd3c17e07822fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Header file for input output functions. </p>
 <p>Include it at the top of any C source file which uses buttons and LEDs. It also defines various constants representing the positions of the buttons and LEDs on port D. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="afb95f4bc07cf12c05c36cc94566c85c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb95f4bc07cf12c05c36cc94566c85c6">&#9670;&nbsp;</a></span>add_to_cycle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int add_to_cycle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structRGB.html">RGB</a>&#160;</td>
+          <td class="paramname"><em>colors</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add an element to the states to be cycled. </p>
+<p>Add an element to the states to be cycled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">leds</td><td>An array of <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> indices </td></tr>
+    <tr><td class="paramname">colors</td><td>Corresponding <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> values for each <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> </td></tr>
+    <tr><td class="paramname">size</td><td>The size of both the above arrays</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function is used to add a set of <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> states (<a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> values) into the list of states being cycled.</p>
+<p>Repeatedly calling this function adds a new state to the end of the list of displayed states. <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> states are shown in the order this function is called.</p>
+<p>The implementation uses the linked list type <a class="el" href="structcycle__node.html" title="The basis for a linked list of states to cycle. ">cycle_node</a>. Each call of this function adds a new element to the end of cycle node </p>
+<p>Add the new colors to top of array </p>
+
+</div>
+</div>
 <a id="a24a09a687c0efdba91ec54b2853b2260"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24a09a687c0efdba91ec54b2853b2260">&#9670;&nbsp;</a></span>flash_all()</h2>
 
@@ -305,7 +371,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
       </table>
 </div><div class="memdoc">
 
-<p>Takes led number &amp; RGB -&gt; returns integer for sending via SPI to set the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>. </p>
+<p>Takes led number &amp; <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> -&gt; returns integer for sending via SPI to set the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>input <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> number to change </td></tr>
@@ -316,7 +382,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns int to be sent to <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> Driver </dd></dl>
-<p>convention RGB -&gt; 000</p>
+<p>convention <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> -&gt; 000</p>
 <p>Each <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> takes 3 lines, assumes there are no gaps between <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> channels "device" goes between 0 to 2^n -1 </p>
 
 </div>
@@ -338,7 +404,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </div><div class="memdoc">
 
 <p>Loop to cycle through LEDs 0 - 15. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
 
 </div>
 </div>
@@ -387,8 +453,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p>Update the buttons array (see declaration above) </p>
 <p>SH pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+
+</div>
+</div>
+<a id="afca6175051cc2870aefd3c17e07822fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca6175051cc2870aefd3c17e07822fc">&#9670;&nbsp;</a></span>reset_cycle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int reset_cycle </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the display cycle. Called before adding anything. </p>
+<p>Reset the display cycle. Called before adding anything.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>do it</dd></dl>
 
 </div>
 </div>
@@ -441,7 +529,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 if successful, -1 otherwise</dd></dl>
-<p>Use the function to set the RGB level of an <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>. The <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> is chosen using the </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Use the function to set the <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> level of an <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a>. The <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> is chosen using the </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">led_index.</td><td>The </td></tr>
     <tr><td class="paramname">R</td><td></td></tr>
@@ -541,10 +629,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
       </table>
 </div><div class="memdoc">
 
-<p>Set external variable RGB LEDs. </p>
+<p>Set external variable <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> LEDs. </p>
 <p>Initialise <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> lines</p>
 <p>Initialise parameters to zero</p>
-<p>Initialise display buffer to zero </p>
+<p>Initialise display buffer to zero</p>
+<p>Set flashing period</p>
+<p>Turn timer 6 on </p>
 
 </div>
 </div>
@@ -659,7 +749,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <dl class="section return"><dt>Returns</dt><dd>0 if successful</dd></dl>
 <p>Could this get any worse!</p>
 <p>This function is supposed to make the display writing process more efficient. It updates a global display buffer which is written periodically to the led display drivers. Instead of the display driver function re-reading the desired state of all the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> lines every time it is called, this function can be used to update only the lines that have changed.</p>
-<p>There are quite a few potential bugs in here, mainly array out of bounds if the DISPLAY_CHIP_NUM is not set correctly or the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> RGB lines are wrong. (Or if there are just bugs.) </p>
+<p>There are quite a few potential bugs in here, mainly array out of bounds if the DISPLAY_CHIP_NUM is not set correctly or the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> lines are wrong. (Or if there are just bugs.) </p>
 <p>Set or clear the red <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> of the nth <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a></p>
 <p>Set or clear the red <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> of the nth <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a></p>
 <p>Set or clear the red <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> of the nth <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> </p>
@@ -689,7 +779,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>To write to the device, use the SPI module to write a byte to the SDI 1 pin on the chip. Then momentarily set the <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin to latch the data onto the output register. Finally, bring the OE(ED2) pin low to enable the current sinking to turn on the LEDs. See the timing diagram on page 17 of the datasheet for details.</p>
 <p><a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> and OE(ED2) will be on Port D </p>
 <p>Set <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
 
 </div>
 </div>

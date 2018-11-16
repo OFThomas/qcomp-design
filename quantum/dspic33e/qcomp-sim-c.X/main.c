@@ -71,10 +71,11 @@ int main(void) {
     /// Start of the PROGRAM!
      while(1){
     
+         T6CONbits.TON = 0;
         // nice to see
-        //swap_test(state);
-        T6CONbits.TON = 0;
-        
+         // while(1) warning
+        swap_test(state);
+                
          zero_state(state, NUM_QUBITS); // Set the state to the vacuum
          //single_qubit_op(H, 0, state, NUM_QUBITS);
          
@@ -82,33 +83,17 @@ int main(void) {
 
          //qubit_display(state, NUM_QUBITS);
          
-         gate(H,0,state,NUM_QUBITS);
-         two_gate(X, 0, 1, state, NUM_QUBITS);
+         //gate(H,0,state,NUM_QUBITS);
+        // two_gate(X, 0, 1, state, NUM_QUBITS);
          
-         delay();
-         delay();
+         //delay();
+        // delay();
          
          // start the clock
-         T6CONbits.TON = 1;
-         display_cycle(state, STATE_LENGTH);
+         //T6CONbits.TON = 1;
+        // display_cycle(state, STATE_LENGTH);
          
-         /*
-         reset_cycle();
-         RGB colors[NUM_QUBITS];
-         
-         for(int i=0; i<NUM_QUBITS; i++){
-         colors[i].R = 0.0;
-         colors[i].G = 0.0;
-         colors[i].B = 0.0;
-         }
-         
-         colors[0].R = 0.5;
-         add_to_cycle(colors,10);
-         colors[0].R = 0.0;
-         colors[0].B = 0.5;
-         add_to_cycle(colors,10);
-        */
-           
+                  
         while(1);
     
 

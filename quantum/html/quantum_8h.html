@@ -77,20 +77,26 @@ $(function() {
 <div class="textblock"><code>#include &quot;p33EP512MU810.h&quot;</code><br />
 <code>#include &quot;xc.h&quot;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for quantum.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8h" alt=""/></div>
+<map name="dspic33e_2qcomp-sim-c_8X_2quantum_8h" id="dspic33e_2qcomp-sim-c_8X_2quantum_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8h__dep__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8hdep" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2quantum_8hdep" id="dspic33e_2qcomp-sim-c_8X_2quantum_8hdep">
-<area shape="rect" id="node2" href="algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,95,148,136"/>
-<area shape="rect" id="node3" href="main_8c.html" title="The main function. " alt="" coords="172,95,315,136"/>
-<area shape="rect" id="node4" href="quantum_8c.html" title="Description: Contains matrix and vector arithmetic for simulating one qubit. " alt="" coords="339,95,481,136"/>
-<area shape="rect" id="node5" href="tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="505,95,648,136"/>
+<area shape="rect" id="node2" href="algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,184,148,225"/>
+<area shape="rect" id="node3" href="algo_8h.html" title="header file for algorithms " alt="" coords="339,95,481,136"/>
+<area shape="rect" id="node5" href="main_8c.html" title="The main function. " alt="" coords="505,184,648,225"/>
+<area shape="rect" id="node6" href="quantum_8c.html" title="Description: Contains matrix and vector arithmetic for simulating one qubit. " alt="" coords="172,184,315,225"/>
+<area shape="rect" id="node7" href="tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="672,184,815,225"/>
+<area shape="rect" id="node8" href="tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="557,95,700,136"/>
+<area shape="rect" id="node4" href="io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="339,184,481,225"/>
 </map>
 </div>
 </div>
@@ -156,9 +162,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3840e9e3948e8f314b7e1e680b5bdb48"><td class="memItemLeft" align="right" valign="top"><a id="a3840e9e3948e8f314b7e1e680b5bdb48"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>val_of_pos_bit</b> (int input, int pos)</td></tr>
 <tr class="separator:a3840e9e3948e8f314b7e1e680b5bdb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9af863f8a077581846bfff362facd094"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a9af863f8a077581846bfff362facd094">remove_zero_amp_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> disp_state[])</td></tr>
-<tr class="memdesc:a9af863f8a077581846bfff362facd094"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'  <a href="#a9af863f8a077581846bfff362facd094">More...</a><br /></td></tr>
-<tr class="separator:a9af863f8a077581846bfff362facd094"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a4f5f995bd054a84a73002f09bf6e3ccb">remove_zero_amp_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits, int disp_state[])</td></tr>
+<tr class="memdesc:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'  <a href="#a4f5f995bd054a84a73002f09bf6e3ccb">More...</a><br /></td></tr>
+<tr class="separator:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Header file containing all the matrix arithmetic for simulating a single qubit. </p>
@@ -230,7 +236,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>val_of_pos_bit</b> (in
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
 
 </div>
 </div>
@@ -334,7 +340,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
 
 </div>
 </div>
@@ -401,7 +407,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>this function is never used as we realised that a 2-qubit gate is a reduced form of a single qubit gate... </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>remove or make this general? It might not even be needed :( </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>remove or make this general? It might not even be needed :( </dd></dl>
 <p>4x4 complex matrix multiplication </p>
 <p>store results of each row multiplication</p>
 <pre class="fragment">/// ( a b c d )  * ( p )
@@ -447,7 +453,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>rename to display_average </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>Pass in the state vector </td></tr>
@@ -483,7 +490,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>The examples above are supposed to show the general pattern. For N qubits, qubit number k, the ZERO and ONE states are given by summing all the square amplitudes corresponding to the following indices:</p>
 <p>ZERO: n + (2^(k+1) * j), where n = 0, 1, ..., 2^k - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
 <p>ONE: n + (2^(k+1) * j), where n = 2^k, 2^k + 1, ..., 2^(k+1) - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
-<p>The amplitudes are obtained by summing over both n and j. Notice that there is an edge condition when k = N-1. There, j apparently ranges from 0 to -1. In this case, the only value of j is 0. The condition arises because of the way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must be multiplied by 2^(-1). The key point is that the second term should not ever equal 2^N, so j should stop at 0.</p>
+<p>The amplitudes are obtained by summing over both n and j. Notice that there is an edge condition when k = N-1. There, j acycle_lengthpparently ranges from 0 to -1. In this case, the only value of j is 0. The condition arises because of the way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must be multiplied by 2^(-1). The key point is that the second term should not ever equal 2^N, so j should stop at 0.</p>
 <p>The above indices can be expressed as the sum of a ROOT and a STEP as follows:</p>
 <p>index = ROOT + STEP</p>
 <p>where ROOT ranges from 0 to 2^k-1. This corresponds to the n values that give rise to ZERO. The indices for ONE can be obtained by adding 2^k to root. The STEP = j is a multiple of 2^(k+1) starting from zero that does not equal or exceed 2^N. ROOT can be realised using the following for loop:</p>
@@ -499,8 +506,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
-<a id="a9af863f8a077581846bfff362facd094"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9af863f8a077581846bfff362facd094">&#9670;&nbsp;</a></span>remove_zero_amp_states()</h2>
+<a id="a4f5f995bd054a84a73002f09bf6e3ccb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f5f995bd054a84a73002f09bf6e3ccb">&#9670;&nbsp;</a></span>remove_zero_amp_states()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,7 +527,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>disp_state</em>[]&#160;</td>
         </tr>
         <tr>
@@ -631,8 +638,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 </pre><p>And for qubit 0 the pairings are: </p><pre class="fragment">  (0+0) (0+2) (0+4) (0+6)
   (1+0) (1+2) (1+4) (1+6)
 </pre><p>These numbers are exactly the same as the previous function, which means the same nested loops can be used to perform operation. Now the index </p><pre class="fragment"> root + step 
-</pre><p>refers to the ZERO amplitude (the first element in the column vector to be multiplied by the 2x2 matrix), and the index </p><pre class="fragment"> root + 2^k + step
-</pre><p>corresponds to the ONE entry. </p>
+</pre><p>refers to the ZERO amplitude (the first element in the column vector to be multiplied by the 2x2 matrix), and the index Complex state[], int N root + 2^k + step</p>
+<p>corresponds to the ONE entry. </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
 <p>First index is ZERO, second index is ONE </p>
@@ -664,21 +671,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Array for largest amplitudes</p>
-<p>To store the position of the amplitudes</p>
-<p>/ Sort the state. Look through every element storing it if it is larger / and than the previous largest element for(int j=0; j&lt;N; j++){ </p><pre class="fragment">     Sort the state. 
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>this function... </dd></dl>
 
-     max is always in ascending order. Elemen
-</pre><p>int k = NUM_MAX_AMPS - 1; for(int j=0; j&lt;N; j++){ / Compute the magnitude of the element if(absolute(state[j]) &gt;= max[k]) { max[k] = absolute(state[j]); k++; /// Increment k to point to next position in max } }</p>
-<pre class="fragment">    if(max_amp[count] &lt;= state[j][0]){
-        count++;
-</pre><p> update new maximum val max_amp[count] = state[j][0]; save pos of maximal val amp_index[count] = j; }</p>
-<p>} / now have arrays of out_state and amplitudes of size count / need to decode int of the out_state to binary to find each quits state </p><pre class="fragment">while(1){
-</pre><p> loop over all max vals of the state for(int l=1; l&lt;=count; l++){ / display the states of three qubits for(int k=0; k&lt;4; k++){ / I know this is wrong it returns one_amp as 0x0002 / which means zero_amp becomes 0xFFFF because of overflow?</p>
-<p>/ </p><dl class="section note"><dt>Note</dt><dd>Changed to unsigned Fract to match set_external_led args in <a class="el" href="io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. ">io.c</a> unsigned _Fract one_amp=(amp_index[l] &amp; (1 &lt;&lt; k)); unsigned _Fract zero_amp=1-one_amp; set_external_led(k, 0,zero_amp, one_amp);</dd></dl>
-<p>}</p>
-<p>let the user see /</p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>wait for John to fix the timer so the microprocessor isn't locked out while displaying state counter1 = 0; while(counter1 &lt;= 1000000){ counter1++; } } }</dd></dl>
-<pre class="fragment"></pre>
 </div>
 </div>
 <a id="a2ddf4816d6adf12474058fd944b210d2"></a>

@@ -1,9 +1,9 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/main.c" name="dspic33e/qcomp&#45;sim&#45;c.X/main.c">
-<area shape="rect" id="node4" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="542,95,610,121"/>
-<area shape="rect" id="node5" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="139,95,197,121"/>
-<area shape="rect" id="node6" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="21,95,64,121"/>
-<area shape="rect" id="node8" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="435,95,517,121"/>
-<area shape="rect" id="node10" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="222,95,285,121"/>
-<area shape="rect" id="node11" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="309,95,360,121"/>
-<area shape="rect" id="node12" href="$algo_8h.html" title="header file for algorithms " alt="" coords="634,95,691,121"/>
+<area shape="rect" id="node4" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="643,95,711,121"/>
+<area shape="rect" id="node5" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="384,169,443,196"/>
+<area shape="rect" id="node6" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="109,169,152,196"/>
+<area shape="rect" id="node9" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="176,169,259,196"/>
+<area shape="rect" id="node11" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="334,95,397,121"/>
+<area shape="rect" id="node12" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="517,169,568,196"/>
+<area shape="rect" id="node13" href="$algo_8h.html" title="header file for algorithms " alt="" coords="201,95,258,121"/>
 </map>
