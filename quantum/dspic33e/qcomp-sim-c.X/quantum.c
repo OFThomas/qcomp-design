@@ -287,7 +287,7 @@ void qubit_display(Complex state[], int N) {
             }
         }
         /// update leds for each qubits average zero and one amps
-        set_external_led(k, 0,zero_amp, one_amp);
+        set_external_led(k, 0, zero_amp, one_amp);
     }
 }
 
