@@ -11,25 +11,25 @@
 int setup_spi(void) {
     
     /// @brief Pin mappings
-    /// @detail --- Pin mappings and codes ---
-    /// J10:41 = J1:91 = uC:70 = RPI74 (PPS code: 0100 1010)
-    /// J10:44 = J1:93 = uC:9 = RPI52 (PPS code: 0011 0100)
-    /// J10:47 = J1:101 = uC:34 = RPI42 (PPS code: 0010 1010)
-    /// J10:43 = J1:95 = uC:72 = RP64 (PPS reg: RPOR0_L; code: 0100 0000)
-    /// J10:46 = J1:97 = uC:69 = RPI73 (PPS code: 0100 1001)
-    /// J10:7 = J1:13 = uC:3 = RP85 (PPS reg: RPOR6_L; code: 0101 0101)
-    /// J10:5 = J1:7 = uC:5 = RP87 (PPS reg: RPOR6_H)
-    /// J10:55 = J1:117 = uC:10 = RP118 (PPS reg: RPOR13_H)
+    /// @detail --- Pin mappings and codes --- \n
+    /// J10:41 = J1:91 = uC:70 = RPI74 (PPS code: 0100 1010) \n
+    /// J10:44 = J1:93 = uC:9 = RPI52 (PPS code: 0011 0100) \n
+    /// J10:47 = J1:101 = uC:34 = RPI42 (PPS code: 0010 1010) \n
+    /// J10:43 = J1:95 = uC:72 = RP64 (PPS reg: RPOR0_L; code: 0100 0000) \n
+    /// J10:46 = J1:97 = uC:69 = RPI73 (PPS code: 0100 1001) \n
+    /// J10:7 = J1:13 = uC:3 = RP85 (PPS reg: RPOR6_L; code: 0101 0101) \n
+    /// J10:5 = J1:7 = uC:5 = RP87 (PPS reg: RPOR6_H) \n
+    /// J10:55 = J1:117 = uC:10 = RP118 (PPS reg: RPOR13_H) \n
+
+    /// @brief --- Pin mappings for SPI 1 module --- \n 
+    /// SPI 1 Clock Out (SCK1) PPS code: 000110 (0x06) \n
+    /// SPI 1 Data Out (SDO1) PPS code: 000101 (0x05) \n
+    /// SPI 1 Slave Select PPS code: 000111 \n
     
-    /// @brief --- Pin mappings for SPI 1 module ---
-    /// SPI 1 Clock Out (SCK1) PPS code: 000110 (0x06)
-    /// SPI 1 Data Out (SDO1) PPS code: 000101 (0x05)
-    /// SPI 1 Slave Select PPS code: 000111
-    
-    /// @brief --- Pin mappings for SPI 3 module ---
-    /// SPI 3 Clock Out (SCK3) PPS code: 100000 (0x20)
-    /// SPI 3 Data Out (SDO3) PPS code: 011111 (0x1F)
-    /// SPI 3 Slave Select PPS code: 100001
+    /// @brief --- Pin mappings for SPI 3 module --- \n
+    /// SPI 3 Clock Out (SCK3) PPS code: 100000 (0x20) \n
+    /// SPI 3 Data Out (SDO3) PPS code: 011111 (0x1F) \n
+    /// SPI 3 Slave Select PPS code: 100001 \n
     
     // @todo TODO -- should clear the ANSEL registers here to
     // It's probably not strictly necessary (already clear)

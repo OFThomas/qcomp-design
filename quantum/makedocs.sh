@@ -2,5 +2,5 @@ doxygen Docs
 cd latex
 make
 cd ..
-cp latex/*.pdf README.pdf
-#okular latex/*.pdf
+cp latex/refman.pdf README.pdf
+okular latex/refman.pdf

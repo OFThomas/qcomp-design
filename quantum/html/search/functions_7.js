@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['send_5fbyte_5fspi_5f1',['send_byte_spi_1',['../spi_8c.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c'],['../spi_8h.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c']]],
-  ['set_5fexternal_5fled',['set_external_led',['../io_8c.html#af2a143e27a01fa3dadbb9030771478ef',1,'set_external_led(int index, unsigned _Fract R, unsigned _Fract G, unsigned _Fract B):&#160;io.c'],['../io_8h.html#a1ed8267b4ddf885c2b33b13a8d38beb1',1,'set_external_led(int led_index, unsigned _Fract R, unsigned _Fract G, unsigned _Fract B):&#160;io.c']]],
-  ['set_5fled',['set_led',['../io_8c.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c'],['../io_8h.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c']]],
-  ['set_5fstrobe',['set_strobe',['../io_8c.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c'],['../io_8h.html#a89d0c0b5eee8cda66adde23080acd0bd',1,'set_strobe(int color, int state):&#160;io.c']]],
-  ['setup_5fexternal_5fleds',['setup_external_leds',['../io_8c.html#a3f0891d14ef2e6230b477700b9e3daad',1,'setup_external_leds(void):&#160;io.c'],['../io_8h.html#a3f0891d14ef2e6230b477700b9e3daad',1,'setup_external_leds(void):&#160;io.c']]],
-  ['setup_5fio',['setup_io',['../io_8c.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c'],['../io_8h.html#accd4a9c9edd862d4e50bf6a3740d9b82',1,'setup_io(void):&#160;io.c']]],
-  ['setup_5fspi',['setup_spi',['../spi_8c.html#a2f33aae32ee0a2b5a3651ec80d9d3a94',1,'setup_spi(void):&#160;spi.c'],['../spi_8h.html#a2f33aae32ee0a2b5a3651ec80d9d3a94',1,'setup_spi(void):&#160;spi.c']]],
-  ['setup_5ftimer',['setup_timer',['../time_8c.html#a4e7127f2f48fb1c538bbd67fe921c58c',1,'setup_timer():&#160;time.c'],['../time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c',1,'setup_timer():&#160;time.c']]],
-  ['single_5fqubit_5fop',['single_qubit_op',['../quantum_8c.html#acd6b875788759f2c1c448f8c3561c8f6',1,'single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum):&#160;quantum.c'],['../quantum_8h.html#acd6b875788759f2c1c448f8c3561c8f6',1,'single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum):&#160;quantum.c']]],
-  ['stop_5fexternal_5fleds',['stop_external_leds',['../io_8c.html#a1a8e4ae99d58990da0bdfca60d5767a7',1,'io.c']]]
+  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
+  ['make_5fops',['make_ops',['../quantum_8c.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c'],['../quantum_8h.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c']]],
+  ['make_5fops_5f4',['make_ops_4',['../quantum_8c.html#aa51694e4352698790c3ae8337e72a439',1,'quantum.c']]],
+  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]],
+  ['mat_5fmul_5f4',['mat_mul_4',['../quantum_8c.html#afb9592cc8adee5a123e160ef48e519c8',1,'mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l):&#160;quantum.c'],['../quantum_8h.html#afb9592cc8adee5a123e160ef48e519c8',1,'mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l):&#160;quantum.c']]]
 ];

@@ -8,6 +8,7 @@
 
 #include "io.h"                             
 #include "quantum.h"
+#include "time.h"
 
 // Complex addition
 void cadd(Complex a, Complex b, Complex result) {
@@ -21,12 +22,27 @@ void cmul(Complex a, Complex b, Complex result) {
     result[1] = a[0] * b[1] + a[1] * b[0]; 
 }
 
+/**
+ * 
+ * @param x A complex number to find the absolute value of
+ * @return The absolute value
+ */
+Q15 absolute(Complex x) {
+    Complex y; // Conjugate of x
+    y[0] = x[0];
+    y[1] = -x[1];
+    Complex z;
+    cmul(x, y, z);
+    /// @todo Check that the complex part is small
+    return z[0]; // Return real part
+}
+
 // Create complex X, Y, Z and H
 void make_ops(Complex X[2][2], Complex Y[2][2], 
         Complex Z[2][2], Complex H[2][2]) {
     // Assume the elements are all equal to zero
     
-    /// IMPLICIT NONE!!!
+    /// @note IMPLICIT NONE!!!
     for(int i=0; i < 2; i++){
         for(int j=0; j<2; j++){
             for(int k=0; k<2; k++){
@@ -37,7 +53,6 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
             }
         }
     }  
-    
     X[0][1][0] = 0.9999694824; // X
     X[1][0][0] = 0.9999694824;
     
@@ -52,6 +67,42 @@ void make_ops(Complex X[2][2], Complex Y[2][2],
     H[1][0][0] = 0.7071067812;
     H[1][1][0] = -0.7071067812;
 }
+
+void make_ops_4(Complex CNOT[4][4], Complex CPHASE[4][4], Complex SWAP[4][4]){
+
+    for(int i=0; i<4; i++){
+        for(int j=0; j<4; j++){
+            for(int k=0; k<2; k++){
+                CNOT[i][j][k] = 0.0;
+                CPHASE[i][j][k] = 0.0;
+                SWAP[i][j][k] = 0.0;
+            }
+        }
+    }
+    /// @note 
+    /// \verbatim 
+    /// [][] = row, col
+    /// [2][3] is (0 0 0 0)
+    ///           (0 0 0 0)
+    ///           (0 0 0 1)
+    ///           (0 0 0 0)
+    /// \endverbatim
+    CNOT[0][0][0] = ONE_Q15;
+    CNOT[1][1][0] = ONE_Q15;
+    CNOT[2][3][0] = ONE_Q15;
+    CNOT[3][2][0] = ONE_Q15;
+
+    CPHASE[0][0][0] = ONE_Q15;
+    CPHASE[1][1][0] = ONE_Q15;
+    CPHASE[2][2][0] = ONE_Q15;
+    CPHASE[3][3][0] = -1.0;
+
+    SWAP[0][0][0] = ONE_Q15;
+    SWAP[1][2][0] = ONE_Q15;
+    SWAP[2][1][0] = ONE_Q15;
+    SWAP[3][3][0] = ONE_Q15;
+}
+
 
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
@@ -83,6 +134,48 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
     V[j][1] = d[1];
 }
 
+/// 4x4 matrix 
+void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
+
+    /// store results of each row multiplication 
+    Complex temp_in[4];
+    Complex temp_out[4];
+   
+    // initialise temp vars to zero 
+    for(int q=0; q<4; q++){
+        for(int r=0; r<2; r++){
+            temp_in[q][r] = 0.0;
+            temp_out[q][r] = 0.0;
+        }
+    }
+    /// \verbatim
+    /// ( a b c d )  * ( p )
+    /// ( e f g h )    ( q )
+    /// ( h i j k )    ( r ) 
+    /// ( l m n o )    ( s )
+    /// \endverbatim
+    // row 0,1,2,3 
+    for(int row=0; row< 4; row++){
+        /// 4 cols of V (i,h,k,l)
+        cmul(M[row][0], V[i], temp_in[0]);
+        cmul(M[row][1], V[j], temp_in[1]);
+        cmul(M[row][2], V[k], temp_in[2]);
+        cmul(M[row][3], V[l], temp_in[3]);
+        
+        /// add the 4 terms together and put into temp for that row
+        for(int n=0; n<4; n++){
+            cadd(temp_in[n], temp_out[row], temp_out[row]);
+        }   
+    }
+    // loop over real and complex parts write sums of rows into V elements
+    for(int c=0; c<2; c++){
+        V[i][c] = temp_out[0][c];
+        V[j][c] = temp_out[1][c];
+        V[k][c] = temp_out[2][c];
+        V[l][c] = temp_out[3][c];
+    }
+}
+
 /**
  * @brief Display the state amplitudes on LEDs
  * @param state Pass in the state vector
@@ -95,19 +188,21 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * to each state of a given qubit. Suppose there are three qubits. Then the
  * state vector is given by
  * 
+ * \verbatim
  *      index     binary   amplitude 
  *      ----------------------------- 
- *        0       0 0 0       a_0
- *        1       0 0 1       a_1 
- *        2       0 1 0       a_2
- *        3       0 1 1       a_3
- *        4       1 0 0       a_4
- *        5       1 0 1       a_5
- *        6       1 1 0       a_6
- *        7       1 1 1       a_7
+ *        0       0 0 0       a0
+ *        1       0 0 1       a1 
+ *        2       0 1 0       a2
+ *        3       0 1 1       a3
+ *        4       1 0 0       a4
+ *        5       1 0 1       a5
+ *        6       1 1 0       a6
+ *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
- * 
+ * \endverbatim
+ *
  * Consider qubit 2. The value of the ZERO state is formed by adding up all
  * the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 
  * and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and 
@@ -176,7 +271,6 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  *      step;
  * }
  * 
- * 
  */
 void qubit_display(Complex state[], int N) {
     /// Loop over all qubits k = 0, 1, 2, ... N-1
@@ -205,19 +299,21 @@ void qubit_display(Complex state[], int N) {
  * 
  * This routine applies a single qubit gate to the state vector @param state.
  * Consider the three qubit case, with amplitudes shown in the table below:
- * 
- *      index     binary   amplitude 
+ *
+ *   \verbatim
+ *     index     binary   amplitude 
  *      ----------------------------- 
- *        0       0 0 0       a_0
- *        1       0 0 1       a_1 
- *        2       0 1 0       a_2
- *        3       0 1 1       a_3
- *        4       1 0 0       a_4
- *        5       1 0 1       a_5
- *        6       1 1 0       a_6
- *        7       1 1 1       a_7
+ *        0       0 0 0       a0
+ *        1       0 0 1       a1 
+ *        2       0 1 0       a2
+ *        3       0 1 1       a3
+ *        4       1 0 0       a4
+ *        5       1 0 1       a5
+ *        6       1 1 0       a6
+ *        7       1 1 1       a7
  *      -----------------------------
  *      Qubit:    2 1 0
+ * \endverbatim
  * 
  * If a single qubit operation is applied to qubit 2, then the 2x2 matrix 
  * must be applied to all pairs of (0,1) in the first column, with the numbers
@@ -261,4 +357,91 @@ void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
             mat_mul(op, state, root + step, root + (int) pow(2, k) + step);
         }
     }
+}
+
+/// selective 2 qubit op function 
+/// \verbatim
+///    00 01 10 11
+/// 00( 1  0  0  0   )
+/// 01( 0  1  0  0   )
+/// 10( 0  0 u00 u01 )
+/// 11( 0  0 u10 u11 )
+/// \endverbatim
+/// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
+// elements
+void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
+    /// ROOT loop: starts at 0, increases in steps of 1
+    for (int root = 0; root < pow(2, targ); root++) {
+        /// STEP loop: starts at 0, increases in steps of 2^(k+1)
+        for (int step = 0; step < pow(2, N); step += pow(2, targ + 1)) {
+            /// First index is ZERO, second index is ONE
+            /// @note for 2 qubit case check if the index in the ctrl qubit 
+            /// is a 1 then apply the 2x2 unitary else do nothing
+<<<<<<< HEAD
+            bool check_1 = (root + step) & (1 << ctrl);
+            bool check_2 = (root + step + (int) pow(2, targ)) & (1 << ctrl);
+            if (check_1 && check_2) {
+=======
+            ///
+            /// @note sorry.
+            /// this checks for the first element of the state vector i.e. the target 
+            /// qubits |0> and checks that the state vector element is one which the 
+            /// control qubit has a |1> state -> (root + step)
+            ///
+            /// The second element of the state vector to take is then the first
+            /// +2^(target qubit number). This also needs to be checked that the control
+            /// qubit is in the |1>. 
+            /// @todo This expression can probably be simplified or broken over lines.
+            if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
+>>>>>>> db303dca0e396e6169fd00d58147e49d7bc27fff
+                mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
+            }
+        }
+    }
+}
+
+/**
+ * 
+ * @param state The state vector
+ * @param num_qubits The number of qubits in the state vector
+ * @return 
+ * 
+ * This function finds the amplitude of the state vector with the largest
+ * magnitude. 
+ * 
+ */
+#define NUM_MAX_AMPS 4 /// Define the number of largest amplitudes to store
+int sort_states(Complex state[], int num_qubits){
+    /// @todo this function...
+    return 0;
+}
+
+/// @brief takes state vector, number of qubits and vector to write the nonzero elements
+/// of the statevector to.
+/// the disp_state elements are the nonzero elements of the state 
+/// \verbatim 
+/// e.g. state =  (00) = (1/r2) (Bell state) 
+///               (01)   ( 0  ) 
+///               (10)   ( 0  ) 
+///               (11)   (1/r2) 
+/// Then displ_state would have 2 elements 
+/// disp_state = (0) standing for (00) 
+///              (3)              (11) 
+/// \endverbatim 
+/// @note we have to allocate disp_state to be the size of state, the function returns 
+/// count which tells us the first 'count' elements of disp_state to use.
+/// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
+/// as 3 which means take the first count-1 elements (in this case 2) of disp_state which 
+/// is 0,1 which is the correct elements
+
+int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]) {
+    int N = pow(2, num_qubits);
+    int count = 0;
+    for (int i = 0; i < N; i++) {
+        if (absolute(state[i]) > 0.0) {
+            disp_state[count] = i;
+            count++;
+        }
+    }
+    return count - 1;
 }

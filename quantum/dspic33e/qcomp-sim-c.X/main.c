@@ -67,39 +67,18 @@ int main(void) {
    
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
    
-         //vacuum
-    zero_state(state, NUM_QUBITS); // Set the state to the vacuum
-    qubit_display(state, NUM_QUBITS); // Display the state for four qubits
+    
+    /// Start of the PROGRAM!
+     while(1){
+    
+        // nice to see
+        swap_test(state);
+         
+    
+    
+    
 
-    delay();
-    
-    while(1){
-    
-    // X on q0
-    single_qubit_op(X, 0, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // H on q2
-    single_qubit_op(H, 2, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // H q2
-    single_qubit_op(H, 2, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    // X q0
-    single_qubit_op(X, 0, state, NUM_QUBITS); // Apply X to 0th qubit    
-    qubit_display(state, NUM_QUBITS); // Display the state
-    
-    delay();
-    
-    }
+     }
     while(1); ///< @note Really important!
     return 0;
 }
