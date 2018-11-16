@@ -151,8 +151,8 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
 }
 
 /// Linked list pointers
-cycle_node_t * top = NULL; /// The top element
-cycle_node_t * head = NULL; /// The last element
+cycle_node_t * first = NULL; /// The top element
+cycle_node_t * last = NULL; /// The last element
 cycle_node_t * current = NULL; ///
 
 /// Timer 6 and 7 for cycling superposition states
@@ -222,23 +222,24 @@ void setup_external_leds(void) {
 /// @brief Global LED strobing state parameter
 
 /// Function for adding data to the linked list
-cycle_node_t * push(cycle_node_t * head, RGB * rgb, int size) {
-    /// Set all the data in head
-    head -> rgb = rgb;
-    head -> size = size;
+/// Pass in the pointer to the current 
+cycle_node_t * add_data(cycle_node_t * current, RGB * rgb, int size) {
+    /// Set all the data in current
+    current -> rgb = rgb;
+    current -> size = size;
     
     /// Allocate the next element of the linked list
-    cycle_node_t * new_head = malloc(sizeof(cycle_node_t));
-    if(new_head == NULL) {
+    cycle_node_t * next = malloc(sizeof(cycle_node_t));
+    if(next == NULL) {
         return NULL; /// Failed to allocate memory
     }
-    new_head->next = top; /// Wrap the pointer back round to the start
+    next->next = NULL; /// Set the next pointer to null
     
     /// Link the previous element of the list
-    new_head->previous = head;
+    next->previous = current;
     
     /// Return the new head
-    return new_head;
+    return next;
 }
 
 /**
@@ -273,10 +274,9 @@ int add_to_cycle(RGB colors[], int size) {
         colors_p[n] = colors[n];
     }
     
-    /// Link this data to the current node (head)
-    /// The head which is returned is the new head
-    head = push(head, colors_p, size);
-    if(head == NULL)
+    /// Link this data to the current node (current)
+    current = add_data(current, colors_p, size);
+    if(current == NULL)
         return -1; /// Failed to allocate memory
     
     return 0; // Success 
@@ -294,17 +294,17 @@ int add_to_cycle(RGB colors[], int size) {
  */
 int reset_cycle(void) {
     /// De-allocate any previous cycle_node linked list
-    while(head != NULL) {
+    while(current != NULL) {
         /// Delete the memory in this node
-        free(head->next);
-        free(head->rgb);
+        free(current->next);
+        free(current->rgb);
         /// No need to delete the size member
         
         /// Move to previous item in the list
-        head = head -> previous;
+        current = current -> previous;
         
         /// Delete the next object
-        free(head->next);
+        free(current->next);
         
         /// This loop will exit when head == NULL, 
         /// i.e. when head->previous == NULL (the bottom item of the list)

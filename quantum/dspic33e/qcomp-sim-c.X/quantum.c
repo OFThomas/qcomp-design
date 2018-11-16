@@ -328,9 +328,7 @@ void display_cycle(Complex state[], int N) {
 
     for (int k = 0; k < cycle_length; k++) {
         /// Each iteration of this loop writes 
-        
-        
-        
+
         /// Loop here to add stuff
         add_to_cycle(colors[k], NUM_QUBITS);
     }
