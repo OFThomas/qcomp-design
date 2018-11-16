@@ -427,29 +427,15 @@ int sort_states(Complex state[], int num_qubits){
 /// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
 /// as 3 which means take the first count-1 elements (in this case 2) of disp_state which 
 /// is 0,1 which is the correct elements
-<<<<<<< HEAD
-int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]){
-int N = pow(2,num_qubits);
-=======
->>>>>>> cbd6a2b977432e225aff7ba1105a7ebf3d1cb757
 
-int remove_zero_amp_states(Complex state[], int num_qubits, Complex disp_state[]) {
+int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]) {
     int N = pow(2, num_qubits);
-
     int count = 0;
-
-<<<<<<< HEAD
-for(int i=0; i<N; i++){
-    if(absolute(state[i]) > 0.0){
-        disp_state[count] = i;
-        count++;
-=======
     for (int i = 0; i < N; i++) {
-        if (absolute(state[i]) > 0) {
+        if (absolute(state[i]) > 0.0) {
             disp_state[count] = i;
             count++;
         }
->>>>>>> cbd6a2b977432e225aff7ba1105a7ebf3d1cb757
     }
     return count - 1;
 }
