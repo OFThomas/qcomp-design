@@ -9,6 +9,7 @@
 #include "io.h"                             
 #include "quantum.h"
 #include "time.h"
+#include "algo.h"
 
 // Complex addition
 void cadd(Complex a, Complex b, Complex result) {
@@ -239,7 +240,7 @@ void mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l){
  *                          and   j = 0, 1, ..., 2^(N-k-2)
  * 
  * The amplitudes are obtained by summing over both n and j. Notice that there
- * is an edge condition when k = N-1. There, j apparently ranges from 0 to -1.
+ * is an edge condition when k = N-1. There, j acycle_lengthpparently ranges from 0 to -1.
  * In this case, the only value of j is 0. The condition arises because of the
  * way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) 
  * gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must
@@ -289,6 +290,47 @@ void qubit_display(Complex state[], int N) {
         /// update leds for each qubits average zero and one amps
         set_external_led(k, 0,zero_amp, one_amp);
     }
+}
+
+/**
+ * 
+ * @param state The state to display
+ * @param N The length of the state vector
+ */
+void display_cycle(Complex state[], int N) {
+    
+    int output[N];
+    
+    /// Filter the state
+    int cycle_length = remove_zero_amp_states(state, NUM_QUBITS, output);
+    
+    /// Allocate RGB array
+    RGB colors[cycle_length][NUM_QUBITS];
+    
+    /// Decode 
+    for(int k=0; k < cycle_length; k++) {
+        for(int j=0; j < NUM_QUBITS; j++) {
+            colors[k][j].R = 0;
+            colors[k][j].G = 0;
+            colors[k][j].B = 0;
+            /// Look at the jth bit
+            if((output[k] & (1 << j)) == 0) {
+                colors[k][j].G = ONE_Q15;
+            } else {
+                colors[k][j].B = ONE_Q15;
+            }
+        }
+    }
+    /// Reset the cycle
+    reset_cycle();
+
+    for (int k = 0; k < cycle_length; k++) {
+        /// Each iteration of this loop writes 
+
+        /// Loop here to add stuff
+        add_to_cycle(colors[k], NUM_QUBITS);
+    }
+
 }
 
 /** apply operator
@@ -342,7 +384,7 @@ void qubit_display(Complex state[], int N) {
  * 
  * refers to the ZERO amplitude (the first element in the column vector to
  * be multiplied by the 2x2 matrix), and the index
- * 
+ * Complex state[], int N
  *      root + 2^k + step
  * 
  * corresponds to the ONE entry.
@@ -377,11 +419,6 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
-<<<<<<< HEAD
-            bool check_1 = (root + step) & (1 << ctrl);
-            bool check_2 = (root + step + (int) pow(2, targ)) & (1 << ctrl);
-            if (check_1 && check_2) {
-=======
             ///
             /// @note sorry.
             /// this checks for the first element of the state vector i.e. the target 
@@ -393,7 +430,6 @@ void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], 
             /// qubit is in the |1>. 
             /// @todo This expression can probably be simplified or broken over lines.
             if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
->>>>>>> db303dca0e396e6169fd00d58147e49d7bc27fff
                 mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
             }
         }
@@ -443,5 +479,5 @@ int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]) {
             count++;
         }
     }
-    return count - 1;
+    return count;
 }

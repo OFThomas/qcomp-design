@@ -10,6 +10,7 @@
 #include "io.h"
 #include "time.h"
 #include "spi.h"
+#include "algo.h"
 
 /** @brief Contains the button states
  * 
@@ -53,18 +54,29 @@ int setup_io(void) {
     // Setup timers for flashing LEDs
     T4CON = 0x0000; // Reset the timer control registers
     T5CON = 0x0000;
+    T6CON = 0x0000; // Reset the timer control registers
+    T7CON = 0x0000;
     // Set up timer 4 in 32 bit mode with timer 5
     // Clock prescaler 1:1, internal oscillator source.
     T4CON = 0x0008;
+    T6CON = 0x0008;
     // No need to change anything in T5CON
     // Reset TMR4, TMR5, PR4 and PR5
     TMR4 = 0x0000;
     TMR5 = 0x0000;
     PR4 = 0x0000; // Reset registers
     PR5 = 0x0000;
+    // Reset TMR4, TMR5, PR4 and PR5
+    TMR6 = 0x0000;
+    TMR7 = 0x0000;
+    PR6 = 0x0000; // Reset registers
+    PR7 = 0x0000;
     // Setup interrupts for timer 5
     IEC1bits.T5IE = 1; // Enable the interrupt
     IFS1bits.T5IF = 0; // Clear the interrupt flag
+    // Setup interrupts for timer 7
+    IEC3bits.T7IE = 1; // Enable the interrupt
+    IFS3bits.T7IF = 0; // Clear the interrupt flag
     /// Set the OE pin high
     LATD |= (1 << OE); /// Set OE(ED2) pin
     /// Set the SH pin high
@@ -150,6 +162,35 @@ void __attribute__((__interrupt__, no_auto_psv)) _T5Interrupt(void) {
     IFS1bits.T5IF = 0;
 }
 
+#define MAX_CYCLE_LENGTH 16
+RGB cycle_colors[MAX_CYCLE_LENGTH][NUM_QUBITS];
+int last_row = 0;
+int cycle_counter = 0;
+
+/// Timer 6 and 7 for cycling superposition states
+void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
+
+    /// Write a row to the leds
+    for(int k=0; k<NUM_QUBITS; k++) {
+        set_external_led(k, 
+                cycle_colors[cycle_counter][k].R,
+                cycle_colors[cycle_counter][k].G,
+                cycle_colors[cycle_counter][k].B);
+    }
+    
+    cycle_counter++;
+    
+    if(cycle_counter == last_row) {
+        cycle_counter = 0;
+    }
+           
+    // Reset the timer
+    TMR6 = 0x0000;
+    TMR7 = 0x0000;
+    // Clear Timer7 interrupt flag
+    IFS3bits.T7IF = 0;
+}
+    
 /// @brief Set external variable RGB LEDs
 void setup_external_leds(void) {
 
@@ -185,10 +226,63 @@ void setup_external_leds(void) {
     // Set flashing period
     PR4 = 0x0800;
     PR5 = 0x0000;
+    
+    /// Set flashing period
+    PR6 = 0x0000;
+    PR7 = 0x0080;
 
     // Turn timer 4 on
     T4CONbits.TON = 1;
+    /// Turn timer 6 on
+    T6CONbits.TON = 1;
 }
+
+
+/**
+ * @brief Add an item to the list of states to cycle
+ * 
+ * @param leds An array of LED indices 
+ * @param colors Corresponding RGB values for each LED
+ * @param size The size of both the above arrays
+ * 
+ * This function is used to add a set of LED states (RGB values) into the
+ * list of states being cycled. 
+ * 
+ * Repeatedly calling this function adds a new state to the end of the list
+ * of displayed states. LED states are shown in the order this function is
+ * called.
+ * 
+ * The implementation uses the linked list type cycle_node. Each call of
+ * this function adds a new element to the end of cycle node
+ * 
+ */
+int add_to_cycle(RGB colors[], int size) {
+    
+    /// Add the new colors to top of array
+    for(int k=0; k<NUM_QUBITS; k++) {
+        cycle_colors[last_row][k] = colors[k];
+    }
+    last_row ++;
+    
+    if(last_row == MAX_CYCLE_LENGTH) {
+        return -1; // This is bad
+    }
+    
+    return 0; // Success 
+}
+
+/**
+ * @brief Reset the LED display cycle
+_* @todo do it
+ * 
+ */
+int reset_cycle(void) {
+    last_row = 0;
+    return 0;
+    
+}
+
+
 
 /// @brief Stop LEDs flashing
 void stop_external_leds(void) {

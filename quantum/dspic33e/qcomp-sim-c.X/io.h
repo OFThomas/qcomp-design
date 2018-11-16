@@ -18,6 +18,7 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 #include <stdbool.h>
+#include <stdlib.h>
 
 /// Locations of LEDs and buttons on Port D
 #define red 0
@@ -170,7 +171,30 @@ extern "C" {
      * @brief Update the buttons array (see declaration above) 
      * 
      */
-    int read_external_buttons(void); 
+    int read_external_buttons(void);
+
+    /// @brief A type for holding red, green, blue values 
+
+    typedef struct {
+        unsigned _Fract R;
+        unsigned _Fract G;
+        unsigned _Fract B;
+    } RGB;
+
+    /// @brief The basis for a linked list of states to cycle
+
+    typedef struct cycle_node {
+        RGB * rgb; ///< Array of corresponding RGB values
+        int size; ///< The size of the above arrays
+        struct cycle_node * next; ///< Pointer to the next item
+        struct cycle_node * previous; ///< Pointer to the previous item
+    } cycle_node_t;
+    
+    /// Add an element to the states to be cycled
+    int add_to_cycle(RGB colors[], int size);
+    
+    /// Reset the display cycle. Called before adding anything
+    int reset_cycle(void);
     
 #ifdef	__cplusplus
 }
