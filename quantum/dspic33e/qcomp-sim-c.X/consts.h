@@ -18,36 +18,27 @@ extern "C" {
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
     
-    /// Basic fractional time
-    typedef signed _Fract Q15; 
+/// Basic fractional time
+typedef signed _Fract Q15; 
     
-    /// Complex type
-    typedef Q15 Complex[2];
+/// Complex type
+typedef Q15 Complex[2];
 
 
 /// @param rX is square root of X
-/// \verbatim 
-///( 0.5+0.5i  0.5-0.5i )
-///( 0.5-0.5i  0.5+0.5i )
-/// \endverbatim
-extern Complex rX[2][2] = {{ {0.5, 0.5}, {0.5, -0.5} }, 
-                    { {0.5, -0.5}, {0.5, 0.5} }};
+extern Complex rX[2][2];
 
 /// @param X pauli X gate
-extern Complex X[2][2] = {{ {0.0, 0.0}, {ONE_Q15, 0,0} },
-                   { {ONE_Q15, 0.0}, {0.0, 0.0} }};
+extern Complex X[2][2];
 
 /// @param Y Pauli y gate
-extern Complex Y[2][2] = {{ {0.0, 0.0}, {0.0, -1,0} },
-                   { {0.0, ONE_Q15}, {0.0, 0.0} }};
+extern Complex Y[2][2];
 
 /// @param Z Pauli z gate
-extern Complex Z[2][2] = {{ {ONE_Q15, 0.0}, {0.0, 0,0} },
-                   { {0.0, 0.0}, {-1.0, 0.0} }};
+extern Complex Z[2][2];
 
 /// @param H Hadamard gate
-extern Complex H[2][2] = {{ {0.7071067812, 0.0}, {0.7071067812, 0,0} },
-                   { {0.7071067812, 0.0}, {-0.7071067812, 0.0} }};
+extern Complex H[2][2];
 
 
 #ifdef	__cplusplus

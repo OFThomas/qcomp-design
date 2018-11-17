@@ -28,6 +28,7 @@
 #include "config.h"
 #include "time.h"
 #include "io.h"
+#include "consts.h"
 #include "quantum.h"
 #include "tests.h"
 #include "time.h"
@@ -62,8 +63,8 @@ int main(void) {
     if(buttons[0] == 1)
         ; /// Do something if button 0 has been pressed...
 
-    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    make_ops(X, Y, Z, H);
+    //Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
+    //make_ops(X, Y, Z, H);
    
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
    

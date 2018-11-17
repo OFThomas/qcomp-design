@@ -25,6 +25,8 @@
       <itemPath>spi.h</itemPath>
       <itemPath>algo.c</itemPath>
       <itemPath>algo.h</itemPath>
+      <itemPath>consts.h</itemPath>
+      <itemPath>consts.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

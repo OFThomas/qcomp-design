@@ -5,6 +5,7 @@
  */
 
 #include "io.h"
+#include "consts.h"
 #include "quantum.h"
 #include "algo.h"
 #include "time.h"
