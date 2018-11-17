@@ -10,17 +10,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    
+
+#include "consts.h"
 #include "quantum.h"
-
-#define NUM_QUBITS 4
-#define STATE_LENGTH 16 // 2^NUM_QUBITS
-
-extern Complex rX[2][2];
-extern Complex X[2][2];
-extern Complex Y[2][2];
-extern Complex Z[2][2];
-extern Complex H[2][2];
 
 /// perform single qubit gate 
 void gate(Complex op[2][2], int qubit, Complex state[], int num_qubits);

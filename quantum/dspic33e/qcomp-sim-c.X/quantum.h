@@ -13,22 +13,16 @@
 extern "C" {
 #endif
 
-#define ONE_Q15 0.9999694824
 
 #include "p33EP512MU810.h"
 #include "xc.h"
 #include <math.h>
 #include <stdbool.h>
-  
+#include "consts.h" 
     /// Basis states
     typedef enum {ZERO, ONE, PLUS, MINUS, iPLUS, iMINUS} State;
-    
-    /// Basic fractional time
-    typedef signed _Fract Q15; 
-    
-    /// Complex type
-    typedef Q15 Complex[2];
 
+    
     /// Create complex X, Y, Z and H
     /// @param X Pauli X c-Matrix
     /// @param Z Pauli Z c-matrix

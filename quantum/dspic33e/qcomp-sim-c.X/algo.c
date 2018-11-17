@@ -10,30 +10,6 @@
 #include "time.h"
 #include <math.h>
 
-/// @param rX is square root of X
-/// \verbatim 
-///( 0.5+0.5i  0.5-0.5i )
-///( 0.5-0.5i  0.5+0.5i )
-/// \endverbatim
-Complex rX[2][2] = {{ {0.5, 0.5}, {0.5, -0.5} }, 
-                    { {0.5, -0.5}, {0.5, 0.5} }};
-
-/// @param X pauli X gate
-Complex X[2][2] = {{ {0.0, 0.0}, {ONE_Q15, 0,0} },
-                   { {ONE_Q15, 0.0}, {0.0, 0.0} }};
-
-/// @param Y Pauli y gate
-Complex Y[2][2] = {{ {0.0, 0.0}, {0.0, -1,0} },
-                   { {0.0, ONE_Q15}, {0.0, 0.0} }};
-
-/// @param Z Pauli z gate
-Complex Z[2][2] = {{ {ONE_Q15, 0.0}, {0.0, 0,0} },
-                   { {0.0, 0.0}, {-1.0, 0.0} }};
-
-/// @param H Hadamard gate
-Complex H[2][2] = {{ {0.7071067812, 0.0}, {0.7071067812, 0,0} },
-                   { {0.7071067812, 0.0}, {-0.7071067812, 0.0} }};
-
 /// @brief 
 void gate(Complex op[2][2], int qubit, Complex state[], int num_qubits){
     /// does 2x2 operator on state vector
