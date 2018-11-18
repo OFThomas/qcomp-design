@@ -63,7 +63,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">algo.h File Reference</div>  </div>
@@ -72,35 +71,54 @@ $(function() {
 
 <p>header file for algorithms  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="consts_8h_source.html">consts.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="quantum_8h_source.html">quantum.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="display_8h_source.html">display.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="time_8h_source.html">time.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for algo.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="algo_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2algo_8h" alt=""/></div>
+<map name="dspic33e_2qcomp-sim-c_8X_2algo_8h" id="dspic33e_2qcomp-sim-c_8X_2algo_8h">
+<area shape="rect" id="node2" href="consts_8h.html" title="header file for (global) constants " alt="" coords="5,244,77,271"/>
+<area shape="rect" id="node3" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="184,169,267,196"/>
+<area shape="rect" id="node8" href="display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="113,95,188,121"/>
+<area shape="rect" id="node11" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="379,169,437,196"/>
+<area shape="rect" id="node9" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="312,169,355,196"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="algo_8h__dep__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2algo_8hdep" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2algo_8hdep" id="dspic33e_2qcomp-sim-c_8X_2algo_8hdep">
 <area shape="rect" id="node2" href="algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,95,148,136"/>
-<area shape="rect" id="node3" href="main_8c.html" title="The main function. " alt="" coords="172,95,315,136"/>
+<area shape="rect" id="node3" href="io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="172,95,315,136"/>
+<area shape="rect" id="node4" href="tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="391,95,533,136"/>
+<area shape="rect" id="node5" href="main_8c.html" title="The main function. " alt="" coords="281,184,424,225"/>
+<area shape="rect" id="node7" href="quantum_8c.html" title="Description: Contains matrix and vector arithmetic for simulating one qubit. " alt="" coords="557,95,700,136"/>
+<area shape="rect" id="node6" href="tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="448,184,591,225"/>
 </map>
 </div>
 </div>
 <p><a href="algo_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a2f52338126bb8cdf7fcf68eaf01c546a"><td class="memItemLeft" align="right" valign="top"><a id="a2f52338126bb8cdf7fcf68eaf01c546a"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>NUM_QUBITS</b>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a2f52338126bb8cdf7fcf68eaf01c546a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00ab911b01dd265c42d677b1cca7e2ea"><td class="memItemLeft" align="right" valign="top"><a id="a00ab911b01dd265c42d677b1cca7e2ea"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>STATE_LENGTH</b>&#160;&#160;&#160;16</td></tr>
-<tr class="separator:a00ab911b01dd265c42d677b1cca7e2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#afbcd65ac269ef576aec9bdb0ec30f70f">gate</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
+<tr class="memitem:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#afbcd65ac269ef576aec9bdb0ec30f70f">gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="memdesc:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#afbcd65ac269ef576aec9bdb0ec30f70f">More...</a><br /></td></tr>
 <tr class="separator:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af43d011d3803e45de48d214292c6bcc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af43d011d3803e45de48d214292c6bcc1">two_gate</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
+<tr class="memitem:af43d011d3803e45de48d214292c6bcc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af43d011d3803e45de48d214292c6bcc1">two_gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="memdesc:af43d011d3803e45de48d214292c6bcc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform controlled single qubit gate  <a href="#af43d011d3803e45de48d214292c6bcc1">More...</a><br /></td></tr>
 <tr class="separator:af43d011d3803e45de48d214292c6bcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a781043054297ff4a5d9227c07a0ceb97"><td class="memItemLeft" align="right" valign="top"><a id="a781043054297ff4a5d9227c07a0ceb97"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#a781043054297ff4a5d9227c07a0ceb97">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
+<tr class="memdesc:a781043054297ff4a5d9227c07a0ceb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap using 3 cNots <br /></td></tr>
+<tr class="separator:a781043054297ff4a5d9227c07a0ceb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293d6e56ed71d89f7796868fd2592cb9"><td class="memItemLeft" align="right" valign="top"><a id="a293d6e56ed71d89f7796868fd2592cb9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#a293d6e56ed71d89f7796868fd2592cb9">toffoli_gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a293d6e56ed71d89f7796868fd2592cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toffoli gate. <br /></td></tr>
+<tr class="separator:a293d6e56ed71d89f7796868fd2592cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>header file for algorithms </p>
@@ -114,7 +132,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void gate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -126,7 +144,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
         </tr>
         <tr>
@@ -157,7 +175,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void two_gate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -175,7 +193,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
         </tr>
         <tr>

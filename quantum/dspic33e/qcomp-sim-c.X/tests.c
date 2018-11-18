@@ -7,11 +7,6 @@
  */
 
 #include "tests.h"
-#include "io.h"
-#include "quantum.h"
-#include "time.h"
-#include "algo.h"
-#include "display.h"
 
 void swap_test(Complex state[]){
 

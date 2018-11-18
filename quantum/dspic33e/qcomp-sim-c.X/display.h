@@ -13,13 +13,11 @@
 extern "C" {
 #endif
 
-
-#include "p33EP512MU810.h"
-#include "xc.h"
 #include <math.h>
-#include <stdbool.h>
 #include "consts.h" 
 #include "quantum.h"
+#include "io.h"
+
 
        /**
      * @brief Display the state amplitudes on LEDs

@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['main_2ec',['main.c',['../main_8c.html',1,'']]],
-  ['make_5fops',['make_ops',['../quantum_8c.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c'],['../quantum_8h.html#a7978688debb14063b164d6f6b279d839',1,'make_ops(Complex X[2][2], Complex Y[2][2], Complex Z[2][2], Complex H[2][2]):&#160;quantum.c']]],
-  ['make_5fops_5f4',['make_ops_4',['../quantum_8c.html#aa51694e4352698790c3ae8337e72a439',1,'quantum.c']]],
-  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]],
-  ['mat_5fmul_5f4',['mat_mul_4',['../quantum_8c.html#afb9592cc8adee5a123e160ef48e519c8',1,'mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l):&#160;quantum.c'],['../quantum_8h.html#afb9592cc8adee5a123e160ef48e519c8',1,'mat_mul_4(Complex M[4][4], Complex V[], int i, int j, int k, int l):&#160;quantum.c']]]
+  ['le',['LE',['../io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7',1,'io.h']]],
+  ['led',['LED',['../structLED.html',1,'LED'],['../io_8c.html#a11ae3bccffd844c51949ca06b0b52279',1,'led():&#160;io.c']]],
+  ['led_5fcolor_5fint',['led_color_int',['../io_8c.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c'],['../io_8h.html#af3f93a224b1c0993b55cb3534237300f',1,'led_color_int(int device, int R, int G, int B):&#160;io.c']]],
+  ['led_5fcycle_5ftest',['led_cycle_test',['../io_8c.html#ae1bf99f09184b0112291c5eaa0832fb6',1,'led_cycle_test(void):&#160;io.c'],['../io_8h.html#ae1bf99f09184b0112291c5eaa0832fb6',1,'led_cycle_test(void):&#160;io.c']]],
+  ['led_5fglobal',['LED_GLOBAL',['../structLED__GLOBAL.html',1,'LED_GLOBAL'],['../io_8c.html#a3240a0ec7160d6bae6cc4a7bab8494c7',1,'led_global():&#160;io.c']]],
+  ['led_5fnum',['LED_NUM',['../io_8h.html#a77440c4104ae0a7368936ff87a3d3260',1,'io.h']]],
+  ['leds_5foff',['leds_off',['../io_8c.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c'],['../io_8h.html#a4bf53abfd4d628a2791bf1783de96b27',1,'leds_off(void):&#160;io.c']]]
 ];

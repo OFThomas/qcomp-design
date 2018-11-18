@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['q15',['Q15',['../quantum_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92',1,'quantum.h']]],
-  ['quantum_2ec',['quantum.c',['../quantum_8c.html',1,'']]],
-  ['quantum_2eh',['quantum.h',['../quantum_8h.html',1,'']]],
-  ['qubit_5fdisplay',['qubit_display',['../quantum_8c.html#a1f85ec981f7f9d5658ac1a2b3abcbdd9',1,'qubit_display(Complex state[], int N):&#160;quantum.c'],['../quantum_8h.html#a5b30aceeaa6308c4c5478fc8078a5f16',1,'qubit_display(Complex state[], int Qnum):&#160;quantum.c']]]
+  ['n_5fb',['N_B',['../structLED.html#ab8c58fff50f5a3e62bddbf1d41d19b3f',1,'LED']]],
+  ['n_5fg',['N_G',['../structLED.html#a6054598e9b4d400c9ada40e8e2922ee2',1,'LED']]],
+  ['n_5fr',['N_R',['../structLED.html#a15d684728fa755efcdbfc6d213521792',1,'LED']]],
+  ['next',['next',['../structcycle__node.html#a275ba7a105beb92123f7a0eb92321108',1,'cycle_node']]],
+  ['num_5fmax_5famps',['NUM_MAX_AMPS',['../display_8c.html#a43ed06e2eeade77b541d88b3fe875a05',1,'display.c']]]
 ];

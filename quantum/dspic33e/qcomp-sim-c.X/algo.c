@@ -4,13 +4,7 @@
  *
  */
 
-#include "io.h"
-#include "consts.h"
-#include "quantum.h"
 #include "algo.h"
-#include "time.h"
-#include <math.h>
-#include "display.h"
 
 /// @brief 
 void gate(Complex op[2][2], int qubit, Complex state[], int num_qubits){

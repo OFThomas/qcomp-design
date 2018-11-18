@@ -11,12 +11,10 @@
 extern "C" {
 #endif
     
-//#include "quantum.h"
-
-#define ONE_Q15 0.9999694824
-
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
+
+#define ONE_Q15 0.9999694824
     
 /// Basic fractional time
 typedef signed _Fract Q15; 

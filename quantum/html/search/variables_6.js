@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['strobe_5fleds',['strobe_leds',['../structLED__GLOBAL.html#a83f4187bae72e19513a81b85b48e7c9f',1,'LED_GLOBAL']]],
-  ['strobe_5fstate',['strobe_state',['../structLED__GLOBAL.html#ac2ca8e18709b5fa418acc99ac0c491d7',1,'LED_GLOBAL']]]
+  ['n_5fb',['N_B',['../structLED.html#ab8c58fff50f5a3e62bddbf1d41d19b3f',1,'LED']]],
+  ['n_5fg',['N_G',['../structLED.html#a6054598e9b4d400c9ada40e8e2922ee2',1,'LED']]],
+  ['n_5fr',['N_R',['../structLED.html#a15d684728fa755efcdbfc6d213521792',1,'LED']]],
+  ['next',['next',['../structcycle__node.html#a275ba7a105beb92123f7a0eb92321108',1,'cycle_node']]]
 ];

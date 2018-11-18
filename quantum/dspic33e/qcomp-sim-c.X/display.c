@@ -2,8 +2,6 @@
 /// for all the state display functions
 
 #include "display.h"
-#include "quantum.h"
-#include "io.h"
 
 /**
  * @brief Display the state amplitudes on LEDs
