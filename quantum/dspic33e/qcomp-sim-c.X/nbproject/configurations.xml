@@ -27,6 +27,8 @@
       <itemPath>algo.h</itemPath>
       <itemPath>consts.h</itemPath>
       <itemPath>consts.c</itemPath>
+      <itemPath>display.c</itemPath>
+      <itemPath>display.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

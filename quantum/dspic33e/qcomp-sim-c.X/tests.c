@@ -11,13 +11,12 @@
 #include "quantum.h"
 #include "time.h"
 #include "algo.h"
+#include "display.h"
 
 void swap_test(Complex state[]){
-    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    make_ops(X, Y, Z, H);
 
     zero_state(state, NUM_QUBITS); // Set the state to the vacuum
-    qubit_display(state, NUM_QUBITS); // Display the state for four qubits
+    display_average(state, NUM_QUBITS); // Display the state for four qubits
     delay();
      
     gate(H, 0, state, NUM_QUBITS);

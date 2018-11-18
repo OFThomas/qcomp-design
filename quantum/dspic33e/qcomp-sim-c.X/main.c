@@ -34,6 +34,7 @@
 #include "time.h"
 #include "spi.h"
 #include "algo.h"
+#include "display.h"
 
 int main(void) {
 
