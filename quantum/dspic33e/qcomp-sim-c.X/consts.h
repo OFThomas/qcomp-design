@@ -22,7 +22,6 @@ typedef signed _Fract Q15;
 /// Complex type
 typedef Q15 Complex[2];
 
-
 /// @param rX is square root of X
 extern const Complex rX[2][2];
 
@@ -40,7 +39,6 @@ extern const Complex Z[2][2];
 
 /// @param H Hadamard gate
 extern const Complex H[2][2];
-
 
 #ifdef	__cplusplus
 }
