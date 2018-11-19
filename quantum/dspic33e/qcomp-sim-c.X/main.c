@@ -24,8 +24,6 @@
 
 #include "config.h"
 #include "time.h"
-#include "tests.h"
-#include "time.h"
 #include "algo.h"
 #include "display.h"
 

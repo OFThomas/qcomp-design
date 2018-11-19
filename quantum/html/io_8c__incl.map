@@ -1,5 +1,5 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/io.c" name="dspic33e/qcomp&#45;sim&#45;c.X/io.c">
-<area shape="rect" id="node2" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="174,95,217,121"/>
-<area shape="rect" id="node6" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="83,169,134,196"/>
-<area shape="rect" id="node7" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="307,169,379,196"/>
+<area shape="rect" id="node2" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="109,95,151,121"/>
+<area shape="rect" id="node4" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="105,169,155,196"/>
+<area shape="rect" id="node7" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="179,169,251,196"/>
 </map>

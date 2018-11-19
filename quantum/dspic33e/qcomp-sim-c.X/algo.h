@@ -23,6 +23,9 @@ void two_gate(Complex op[2][2], int ctrl, int targ, Complex state[], int num_qub
 /// swap using 3 cNots
 void swap(int q1, int q2, Complex state[], int num_qubits);
 
+/// from tests.c
+void swap_test(Complex state[]);
+
 /// Toffoli gate
 void toffoli_gate(Complex state[]);
     

@@ -77,13 +77,13 @@ Include dependency graph for algo.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="algo_8c__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2algo_8c" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2algo_8c" id="dspic33e_2qcomp-sim-c_8X_2algo_8c">
-<area shape="rect" id="node2" href="algo_8h.html" title="header file for algorithms " alt="" coords="185,95,243,121"/>
-<area shape="rect" id="node3" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="130,244,213,271"/>
-<area shape="rect" id="node6" href="display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="217,169,291,196"/>
+<area shape="rect" id="node2" href="algo_8h.html" title="header file for algorithms " alt="" coords="141,95,199,121"/>
+<area shape="rect" id="node3" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="86,244,169,271"/>
+<area shape="rect" id="node6" href="display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="173,169,247,196"/>
 <area shape="rect" id="node5" href="consts_8h.html" title="header file for (global) constants " alt="" coords="93,319,165,345"/>
-<area shape="rect" id="node7" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="463,319,522,345"/>
-<area shape="rect" id="node10" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="242,244,285,271"/>
-<area shape="rect" id="node12" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="338,319,389,345"/>
+<area shape="rect" id="node7" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="362,319,421,345"/>
+<area shape="rect" id="node10" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="193,244,235,271"/>
+<area shape="rect" id="node12" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="189,319,239,345"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -99,6 +99,9 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a781043054297ff4a5d9227c07a0ceb97">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="memdesc:a781043054297ff4a5d9227c07a0ceb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap using 3 cNots <br /></td></tr>
 <tr class="separator:a781043054297ff4a5d9227c07a0ceb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8da5bcaa49edd7caad947e51cf004f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#ac8da5bcaa49edd7caad947e51cf004f2">swap_test</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:ac8da5bcaa49edd7caad947e51cf004f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">from tests.c  <a href="#ac8da5bcaa49edd7caad947e51cf004f2">More...</a><br /></td></tr>
+<tr class="separator:ac8da5bcaa49edd7caad947e51cf004f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a293d6e56ed71d89f7796868fd2592cb9"><td class="memItemLeft" align="right" valign="top"><a id="a293d6e56ed71d89f7796868fd2592cb9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a293d6e56ed71d89f7796868fd2592cb9">toffoli_gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a293d6e56ed71d89f7796868fd2592cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toffoli gate. <br /></td></tr>
@@ -147,6 +150,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 
 <p>perform single qubit gate </p>
 <p>does 2x2 operator on state vector displays the average state of the qubit by tracing over all waits to let the user see the state (LEDs) </p>
+
+</div>
+</div>
+<a id="ac8da5bcaa49edd7caad947e51cf004f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8da5bcaa49edd7caad947e51cf004f2">&#9670;&nbsp;</a></span>swap_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swap_test </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>from tests.c </p>
+<p>swap for ever! </p>
 
 </div>
 </div>

@@ -29,6 +29,23 @@ void swap(int q1, int q2, Complex state[], int num_qubits){
     display_average(state, num_qubits);
 }
 
+void swap_test(Complex state[]){
+
+    zero_state(state, NUM_QUBITS); // Set the state to the vacuum
+    display_average(state, NUM_QUBITS); // Display the state for four qubits
+    delay();
+     
+    gate(H, 0, state, NUM_QUBITS);
+    gate(X, 2, state, NUM_QUBITS);
+
+    /// swap for ever!
+    while(1){
+    swap(0,1, state, NUM_QUBITS);
+    swap(1,2, state, NUM_QUBITS);
+    swap(2,3, state, NUM_QUBITS);
+    swap(3,0, state, NUM_QUBITS);
+    }
+}
 ///
 void toffoli_gate(Complex state[]){
 
