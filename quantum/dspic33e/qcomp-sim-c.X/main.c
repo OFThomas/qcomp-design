@@ -44,12 +44,18 @@ int main(void) {
     // Setup the external LEDs
     setup_external_leds();
 
+    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
+    zero_state(state);
+    
     void reset_timer();
     void start_timer();
+   
+    for(int j=0; j<100; j++) {
+        gate(X,0,state);
+    }
     
-    // Do the thing
-    
-    unsigned long int result = read_timer();
+    unsigned long int result = 0;
+    result = read_timer();
     while(1); // Breakpoint here
     
     
@@ -66,9 +72,6 @@ int main(void) {
 
     //Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
     //make_ops(X, Y, Z, H);
-   
-    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
-   
     
     /// Start of the PROGRAM!
     toffoli_test(state);
