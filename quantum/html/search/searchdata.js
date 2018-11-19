@@ -1,10 +1,18 @@
 var indexSectionsWithContent =
 {
+<<<<<<< HEAD
   0: "_abcdfgilmnpqrstuvwz",
   1: "clr",
   2: "acimqst",
   3: "_acdfglmqrstuvwz",
   4: "bdgilnprs",
+=======
+  0: "_abcdfghilmnpqrstuvwxyz",
+  1: "clr",
+  2: "acdimqst",
+  3: "_acdfglmrstuvwz",
+  4: "bdghilnprsxyz",
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
   5: "cq",
   6: "s",
   7: "blnrs",

@@ -8,9 +8,6 @@
  */
 
 #include "io.h"
-#include "time.h"
-#include "spi.h"
-#include "algo.h"
 
 /** @brief Contains the button states
  * 

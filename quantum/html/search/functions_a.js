@@ -1,5 +1,6 @@
 var searchData=
 [
+<<<<<<< HEAD
   ['send_5fbyte_5fspi_5f1',['send_byte_spi_1',['../spi_8c.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c'],['../spi_8h.html#a53c0133f470cb46ff0efdfeb734073cc',1,'send_byte_spi_1(int data):&#160;spi.c']]],
   ['set_5fexternal_5fled',['set_external_led',['../io_8c.html#af2a143e27a01fa3dadbb9030771478ef',1,'set_external_led(int index, unsigned _Fract R, unsigned _Fract G, unsigned _Fract B):&#160;io.c'],['../io_8h.html#a1ed8267b4ddf885c2b33b13a8d38beb1',1,'set_external_led(int led_index, unsigned _Fract R, unsigned _Fract G, unsigned _Fract B):&#160;io.c']]],
   ['set_5fled',['set_led',['../io_8c.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c'],['../io_8h.html#a31fb0fd759d90940706a83347642f59e',1,'set_led(int color, int state):&#160;io.c']]],
@@ -13,4 +14,10 @@ var searchData=
   ['stop_5fexternal_5fleds',['stop_external_leds',['../io_8c.html#a1a8e4ae99d58990da0bdfca60d5767a7',1,'io.c']]],
   ['swap',['swap',['../algo_8c.html#a781043054297ff4a5d9227c07a0ceb97',1,'swap(int q1, int q2, Complex state[], int num_qubits):&#160;algo.c'],['../algo_8h.html#a781043054297ff4a5d9227c07a0ceb97',1,'swap(int q1, int q2, Complex state[], int num_qubits):&#160;algo.c']]],
   ['swap_5ftest',['swap_test',['../tests_8c.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;tests.c'],['../tests_8h.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;tests.c']]]
+=======
+  ['tlc591x_5fmode_5fswitch',['TLC591x_mode_switch',['../io_8c.html#aaf115833d4313aa7a9f099a4d7bea685',1,'io.c']]],
+  ['toffoli_5fgate',['toffoli_gate',['../algo_8c.html#a293d6e56ed71d89f7796868fd2592cb9',1,'toffoli_gate(Complex state[]):&#160;algo.c'],['../algo_8h.html#a293d6e56ed71d89f7796868fd2592cb9',1,'toffoli_gate(Complex state[]):&#160;algo.c']]],
+  ['toggle_5fstrobe',['toggle_strobe',['../io_8c.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c'],['../io_8h.html#a8abb07633ea7d3ab2bd8c9d082feb65a',1,'toggle_strobe(int color):&#160;io.c']]],
+  ['two_5fgate',['two_gate',['../algo_8c.html#aede6d85a023af03481eaa952791512f2',1,'two_gate(const Complex op[2][2], int ctrl, int targ, Complex state[], int num_qubits):&#160;algo.c'],['../algo_8h.html#aede6d85a023af03481eaa952791512f2',1,'two_gate(const Complex op[2][2], int ctrl, int targ, Complex state[], int num_qubits):&#160;algo.c']]]
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 ];

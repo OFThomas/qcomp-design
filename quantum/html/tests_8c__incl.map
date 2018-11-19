@@ -1,7 +1,18 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/tests.c" name="dspic33e/qcomp&#45;sim&#45;c.X/tests.c">
+<<<<<<< HEAD
 <area shape="rect" id="node2" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="99,95,162,121"/>
 <area shape="rect" id="node5" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="189,169,272,196"/>
 <area shape="rect" id="node8" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="311,169,353,196"/>
 <area shape="rect" id="node10" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="5,169,64,196"/>
 <area shape="rect" id="node11" href="$algo_8h.html" title="header file for algorithms " alt="" coords="186,95,243,121"/>
+=======
+<area shape="rect" id="node2" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="239,95,302,121"/>
+<area shape="rect" id="node5" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="293,319,376,345"/>
+<area shape="rect" id="node8" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="208,244,283,271"/>
+<area shape="rect" id="node10" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="149,319,192,345"/>
+<area shape="rect" id="node13" href="$algo_8h.html" title="header file for algorithms " alt="" coords="275,169,333,196"/>
+<area shape="rect" id="node7" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="299,393,371,420"/>
+<area shape="rect" id="node9" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="216,393,275,420"/>
+<area shape="rect" id="node12" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="141,393,192,420"/>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </map>

@@ -63,7 +63,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">quantum.c File Reference</div>  </div>
@@ -72,45 +71,46 @@ $(function() {
 
 <p>Description: Contains matrix and vector arithmetic for simulating one qubit.  
 <a href="#details">More...</a></p>
+<<<<<<< HEAD
 <div class="textblock"><code>#include &quot;<a class="el" href="io_8h_source.html">io.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="quantum_8h_source.html">quantum.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="time_8h_source.html">time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="algo_8h_source.html">algo.h</a>&quot;</code><br />
+=======
+<div class="textblock"><code>#include &quot;<a class="el" href="quantum_8h_source.html">quantum.h</a>&quot;</code><br />
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for quantum.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8c__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8c" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2quantum_8c" id="dspic33e_2qcomp-sim-c_8X_2quantum_8c">
+<<<<<<< HEAD
 <area shape="rect" id="node2" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="189,169,232,196"/>
 <area shape="rect" id="node7" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="257,169,340,196"/>
 <area shape="rect" id="node9" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="365,169,424,196"/>
 <area shape="rect" id="node10" href="algo_8h.html" title="header file for algorithms " alt="" coords="249,95,306,121"/>
+=======
+<area shape="rect" id="node2" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="41,95,123,121"/>
+<area shape="rect" id="node4" href="consts_8h.html" title="header file for (global) constants " alt="" coords="93,169,165,196"/>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </map>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a43ed06e2eeade77b541d88b3fe875a05"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a43ed06e2eeade77b541d88b3fe875a05">NUM_MAX_AMPS</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a43ed06e2eeade77b541d88b3fe875a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9ca7e4d2cbc30261d3d6e1971cf03632"><td class="memItemLeft" align="right" valign="top"><a id="a9ca7e4d2cbc30261d3d6e1971cf03632"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cadd</b> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
-<tr class="separator:a9ca7e4d2cbc30261d3d6e1971cf03632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff0520252fc4c9d171f146df34133ff"><td class="memItemLeft" align="right" valign="top"><a id="a2ff0520252fc4c9d171f146df34133ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
-<tr class="separator:a2ff0520252fc4c9d171f146df34133ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quantum_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
+<tr class="memitem:a8e10038c3eec54100bf1920671368f4a"><td class="memItemLeft" align="right" valign="top"><a id="a8e10038c3eec54100bf1920671368f4a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cadd</b> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
+<tr class="separator:a8e10038c3eec54100bf1920671368f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fd41764e3e5513b916ddcfb010fe39"><td class="memItemLeft" align="right" valign="top"><a id="af1fd41764e3e5513b916ddcfb010fe39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
+<tr class="separator:af1fd41764e3e5513b916ddcfb010fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
+<tr class="memdesc:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">abs function  <a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">More...</a><br /></td></tr>
 <tr class="separator:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7978688debb14063b164d6f6b279d839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a7978688debb14063b164d6f6b279d839">make_ops</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> X[2][2], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> Y[2][2], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> Z[2][2], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> H[2][2])</td></tr>
-<tr class="memdesc:a7978688debb14063b164d6f6b279d839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create complex X, Y, Z and H.  <a href="#a7978688debb14063b164d6f6b279d839">More...</a><br /></td></tr>
-<tr class="separator:a7978688debb14063b164d6f6b279d839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa51694e4352698790c3ae8337e72a439"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa51694e4352698790c3ae8337e72a439">make_ops_4</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> CNOT[4][4], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> CPHASE[4][4], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> SWAP[4][4])</td></tr>
-<tr class="separator:aa51694e4352698790c3ae8337e72a439"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ddf4816d6adf12474058fd944b210d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a2ddf4816d6adf12474058fd944b210d2">zero_state</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int Qnum)</td></tr>
+<tr class="memitem:a2ddf4816d6adf12474058fd944b210d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a2ddf4816d6adf12474058fd944b210d2">zero_state</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int Qnum)</td></tr>
 <tr class="memdesc:a2ddf4816d6adf12474058fd944b210d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise state to the vacuum (zero apart from the first position) Specify the dimension &ndash; of the matrix, i.e.  <a href="#a2ddf4816d6adf12474058fd944b210d2">More...</a><br /></td></tr>
 <tr class="separator:a2ddf4816d6adf12474058fd944b210d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<<<<<<< HEAD
 <tr class="memitem:aa7250062b82d11b48902efa2d5522b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e">mat_mul</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
 <tr class="memdesc:aa7250062b82d11b48902efa2d5522b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#aa7250062b82d11b48902efa2d5522b5e">More...</a><br /></td></tr>
 <tr class="separator:aa7250062b82d11b48902efa2d5522b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -133,34 +133,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
 <tr class="memitem:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4f5f995bd054a84a73002f09bf6e3ccb">remove_zero_amp_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits, int disp_state[])</td></tr>
 <tr class="memdesc:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes state vector, number of qubits and vector to write the nonzero elements of the statevector to.  <a href="#a4f5f995bd054a84a73002f09bf6e3ccb">More...</a><br /></td></tr>
 <tr class="separator:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+=======
+<tr class="memitem:a034aae000da9f5544033abebbef4c5e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
+<tr class="memdesc:a034aae000da9f5544033abebbef4c5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#a034aae000da9f5544033abebbef4c5e0">More...</a><br /></td></tr>
+<tr class="separator:a034aae000da9f5544033abebbef4c5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bd13db2f610c15d9e290e80d05926d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a31bd13db2f610c15d9e290e80d05926d">single_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
+<tr class="memdesc:a31bd13db2f610c15d9e290e80d05926d"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#a31bd13db2f610c15d9e290e80d05926d">More...</a><br /></td></tr>
+<tr class="separator:a31bd13db2f610c15d9e290e80d05926d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339a4a792291d5201c16c83200369335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a339a4a792291d5201c16c83200369335">controlled_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
+<tr class="memdesc:a339a4a792291d5201c16c83200369335"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a339a4a792291d5201c16c83200369335">More...</a><br /></td></tr>
+<tr class="separator:a339a4a792291d5201c16c83200369335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Contains matrix and vector arithmetic for simulating one qubit. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a43ed06e2eeade77b541d88b3fe875a05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43ed06e2eeade77b541d88b3fe875a05">&#9670;&nbsp;</a></span>NUM_MAX_AMPS</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define NUM_MAX_AMPS&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td>The state vector </td></tr>
-    <tr><td class="paramname">num_qubits</td><td>The number of qubits in the state vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-<p>This function finds the amplitude of the state vector with the largest magnitude. </p>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4c505ea21f44c1e8e4f15b71b19b8cf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">&#9670;&nbsp;</a></span>absolute()</h2>
 
@@ -168,14 +155,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quantum_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a> absolute </td>
+          <td class="memname"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a> absolute </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>abs function </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>A complex number to find the absolute value of </td></tr>
@@ -183,12 +172,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The absolute value </dd></dl>
+<<<<<<< HEAD
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
+=======
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
-<a id="a65dbd3f2bfb00d98ef4e278b2b578b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
+<a id="a339a4a792291d5201c16c83200369335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339a4a792291d5201c16c83200369335">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,7 +189,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
         <tr>
           <td class="memname">void controlled_qubit_op </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -214,7 +207,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
         </tr>
         <tr>
@@ -244,6 +237,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
+<<<<<<< HEAD
 <p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
 
 </div>
@@ -379,11 +373,14 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 ///           (0 0 0 1)
 ///           (0 0 0 0)
 /// </pre> </dd></dl>
+=======
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
-<a id="aa7250062b82d11b48902efa2d5522b5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7250062b82d11b48902efa2d5522b5e">&#9670;&nbsp;</a></span>mat_mul()</h2>
+<a id="a034aae000da9f5544033abebbef4c5e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034aae000da9f5544033abebbef4c5e0">&#9670;&nbsp;</a></span>mat_mul()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,13 +388,13 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="memname">void mat_mul </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>M</em>[2][2], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>V</em>[], </td>
         </tr>
         <tr>
@@ -430,6 +427,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
+<<<<<<< HEAD
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
 
 </div>
@@ -616,11 +614,14 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 /// disp_state = (0) standing for (00) 
 ///              (3)              (11) 
 /// </pre> <dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
+=======
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
-<a id="aa22ddb54528109f39f37fa2949c3a6d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa22ddb54528109f39f37fa2949c3a6d9">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
+<a id="a31bd13db2f610c15d9e290e80d05926d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31bd13db2f610c15d9e290e80d05926d">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +629,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="memname">void single_qubit_op </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -640,7 +641,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
         </tr>
         <tr>
@@ -701,6 +702,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
+<<<<<<< HEAD
 <a id="a94844d5460515e4cbc5d3c2ef49ca680"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94844d5460515e4cbc5d3c2ef49ca680">&#9670;&nbsp;</a></span>sort_states()</h2>
 
@@ -730,6 +732,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
+=======
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 <a id="a2ddf4816d6adf12474058fd944b210d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ddf4816d6adf12474058fd944b210d2">&#9670;&nbsp;</a></span>zero_state()</h2>
 
@@ -739,7 +743,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="memname">void zero_state </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
         </tr>
         <tr>

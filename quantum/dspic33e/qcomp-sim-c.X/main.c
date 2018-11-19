@@ -22,17 +22,10 @@
  *
  */
 
-#include "p33EP512MU810.h"
-#include "xc.h"
-
 #include "config.h"
 #include "time.h"
-#include "io.h"
-#include "quantum.h"
-#include "tests.h"
-#include "time.h"
-#include "spi.h"
 #include "algo.h"
+#include "display.h"
 
 int main(void) {
 
@@ -62,8 +55,8 @@ int main(void) {
     if(buttons[0] == 1)
         ; /// Do something if button 0 has been pressed...
 
-    Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    make_ops(X, Y, Z, H);
+    //Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
+    //make_ops(X, Y, Z, H);
    
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
    
@@ -71,18 +64,33 @@ int main(void) {
     /// Start of the PROGRAM!
      while(1){
     
+<<<<<<< HEAD
          T6CONbits.TON = 0;
         // nice to see
          // while(1) warning
         swap_test(state);
                 
          zero_state(state, NUM_QUBITS); // Set the state to the vacuum
+=======
+         
+         T6CONbits.TON = 0;
+        
+         toffoli_test(state);
+
+         
+         // nice to see
+        swap_test(state);
+        
+        
+         zero_state(state); // Set the state to the vacuum
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
          //single_qubit_op(H, 0, state, NUM_QUBITS);
          
          //controlled_qubit_op(X, 0, 1, state, NUM_QUBITS);
 
          //qubit_display(state, NUM_QUBITS);
          
+<<<<<<< HEAD
          //gate(H,0,state,NUM_QUBITS);
         // two_gate(X, 0, 1, state, NUM_QUBITS);
          
@@ -92,6 +100,16 @@ int main(void) {
          // start the clock
          //T6CONbits.TON = 1;
         // display_cycle(state, STATE_LENGTH);
+=======
+         gate(H,0,state);
+         two_gate(X, 0, 1, state);
+         
+         delay();
+         
+         // start the clock
+         T6CONbits.TON = 1;
+         display_cycle(state);
+>>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
          
                   
         while(1);

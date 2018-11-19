@@ -17,14 +17,16 @@
       <itemPath>quantum.c</itemPath>
       <itemPath>io.h</itemPath>
       <itemPath>quantum.h</itemPath>
-      <itemPath>tests.c</itemPath>
-      <itemPath>tests.h</itemPath>
       <itemPath>time.c</itemPath>
       <itemPath>time.h</itemPath>
       <itemPath>spi.c</itemPath>
       <itemPath>spi.h</itemPath>
       <itemPath>algo.c</itemPath>
       <itemPath>algo.h</itemPath>
+      <itemPath>consts.h</itemPath>
+      <itemPath>consts.c</itemPath>
+      <itemPath>display.c</itemPath>
+      <itemPath>display.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -202,7 +204,6 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
         <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
