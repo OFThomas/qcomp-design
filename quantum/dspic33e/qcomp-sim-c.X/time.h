@@ -16,7 +16,7 @@ extern "C" {
     
 //#include "xc.h"
 #include "spi.h"
-    
+
     // Use this routine to set up the instruction cycle clock
     void setup_clock();
     

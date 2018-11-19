@@ -100,6 +100,7 @@
  */
 void display_average(Complex state[]) {
     int N = NUM_QUBITS;
+    ///@todo Bring all constants out of the loops. Don't use pow.
     /// Loop over all qubits k = 0, 1, 2, ... N-1
     for (int k = 0; k < N; k ++) {
         Q15 zero_amp = 0, one_amp = 0;

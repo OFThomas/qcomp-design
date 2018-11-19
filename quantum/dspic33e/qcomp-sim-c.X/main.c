@@ -33,29 +33,31 @@ int main(void) {
     setup_clock();
     
     // Setup input/output (LEDs and buttons)
-    setup_io();
+    //setup_io();
 
     // Setup the timer
     setup_timer();
     
     // Setup SPI interface
-    setup_spi();
+    //setup_spi();
     
     // Setup the external LEDs
-    setup_external_leds();
+    //setup_external_leds();
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
     zero_state(state);
     
-    void reset_timer();
-    void start_timer();
+    reset_timer();
+    start_timer();
    
-    for(int j=0; j<1000; j++) {
-        single_qubit_op(X,0,state);
+    for(unsigned long int j=0; j<1000; j++) {
+        controlled_qubit_op(X,0,1,state);
     }
     
     unsigned long int result = 0;
     result = read_timer();
+    int a=0, b=0;
+    int c = a + b;
     while(1); // Breakpoint here
     
     
