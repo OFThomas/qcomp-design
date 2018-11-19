@@ -27,8 +27,9 @@ void swap(int q1, int q2, Complex state[]);
 void swap_test(Complex state[]);
 
 /// Toffoli gate
-void toffoli_gate(Complex state[]);
+void toffoli_gate(int q1, int q2, int q3, Complex state[]);
     
+void toffoli_test(Complex state[]);
 #ifdef	__cplusplus
 }
 #endif

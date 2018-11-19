@@ -66,7 +66,11 @@ int main(void) {
     
          
          T6CONbits.TON = 0;
-        // nice to see
+        
+         toffoli_test(state);
+
+         
+         // nice to see
         swap_test(state);
         
         

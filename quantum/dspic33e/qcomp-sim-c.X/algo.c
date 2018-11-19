@@ -69,5 +69,24 @@ void toffoli_gate(int q1, int q2, int q3, Complex state[]){
     display_average(state);
 }
 
+void toffoli_test(Complex state[]){
+
+    while(1){
+    zero_state(state);
+    display_average(state);
+
+    gate(H, 0, state);
+    toffoli_gate(0,1,3, state);
+
+    gate(H, 0, state);
+    gate(H, 1, state);
+    toffoli_gate(0,1,3,state);
+
+    gate(H,0,state);
+    toffoli_gate(0,1,3,state);
+    }
+
+}
+
 /// repetition code
 /// @todo this
