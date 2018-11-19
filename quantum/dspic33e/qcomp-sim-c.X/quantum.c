@@ -186,13 +186,14 @@ void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
  */
 void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
     int root_max = pow2(k); // Declared outside the loop
+    int increment = 2 * root_max;
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < root_max; root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-        for (int step = 0; step < STATE_LENGTH; step += pow2(k+1)) {
+        for (int step = 0; step < STATE_LENGTH; step += increment) {
             /// First index is ZERO, second index is ONE
             /// @todo Should we inline mat_mul here?
-            mat_mul(op, state, root + step, root + pow2(k) + step);
+            mat_mul(op, state, root + step, root + root_max + step);
         }
     }
 }
@@ -209,10 +210,11 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
 // elements
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     int root_max = pow2(targ); // Declared outside the loop
+    int increment = 2 * root_max;
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < root_max; root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-        for (int step = 0; step < STATE_LENGTH; step += pow2(targ + 1)) {
+        for (int step = 0; step < STATE_LENGTH; step += increment) {
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
@@ -227,7 +229,7 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
             /// qubit is in the |1>. 
             /// @todo This expression can probably be simplified or broken over lines.
             if( (((root+step) & (1 << ctrl)) && ((root+step+pow2(targ)) & (1 << ctrl))) == 1){
-                mat_mul(op, state, root + step, root + pow2(targ) + step);
+                mat_mul(op, state, root + step, root + root_max + step);
             }
         }
     }
