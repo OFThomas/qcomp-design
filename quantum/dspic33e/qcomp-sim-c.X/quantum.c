@@ -100,19 +100,28 @@ void mat_mul_old(const Complex M[2][2], Complex V[], int i, int j) {
  */
 void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
 
+    /// @todo Is static enough? Or should we declare outside the function?
+    static Q15 a, b, c, d;
+    
     /// @todo Should we use for loops? Or is it better not to..?
     
     // Manual complex matrix multiplication for first element of vector
-    V[i][0] = M[0][0][0] * V[i][0] - M[0][0][1] * V[i][1] + 
+    a = M[0][0][0] * V[i][0] - M[0][0][1] * V[i][1] + 
             M[0][1][0] * V[j][0] - M[0][1][1] * V[j][1]; // Real part
-    V[i][1] = M[0][0][0] * V[i][1] + M[0][0][1] * V[i][0] + 
+    b = M[0][0][0] * V[i][1] + M[0][0][1] * V[i][0] + 
             M[0][1][0] * V[j][1] + M[0][1][1] * V[j][0]; // Imag part
     
     // Manual complex matrix multiplication for second element of vector
-    V[j][0] = M[1][0][0] * V[i][0] - M[1][0][1] * V[i][1] + 
+    c = M[1][0][0] * V[i][0] - M[1][0][1] * V[i][1] + 
             M[1][1][0] * V[j][0] - M[1][1][1] * V[j][1]; // Real part
-    V[j][1] = M[1][0][0] * V[i][1] + M[1][0][1] * V[i][0] + 
+    d = M[1][0][0] * V[i][1] + M[1][0][1] * V[i][0] + 
             M[1][1][0] * V[j][1] + M[1][1][1] * V[j][0]; // Imag part
+    
+    /// This is necessary because the previous computations use V
+    V[i][0] = a;
+    V[i][1] = b;
+    V[j][0] = c;
+    V[j][0] = d;
     
     // Get me out of here
     return;
