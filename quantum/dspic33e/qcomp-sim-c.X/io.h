@@ -6,6 +6,8 @@
  * various constants representing the positions of the buttons and LEDs 
  * on port D.
  *
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  */
 
 #ifndef IO_H
@@ -15,8 +17,8 @@
 extern "C" {
 #endif
 
-#include <stdbool.h>
-#include "spi.h"
+#include "time.h"
+//#include "spi.h"
 #include "consts.h"
 
 /// Locations of LEDs and buttons on Port D
@@ -39,8 +41,7 @@ extern "C" {
 #define SH 5
 #define CLK_INH 8
     
-/// The number of external LEDs  
-#define LED_NUM 4 
+
    
     /** @brief pin mappings
     // \verbatim

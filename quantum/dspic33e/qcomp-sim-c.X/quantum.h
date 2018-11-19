@@ -3,7 +3,9 @@
  * 
  * @brief Description: Header file containing all the matrix arithmetic for 
  * simulating a single qubit.
- */
+  * @authors J Scott, O Thomas
+ * @date Nov 2018
+*/
 
 
 #ifndef QUANTUM_H

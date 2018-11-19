@@ -3,6 +3,8 @@
  * 
  * @brief Description: Header file containing all the functions for displaying the qubits
  * state vector.
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  */
 
 
@@ -14,7 +16,6 @@ extern "C" {
 #endif
 
 #include "quantum.h"
-#include "time.h"
 #include "io.h"
 
 

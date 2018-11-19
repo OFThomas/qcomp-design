@@ -1,10 +1,12 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/spi.h" name="dspic33e/qcomp&#45;sim&#45;c.X/spi.h">
-<area shape="rect" id="node2" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="255,95,397,136"/>
-<area shape="rect" id="node9" href="$spi_8c.html" title="Description: Functions for communicating with serial devices. " alt="" coords="421,95,564,136"/>
-<area shape="rect" id="node3" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="172,184,315,225"/>
-<area shape="rect" id="node8" href="$io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="339,184,481,225"/>
-<area shape="rect" id="node4" href="$algo_8h.html" title="header file for algorithms " alt="" coords="63,273,205,315"/>
-<area shape="rect" id="node6" href="$main_8c.html" title="The main function. " alt="" coords="172,363,315,404"/>
-<area shape="rect" id="node7" href="$display_8c.html" title="for all the state display functions " alt="" coords="281,273,424,315"/>
-<area shape="rect" id="node5" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,363,148,404"/>
+<area shape="rect" id="node2" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="389,95,532,136"/>
+<area shape="rect" id="node11" href="$spi_8c.html" title="Description: Functions for communicating with serial devices. " alt="" coords="556,95,699,136"/>
+<area shape="rect" id="node3" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="280,184,423,225"/>
+<area shape="rect" id="node7" href="$main_8c.html" title="The main function. " alt="" coords="172,452,315,493"/>
+<area shape="rect" id="node10" href="$time_8c.html" title="Description: Functions to control the on chip timers. " alt="" coords="499,184,641,225"/>
+<area shape="rect" id="node4" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="113,273,256,315"/>
+<area shape="rect" id="node9" href="$io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="280,273,423,315"/>
+<area shape="rect" id="node5" href="$algo_8h.html" title="header file for algorithms " alt="" coords="33,363,176,404"/>
+<area shape="rect" id="node8" href="$display_8c.html" title="for all the state display functions " alt="" coords="252,363,395,404"/>
+<area shape="rect" id="node6" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,452,148,493"/>
 </map>

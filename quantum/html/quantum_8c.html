@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Quantum Computer Outreach Project
    </div>
+   <div id="projectbrief">J Scott, O Thomas, Bristol 2018</div>
   </td>
  </tr>
  </tbody>
@@ -71,28 +72,14 @@ $(function() {
 
 <p>Description: Contains matrix and vector arithmetic for simulating one qubit.  
 <a href="#details">More...</a></p>
-<<<<<<< HEAD
-<div class="textblock"><code>#include &quot;<a class="el" href="io_8h_source.html">io.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="quantum_8h_source.html">quantum.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="time_8h_source.html">time.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="algo_8h_source.html">algo.h</a>&quot;</code><br />
-=======
 <div class="textblock"><code>#include &quot;<a class="el" href="quantum_8h_source.html">quantum.h</a>&quot;</code><br />
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for quantum.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="quantum_8c__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2quantum_8c" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2quantum_8c" id="dspic33e_2qcomp-sim-c_8X_2quantum_8c">
-<<<<<<< HEAD
-<area shape="rect" id="node2" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="189,169,232,196"/>
-<area shape="rect" id="node7" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="257,169,340,196"/>
-<area shape="rect" id="node9" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="365,169,424,196"/>
-<area shape="rect" id="node10" href="algo_8h.html" title="header file for algorithms " alt="" coords="249,95,306,121"/>
-=======
 <area shape="rect" id="node2" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="41,95,123,121"/>
 <area shape="rect" id="node4" href="consts_8h.html" title="header file for (global) constants " alt="" coords="93,169,165,196"/>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </map>
 </div>
 </div><table class="memberdecls">
@@ -107,46 +94,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <tr class="memitem:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
 <tr class="memdesc:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">abs function  <a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">More...</a><br /></td></tr>
 <tr class="separator:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ddf4816d6adf12474058fd944b210d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a2ddf4816d6adf12474058fd944b210d2">zero_state</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int Qnum)</td></tr>
-<tr class="memdesc:a2ddf4816d6adf12474058fd944b210d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise state to the vacuum (zero apart from the first position) Specify the dimension &ndash; of the matrix, i.e.  <a href="#a2ddf4816d6adf12474058fd944b210d2">More...</a><br /></td></tr>
-<tr class="separator:a2ddf4816d6adf12474058fd944b210d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<<<<<<< HEAD
-<tr class="memitem:aa7250062b82d11b48902efa2d5522b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e">mat_mul</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
-<tr class="memdesc:aa7250062b82d11b48902efa2d5522b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#aa7250062b82d11b48902efa2d5522b5e">More...</a><br /></td></tr>
-<tr class="separator:aa7250062b82d11b48902efa2d5522b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9592cc8adee5a123e160ef48e519c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#afb9592cc8adee5a123e160ef48e519c8">mat_mul_4</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[4][4], <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j, int k, int l)</td></tr>
-<tr class="memdesc:afb9592cc8adee5a123e160ef48e519c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">4x4 matrix  <a href="#afb9592cc8adee5a123e160ef48e519c8">More...</a><br /></td></tr>
-<tr class="separator:afb9592cc8adee5a123e160ef48e519c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f85ec981f7f9d5658ac1a2b3abcbdd9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a1f85ec981f7f9d5658ac1a2b3abcbdd9">qubit_display</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a1f85ec981f7f9d5658ac1a2b3abcbdd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the state amplitudes on LEDs.  <a href="#a1f85ec981f7f9d5658ac1a2b3abcbdd9">More...</a><br /></td></tr>
-<tr class="separator:a1f85ec981f7f9d5658ac1a2b3abcbdd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f503f9ad57412819a5990abde30b04f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a0f503f9ad57412819a5990abde30b04f">display_cycle</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="separator:a0f503f9ad57412819a5990abde30b04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa22ddb54528109f39f37fa2949c3a6d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa22ddb54528109f39f37fa2949c3a6d9">single_qubit_op</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:aa22ddb54528109f39f37fa2949c3a6d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#aa22ddb54528109f39f37fa2949c3a6d9">More...</a><br /></td></tr>
-<tr class="separator:aa22ddb54528109f39f37fa2949c3a6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a65dbd3f2bfb00d98ef4e278b2b578b5f">controlled_qubit_op</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">More...</a><br /></td></tr>
-<tr class="separator:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a94844d5460515e4cbc5d3c2ef49ca680">sort_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
-<tr class="separator:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4f5f995bd054a84a73002f09bf6e3ccb">remove_zero_amp_states</a> (<a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits, int disp_state[])</td></tr>
-<tr class="memdesc:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">takes state vector, number of qubits and vector to write the nonzero elements of the statevector to.  <a href="#a4f5f995bd054a84a73002f09bf6e3ccb">More...</a><br /></td></tr>
-<tr class="separator:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-=======
+<tr class="memitem:a5699149d9f8da95b284d42ab8d004b21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a5699149d9f8da95b284d42ab8d004b21">zero_state</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a5699149d9f8da95b284d42ab8d004b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise state to the vacuum (zero apart from the first position) Specify the dimension &ndash; of the matrix, i.e.  <a href="#a5699149d9f8da95b284d42ab8d004b21">More...</a><br /></td></tr>
+<tr class="separator:a5699149d9f8da95b284d42ab8d004b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a034aae000da9f5544033abebbef4c5e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
 <tr class="memdesc:a034aae000da9f5544033abebbef4c5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#a034aae000da9f5544033abebbef4c5e0">More...</a><br /></td></tr>
 <tr class="separator:a034aae000da9f5544033abebbef4c5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31bd13db2f610c15d9e290e80d05926d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a31bd13db2f610c15d9e290e80d05926d">single_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a31bd13db2f610c15d9e290e80d05926d"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#a31bd13db2f610c15d9e290e80d05926d">More...</a><br /></td></tr>
-<tr class="separator:a31bd13db2f610c15d9e290e80d05926d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a339a4a792291d5201c16c83200369335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a339a4a792291d5201c16c83200369335">controlled_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a339a4a792291d5201c16c83200369335"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a339a4a792291d5201c16c83200369335">More...</a><br /></td></tr>
-<tr class="separator:a339a4a792291d5201c16c83200369335"><td class="memSeparator" colspan="2">&#160;</td></tr>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
+<tr class="memitem:a408325d76eec56562e47e72fc131cc76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a408325d76eec56562e47e72fc131cc76">single_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a408325d76eec56562e47e72fc131cc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#a408325d76eec56562e47e72fc131cc76">More...</a><br /></td></tr>
+<tr class="separator:a408325d76eec56562e47e72fc131cc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6551e97d523f70c50778a11d51214e31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a6551e97d523f70c50778a11d51214e31">controlled_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a6551e97d523f70c50778a11d51214e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a6551e97d523f70c50778a11d51214e31">More...</a><br /></td></tr>
+<tr class="separator:a6551e97d523f70c50778a11d51214e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Contains matrix and vector arithmetic for simulating one qubit. </p>
+<dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4c505ea21f44c1e8e4f15b71b19b8cf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">&#9670;&nbsp;</a></span>absolute()</h2>
@@ -172,16 +136,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The absolute value </dd></dl>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
-<a id="a339a4a792291d5201c16c83200369335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a339a4a792291d5201c16c83200369335">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
+<a id="a6551e97d523f70c50778a11d51214e31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6551e97d523f70c50778a11d51214e31">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,13 +168,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>N</em>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -237,145 +191,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<<<<<<< HEAD
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
-
-</div>
-</div>
-<a id="a0f503f9ad57412819a5990abde30b04f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f503f9ad57412819a5990abde30b04f">&#9670;&nbsp;</a></span>display_cycle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void display_cycle </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>N</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td>The state to display </td></tr>
-    <tr><td class="paramname">N</td><td>The length of the state vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Filter the state</p>
-<p>Allocate <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> array</p>
-<p>Decode</p>
-<p>Look at the jth bit</p>
-<p>Reset the cycle</p>
-<p>Each iteration of this loop writes</p>
-<p>Loop here to add stuff </p>
-
-</div>
-</div>
-<a id="a7978688debb14063b164d6f6b279d839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7978688debb14063b164d6f6b279d839">&#9670;&nbsp;</a></span>make_ops()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void make_ops </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>X</em>[2][2], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>Y</em>[2][2], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>Z</em>[2][2], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>H</em>[2][2]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create complex X, Y, Z and H. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">X</td><td>Pauli X c-Matrix </td></tr>
-    <tr><td class="paramname">Z</td><td>Pauli Z c-matrix </td></tr>
-    <tr><td class="paramname">H</td><td>Hadamard c-matrix </td></tr>
-    <tr><td class="paramname">Y</td><td>Pauli Y c-matrix </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>IMPLICIT NONE!!! </dd></dl>
-
-</div>
-</div>
-<a id="aa51694e4352698790c3ae8337e72a439"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa51694e4352698790c3ae8337e72a439">&#9670;&nbsp;</a></span>make_ops_4()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void make_ops_4 </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>CNOT</em>[4][4], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>CPHASE</em>[4][4], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>SWAP</em>[4][4]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="section note"><dt>Note</dt><dd><pre class="fragment">/// [][] = row, col
-/// [2][3] is (0 0 0 0)
-///           (0 0 0 0)
-///           (0 0 0 1)
-///           (0 0 0 0)
-/// </pre> </dd></dl>
-=======
 <p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
@@ -427,201 +243,12 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
-
-</div>
-</div>
-<a id="afb9592cc8adee5a123e160ef48e519c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb9592cc8adee5a123e160ef48e519c8">&#9670;&nbsp;</a></span>mat_mul_4()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void mat_mul_4 </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>M</em>[4][4], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>V</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>l</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>4x4 matrix </p>
-<p>4x4 complex matrix multiplication </p>
-<p>store results of each row multiplication</p>
-<pre class="fragment">/// ( a b c d )  * ( p )
-/// ( e f g h )    ( q )
-/// ( h i j k )    ( r ) 
-/// ( l m n o )    ( s )
-/// </pre><p>4 cols of V (i,h,k,l)</p>
-<p>add the 4 terms together and put into temp for that row </p>
-
-</div>
-</div>
-<a id="a1f85ec981f7f9d5658ac1a2b3abcbdd9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f85ec981f7f9d5658ac1a2b3abcbdd9">&#9670;&nbsp;</a></span>qubit_display()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qubit_display </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>N</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Display the state amplitudes on LEDs. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">state</td><td>Pass in the state vector </td></tr>
-    <tr><td class="paramname">N</td><td>The total number of qubits</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors.</dd></dl>
-<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by</p>
-<pre class="fragment">*      index     binary   amplitude 
-*      ----------------------------- 
-*        0       0 0 0       a0
-*        1       0 0 1       a1 
-*        2       0 1 0       a2
-*        3       0 1 1       a3
-*        4       1 0 0       a4
-*        5       1 0 1       a5
-*        6       1 1 0       a6
-*        7       1 1 1       a7
-*      -----------------------------
-*      Qubit:    2 1 0
-* </pre><p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
-<li></li>
-</ol>
-<p>So the amplitudes for qubit 2 are</p>
-<p>ZERO: (a_0)^2 + (a_1)^2 + (a_2)^2 + (a_3)^2 ONE: (a_4)^2 + (a_5)^2 + (a_6)^2 + (a_7)^2</p>
-<p>Corresponding to the following indices:</p>
-<p>ZERO: 0+0, 1+0, 2+0, 3+0 ONE: 4+0, 5+0, 6+0, 7+0</p>
-<p>For qubit 1 the indices are:</p>
-<p>ZERO: 0+0, 0+4, 1+0, 1+4 ONE: 2+0, 2+4, 3+0, 3+4</p>
-<p>And for qubit 0 the indices are:</p>
-<p>ZERO: 0+0, 0+2, 0+4, 0+6 ONE: 1+0, 1+2, 1+4, 1+6</p>
-<p>The examples above are supposed to show the general pattern. For N qubits, qubit number k, the ZERO and ONE states are given by summing all the square amplitudes corresponding to the following indices:</p>
-<p>ZERO: n + (2^(k+1) * j), where n = 0, 1, ..., 2^k - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
-<p>ONE: n + (2^(k+1) * j), where n = 2^k, 2^k + 1, ..., 2^(k+1) - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
-<p>The amplitudes are obtained by summing over both n and j. Notice that there is an edge condition when k = N-1. There, j acycle_lengthpparently ranges from 0 to -1. In this case, the only value of j is 0. The condition arises because of the way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must be multiplied by 2^(-1). The key point is that the second term should not ever equal 2^N, so j should stop at 0.</p>
-<p>The above indices can be expressed as the sum of a ROOT and a STEP as follows:</p>
-<p>index = ROOT + STEP</p>
-<p>where ROOT ranges from 0 to 2^k-1. This corresponds to the n values that give rise to ZERO. The indices for ONE can be obtained by adding 2^k to root. The STEP = j is a multiple of 2^(k+1) starting from zero that does not equal or exceed 2^N. ROOT can be realised using the following for loop:</p>
-<p>for(int root = 0; root &lt; 2^k; root ++) { ... // ZERO index root; // ONE index root + 2^k; }</p>
-<p>Then the STEP component can be realised as</p>
-<p>for(int step = 0; step &lt; 2^N; step += 2^(k+1)) { // Add the following to root... step; } </p>
-<p>Loop over all qubits k = 0, 1, 2, ... N-1</p>
-<p>ROOT loop: starts at 0, increases in steps of 1</p>
-<p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>Zeros are at the index root + step</p>
-<p>Ones are at the index root + 2^k + step</p>
-<p>update leds for each qubits average zero and one amps </p>
-
-</div>
-</div>
-<a id="a4f5f995bd054a84a73002f09bf6e3ccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f5f995bd054a84a73002f09bf6e3ccb">&#9670;&nbsp;</a></span>remove_zero_amp_states()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int remove_zero_amp_states </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_qubits</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>disp_state</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>takes state vector, number of qubits and vector to write the nonzero elements of the statevector to. </p>
-<p>updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'</p>
-<p>the disp_state elements are the nonzero elements of the state </p><pre class="fragment">/// e.g. state =  (00) = (1/r2) (Bell state) 
-///               (01)   ( 0  ) 
-///               (10)   ( 0  ) 
-///               (11)   (1/r2) 
-/// Then displ_state would have 2 elements 
-/// disp_state = (0) standing for (00) 
-///              (3)              (11) 
-/// </pre> <dl class="section note"><dt>Note</dt><dd>we have to allocate disp_state to be the size of state, the function returns count which tells us the first 'count' elements of disp_state to use. In the Bell state example there are 2 values in disp_state, 0 &amp; 3, count is returned as 3 which means take the first count-1 elements (in this case 2) of disp_state which is 0,1 which is the correct elements </dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
-<a id="a31bd13db2f610c15d9e290e80d05926d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31bd13db2f610c15d9e290e80d05926d">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
+<a id="a408325d76eec56562e47e72fc131cc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408325d76eec56562e47e72fc131cc76">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -642,13 +269,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>N</em>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -702,40 +323,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
-<<<<<<< HEAD
-<a id="a94844d5460515e4cbc5d3c2ef49ca680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94844d5460515e4cbc5d3c2ef49ca680">&#9670;&nbsp;</a></span>sort_states()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int sort_states </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="quantum_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_qubits</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>this function... </dd></dl>
-
-</div>
-</div>
-=======
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
-<a id="a2ddf4816d6adf12474058fd944b210d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ddf4816d6adf12474058fd944b210d2">&#9670;&nbsp;</a></span>zero_state()</h2>
+<a id="a5699149d9f8da95b284d42ab8d004b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5699149d9f8da95b284d42ab8d004b21">&#9670;&nbsp;</a></span>zero_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -744,18 +333,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
           <td class="memname">void zero_state </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
-          <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>state</em>[]</td><td>)</td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>Qnum</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

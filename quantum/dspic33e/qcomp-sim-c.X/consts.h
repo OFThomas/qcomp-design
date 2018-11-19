@@ -2,6 +2,8 @@
  * @file consts.h
  *
  * @brief header file for (global) constants
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  */
 
 #ifndef CONSTS_H
@@ -11,8 +13,13 @@
 extern "C" {
 #endif
     
+#include <stdbool.h>
+    
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
+    
+/// The number of external LEDs  
+#define LED_NUM 4 
 
 #define ONE_Q15 0.9999694824
     

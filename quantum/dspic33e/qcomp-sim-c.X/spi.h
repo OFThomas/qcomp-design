@@ -2,7 +2,9 @@
  * @file spi.h
  * 
  * @brief Description: SPI communication functions
- *
+  * @authors J Scott, O Thomas
+ * @date Nov 2018
+*
  */
 
 #ifndef SPI_H
@@ -12,7 +14,6 @@
 extern "C" {
 #endif
 
-#include "p33EP512MU810.h"
 #include "xc.h"
 
 /// Set up serial peripheral interface

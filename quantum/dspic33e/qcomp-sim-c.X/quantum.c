@@ -3,7 +3,9 @@
  * 
  * @brief Description: Contains matrix and vector arithmetic for simulating 
  * one qubit.
- * 
+  * @authors J Scott, O Thomas
+ * @date Nov 2018
+* 
  */
 
 #include "quantum.h"

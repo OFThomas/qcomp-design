@@ -2,7 +2,9 @@
  * @file time.c
  * 
  * @brief Description: Functions to control the on chip timers
- * 
+  * @authors J Scott, O Thomas
+ * @date Nov 2018
+* 
  */
 
 #include "time.h"

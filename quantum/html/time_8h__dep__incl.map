@@ -1,8 +1,10 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/time.h" name="dspic33e/qcomp&#45;sim&#45;c.X/time.h">
-<area shape="rect" id="node2" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="197,95,340,136"/>
-<area shape="rect" id="node5" href="$main_8c.html" title="The main function. " alt="" coords="172,273,315,315"/>
-<area shape="rect" id="node7" href="$time_8c.html" title="Description: Functions to control the on chip timers. " alt="" coords="471,95,613,136"/>
-<area shape="rect" id="node3" href="$algo_8h.html" title="header file for algorithms " alt="" coords="33,184,176,225"/>
-<area shape="rect" id="node6" href="$display_8c.html" title="for all the state display functions " alt="" coords="252,184,395,225"/>
-<area shape="rect" id="node4" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,273,148,315"/>
+<area shape="rect" id="node2" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="280,95,423,136"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="The main function. " alt="" coords="172,363,315,404"/>
+<area shape="rect" id="node9" href="$time_8c.html" title="Description: Functions to control the on chip timers. " alt="" coords="499,95,641,136"/>
+<area shape="rect" id="node3" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="113,184,256,225"/>
+<area shape="rect" id="node8" href="$io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="280,184,423,225"/>
+<area shape="rect" id="node4" href="$algo_8h.html" title="header file for algorithms " alt="" coords="33,273,176,315"/>
+<area shape="rect" id="node7" href="$display_8c.html" title="for all the state display functions " alt="" coords="252,273,395,315"/>
+<area shape="rect" id="node5" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="5,363,148,404"/>
 </map>

@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Quantum Computer Outreach Project
    </div>
+   <div id="projectbrief">J Scott, O Thomas, Bristol 2018</div>
   </td>
  </tr>
  </tbody>
@@ -74,26 +75,16 @@ $(function() {
 
 <p>Description: Header file for input output functions.  
 <a href="#details">More...</a></p>
-<<<<<<< HEAD
-<div class="textblock"><code>#include &quot;p33EP512MU810.h&quot;</code><br />
-<code>#include &quot;xc.h&quot;</code><br />
-<code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-=======
-<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="spi_8h_source.html">spi.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="time_8h_source.html">time.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="consts_8h_source.html">consts.h</a>&quot;</code><br />
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for io.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="io_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2io_8h" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2io_8h" id="dspic33e_2qcomp-sim-c_8X_2io_8h">
-<<<<<<< HEAD
-=======
-<area shape="rect" id="node3" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="105,95,155,121"/>
-<area shape="rect" id="node6" href="consts_8h.html" title="header file for (global) constants " alt="" coords="179,95,251,121"/>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
+<area shape="rect" id="node2" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="5,95,64,121"/>
+<area shape="rect" id="node5" href="consts_8h.html" title="header file for (global) constants " alt="" coords="88,95,160,121"/>
+<area shape="rect" id="node3" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="9,169,60,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -168,10 +159,6 @@ Macros</h2></td></tr>
 <tr class="memitem:add9f9ba2b507da6c31d80a0740057813"><td class="memItemLeft" align="right" valign="top"><a id="add9f9ba2b507da6c31d80a0740057813"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CLK_INH</b>&#160;&#160;&#160;8</td></tr>
 <tr class="separator:add9f9ba2b507da6c31d80a0740057813"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77440c4104ae0a7368936ff87a3d3260"><td class="memItemLeft" align="right" valign="top"><a id="a77440c4104ae0a7368936ff87a3d3260"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a77440c4104ae0a7368936ff87a3d3260">LED_NUM</a>&#160;&#160;&#160;4</td></tr>
-<tr class="memdesc:a77440c4104ae0a7368936ff87a3d3260"><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of external LEDs. <br /></td></tr>
-<tr class="separator:a77440c4104ae0a7368936ff87a3d3260"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -236,7 +223,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Header file for input output functions. </p>
-<p>Include it at the top of any C source file which uses buttons and LEDs. It also defines various constants representing the positions of the buttons and LEDs on port D. </p>
+<p>Include it at the top of any C source file which uses buttons and LEDs. It also defines various constants representing the positions of the buttons and LEDs on port D.</p>
+<dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="afb95f4bc07cf12c05c36cc94566c85c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afb95f4bc07cf12c05c36cc94566c85c6">&#9670;&nbsp;</a></span>add_to_cycle()</h2>
@@ -416,11 +405,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </div><div class="memdoc">
 
 <p>Loop to cycle through LEDs 0 - 15. </p>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
@@ -469,13 +454,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p>Update the buttons array (see declaration above) </p>
 <p>SH pin</p>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>button remappings... </dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>button remappings... </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
@@ -497,11 +477,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p>Reset the display cycle. Called before adding anything. </p>
 <p>Reset the display cycle. Called before adding anything.</p>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>do it</dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>do it</dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>
@@ -804,11 +780,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>To write to the device, use the SPI module to write a byte to the SDI 1 pin on the chip. Then momentarily set the <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin to latch the data onto the output register. Finally, bring the OE(ED2) pin low to enable the current sinking to turn on the LEDs. See the timing diagram on page 17 of the datasheet for details.</p>
 <p><a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> and OE(ED2) will be on Port D </p>
 <p>Set <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin</p>
-<<<<<<< HEAD
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-=======
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 
 </div>
 </div>

@@ -2,7 +2,9 @@
  * @file spi.c
  * 
  * @brief Description: Functions for communicating with serial devices
- *
+  * @authors J Scott, O Thomas
+ * @date Nov 2018
+*
  */
 
 #include "spi.h"

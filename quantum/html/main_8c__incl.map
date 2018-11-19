@@ -1,20 +1,10 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/main.c" name="dspic33e/qcomp&#45;sim&#45;c.X/main.c">
-<<<<<<< HEAD
-<area shape="rect" id="node4" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="643,95,711,121"/>
-<area shape="rect" id="node5" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="384,169,443,196"/>
-<area shape="rect" id="node6" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="109,169,152,196"/>
-<area shape="rect" id="node9" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="176,169,259,196"/>
-<area shape="rect" id="node11" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="334,95,397,121"/>
-<area shape="rect" id="node12" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="517,169,568,196"/>
-<area shape="rect" id="node13" href="$algo_8h.html" title="header file for algorithms " alt="" coords="201,95,258,121"/>
-=======
-<area shape="rect" id="node2" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="27,95,95,121"/>
-<area shape="rect" id="node3" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="77,244,135,271"/>
-<area shape="rect" id="node6" href="$algo_8h.html" title="header file for algorithms " alt="" coords="221,95,279,121"/>
-<area shape="rect" id="node10" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="191,169,266,196"/>
-<area shape="rect" id="node7" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="279,244,362,271"/>
-<area shape="rect" id="node9" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="290,319,362,345"/>
-<area shape="rect" id="node11" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="207,244,250,271"/>
-<area shape="rect" id="node13" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="117,319,167,345"/>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
+<area shape="rect" id="node2" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="5,95,73,121"/>
+<area shape="rect" id="node3" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="226,319,285,345"/>
+<area shape="rect" id="node6" href="$algo_8h.html" title="header file for algorithms " alt="" coords="97,95,155,121"/>
+<area shape="rect" id="node11" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="143,169,218,196"/>
+<area shape="rect" id="node4" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="230,393,281,420"/>
+<area shape="rect" id="node7" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="65,244,147,271"/>
+<area shape="rect" id="node9" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="130,319,202,345"/>
+<area shape="rect" id="node12" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="171,244,214,271"/>
 </map>

@@ -23,6 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Quantum Computer Outreach Project
    </div>
+   <div id="projectbrief">J Scott, O Thomas, Bristol 2018</div>
   </td>
  </tr>
  </tbody>
@@ -85,6 +86,8 @@ Include dependency graph for consts.c:</div>
 Variables</h2></td></tr>
 <tr class="memitem:a28e508a2063f5d6d4dac0625a27bdc40"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="consts_8c.html#a28e508a2063f5d6d4dac0625a27bdc40">rX</a> [2][2]</td></tr>
 <tr class="separator:a28e508a2063f5d6d4dac0625a27bdc40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b208da0d24f9cf5fecc748ac980c372"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="consts_8c.html#a8b208da0d24f9cf5fecc748ac980c372">rXT</a> [2][2]</td></tr>
+<tr class="separator:a8b208da0d24f9cf5fecc748ac980c372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcbdd53210c0723e4d6a6e56db5e6347"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="consts_8c.html#abcbdd53210c0723e4d6a6e56db5e6347">X</a> [2][2]</td></tr>
 <tr class="separator:abcbdd53210c0723e4d6a6e56db5e6347"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71e7deaaed44db5d0c3d72fe68aa90ae"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="consts_8c.html#a71e7deaaed44db5d0c3d72fe68aa90ae">Y</a> [2][2]</td></tr>
@@ -96,6 +99,8 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>contains all (global) constants) </p>
+<dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
 </div><h2 class="groupheader">Variable Documentation</h2>
 <a id="adc038216553436424a315262b01dc588"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adc038216553436424a315262b01dc588">&#9670;&nbsp;</a></span>H</h2>
@@ -131,6 +136,26 @@ Variables</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">= {{{0.5, 0.5},{0.5, -0.5}},</div><div class="line">                          {{0.5, -0.5},{0.5, 0.5}}}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">rX</td><td>sqrt X gate ( 0.5+0.5i 0.5-0.5i ) ( 0.5-0.5i 0.5+0.5i ) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8b208da0d24f9cf5fecc748ac980c372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b208da0d24f9cf5fecc748ac980c372">&#9670;&nbsp;</a></span>rXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> rXT[2][2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= {{{0.5, -0.5},{0.5, 0.5}},</div><div class="line">                          {{0.5, 0.5},{0.5, -0.5}}}</div></div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rXT</td><td>Adjoint of rX </td></tr>
   </table>
   </dd>
 </dl>

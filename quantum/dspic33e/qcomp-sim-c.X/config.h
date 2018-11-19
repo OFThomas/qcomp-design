@@ -2,7 +2,9 @@
  * @file config.h
  * 
  * @brief General config settings #pragma for microcontroller 
- *
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
+*
  * Description: Include this once at the top of main
  * 
  */

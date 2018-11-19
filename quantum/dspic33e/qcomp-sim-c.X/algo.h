@@ -2,6 +2,8 @@
  * @file algo.h
  *
  * @brief header file for algorithms
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  */
 
 #ifndef ALG_H

@@ -1,5 +1,7 @@
 /// @file consts.c 
 /// @brief contains all (global) constants)
+/// @authors J Scott, O Thomas
+/// @date Nov 2018
 
 #include "consts.h"
 

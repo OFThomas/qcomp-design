@@ -1,7 +1,7 @@
 /**
  * @file main.c
- * @author J R Scott
- * @date 8/11/18
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  *
  * @brief The main function
  *

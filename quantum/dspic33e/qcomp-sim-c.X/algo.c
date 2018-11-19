@@ -1,7 +1,8 @@
 /**
  * @file algo.c
  * @brief Contains quantum algorithms to be run
- *
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  */
 
 #include "algo.h"

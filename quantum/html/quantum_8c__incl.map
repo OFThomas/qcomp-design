@@ -1,11 +1,4 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/quantum.c" name="dspic33e/qcomp&#45;sim&#45;c.X/quantum.c">
-<<<<<<< HEAD
-<area shape="rect" id="node2" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="189,169,232,196"/>
-<area shape="rect" id="node7" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="257,169,340,196"/>
-<area shape="rect" id="node9" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="365,169,424,196"/>
-<area shape="rect" id="node10" href="$algo_8h.html" title="header file for algorithms " alt="" coords="249,95,306,121"/>
-=======
 <area shape="rect" id="node2" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="41,95,123,121"/>
 <area shape="rect" id="node4" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="93,169,165,196"/>
->>>>>>> bc4c0a9185f8fb514ddde139903279ceda7d6824
 </map>

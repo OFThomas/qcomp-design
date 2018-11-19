@@ -2,8 +2,8 @@
  * @file io.c
  * @brief Contains all the functions for reading buttons and writing to LEDs
  * 
- * @author J Scott
- * @date 8/11/18
+ * @authors J Scott, O Thomas
+ * @date Nov 2018
  *
  */
 
