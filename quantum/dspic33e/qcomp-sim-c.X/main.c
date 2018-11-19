@@ -47,6 +47,11 @@ int main(void) {
     void reset_timer();
     void start_timer();
     
+    // Do the thing
+    
+    unsigned long int result = read_timer();
+    while(1); // Breakpoint here
+    
     
     ///
     /// @brief Reading button state
