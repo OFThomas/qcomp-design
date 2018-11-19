@@ -34,7 +34,7 @@ extern "C" {
     /// @todo Because of the way the array types work (you can't pass a 
     /// multidimensional array of unknown size) we will also need a function
     /// for 4x4 matrix multiplication.
-    void mat_mul(Complex M[2][2], Complex V[], int i, int j);
+    void mat_mul(const Complex M[2][2], Complex V[], int i, int j);
 
      /** apply operator
      * @param state state vector containing amplitudes 
@@ -42,7 +42,7 @@ extern "C" {
      * @param Qnum total number of qubits in the state
      * @param op 2x2 operator to be applied
      */
-    void single_qubit_op(Complex op[2][2], int qubit, Complex state[], int Qnum);
+    void single_qubit_op(const Complex op[2][2], int qubit, Complex state[], int Qnum);
     
     /// apply controlled 2x2 op
     /// @param op single qubit unitary 2x2
@@ -50,7 +50,7 @@ extern "C" {
     /// @param targ target qubit number (0,1,...,n-1)
     /// @param state complex state vector
     /// @param N total number of qubits 
-    void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N);
+    void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[], int N);
     
     /// abs function
     Q15 absolute(Complex x);

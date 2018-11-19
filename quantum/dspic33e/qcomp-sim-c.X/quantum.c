@@ -9,13 +9,13 @@
 #include "quantum.h"
 
 // Complex addition
-void cadd(Complex a, Complex b, Complex result) {
+void cadd(const Complex a, const Complex b, Complex result) {
     result[0] = a[0] + b[0];
     result[1] = a[1] + b[1];
 }
 
 // Complex multiplication
-void cmul(Complex a, Complex b, Complex result) {
+void cmul(const Complex a, const Complex b, Complex result) {
     result[0] = a[0] * b[0] - a[1] * b[1];
     result[1] = a[0] * b[1] + a[1] * b[0]; 
 }
@@ -50,7 +50,7 @@ void zero_state(Complex state[], int Qnum) {
 }
 
 // 2x2 complex matrix multiplication
-void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
+void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
     Complex a, b, c, d;
     cmul(M[0][0],V[i],a); 
     cmul(M[0][1],V[j],b);
@@ -121,7 +121,7 @@ void mat_mul(Complex M[2][2], Complex V[], int i, int j) {
  * corresponds to the ONE entry.
  * 
  */
-void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
+void single_qubit_op(const Complex op[2][2], int k, Complex state[], int N) {
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, k); root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
@@ -142,7 +142,7 @@ void single_qubit_op(Complex op[2][2], int k, Complex state[], int N) {
 /// \endverbatim
 /// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
 // elements
-void controlled_qubit_op(Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
+void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, targ); root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
