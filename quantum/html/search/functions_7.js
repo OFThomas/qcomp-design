@@ -1,5 +1,5 @@
 var searchData=
 [
   ['main',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['mat_5fmul',['mat_mul',['../quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#aa7250062b82d11b48902efa2d5522b5e',1,'mat_mul(Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]]
+  ['mat_5fmul',['mat_mul',['../quantum_8c.html#a034aae000da9f5544033abebbef4c5e0',1,'mat_mul(const Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c'],['../quantum_8h.html#a034aae000da9f5544033abebbef4c5e0',1,'mat_mul(const Complex M[2][2], Complex V[], int i, int j):&#160;quantum.c']]]
 ];

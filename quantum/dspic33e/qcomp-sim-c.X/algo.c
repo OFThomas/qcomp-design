@@ -46,11 +46,27 @@ void swap_test(Complex state[]){
     swap(3,0, state, NUM_QUBITS);
     }
 }
-///
-void toffoli_gate(Complex state[]){
 
+/// @brief Toffoli gate 
+/// \verbatim
+/// -o--   ------o-----o--o-----
+/// -|--   ------|-----|--|-----
+/// -o-- = ---o--X--o--X--|-----
+/// -|--   ---|-----|-----|-----
+/// -X--   --rX----rX*---rX-----
+///          a   b  c  d  e
+/// \endverbatim
+/// q1 ctrl 1
+/// q2 ctrl 2
+/// q3 target
+void toffoli_gate(int q1, int q2, int q3, Complex state[]){
 
-
+    controlled_qubit_op(rX, q2, q3, state);     /// a
+    controlled_qubit_op(X, q1, q2, state);      /// b 
+    controlled_qubit_op(rXT, q2, q3, state);    /// c
+    controlled_qubit_op(X, q1, q2, state);      /// d
+    controlled_qubit_op(rX, q1, q3, state);     /// e
+    display_average(state);
 }
 
 /// repetition code

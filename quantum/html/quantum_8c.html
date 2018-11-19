@@ -84,27 +84,27 @@ Include dependency graph for quantum.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9ca7e4d2cbc30261d3d6e1971cf03632"><td class="memItemLeft" align="right" valign="top"><a id="a9ca7e4d2cbc30261d3d6e1971cf03632"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cadd</b> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
-<tr class="separator:a9ca7e4d2cbc30261d3d6e1971cf03632"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff0520252fc4c9d171f146df34133ff"><td class="memItemLeft" align="right" valign="top"><a id="a2ff0520252fc4c9d171f146df34133ff"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
-<tr class="separator:a2ff0520252fc4c9d171f146df34133ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e10038c3eec54100bf1920671368f4a"><td class="memItemLeft" align="right" valign="top"><a id="a8e10038c3eec54100bf1920671368f4a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cadd</b> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
+<tr class="separator:a8e10038c3eec54100bf1920671368f4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fd41764e3e5513b916ddcfb010fe39"><td class="memItemLeft" align="right" valign="top"><a id="af1fd41764e3e5513b916ddcfb010fe39"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a, const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> b, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> result)</td></tr>
+<tr class="separator:af1fd41764e3e5513b916ddcfb010fe39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
 <tr class="memdesc:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">abs function  <a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">More...</a><br /></td></tr>
 <tr class="separator:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ddf4816d6adf12474058fd944b210d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a2ddf4816d6adf12474058fd944b210d2">zero_state</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int Qnum)</td></tr>
 <tr class="memdesc:a2ddf4816d6adf12474058fd944b210d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise state to the vacuum (zero apart from the first position) Specify the dimension &ndash; of the matrix, i.e.  <a href="#a2ddf4816d6adf12474058fd944b210d2">More...</a><br /></td></tr>
 <tr class="separator:a2ddf4816d6adf12474058fd944b210d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7250062b82d11b48902efa2d5522b5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa7250062b82d11b48902efa2d5522b5e">mat_mul</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
-<tr class="memdesc:aa7250062b82d11b48902efa2d5522b5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#aa7250062b82d11b48902efa2d5522b5e">More...</a><br /></td></tr>
-<tr class="separator:aa7250062b82d11b48902efa2d5522b5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa22ddb54528109f39f37fa2949c3a6d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#aa22ddb54528109f39f37fa2949c3a6d9">single_qubit_op</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:aa22ddb54528109f39f37fa2949c3a6d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#aa22ddb54528109f39f37fa2949c3a6d9">More...</a><br /></td></tr>
-<tr class="separator:aa22ddb54528109f39f37fa2949c3a6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a65dbd3f2bfb00d98ef4e278b2b578b5f">controlled_qubit_op</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
-<tr class="memdesc:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">More...</a><br /></td></tr>
-<tr class="separator:a65dbd3f2bfb00d98ef4e278b2b578b5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034aae000da9f5544033abebbef4c5e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
+<tr class="memdesc:a034aae000da9f5544033abebbef4c5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#a034aae000da9f5544033abebbef4c5e0">More...</a><br /></td></tr>
+<tr class="separator:a034aae000da9f5544033abebbef4c5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31bd13db2f610c15d9e290e80d05926d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a31bd13db2f610c15d9e290e80d05926d">single_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
+<tr class="memdesc:a31bd13db2f610c15d9e290e80d05926d"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#a31bd13db2f610c15d9e290e80d05926d">More...</a><br /></td></tr>
+<tr class="separator:a31bd13db2f610c15d9e290e80d05926d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a339a4a792291d5201c16c83200369335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a339a4a792291d5201c16c83200369335">controlled_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int N)</td></tr>
+<tr class="memdesc:a339a4a792291d5201c16c83200369335"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a339a4a792291d5201c16c83200369335">More...</a><br /></td></tr>
+<tr class="separator:a339a4a792291d5201c16c83200369335"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Contains matrix and vector arithmetic for simulating one qubit. </p>
@@ -137,8 +137,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
 
 </div>
 </div>
-<a id="a65dbd3f2bfb00d98ef4e278b2b578b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65dbd3f2bfb00d98ef4e278b2b578b5f">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
+<a id="a339a4a792291d5201c16c83200369335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a339a4a792291d5201c16c83200369335">&#9670;&nbsp;</a></span>controlled_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -146,7 +146,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (<a class="e
         <tr>
           <td class="memname">void controlled_qubit_op </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -198,8 +198,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
-<a id="aa7250062b82d11b48902efa2d5522b5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7250062b82d11b48902efa2d5522b5e">&#9670;&nbsp;</a></span>mat_mul()</h2>
+<a id="a034aae000da9f5544033abebbef4c5e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034aae000da9f5544033abebbef4c5e0">&#9670;&nbsp;</a></span>mat_mul()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +207,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="memname">void mat_mul </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>M</em>[2][2], </td>
         </tr>
         <tr>
@@ -250,8 +250,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 
 </div>
 </div>
-<a id="aa22ddb54528109f39f37fa2949c3a6d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa22ddb54528109f39f37fa2949c3a6d9">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
+<a id="a31bd13db2f610c15d9e290e80d05926d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31bd13db2f610c15d9e290e80d05926d">&#9670;&nbsp;</a></span>single_qubit_op()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +259,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
         <tr>
           <td class="memname">void single_qubit_op </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>

@@ -89,12 +89,12 @@ Include dependency graph for algo.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#afbcd65ac269ef576aec9bdb0ec30f70f">gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
-<tr class="memdesc:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#afbcd65ac269ef576aec9bdb0ec30f70f">More...</a><br /></td></tr>
-<tr class="separator:afbcd65ac269ef576aec9bdb0ec30f70f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af43d011d3803e45de48d214292c6bcc1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af43d011d3803e45de48d214292c6bcc1">two_gate</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
-<tr class="memdesc:af43d011d3803e45de48d214292c6bcc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform controlled single qubit gate  <a href="#af43d011d3803e45de48d214292c6bcc1">More...</a><br /></td></tr>
-<tr class="separator:af43d011d3803e45de48d214292c6bcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b4e9e49421fc491f18818ef93fedb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a32b4e9e49421fc491f18818ef93fedb4">gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
+<tr class="memdesc:a32b4e9e49421fc491f18818ef93fedb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#a32b4e9e49421fc491f18818ef93fedb4">More...</a><br /></td></tr>
+<tr class="separator:a32b4e9e49421fc491f18818ef93fedb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aede6d85a023af03481eaa952791512f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#aede6d85a023af03481eaa952791512f2">two_gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
+<tr class="memdesc:aede6d85a023af03481eaa952791512f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform controlled single qubit gate  <a href="#aede6d85a023af03481eaa952791512f2">More...</a><br /></td></tr>
+<tr class="separator:aede6d85a023af03481eaa952791512f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a781043054297ff4a5d9227c07a0ceb97"><td class="memItemLeft" align="right" valign="top"><a id="a781043054297ff4a5d9227c07a0ceb97"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a781043054297ff4a5d9227c07a0ceb97">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="memdesc:a781043054297ff4a5d9227c07a0ceb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap using 3 cNots <br /></td></tr>
@@ -110,8 +110,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains quantum algorithms to be run. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="afbcd65ac269ef576aec9bdb0ec30f70f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbcd65ac269ef576aec9bdb0ec30f70f">&#9670;&nbsp;</a></span>gate()</h2>
+<a id="a32b4e9e49421fc491f18818ef93fedb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b4e9e49421fc491f18818ef93fedb4">&#9670;&nbsp;</a></span>gate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -119,7 +119,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
         <tr>
           <td class="memname">void gate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
@@ -174,8 +174,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 
 </div>
 </div>
-<a id="af43d011d3803e45de48d214292c6bcc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af43d011d3803e45de48d214292c6bcc1">&#9670;&nbsp;</a></span>two_gate()</h2>
+<a id="aede6d85a023af03481eaa952791512f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede6d85a023af03481eaa952791512f2">&#9670;&nbsp;</a></span>two_gate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +183,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
         <tr>
           <td class="memname">void two_gate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>op</em>[2][2], </td>
         </tr>
         <tr>
