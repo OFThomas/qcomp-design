@@ -10,6 +10,20 @@
 
 #include "quantum.h"
 
+/**
+ * @brief A simple function to compute integer powers of 2
+ * @param k The exponent of 2 to compute
+ * @return 2^k
+ * 
+ */
+int pow2(int k) {
+    int result = 1;
+    for(int n = 0; n < k; n++)
+        result *= 2; /// Multiply by 2
+    return result;
+}
+
+
 // Complex addition
 void cadd(const Complex a, const Complex b, Complex result) {
     result[0] = a[0] + b[0];
@@ -39,9 +53,7 @@ Q15 absolute(Complex x) {
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
 void zero_state(Complex state[]) {
-    int N = pow(2, NUM_QUBITS);
-    for (int i = 0; i < N; i++) {
-
+    for (int i = 0; i < STATE_LENGTH; i++) {
         // Loop over the real and imaginary parts
         for (int j = 0; j < 2; j++) {
             state[i][j] = 0.0;
@@ -51,9 +63,10 @@ void zero_state(Complex state[]) {
     state[0][0] = ONE_Q15;
 }
 
+
 // 2x2 complex matrix multiplication
 void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
-    Complex a, b, c, d;
+    static Complex a, b, c, d; ///@todo Should these be outside the function?
     cmul(M[0][0],V[i],a); 
     cmul(M[0][1],V[j],b);
     cadd(a,b,c);
@@ -124,13 +137,14 @@ void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
  * 
  */
 void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
-    int N = NUM_QUBITS;
+    int root_max = pow2(k); // Declared outside the loop
     /// ROOT loop: starts at 0, increases in steps of 1
-    for (int root = 0; root < pow(2, k); root++) {
+    for (int root = 0; root < root_max; root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-        for (int step = 0; step < pow(2, N); step += pow(2, k+1)) {
+        for (int step = 0; step < STATE_LENGTH; step += pow2(k+1)) {
             /// First index is ZERO, second index is ONE
-            mat_mul(op, state, root + step, root + (int) pow(2, k) + step);
+            /// @todo Should we inline mat_mul here?
+            mat_mul(op, state, root + step, root + pow2(k) + step);
         }
     }
 }
@@ -146,11 +160,11 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
 /// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
 // elements
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
-    int N = NUM_QUBITS;
+    int root_max = pow2(targ); // Declared outside the loop
     /// ROOT loop: starts at 0, increases in steps of 1
-    for (int root = 0; root < pow(2, targ); root++) {
+    for (int root = 0; root < root_max; root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-        for (int step = 0; step < pow(2, N); step += pow(2, targ + 1)) {
+        for (int step = 0; step < STATE_LENGTH; step += pow2(targ + 1)) {
             /// First index is ZERO, second index is ONE
             /// @note for 2 qubit case check if the index in the ctrl qubit 
             /// is a 1 then apply the 2x2 unitary else do nothing
@@ -164,8 +178,8 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
             /// +2^(target qubit number). This also needs to be checked that the control
             /// qubit is in the |1>. 
             /// @todo This expression can probably be simplified or broken over lines.
-            if( (((root+step) & (1 << ctrl)) && ((root+step+(int) pow(2,targ)) & (1 << ctrl))) == 1){
-                mat_mul(op, state, root + step, root + (int) pow(2, targ) + step);
+            if( (((root+step) & (1 << ctrl)) && ((root+step+pow2(targ)) & (1 << ctrl))) == 1){
+                mat_mul(op, state, root + step, root + pow2(targ) + step);
             }
         }
     }

@@ -53,6 +53,14 @@ extern "C" {
     
     /// abs function
     Q15 absolute(Complex x);
+
+    /**
+     * @brief A simple function to compute integer powers of 2
+     * @param k The exponent of 2 to compute
+     * @return 2^k
+     * 
+     */
+    int pow2(int k);
     
 #ifdef	__cplusplus
 }

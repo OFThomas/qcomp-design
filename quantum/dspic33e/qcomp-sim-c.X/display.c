@@ -99,19 +99,18 @@
  * 
  */
 void display_average(Complex state[]) {
-    int N = NUM_QUBITS;
     ///@todo Bring all constants out of the loops. Don't use pow.
     /// Loop over all qubits k = 0, 1, 2, ... N-1
-    for (int k = 0; k < N; k ++) {
+    for (int k = 0; k < NUM_QUBITS; k ++) {
         Q15 zero_amp = 0, one_amp = 0;
         /// ROOT loop: starts at 0, increases in steps of 1
-        for(int root = 0; root < pow(2,k); root ++) {
+        for(int root = 0; root < pow2(k); root ++) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-            for(int step = 0; step < pow(2,N); step += pow(2,k+1)) {
+            for(int step = 0; step < STATE_LENGTH; step += pow2(k+1)) {
                 /// Zeros are at the index root + step
                 zero_amp += pow(state[root + step][0],2);
                 /// Ones are at the index root + 2^k + step
-                one_amp += pow(state[root + (int)pow(2,k) + step][0],2);
+                one_amp += pow(state[root + pow2(k) + step][0],2);
             }
         }
         /// update leds for each qubits average zero and one amps
