@@ -70,21 +70,21 @@ int main(void) {
         swap_test(state);
         
         
-         zero_state(state, NUM_QUBITS); // Set the state to the vacuum
+         zero_state(state); // Set the state to the vacuum
          //single_qubit_op(H, 0, state, NUM_QUBITS);
          
          //controlled_qubit_op(X, 0, 1, state, NUM_QUBITS);
 
          //qubit_display(state, NUM_QUBITS);
          
-         gate(H,0,state,NUM_QUBITS);
-         two_gate(X, 0, 1, state, NUM_QUBITS);
+         gate(H,0,state);
+         two_gate(X, 0, 1, state);
          
          delay();
          
          // start the clock
          T6CONbits.TON = 1;
-         display_cycle(state, STATE_LENGTH);
+         display_cycle(state);
          
          /*
          reset_cycle();

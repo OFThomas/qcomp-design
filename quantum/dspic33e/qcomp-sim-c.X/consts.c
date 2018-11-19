@@ -9,6 +9,10 @@
 const Complex rX[2][2] = {{{0.5, 0.5},{0.5, -0.5}},
                           {{0.5, -0.5},{0.5, 0.5}}};
 
+/// @param rXT Adjoint of rX
+const Complex rXT[2][2] = {{{0.5, -0.5},{0.5, 0.5}},
+                          {{0.5, 0.5},{0.5, -0.5}}};
+
 /// @param X pauli X gate
 const Complex X[2][2] = {{{0.0, 0.0},{ONE_Q15, 0.0}},
                          {{ONE_Q15, 0.0},{0.0, 0.0}}};

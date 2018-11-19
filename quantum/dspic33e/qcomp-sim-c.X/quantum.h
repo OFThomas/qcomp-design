@@ -23,8 +23,7 @@ extern "C" {
     /// Initialise state to the vacuum (zero apart from the first position)
     /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
     /// @param state complex state vector 
-    /// @param Qnum int total number of qubits 
-    void zero_state(Complex state[], int Qnum);
+    void zero_state(Complex state[]);
   
     /// 2x2 complex matrix multiplication
     /// @param M complex matrix
@@ -39,18 +38,16 @@ extern "C" {
      /** apply operator
      * @param state state vector containing amplitudes 
      * @param qubit qubit number to apply 2x2 matrix to
-     * @param Qnum total number of qubits in the state
      * @param op 2x2 operator to be applied
      */
-    void single_qubit_op(const Complex op[2][2], int qubit, Complex state[], int Qnum);
+    void single_qubit_op(const Complex op[2][2], int qubit, Complex state[]);
     
     /// apply controlled 2x2 op
     /// @param op single qubit unitary 2x2
     /// @param ctrl control qubit number (0,1,..,n-1)
     /// @param targ target qubit number (0,1,...,n-1)
     /// @param state complex state vector
-    /// @param N total number of qubits 
-    void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[], int N);
+    void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]);
     
     /// abs function
     Q15 absolute(Complex x);

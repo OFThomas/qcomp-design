@@ -21,16 +21,15 @@ extern "C" {
        /**
      * @brief Display the state amplitudes on LEDs
      * @param state Pass in the state vector
-     * @param Qnum The total number of qubits
      * 
      * @note Currently the function only displays superpositions using the
      * red and blue colors.
      * @todo rename to display_average
      */
-    void display_average(Complex state[], int Qnum);
+    void display_average(Complex state[]);
     
     /// @brief cycles through the non-zero amplitude states
-    void display_cycle(Complex state[], int N);
+    void display_cycle(Complex state[]);
 
     /// @brief updates disp_state where the first 'return value of the function'elements
     /// are the nonzero elements of the state vector 'state'
