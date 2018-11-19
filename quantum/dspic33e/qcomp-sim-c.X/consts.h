@@ -26,6 +26,9 @@ typedef Q15 Complex[2];
 /// @param rX is square root of X
 extern const Complex rX[2][2];
 
+/// @param rXT Adjoint of rX
+extern const Complex rXT[2][2];
+
 /// @param X pauli X gate
 extern const Complex X[2][2];
 
