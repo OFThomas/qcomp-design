@@ -50,8 +50,8 @@ int main(void) {
     void reset_timer();
     void start_timer();
    
-    for(int j=0; j<100; j++) {
-        gate(X,0,state);
+    for(int j=0; j<1000; j++) {
+        single_qubit_op(X,0,state);
     }
     
     unsigned long int result = 0;
