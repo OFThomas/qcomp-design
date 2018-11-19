@@ -19,5 +19,5 @@ var searchData=
   ['strobe_5fleds',['strobe_leds',['../structLED__GLOBAL.html#a83f4187bae72e19513a81b85b48e7c9f',1,'LED_GLOBAL']]],
   ['strobe_5fstate',['strobe_state',['../structLED__GLOBAL.html#ac2ca8e18709b5fa418acc99ac0c491d7',1,'LED_GLOBAL']]],
   ['swap',['swap',['../algo_8c.html#a781043054297ff4a5d9227c07a0ceb97',1,'swap(int q1, int q2, Complex state[], int num_qubits):&#160;algo.c'],['../algo_8h.html#a781043054297ff4a5d9227c07a0ceb97',1,'swap(int q1, int q2, Complex state[], int num_qubits):&#160;algo.c']]],
-  ['swap_5ftest',['swap_test',['../tests_8c.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;tests.c'],['../tests_8h.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;tests.c']]]
+  ['swap_5ftest',['swap_test',['../algo_8c.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;algo.c'],['../algo_8h.html#ac8da5bcaa49edd7caad947e51cf004f2',1,'swap_test(Complex state[]):&#160;algo.c']]]
 ];

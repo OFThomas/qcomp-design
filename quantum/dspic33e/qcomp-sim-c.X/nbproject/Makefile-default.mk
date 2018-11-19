@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c io.c quantum.c tests.c time.c spi.c algo.c consts.c display.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c io.c quantum.c time.c spi.c algo.c consts.c display.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/io.o ${OBJECTDIR}/quantum.o ${OBJECTDIR}/tests.o ${OBJECTDIR}/time.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/algo.o ${OBJECTDIR}/consts.o ${OBJECTDIR}/display.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/quantum.o.d ${OBJECTDIR}/tests.o.d ${OBJECTDIR}/time.o.d ${OBJECTDIR}/spi.o.d ${OBJECTDIR}/algo.o.d ${OBJECTDIR}/consts.o.d ${OBJECTDIR}/display.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/io.o ${OBJECTDIR}/quantum.o ${OBJECTDIR}/time.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/algo.o ${OBJECTDIR}/consts.o ${OBJECTDIR}/display.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/io.o.d ${OBJECTDIR}/quantum.o.d ${OBJECTDIR}/time.o.d ${OBJECTDIR}/spi.o.d ${OBJECTDIR}/algo.o.d ${OBJECTDIR}/consts.o.d ${OBJECTDIR}/display.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/io.o ${OBJECTDIR}/quantum.o ${OBJECTDIR}/tests.o ${OBJECTDIR}/time.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/algo.o ${OBJECTDIR}/consts.o ${OBJECTDIR}/display.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/io.o ${OBJECTDIR}/quantum.o ${OBJECTDIR}/time.o ${OBJECTDIR}/spi.o ${OBJECTDIR}/algo.o ${OBJECTDIR}/consts.o ${OBJECTDIR}/display.o
 
 # Source Files
-SOURCEFILES=main.c io.c quantum.c tests.c time.c spi.c algo.c consts.c display.c
+SOURCEFILES=main.c io.c quantum.c time.c spi.c algo.c consts.c display.c
 
 
 CFLAGS=
@@ -114,13 +114,6 @@ ${OBJECTDIR}/quantum.o: quantum.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/quantum.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  quantum.c  -o ${OBJECTDIR}/quantum.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/quantum.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -std=gnu99 -O0 -msmart-io=1 -Wall -msfr-warn=off   -menable-fixed
 	@${FIXDEPS} "${OBJECTDIR}/quantum.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/tests.o: tests.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tests.o.d 
-	@${RM} ${OBJECTDIR}/tests.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  tests.c  -o ${OBJECTDIR}/tests.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/tests.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -std=gnu99 -O0 -msmart-io=1 -Wall -msfr-warn=off   -menable-fixed
-	@${FIXDEPS} "${OBJECTDIR}/tests.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/time.o: time.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -178,13 +171,6 @@ ${OBJECTDIR}/quantum.o: quantum.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/quantum.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  quantum.c  -o ${OBJECTDIR}/quantum.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/quantum.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -std=gnu99 -O0 -msmart-io=1 -Wall -msfr-warn=off   -menable-fixed
 	@${FIXDEPS} "${OBJECTDIR}/quantum.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
-${OBJECTDIR}/tests.o: tests.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/tests.o.d 
-	@${RM} ${OBJECTDIR}/tests.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  tests.c  -o ${OBJECTDIR}/tests.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/tests.o.d"      -mno-eds-warn  -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -std=gnu99 -O0 -msmart-io=1 -Wall -msfr-warn=off   -menable-fixed
-	@${FIXDEPS} "${OBJECTDIR}/tests.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/time.o: time.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 

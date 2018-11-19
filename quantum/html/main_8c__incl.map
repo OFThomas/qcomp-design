@@ -1,11 +1,10 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/main.c" name="dspic33e/qcomp&#45;sim&#45;c.X/main.c">
-<area shape="rect" id="node2" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="5,95,73,121"/>
-<area shape="rect" id="node3" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="235,319,294,345"/>
-<area shape="rect" id="node6" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="325,95,388,121"/>
-<area shape="rect" id="node10" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="319,244,394,271"/>
-<area shape="rect" id="node14" href="$algo_8h.html" title="header file for algorithms " alt="" coords="461,169,519,196"/>
-<area shape="rect" id="node7" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="449,319,531,345"/>
-<area shape="rect" id="node11" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="335,319,378,345"/>
-<area shape="rect" id="node9" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="541,393,613,420"/>
-<area shape="rect" id="node13" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="317,393,367,420"/>
+<area shape="rect" id="node2" href="$config_8h.html" title="General config settings #pragma for microcontroller. " alt="" coords="27,95,95,121"/>
+<area shape="rect" id="node3" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="77,244,135,271"/>
+<area shape="rect" id="node6" href="$algo_8h.html" title="header file for algorithms " alt="" coords="221,95,279,121"/>
+<area shape="rect" id="node10" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="191,169,266,196"/>
+<area shape="rect" id="node7" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="279,244,362,271"/>
+<area shape="rect" id="node9" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="290,319,362,345"/>
+<area shape="rect" id="node11" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="207,244,250,271"/>
+<area shape="rect" id="node13" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="117,319,167,345"/>
 </map>

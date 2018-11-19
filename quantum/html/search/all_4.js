@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['delay',['delay',['../tests_8h.html#abb9ee10191569258e0f22bdd0a95ba62',1,'delay():&#160;time.c'],['../time_8c.html#abb9ee10191569258e0f22bdd0a95ba62',1,'delay():&#160;time.c'],['../time_8h.html#abb9ee10191569258e0f22bdd0a95ba62',1,'delay():&#160;time.c']]],
-  ['dim_5fleds',['dim_leds',['../tests_8c.html#a2d083ac668202be3079ea3ce2170b608',1,'dim_leds():&#160;tests.c'],['../tests_8h.html#a2d083ac668202be3079ea3ce2170b608',1,'dim_leds():&#160;tests.c']]],
+  ['delay',['delay',['../time_8c.html#abb9ee10191569258e0f22bdd0a95ba62',1,'delay():&#160;time.c'],['../time_8h.html#abb9ee10191569258e0f22bdd0a95ba62',1,'delay():&#160;time.c']]],
   ['display_2ec',['display.c',['../display_8c.html',1,'']]],
   ['display_2eh',['display.h',['../display_8h.html',1,'']]],
   ['display_5faverage',['display_average',['../display_8c.html#a74883f35e288cffe4b006fe25e9e4349',1,'display_average(Complex state[], int N):&#160;display.c'],['../display_8h.html#aafc8381deced559afaa4eeab9921cc7d',1,'display_average(Complex state[], int Qnum):&#160;display.c']]],
