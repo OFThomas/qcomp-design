@@ -240,7 +240,7 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
             /// +2^(target qubit number). This also needs to be checked that the control
             /// qubit is in the |1>. 
             /// @todo This expression can probably be simplified or broken over lines.
-            if( (((root+step) & (1 << ctrl)) && ((root+step+pow2(targ)) & (1 << ctrl))) == 1){
+            if( (((root+step) & (1 << ctrl)) && ((root+step+root_max) & (1 << ctrl))) == 1){
                 mat_mul(op, state, root + step, root + root_max + step);
             }
         }
