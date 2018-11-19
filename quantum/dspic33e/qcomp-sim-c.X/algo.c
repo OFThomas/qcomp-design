@@ -30,23 +30,41 @@ void swap(int q1, int q2, Complex state[]){
     display_average(state);
 }
 
-void swap_test(Complex state[]){
+void swap_test(Complex state[]) {
 
     zero_state(state); // Set the state to the vacuum
     display_average(state); // Display the state for four qubits
     delay();
-     
+
     gate(H, 0, state);
     gate(X, 2, state);
 
     /// swap for ever!
-    while(1){
-    swap(0,1, state);
-    swap(1,2, state);
-    swap(2,3, state);
-    swap(3,0, state);
+    while (1) {
+        swap(0, 1, state);
+        swap(1, 2, state);
+        swap(2, 3, state);
+        swap(3, 0, state);
     }
 }
+
+/** @todo Fancy non-blocking Interrupt routine
+{
+   if(no button) return;
+   
+   pause and do display cycling();
+ * 
+ * Make this a low priority interrupt so that everything else can interrupt 
+ * it.
+ * 
+ * Do stuff for a while
+ * 
+ * return when you're done.
+    
+}
+ * 
+ * */
+
 
 /// @brief Toffoli gate 
 /// \verbatim

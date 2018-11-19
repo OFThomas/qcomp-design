@@ -44,6 +44,10 @@ int main(void) {
     // Setup the external LEDs
     setup_external_leds();
 
+    void reset_timer();
+    void start_timer();
+    
+    
     ///
     /// @brief Reading button state
     /// 
