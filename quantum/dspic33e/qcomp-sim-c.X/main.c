@@ -73,9 +73,11 @@ int main(void) {
     /// Start of the PROGRAM!
      while(1){
     
+         
+         T6CONbits.TON = 0;
         // nice to see
-        //swap_test(state);
-        T6CONbits.TON = 0;
+        swap_test(state);
+        
         
          zero_state(state, NUM_QUBITS); // Set the state to the vacuum
          //single_qubit_op(H, 0, state, NUM_QUBITS);
@@ -87,7 +89,6 @@ int main(void) {
          gate(H,0,state,NUM_QUBITS);
          two_gate(X, 0, 1, state, NUM_QUBITS);
          
-         delay();
          delay();
          
          // start the clock

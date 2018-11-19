@@ -6,11 +6,7 @@
  * 
  */
 
-#include "io.h"  
-#include "consts.h"
 #include "quantum.h"
-#include "time.h"
-#include "algo.h"
 
 // Complex addition
 void cadd(Complex a, Complex b, Complex result) {
