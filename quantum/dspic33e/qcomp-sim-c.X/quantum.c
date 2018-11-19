@@ -64,8 +64,18 @@ void zero_state(Complex state[]) {
 }
 
 
-// 2x2 complex matrix multiplication
-void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
+/**
+ * @brief This is an old version of the mat_mul function
+ * 
+ * @param M A 2x2 complex matrix
+ * @param V A Nx1 complex vector
+ * @param i The first index to pick from the vector V
+ * @param j The second index to pick from the vector V
+ * 
+ * The function uses cadd and cmul
+ * 
+ */
+void mat_mul_old(const Complex M[2][2], Complex V[], int i, int j) {
     static Complex a, b, c, d; ///@todo Should these be outside the function?
     cmul(M[0][0],V[i],a); 
     cmul(M[0][1],V[j],b);
@@ -77,6 +87,35 @@ void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
     V[i][1] = c[1];
     V[j][0] = d[0];
     V[j][1] = d[1];
+}
+
+/**
+ * @brief This version uses inlined cadd and cmul
+ * 
+ * @param M A 2x2 complex matrix
+ * @param V A Nx1 complex vector
+ * @param i The first index to pick from the vector V
+ * @param j The second index to pick from the vector V
+ * 
+ */
+void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
+
+    /// @todo Should we use for loops? Or is it better not to..?
+    
+    // Manual complex matrix multiplication for first element of vector
+    V[i][0] = M[0][0][0] * V[i][0] - M[0][0][1] * V[i][1] + 
+            M[0][1][0] * V[j][0] - M[0][1][1] * V[j][1]; // Real part
+    V[i][1] = M[0][0][0] * V[i][1] + M[0][0][1] * V[i][0] + 
+            M[0][1][0] * V[j][1] + M[0][1][1] * V[j][0]; // Imag part
+    
+    // Manual complex matrix multiplication for second element of vector
+    V[j][0] = M[1][0][0] * V[i][0] - M[1][0][1] * V[i][1] + 
+            M[1][1][0] * V[j][0] - M[1][1][1] * V[j][1]; // Real part
+    V[j][1] = M[1][0][0] * V[i][1] + M[1][0][1] * V[i][0] + 
+            M[1][1][0] * V[j][1] + M[1][1][1] * V[j][0]; // Imag part
+    
+    // Get me out of here
+    return;
 }
 
 /** apply operator
