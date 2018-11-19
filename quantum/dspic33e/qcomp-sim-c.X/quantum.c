@@ -50,6 +50,18 @@ Q15 absolute(Complex x) {
     return z[0]; // Return real part
 }
 
+/**
+ * @brief Compute the magnitude squared of a complex number
+ * 
+ * @param x The input complex number x
+ * @return The value of |x|^2
+ * 
+ * @todo Maybe we should inline this 
+ */
+Q15 square_magnitude(Complex x) {
+    return x[0] * x[0] + x[1] * x[1];
+}
+
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
 void zero_state(Complex state[]) {

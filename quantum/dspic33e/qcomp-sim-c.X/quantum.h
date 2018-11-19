@@ -61,6 +61,16 @@ extern "C" {
      * 
      */
     int pow2(int k);
+
+    /**
+     * @brief Compute the magnitude squared of a complex number
+     * 
+     * @param x The input complex number x
+     * @return The value of |x|^2
+     * 
+     * @todo Maybe we should inline this 
+     */
+    Q15 square_magnitude(Complex x);
     
 #ifdef	__cplusplus
 }

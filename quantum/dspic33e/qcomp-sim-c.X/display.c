@@ -112,9 +112,9 @@ void display_average(Complex state[]) {
             for(int step = 0; step < STATE_LENGTH; step += increment) {
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 
-                zero_amp += pow(state[root + step][0],2);
+                zero_amp += square_magnitude(state[root + step]);
                 /// Ones are at the index root + 2^k + step
-                one_amp += pow(state[root + root_max + step][0],2);
+                one_amp += square_magnitude(state[root + root_max + step]);
             }
         }
         /// update leds for each qubits average zero and one amps
