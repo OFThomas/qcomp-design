@@ -1,10 +1,10 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/io.h" name="dspic33e/qcomp&#45;sim&#45;c.X/io.h">
-<area shape="rect" id="node2" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="209,95,352,136"/>
-<area shape="rect" id="node5" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="319,273,461,315"/>
-<area shape="rect" id="node6" href="$main_8c.html" title="The main function. " alt="" coords="43,363,185,404"/>
-<area shape="rect" id="node9" href="$io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="479,95,621,136"/>
-<area shape="rect" id="node3" href="$algo_8h.html" title="header file for algorithms " alt="" coords="209,184,352,225"/>
-<area shape="rect" id="node8" href="$display_8c.html" title="for all the state display functions " alt="" coords="43,184,185,225"/>
-<area shape="rect" id="node4" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="100,273,243,315"/>
-<area shape="rect" id="node7" href="$tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="319,363,461,404"/>
+<area shape="rect" id="node2" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="188,95,331,136"/>
+<area shape="rect" id="node5" href="$tests_8h.html" title="Description: Header file containing all the tests we performed. " alt="" coords="243,273,385,315"/>
+<area shape="rect" id="node9" href="$io_8c.html" title="Contains all the functions for reading buttons and writing to LEDs. " alt="" coords="516,95,659,136"/>
+<area shape="rect" id="node3" href="$algo_8h.html" title="header file for algorithms " alt="" coords="79,184,221,225"/>
+<area shape="rect" id="node6" href="$main_8c.html" title="The main function. " alt="" coords="104,363,247,404"/>
+<area shape="rect" id="node8" href="$display_8c.html" title="for all the state display functions " alt="" coords="297,184,440,225"/>
+<area shape="rect" id="node4" href="$algo_8c.html" title="Contains quantum algorithms to be run. " alt="" coords="24,273,167,315"/>
+<area shape="rect" id="node7" href="$tests_8c.html" title="Description: Contains all the tests we have performed on the micro&#45; controller. " alt="" coords="271,363,413,404"/>
 </map>

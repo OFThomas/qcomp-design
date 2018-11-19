@@ -18,7 +18,6 @@ extern "C" {
 #include "p33EP512MU810.h"
 #include "xc.h"
 #include <stdbool.h>
-#include <stdlib.h>
 #include "spi.h"
 #include "consts.h"
 

@@ -13,9 +13,8 @@
 extern "C" {
 #endif
 
-#include <math.h>
-#include "consts.h" 
 #include "quantum.h"
+#include "time.h"
 #include "io.h"
 
 

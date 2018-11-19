@@ -116,6 +116,7 @@ void display_average(Complex state[], int N) {
         /// update leds for each qubits average zero and one amps
         set_external_led(k, 0, zero_amp, one_amp);
     }
+delay();
 }
 
 /**

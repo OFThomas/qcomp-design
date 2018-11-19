@@ -11,10 +11,8 @@
 extern "C" {
 #endif
 
-#include "consts.h"
 #include "quantum.h"
 #include "display.h"
-#include "time.h"
 
 /// perform single qubit gate 
 void gate(Complex op[2][2], int qubit, Complex state[], int num_qubits);

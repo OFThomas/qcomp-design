@@ -22,17 +22,10 @@
  *
  */
 
-#include "p33EP512MU810.h"
-#include "xc.h"
-
 #include "config.h"
 #include "time.h"
-#include "io.h"
-#include "consts.h"
-#include "quantum.h"
 #include "tests.h"
 #include "time.h"
-#include "spi.h"
 #include "algo.h"
 #include "display.h"
 
