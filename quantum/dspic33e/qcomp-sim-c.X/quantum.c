@@ -36,8 +36,8 @@ Q15 absolute(Complex x) {
 
 /// Initialise state to the vacuum (zero apart from the first position)
 /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
-void zero_state(Complex state[], int Qnum) {
-    int N = pow(2, Qnum);
+void zero_state(Complex state[]) {
+    int N = pow(2, NUM_QUBITS);
     for (int i = 0; i < N; i++) {
 
         // Loop over the real and imaginary parts
@@ -121,7 +121,8 @@ void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
  * corresponds to the ONE entry.
  * 
  */
-void single_qubit_op(const Complex op[2][2], int k, Complex state[], int N) {
+void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
+    int N = NUM_QUBITS;
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, k); root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)
@@ -142,7 +143,8 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[], int N) {
 /// \endverbatim
 /// checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
 // elements
-void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[], int N) {
+void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
+    int N = NUM_QUBITS;
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < pow(2, targ); root++) {
         /// STEP loop: starts at 0, increases in steps of 2^(k+1)

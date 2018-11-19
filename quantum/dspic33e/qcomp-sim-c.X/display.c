@@ -6,7 +6,6 @@
 /**
  * @brief Display the state amplitudes on LEDs
  * @param state Pass in the state vector
- * @param N The total number of qubits
  * 
  * @note Currently the function only displays superpositions using the
  * red and blue colors.
@@ -99,7 +98,8 @@
  * }
  * 
  */
-void display_average(Complex state[], int N) {
+void display_average(Complex state[]) {
+    int N = NUM_QUBITS;
     /// Loop over all qubits k = 0, 1, 2, ... N-1
     for (int k = 0; k < N; k ++) {
         Q15 zero_amp = 0, one_amp = 0;
@@ -123,9 +123,9 @@ delay();
  * @param state The state to display
  * @param N The length of the state vector
  */
-void display_cycle(Complex state[], int N) {
+void display_cycle(Complex state[]) {
     
-    int output[N];
+    int output[STATE_LENGTH];
     
     /// Filter the state
     int cycle_length = remove_zero_amp_states(state, NUM_QUBITS, output);
