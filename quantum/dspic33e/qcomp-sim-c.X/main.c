@@ -46,20 +46,14 @@ int main(void) {
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
     //zero_state(state);
-<<<<<<< HEAD
-=======
+
+    //swap_test(state);
     
-    swap_test(state);
->>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
-    
-    swap_test(state);
-    
-    /*
     reset_timer();
     start_timer();
    
     for(unsigned long int j=0; j<1000; j++) {
-        controlled_qubit_op(X,0,1,state);
+        single_qubit_op(X,0,state);
     }
     
     unsigned long int result = 0;
@@ -86,7 +80,6 @@ int main(void) {
     /// Start of the PROGRAM!
     toffoli_test(state);
 
-     */
     while(1); ///< @note Really important!
     return 0;
 }

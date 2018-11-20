@@ -350,7 +350,7 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * 
  * offset = 2^(N-ctrl-targ) * y
  * 
- * where N is the number of qubits (3 in the above case). Here, y is either 
+ * where N is the number of _qubits (3 in the above case). Here, y is either 
  * zero or one, and enumerates the operations that must be performed In other 
  * words, the index is given by the following expression
  * 
@@ -368,6 +368,7 @@ void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex
     int sep = pow2(targ); // Separation between 0 and 1 target positions
     int increment = pow2(NUM_QUBITS - ctrl - targ); // Increment between 
                                                     // adjacent mat muls
+    ///@todo The problem is the formula for the increment
     int step_max = STATE_LENGTH - sep - root; // Limit to step
     // Perform the matrix multiplications
     for (int step = 0; step < step_max; step += increment) {

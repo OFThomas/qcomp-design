@@ -15,6 +15,7 @@ extern "C" {
     
 #include <stdbool.h>
 #include <stdlib.h>
+<<<<<<< HEAD
     
 <<<<<<< HEAD
 #define NUM_QUBITS 4
@@ -30,6 +31,12 @@ extern "C" {
 #define HALF_PHASE 0.062498093
         
         
+=======
+
+#define NUM_QUBITS 7
+#define STATE_LENGTH 128 // 2^NUM_QUBITS
+    
+>>>>>>> 8f79996659122b79b46562aa7a950ce78d45e92e
 /// The number of external LEDs  
 #define LED_NUM 4 
 
