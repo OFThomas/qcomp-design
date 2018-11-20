@@ -338,6 +338,7 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * 
  */
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
+    ///@todo Replace pow2 with left rotations
     int root = pow2(ctrl); // Base of indices
     int sep = pow2(targ); // Separation between 0 and 1 target positions
     int increment = pow2(NUM_QUBITS - ctrl - targ); // Increment between 
