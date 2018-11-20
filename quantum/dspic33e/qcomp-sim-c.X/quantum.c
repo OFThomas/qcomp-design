@@ -310,8 +310,8 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * on the ctrl qubit number, and is just a power of 2 into the state vector.
  * 
  * The other contributions to the index depend on the the target qubit number 
- * (targ). The offset between indices of the same operation (I or X) are 
- * seperated by 
+ * (targ). The offset between indices of the same operation (either I or X) are 
+ * separated by 
  * 
  * sep = 2^targ
  * 
@@ -319,13 +319,42 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * 0 in the target to a 1 in the target is to add 2^targ to the index in the
  * state vector.
  * 
- * Finally, there is another contribution that depends on the value of the
- * target:
+ * Finally, there is the offset due to moving from the 0 to 1 state within a 
+ * particular operation (I or X). This depends on both the values of the ctrl 
+ * and targ qubit numbers as follows:
  * 
+ * offset = 2^(N-ctrl-targ) * y
  * 
+ * where N is the number of qubits (3 in the above case). Here, y is either 
+ * zero or one, and enumerates the operations that must be performed In other 
+ * words, the index is given by the following expression
+ * 
+ * i:   root + offset       = x*2^ctrl + y*2^(N-ctrl-targ)
+ * j:   root + sep + offset = x*2^ctrl + 2^targ + y*2^(N-ctrl-targ)
+ * 
+ * where x is the value of the ctrl qubit (do X when x is 1, I when x is zero)
+ * and y ranges from 0 to 2^(N-1) where N is the number of qubits. Since it is
+ * only necessary to do the non-trivial unitary, x is always 1.
  * 
  */
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
+    int root = pow2(ctrl); // Base of indices
+    int sep = pow2(targ); // Separation between 0 and 1 target positions
+    int increment = pow2(NUM_QUBITS - ctrl - targ); // Increment between 
+                                                    // adjacent mat muls
+    int step_max = STATE_LENGTH - sep - root; // Limit to step
+    // Perform the matrix multiplications
+    for (int step = 0; step < step_max; step += increment) {
+        mat_mul(op, state, root + step, root + sep + step);
+    }
+}
+
+
+
+
+
+
+void controlled_qubit_op_old(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     int root_max = pow2(targ); // Declared outside the loop
     int increment = 2 * root_max;
     /// ROOT loop: starts at 0, increases in steps of 1
