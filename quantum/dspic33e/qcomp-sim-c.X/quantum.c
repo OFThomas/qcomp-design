@@ -343,6 +343,7 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
     int sep = pow2(targ); // Separation between 0 and 1 target positions
     int increment = pow2(NUM_QUBITS - ctrl - targ); // Increment between 
                                                     // adjacent mat muls
+    ///@todo The problem is the formula for the increment
     int step_max = STATE_LENGTH - sep - root; // Limit to step
     // Perform the matrix multiplications
     for (int step = 0; step < step_max; step += increment) {
