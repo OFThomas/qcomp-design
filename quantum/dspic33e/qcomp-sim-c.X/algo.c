@@ -42,9 +42,14 @@ void swap_test(Complex state[]) {
     /// swap for ever!
     while (1) {
         swap(0, 1, state);
+        delay();
         swap(1, 2, state);
+        delay();
         swap(2, 3, state);
+        delay();
         swap(3, 0, state);
+        delay();
+
     }
 }
 
