@@ -36,6 +36,8 @@ void swap_test(Complex state[]) {
     display_average(state); // Display the state for four qubits
     delay();
 
+    
+    gate(X, 0, state);
     gate(H, 0, state);
     gate(X, 2, state);
 

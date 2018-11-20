@@ -45,40 +45,12 @@ int main(void) {
     setup_external_leds();
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
-    //zero_state(state);
-
+    zero_state(state);
+    gate(X, 0, state);
+    gate(H, 0, state);
+    //display_average(state);
+    
     //swap_test(state);
-    
-    reset_timer();
-    start_timer();
-   
-    for(unsigned long int j=0; j<1000; j++) {
-        single_qubit_op(X,0,state);
-    }
-    
-    unsigned long int result = 0;
-    result = read_timer();
-    int a=0, b=0;
-    int c = a + b;
-    while(1); // Breakpoint here
-    
-    
-    ///
-    /// @brief Reading button state
-    /// 
-    /// The button states are written into an array of type BUTTON_ARRAY
-    /// whose 
-    ///
-    extern int buttons[16]; /// Global variable for button state
-    read_external_buttons(); /// Update the buttons variable
-    if(buttons[0] == 1)
-        ; /// Do something if button 0 has been pressed...
-
-    //Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    //make_ops(X, Y, Z, H);
-    
-    /// Start of the PROGRAM!
-    toffoli_test(state);
 
     while(1); ///< @note Really important!
     return 0;
