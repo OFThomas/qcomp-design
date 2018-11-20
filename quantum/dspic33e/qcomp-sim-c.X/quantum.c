@@ -303,8 +303,8 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * indices are
  *
  *             I               X
- * i:     (0+0) (0+2)     (4+0) (4+4)           (ctrl = 2, targ = 0)
- * j:     (0+1) (0+3)     (4+1) (4+5)
+ * i:     (0+0) (0+2)     (4+0) (4+2)           (ctrl = 2, targ = 0)
+ * j:     (0+1) (0+3)     (4+1) (4+3)
  * 
  * Finally, if the control and target are 1 and 2, then
  * 
