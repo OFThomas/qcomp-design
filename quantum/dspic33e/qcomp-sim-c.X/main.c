@@ -48,6 +48,7 @@ int main(void) {
     zero_state(state);
     gate(X, 0, state);
     gate(H, 0, state);
+    gate(H, 1, state);
     //display_average(state);
     
     //swap_test(state);
