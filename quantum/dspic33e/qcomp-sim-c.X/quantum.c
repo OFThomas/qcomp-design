@@ -351,9 +351,7 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
 
 
 
-
-
-
+/// Old controlled qubit operations
 void controlled_qubit_op_old(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     int root_max = pow2(targ); // Declared outside the loop
     int increment = 2 * root_max;
