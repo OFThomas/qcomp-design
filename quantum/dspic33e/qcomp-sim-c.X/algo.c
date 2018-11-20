@@ -49,7 +49,10 @@ void swap_test(Complex state[]) {
         delay();
         swap(3, 0, state);
         delay();
+<<<<<<< HEAD
+=======
 
+>>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
     }
 }
 
@@ -85,11 +88,11 @@ void swap_test(Complex state[]) {
 /// q3 target
 void toffoli_gate(int q1, int q2, int q3, Complex state[]){
 
-    controlled_qubit_op(rX, q2, q3, state);     /// a
-    controlled_qubit_op(X, q1, q2, state);      /// b 
-    controlled_qubit_op(rXT, q2, q3, state);    /// c
-    controlled_qubit_op(X, q1, q2, state);      /// d
-    controlled_qubit_op(rX, q1, q3, state);     /// e
+    controlled_qubit_op(rX, q2, q3, state);     ///< a
+    controlled_qubit_op(X, q1, q2, state);      ///< b 
+    controlled_qubit_op(rXT, q2, q3, state);    ///< c
+    controlled_qubit_op(X, q1, q2, state);      ///< d
+    controlled_qubit_op(rX, q1, q3, state);     ///< e
     display_average(state);
 }
 

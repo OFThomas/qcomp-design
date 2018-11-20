@@ -26,7 +26,10 @@ extern "C" {
     /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
     /// @param state complex state vector 
     void zero_state(Complex state[]);
-  
+
+    /// returns phase quadrant 
+    int sign(Complex a);
+
     /// 2x2 complex matrix multiplication
     /// @param M complex matrix
     /// @param V complex vector
