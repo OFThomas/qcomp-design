@@ -110,7 +110,7 @@ void display_average(Complex state[]) {
         Q15 phase =0;
 
         int c =0;
-        int temp_phase=0;
+        Q15 temp_phase=0.0;
 
         /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < root_max; root ++) {
@@ -123,14 +123,18 @@ void display_average(Complex state[]) {
                 /// absolute value of the difference 
                 /// phase zero state - phase 1 state
                 c = abs( sign(state[root + step]) - sign(state[root + root_max + step]));
-                if(c==3) c=1;
                 /// \verbatim
-                /// c now equals 0 - no phase diff
-                ///              1 - re or im phase diff
-                ///              2 - complete phase diff
+                /// c now equals 0      - no phase diff
+                ///              1 or 3 - re or im phase diff
+                ///              2      - complete phase diff
                 /// \endverbatim
-                temp_phase += (c); 
-
+                
+                // if c==0 do nothing
+                // if c==1 add 0.5/(2^(n-1))
+                
+                if(c==1 | c==3) temp_phase += HALF_PHASE;
+                else if(c==2) temp_phase += FULL PHASE;
+                
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 
                 zero_amp += square_magnitude(state[root + step]);
@@ -142,7 +146,7 @@ void display_average(Complex state[]) {
         }
         /// write phase
         /// update leds for each qubits average zero and one amps
-        //phase = temp_phase/(root_max* STATE_LENGTH *2.0);     
+        phase = temp_phase;     
         set_external_led(k, phase, zero_amp, one_amp);
     }
 }

@@ -23,7 +23,13 @@ extern "C" {
 #define NUM_QUBITS 3
 #define STATE_LENGTH 8 // 2^NUM_QUBITS
 >>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
-    
+
+       // ONE_Q15 / 2^(N-1) 
+#define FULL PHASE 0.124996185
+        // half of full phase
+#define HALF_PHASE 0.062498093
+        
+        
 /// The number of external LEDs  
 #define LED_NUM 4 
 
