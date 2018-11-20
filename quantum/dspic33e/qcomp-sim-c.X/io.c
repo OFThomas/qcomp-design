@@ -231,11 +231,8 @@ void setup_external_leds(void) {
     // Turn timer 4 on
     T4CONbits.TON = 1;
     /// Turn timer 6 on
-<<<<<<< HEAD
-    T6CONbits.TON = 0;
-=======
+
     T6CONbits.TON = 0;/// @todo CURRENTLY CYCLING IS OFF
->>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
 }
 
 

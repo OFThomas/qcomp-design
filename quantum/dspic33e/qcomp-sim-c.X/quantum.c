@@ -350,7 +350,7 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * 
  * offset = 2^(N-ctrl-targ) * y
  * 
- * where N is the number of qubits (3 in the above case). Here, y is either 
+ * where N is the number of _qubits (3 in the above case). Here, y is either 
  * zero or one, and enumerates the operations that must be performed In other 
  * words, the index is given by the following expression
  * 

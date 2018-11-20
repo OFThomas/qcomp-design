@@ -46,12 +46,7 @@ int main(void) {
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
     //zero_state(state);
-<<<<<<< HEAD
-=======
-    
-    swap_test(state);
->>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
-    
+
     swap_test(state);
     
     /*

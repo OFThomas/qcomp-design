@@ -49,10 +49,6 @@ void swap_test(Complex state[]) {
         delay();
         swap(3, 0, state);
         delay();
-<<<<<<< HEAD
-=======
-
->>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
     }
 }
 
