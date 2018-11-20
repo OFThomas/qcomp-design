@@ -117,8 +117,8 @@ void display_average(Complex state[]) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
             for(int step = 0; step < STATE_LENGTH; step += increment) {
                             
-               /// sign retuns an int between 0 & 3 depending which quadrant the amp is in
-               /// get the difference between quadrents if 0&3 do modulo 2 to get 1.
+               /// sign returns an int between 0 & 3 depending which quadrant the amp is in
+               /// get the difference between quadrants if 0&3 do modulo 2 to get 1.
 
                 /// absolute value of the difference 
                 /// phase zero state - phase 1 state
