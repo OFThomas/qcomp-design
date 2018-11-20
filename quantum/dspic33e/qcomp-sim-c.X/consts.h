@@ -16,8 +16,13 @@ extern "C" {
 #include <stdbool.h>
 #include <stdlib.h>
     
+<<<<<<< HEAD
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
+=======
+#define NUM_QUBITS 3
+#define STATE_LENGTH 8 // 2^NUM_QUBITS
+>>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
     
 /// The number of external LEDs  
 #define LED_NUM 4 

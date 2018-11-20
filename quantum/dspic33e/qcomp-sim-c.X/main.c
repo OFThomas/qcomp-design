@@ -33,19 +33,24 @@ int main(void) {
     setup_clock();
     
     // Setup input/output (LEDs and buttons)
-    //setup_io();
+    setup_io();
 
     // Setup the timer
     setup_timer();
     
     // Setup SPI interface
-    //setup_spi();
+    setup_spi();
     
     // Setup the external LEDs
-    //setup_external_leds();
+    setup_external_leds();
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
     //zero_state(state);
+<<<<<<< HEAD
+=======
+    
+    swap_test(state);
+>>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
     
     swap_test(state);
     

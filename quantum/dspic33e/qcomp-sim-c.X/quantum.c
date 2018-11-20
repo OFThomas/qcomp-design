@@ -371,11 +371,11 @@ void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex
     int step_max = STATE_LENGTH - sep - root; // Limit to step
     // Perform the matrix multiplications
     for (int step = 0; step < step_max; step += increment) {
+        int a = 0;
+        a++;
         mat_mul(op, state, root + step, root + sep + step);
     }
 }
-
-
 
 /// Old controlled qubit operations
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
