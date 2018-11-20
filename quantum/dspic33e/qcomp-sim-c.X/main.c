@@ -45,8 +45,11 @@ int main(void) {
     //setup_external_leds();
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
-    zero_state(state);
+    //zero_state(state);
     
+    swap_test(state);
+    
+    /*
     reset_timer();
     start_timer();
    
@@ -78,6 +81,7 @@ int main(void) {
     /// Start of the PROGRAM!
     toffoli_test(state);
 
+     */
     while(1); ///< @note Really important!
     return 0;
 }

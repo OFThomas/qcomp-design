@@ -5,7 +5,7 @@
  * one qubit.
   * @authors J Scott, O Thomas
  * @date Nov 2018
-* 
+* @todo split into a complex math and operator files 
  */
 
 #include "quantum.h"
@@ -21,6 +21,31 @@ int pow2(int k) {
     for(int n = 0; n < k; n++)
         result *= 2; /// Multiply by 2
     return result;
+}
+
+/// 
+/// \verbatim
+///        Im
+//          |
+//     1    |   0
+//          |
+//  ----------------- Re
+//          |
+//     2    |   3
+//          |
+/// \endverbatim
+int sign(Complex a){
+    //real part
+    /// if real negative and im neg return -1
+    /// if real negative and im pos return -0.5
+    if(a[0] < 0.0){
+        if(a[1] < 0.0) return 2;
+        else return 1;
+    }
+    /// else if real pos and im negative return -0.5
+    else if(a[1] < 0.0) return 3;
+    /// else if both pos return 0
+    else return 0;
 }
 
 
@@ -133,7 +158,7 @@ void mat_mul(const Complex M[2][2], Complex V[], int i, int j) {
     V[i][0] = a;
     V[i][1] = b;
     V[j][0] = c;
-    V[j][0] = d;
+    V[j][1] = d;
     
     // Get me out of here
     return;
@@ -337,7 +362,7 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
  * only necessary to do the non-trivial unitary, x is always 1.
  * 
  */
-void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
+void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     ///@todo Replace pow2 with left rotations
     int root = pow2(ctrl); // Base of indices
     int sep = pow2(targ); // Separation between 0 and 1 target positions
@@ -353,7 +378,7 @@ void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex sta
 
 
 /// Old controlled qubit operations
-void controlled_qubit_op_old(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
+void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     int root_max = pow2(targ); // Declared outside the loop
     int increment = 2 * root_max;
     /// ROOT loop: starts at 0, increases in steps of 1

@@ -106,19 +106,44 @@ void display_average(Complex state[]) {
         int root_max = pow2(k);
         int increment = 2 * root_max;
         Q15 zero_amp = 0, one_amp = 0;
+        
+        Q15 phase =0;
+
+        int c =0;
+        int temp_phase=0;
+
         /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < root_max; root ++) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
             for(int step = 0; step < STATE_LENGTH; step += increment) {
+                            
+               /// sign retuns an int between 0 & 3 depending which quadrant the amp is in
+               /// get the difference between quadrents if 0&3 do modulo 2 to get 1.
+
+                /// absolute value of the difference 
+                /// phase zero state - phase 1 state
+                c = abs( sign(state[root + step]) - sign(state[root + root_max + step]));
+                if(c==3) c=1;
+                /// \verbatim
+                /// c now equals 0 - no phase diff
+                ///              1 - re or im phase diff
+                ///              2 - complete phase diff
+                /// \endverbatim
+                temp_phase += (c); 
+
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 
                 zero_amp += square_magnitude(state[root + step]);
                 /// Ones are at the index root + 2^k + step
                 one_amp += square_magnitude(state[root + root_max + step]);
+                
+
             }
         }
+        /// write phase
         /// update leds for each qubits average zero and one amps
-        set_external_led(k, 0, zero_amp, one_amp);
+        //phase = temp_phase/(root_max* STATE_LENGTH *2.0);     
+        set_external_led(k, phase, zero_amp, one_amp);
     }
 }
 

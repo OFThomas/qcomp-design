@@ -231,7 +231,7 @@ void setup_external_leds(void) {
     // Turn timer 4 on
     T4CONbits.TON = 1;
     /// Turn timer 6 on
-    T6CONbits.TON = 1;
+    T6CONbits.TON = 0;
 }
 
 
