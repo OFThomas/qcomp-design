@@ -15,28 +15,15 @@ extern "C" {
     
 #include <stdbool.h>
 #include <stdlib.h>
-<<<<<<< HEAD
-    
-<<<<<<< HEAD
+
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
-=======
-#define NUM_QUBITS 3
-#define STATE_LENGTH 8 // 2^NUM_QUBITS
->>>>>>> bac10470903230c54ca12f4c6c08f0b26fc89c81
 
        // ONE_Q15 / 2^(N-1) 
-#define FULL PHASE 0.124996185
+#define FULL_PHASE 0.124996185
         // half of full phase
 #define HALF_PHASE 0.062498093
-        
-        
-=======
 
-#define NUM_QUBITS 7
-#define STATE_LENGTH 128 // 2^NUM_QUBITS
-    
->>>>>>> 8f79996659122b79b46562aa7a950ce78d45e92e
 /// The number of external LEDs  
 #define LED_NUM 4 
 
