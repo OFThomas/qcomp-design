@@ -16,7 +16,7 @@
  * `extern buttons;' in a *.c file. Read buttons array us updated
  * by calling read_external_buttons
  */
-int buttons[16];
+int buttons[BTN_CHIP_NUM];
 
 /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
 /// @param device input LED number to change
@@ -501,7 +501,7 @@ int set_external_led(int index,
 //
 * @todo read buttons
 */
-#define BTN_CHIP_NUM 2
+
 int read_external_buttons(void) {
     // Bring SH low momentarily
     LATD &= ~(1 << SH); /// SH pin
@@ -516,10 +516,12 @@ int read_external_buttons(void) {
     for(int r = 0; r < BTN_CHIP_NUM; r++) {
         btn_byte = read_byte_spi_3();
         // loop over the bits in the byte
-        for(int s = 0; s < 8; s++) {
-            buttons[s] = ((btn_byte >> s) & 1); // Update the button array
-        }
+        // for(int s = 0; s < 8; s++) {
+            buttons[r] = btn_byte ; // Update the button array
+        //}
     }
+        int a=0;
+        a++;
     return 0;
     /// @todo button remappings...
 }
