@@ -22,6 +22,11 @@ void gate(const Complex op[2][2], int qubit, Complex state[]);
 /// perform controlled single qubit gate 
 void two_gate(const Complex op[2][2], int ctrl, int targ, Complex state[]);
 
+/// Display gates!!!
+void gate_display(const Complex op[2][2], int qubit, Complex state[]);
+void two_gate_display(const Complex op[2][2], int ctrl, int targ, Complex state[]);
+
+    
 /// swap using 3 cNots
 void swap(int q1, int q2, Complex state[]);
 

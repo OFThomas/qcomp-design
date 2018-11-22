@@ -43,27 +43,33 @@ int main(void) {
     
     // Setup the external LEDs
     setup_external_leds();
-
-    ///
-    /// @brief Reading button state
-    /// 
-    /// The button states are written into an array of type BUTTON_ARRAY
-    /// whose 
-    ///
-    extern int buttons[16]; /// Global variable for button state
-    read_external_buttons(); /// Update the buttons variable
-    if(buttons[0] == 1)
-        ; /// Do something if button 0 has been pressed...
-
-    //Complex X[2][2], Y[2][2], Z[2][2], H[2][2];
-    //make_ops(X, Y, Z, H);
-   
-    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 8 
-   
     
-    /// Start of the PROGRAM!
-    toffoli_test(state);
+    // Setup the external buttons
+    setup_external_buttons();
 
-    while(1); ///< @note Really important!
+    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
+
+
+    // set to vacuum
+    zero_state(state);
+    /// button reading test. 
+    while (1) {
+        // loop over all 4 qubits 
+        read_external_buttons();
+        // Read the qubit buttons
+        for (int n = 0; n < NUM_QUBITS; n++) {
+            if (read_qubit_btn(n) == 1) set_external_led(n, 0.0, 0.0, 0.9);
+            else set_external_led(n, 0.0, 0.0, 0.0);
+        }
+        for (int n = 0; n < NUM_BTNS - NUM_QUBITS - 1; n++) {
+            if (read_func_btn(n) == 1) set_external_led(n, 0.0, 0.9, 0);
+            /// Workaround below to prevent turning 4th LED off 
+            else if(n != 4) set_external_led(n, 0.0, 0.0, 0.0);
+        }
+    }
+
+    //swap_test(state);
+
+    while (1); ///< @note Really important!
     return 0;
 }

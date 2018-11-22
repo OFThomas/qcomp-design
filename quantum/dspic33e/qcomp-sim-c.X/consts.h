@@ -14,14 +14,26 @@ extern "C" {
 #endif
     
 #include <stdbool.h>
-    
+#include <stdlib.h>
+
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
-    
+
+       // ONE_Q15 / 2^(N-1) 
+#define FULL_PHASE 0.124996185
+        // half of full phase
+#define HALF_PHASE 0.062498093
+
 /// The number of external LEDs  
 #define LED_NUM 4 
+    
+/// number of total buttons
+#define NUM_BTNS 9 
 
 #define ONE_Q15 0.9999694824
+    
+// number of button drivers
+#define BTN_CHIP_NUM 2
     
 /// Basic fractional time
 typedef signed _Fract Q15; 

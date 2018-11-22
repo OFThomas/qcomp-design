@@ -35,11 +35,10 @@ extern "C" {
     /// @brief updates disp_state where the first 'return value of the function'elements
     /// are the nonzero elements of the state vector 'state'
     /// @param state complex state vector in
-    /// @param num_qubits int number of qubits in
     /// @param disp_state complex inout vector where the first n entries are the nonzero
     /// elements of 'state'
     /// @return returns the number of elements to look at in disp_state.
-    int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]);
+    int remove_zero_amp_states(Complex state[], int disp_state[]);
 
     /// @todo this
     int sort_states(Complex state[], int num_qubits);

@@ -99,24 +99,58 @@
  * 
  */
 void display_average(Complex state[]) {
-    int N = NUM_QUBITS;
+    ///@todo Bring all constants out of the loops. Don't use pow.
     /// Loop over all qubits k = 0, 1, 2, ... N-1
-    for (int k = 0; k < N; k ++) {
+    for (int k = 0; k < NUM_QUBITS; k ++) {
+        /// Compute powers of 2
+        int root_max = pow2(k);
+        int increment = 2 * root_max;
         Q15 zero_amp = 0, one_amp = 0;
+        
+        Q15 phase =0;
+
+        int c =0;
+        Q15 temp_phase=0.0;
+
         /// ROOT loop: starts at 0, increases in steps of 1
-        for(int root = 0; root < pow(2,k); root ++) {
+        for(int root = 0; root < root_max; root ++) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
-            for(int step = 0; step < pow(2,N); step += pow(2,k+1)) {
+            for(int step = 0; step < STATE_LENGTH; step += increment) {
+                            
+               /// sign returns an int between 0 & 3 depending which quadrant the amp is in
+               /// get the difference between quadrants if 0&3 do modulo 2 to get 1.
+
+                /// absolute value of the difference 
+                /// phase zero state - phase 1 state
+                c = abs( sign(state[root + step]) - sign(state[root + root_max + step]));
+                /// \verbatim
+                /// c now equals 0      - no phase diff
+                ///              1 or 3 - re or im phase diff
+                ///              2      - complete phase diff
+                /// \endverbatim
+                
+                // if c==0 do nothing
+                // if c==1 add 0.5/(2^(n-1))
+                
+                if(c==1 || c==3) 
+                    temp_phase += HALF_PHASE;
+                else if(c==2) 
+                    temp_phase += FULL_PHASE;
+                
                 /// Zeros are at the index root + step
-                zero_amp += pow(state[root + step][0],2);
+                /// @todo Rewrite pow for Q15 
+                zero_amp += square_magnitude(state[root + step]);
                 /// Ones are at the index root + 2^k + step
-                one_amp += pow(state[root + (int)pow(2,k) + step][0],2);
+                one_amp += square_magnitude(state[root + root_max + step]);
+                
+
             }
         }
+        /// write phase
         /// update leds for each qubits average zero and one amps
-        set_external_led(k, 0, zero_amp, one_amp);
+        phase = temp_phase;     
+        set_external_led(k, phase, zero_amp, one_amp);
     }
-delay();
 }
 
 /**
@@ -128,7 +162,7 @@ void display_cycle(Complex state[]) {
     int output[STATE_LENGTH];
     
     /// Filter the state
-    int cycle_length = remove_zero_amp_states(state, NUM_QUBITS, output);
+    int cycle_length = remove_zero_amp_states(state, output);
     
     /// Allocate RGB array
     RGB colors[cycle_length][NUM_QUBITS];
@@ -192,10 +226,9 @@ int sort_states(Complex state[], int num_qubits){
 /// In the Bell state example there are 2 values in disp_state, 0 & 3, count is returned
 /// as 3 which means take the first count-1 elements (in this case 2) of disp_state which 
 /// is 0,1 which is the correct elements
-int remove_zero_amp_states(Complex state[], int num_qubits, int disp_state[]) {
-    int N = pow(2, num_qubits);
+int remove_zero_amp_states(Complex state[], int disp_state[]) {
     int count = 0;
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < STATE_LENGTH; i++) {
         if (absolute(state[i]) > 0.0) {
             disp_state[count] = i;
             count++;

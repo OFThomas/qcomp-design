@@ -23,8 +23,8 @@
       <itemPath>spi.h</itemPath>
       <itemPath>algo.c</itemPath>
       <itemPath>algo.h</itemPath>
-      <itemPath>consts.c</itemPath>
       <itemPath>consts.h</itemPath>
+      <itemPath>consts.c</itemPath>
       <itemPath>display.c</itemPath>
       <itemPath>display.h</itemPath>
     </logicalFolder>
@@ -196,7 +196,7 @@
         <property key="preserve-file" value=""/>
         <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
-        <appendMe value="-std=gnu99"/>
+        <appendMe value="-std=gnu99 -O2"/>
       </C30Global>
       <PKOBSKDEPlatformTool>
         <property key="AutoSelectMemRanges" value="auto"/>

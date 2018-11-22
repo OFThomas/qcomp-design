@@ -1,3 +1,4 @@
+./makedocs.sh
 git pull
 git add *
 git commit -a

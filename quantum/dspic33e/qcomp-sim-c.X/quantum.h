@@ -26,7 +26,10 @@ extern "C" {
     /// Specify the dimension -- of the matrix, i.e. 2^(number of qubits)
     /// @param state complex state vector 
     void zero_state(Complex state[]);
-  
+
+    /// returns phase quadrant 
+    int sign(Complex a);
+
     /// 2x2 complex matrix multiplication
     /// @param M complex matrix
     /// @param V complex vector
@@ -53,6 +56,24 @@ extern "C" {
     
     /// abs function
     Q15 absolute(Complex x);
+
+    /**
+     * @brief A simple function to compute integer powers of 2
+     * @param k The exponent of 2 to compute
+     * @return 2^k
+     * 
+     */
+    int pow2(int k);
+
+    /**
+     * @brief Compute the magnitude squared of a complex number
+     * 
+     * @param x The input complex number x
+     * @return The value of |x|^2
+     * 
+     * @todo Maybe we should inline this 
+     */
+    Q15 square_magnitude(Complex x);
     
 #ifdef	__cplusplus
 }

@@ -1,7 +1,7 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/display.h" name="dspic33e/qcomp&#45;sim&#45;c.X/display.h">
-<area shape="rect" id="node2" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="43,95,126,121"/>
-<area shape="rect" id="node6" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="150,95,193,121"/>
-<area shape="rect" id="node4" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="93,169,165,196"/>
-<area shape="rect" id="node7" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="189,169,247,196"/>
-<area shape="rect" id="node8" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="193,244,243,271"/>
+<area shape="rect" id="node2" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="47,95,129,121"/>
+<area shape="rect" id="node7" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="153,95,196,121"/>
+<area shape="rect" id="node4" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="96,169,168,196"/>
+<area shape="rect" id="node8" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="192,169,251,196"/>
+<area shape="rect" id="node9" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="196,244,247,271"/>
 </map>

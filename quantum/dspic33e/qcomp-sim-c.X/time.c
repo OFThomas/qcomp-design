@@ -58,7 +58,7 @@ void setup_timer() {
     TMR2 = 0x0000;
     TMR3 = 0x0000;
     PR2 = 0xFFFF; // Set the period
-    PR3 = 0x0000;
+    PR3 = 0xFFFF;
     /// @todo distinguish between the two different timers here...
 }
 
