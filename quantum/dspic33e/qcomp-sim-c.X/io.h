@@ -54,6 +54,12 @@ extern "C" {
     // CLK_INH = RD8 = uC:68 = J1:58 = J11:25
     // \endverbatim
     */
+    
+    /// @brief button mapping type
+        typedef struct {
+        int chip; /// [chip number]
+        int line;/// bit position in the byte [line number]
+        } BTN;
 
     /// @brief Global LED strobing state parameter
     typedef struct {

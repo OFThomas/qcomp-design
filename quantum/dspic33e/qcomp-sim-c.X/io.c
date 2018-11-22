@@ -525,6 +525,51 @@ int read_external_buttons(void) {
     return 0;
     /// @todo button remappings...
 }
+//// button mapping
+/// 1st byte
+/// 00000100 btn A26-28 -> logical 0
+/// 00000010 btn A7-9   -> logical 6
+/// 00000001 btn A4-6   -> logical 7
+/// 00001000 btn A1-3   -> logical 8 
+/// 
+/// 2nd byte
+/// 10000000 btn A23-25 -> logical 1
+/// 00000010 btn A20-22 -> logical 2
+/// 00000100 btn A17-19 -> logical 3
+/// 00000001 btn A13-15 -> logical 4 
+/// 00001000 btn A10-12 -> logical 5
+BTN btn_qubit[NUM_QUBITS];
+/// logical 0
+btn_qubit[0].chip = 0;
+btn_qubit[0].line = 2;
+/// logical 1
+btn_qubit[1].chip = 1;
+btn_qubit[1].line = 7;
+/// logical 2
+btn_qubit[2].chip = 1;
+btn_qubit[2].line = 1;
+/// logical 3
+btn_qubit[3].chip = 1;
+btn_qubit[3].line = 2;
+
+/// @bug this.
+BTN btn_func[NUM_BTNS - NUM_QUBITS];
+/// logical 4
+btn_func[0].chip = 1;
+btn_func[0].line = 0;
+/// logical 5
+btn_func[1].chip = 1;
+btn.func[1].line = 3;
+/// logical 6
+btn.func[2].chip = 0;
+btn.func[2].line = 1;
+/// logical 7
+btn.func[3].chip = 0;
+btn.func[3].line = 0;
+/// logical 8
+btn.func[4].chip = 0;
+btn.func[4].line = 3;
+
 
 /**
  * @brief Loop to cycle through LEDs 0 - 15

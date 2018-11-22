@@ -26,6 +26,9 @@ extern "C" {
 
 /// The number of external LEDs  
 #define LED_NUM 4 
+    
+/// number of total buttons
+#define NUM_BTNS 9 
 
 #define ONE_Q15 0.9999694824
     
