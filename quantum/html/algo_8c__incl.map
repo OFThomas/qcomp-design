@@ -1,9 +1,9 @@
 <map id="dspic33e/qcomp&#45;sim&#45;c.X/algo.c" name="dspic33e/qcomp&#45;sim&#45;c.X/algo.c">
-<area shape="rect" id="node2" href="$algo_8h.html" title="header file for algorithms " alt="" coords="93,95,151,121"/>
-<area shape="rect" id="node3" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="43,244,126,271"/>
-<area shape="rect" id="node7" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="122,169,197,196"/>
-<area shape="rect" id="node5" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="93,319,165,345"/>
-<area shape="rect" id="node8" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="150,244,193,271"/>
-<area shape="rect" id="node9" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="189,319,247,345"/>
-<area shape="rect" id="node10" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="193,393,243,420"/>
+<area shape="rect" id="node2" href="$algo_8h.html" title="header file for algorithms " alt="" coords="97,95,154,121"/>
+<area shape="rect" id="node3" href="$quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="47,244,129,271"/>
+<area shape="rect" id="node8" href="$display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="125,169,200,196"/>
+<area shape="rect" id="node5" href="$consts_8h.html" title="header file for (global) constants " alt="" coords="96,319,168,345"/>
+<area shape="rect" id="node9" href="$io_8h.html" title="Description: Header file for input output functions. " alt="" coords="153,244,196,271"/>
+<area shape="rect" id="node10" href="$time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="192,319,251,345"/>
+<area shape="rect" id="node11" href="$spi_8h.html" title="Description: SPI communication functions. " alt="" coords="196,393,247,420"/>
 </map>

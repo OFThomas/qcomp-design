@@ -47,24 +47,15 @@ int main(void) {
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
     
 
+    // set to vacuum
+        zero_state(state);    
     /// button reading test. 
+    int btn =0;
     while(1){
-        // set to vacuum
-        zero_state(state);
-        // loop over all 4 qubits 
-        for(int i=0; i < NUM_QUBITS; i++){
-            // button buffer
-            if(btn==i){
-                gate_display(X,i,state);
-            }
-        }
+         // loop over all 4 qubits 
+        read_external_buttons();
     }
-    
-    gate(X, 0, state);
-    gate(H, 0, state);
-    gate(H, 1, state);
-    //display_average(state);
-    
+        
     //swap_test(state);
 
     while(1); ///< @note Really important!

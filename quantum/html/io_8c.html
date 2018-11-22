@@ -98,9 +98,6 @@ Macros</h2></td></tr>
 <tr class="memitem:af281425e62298bac2df0fbe8690a4844"><td class="memItemLeft" align="right" valign="top"><a id="af281425e62298bac2df0fbe8690a4844"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>PERIOD</b>&#160;&#160;&#160;500000</td></tr>
 <tr class="separator:af281425e62298bac2df0fbe8690a4844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23acb072acb9b41623cfca614f10a9a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a23acb072acb9b41623cfca614f10a9a7">BTN_CHIP_NUM</a>&#160;&#160;&#160;2</td></tr>
-<tr class="memdesc:a23acb072acb9b41623cfca614f10a9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read external buttons.  <a href="#a23acb072acb9b41623cfca614f10a9a7">More...</a><br /></td></tr>
-<tr class="separator:a23acb072acb9b41623cfca614f10a9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -160,7 +157,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <tr class="memdesc:af2a143e27a01fa3dadbb9030771478ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates color properties of global led array.  <a href="#af2a143e27a01fa3dadbb9030771478ef">More...</a><br /></td></tr>
 <tr class="separator:af2a143e27a01fa3dadbb9030771478ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#aedb7c3f9a532bae5bd32330fb1f2f4b8">read_external_buttons</a> (void)</td></tr>
-<tr class="memdesc:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the buttons array (see declaration above)  <a href="#aedb7c3f9a532bae5bd32330fb1f2f4b8">More...</a><br /></td></tr>
+<tr class="memdesc:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read external buttons.  <a href="#aedb7c3f9a532bae5bd32330fb1f2f4b8">More...</a><br /></td></tr>
 <tr class="separator:aedb7c3f9a532bae5bd32330fb1f2f4b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1bf99f09184b0112291c5eaa0832fb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#ae1bf99f09184b0112291c5eaa0832fb6">led_cycle_test</a> (void)</td></tr>
 <tr class="memdesc:ae1bf99f09184b0112291c5eaa0832fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loop to cycle through LEDs 0 - 15.  <a href="#ae1bf99f09184b0112291c5eaa0832fb6">More...</a><br /></td></tr>
@@ -172,9 +169,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a76df059cb7347e382a4fa70f08e80814"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a76df059cb7347e382a4fa70f08e80814">buttons</a> [16]</td></tr>
-<tr class="memdesc:a76df059cb7347e382a4fa70f08e80814"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the button states.  <a href="#a76df059cb7347e382a4fa70f08e80814">More...</a><br /></td></tr>
-<tr class="separator:a76df059cb7347e382a4fa70f08e80814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e3d9a11c267245297da0349abe3a9fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a8e3d9a11c267245297da0349abe3a9fb">buttons</a> [BTN_CHIP_NUM]</td></tr>
+<tr class="memdesc:a8e3d9a11c267245297da0349abe3a9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the button states.  <a href="#a8e3d9a11c267245297da0349abe3a9fb">More...</a><br /></td></tr>
+<tr class="separator:a8e3d9a11c267245297da0349abe3a9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3240a0ec7160d6bae6cc4a7bab8494c7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structLED__GLOBAL.html">LED_GLOBAL</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a3240a0ec7160d6bae6cc4a7bab8494c7">led_global</a> = {0}</td></tr>
 <tr class="separator:a3240a0ec7160d6bae6cc4a7bab8494c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ae3bccffd844c51949ca06b0b52279"><td class="memItemLeft" align="right" valign="top"><a id="a11ae3bccffd844c51949ca06b0b52279"></a>
@@ -205,33 +202,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>last_row</b> = 0</td><
 <tr class="memitem:aa1df51c1f8ec630b5d633eb09ec42097"><td class="memItemLeft" align="right" valign="top"><a id="aa1df51c1f8ec630b5d633eb09ec42097"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0</td></tr>
 <tr class="separator:aa1df51c1f8ec630b5d633eb09ec42097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca92427ed515abb7865d9d5bdd764b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structBTN.html">BTN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#afca92427ed515abb7865d9d5bdd764b1">btn_qubit</a> [NUM_QUBITS] = 1</td></tr>
+<tr class="memdesc:afca92427ed515abb7865d9d5bdd764b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">button mapping 1st byte 00000100 btn A26-28 -&gt; logical 0 00000010 btn A7-9 -&gt; logical 6 00000001 btn A4-6 -&gt; logical 7 00001000 btn A1-3 -&gt; logical 8  <a href="#afca92427ed515abb7865d9d5bdd764b1">More...</a><br /></td></tr>
+<tr class="separator:afca92427ed515abb7865d9d5bdd764b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2928302e19e150cd5833e37ec191962d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="io_8c.html#afca92427ed515abb7865d9d5bdd764b1">btn_qubit</a> [0]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a2928302e19e150cd5833e37ec191962d">chip</a> = 0</td></tr>
+<tr class="memdesc:a2928302e19e150cd5833e37ec191962d"><td class="mdescLeft">&#160;</td><td class="mdescRight">logical 0  <a href="#a2928302e19e150cd5833e37ec191962d">More...</a><br /></td></tr>
+<tr class="separator:a2928302e19e150cd5833e37ec191962d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bceba606cebb48fae5e96d15af49c5e"><td class="memItemLeft" align="right" valign="top"><a id="a1bceba606cebb48fae5e96d15af49c5e"></a>
+<a class="el" href="io_8c.html#afca92427ed515abb7865d9d5bdd764b1">btn_qubit</a> [0]&#160;</td><td class="memItemRight" valign="bottom"><b>line</b> = 2</td></tr>
+<tr class="separator:a1bceba606cebb48fae5e96d15af49c5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a133140a862d86c2c2618320b0d2a4649"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structBTN.html">BTN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8c.html#a133140a862d86c2c2618320b0d2a4649">btn_func</a> [<a class="el" href="consts_8h.html#a2e8c97a165aba89fcbb18194537d8f92">NUM_BTNS</a> - NUM_QUBITS] = 1</td></tr>
+<tr class="memdesc:a133140a862d86c2c2618320b0d2a4649"><td class="mdescLeft">&#160;</td><td class="mdescRight">logical 4  <a href="#a133140a862d86c2c2618320b0d2a4649">More...</a><br /></td></tr>
+<tr class="separator:a133140a862d86c2c2618320b0d2a4649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains all the functions for reading buttons and writing to LEDs. </p>
 <dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a23acb072acb9b41623cfca614f10a9a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23acb072acb9b41623cfca614f10a9a7">&#9670;&nbsp;</a></span>BTN_CHIP_NUM</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BTN_CHIP_NUM&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Read external buttons. </p>
-<p>The external buttons are interfaced to the microcontroller via a shift register. Data is shifted in a byte at a time using the SPI 3 module. The sequence to read the buttons is as follows:</p>
-<p>1) Momentarily bring SH low to latch button data into the shift registers 2) Bring CLK_INH low to enable the clock input on the shift register 3) Start the SPI 3 clock and read data in via the SDI 3 line</p>
-<p>The control lines SH and CLK_INH are on port D</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>read buttons </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a64653c452ab199760e9cdd6bdbbeeb76"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a64653c452ab199760e9cdd6bdbbeeb76">&#9670;&nbsp;</a></span>__attribute__()</h2>
 
@@ -433,7 +421,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
 </div><div class="memdoc">
 
 <p>Loop to cycle through LEDs 0 - 15. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
 
 </div>
 </div>
@@ -480,10 +468,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
       </table>
 </div><div class="memdoc">
 
-<p>Update the buttons array (see declaration above) </p>
+<p>Read external buttons. </p>
+<p>Update the buttons array (see declaration above)</p>
+<p>The external buttons are interfaced to the microcontroller via a shift register. Data is shifted in a byte at a time using the SPI 3 module. The sequence to read the buttons is as follows:</p>
+<p>1) Momentarily bring SH low to latch button data into the shift registers 2) Bring CLK_INH low to enable the clock input on the shift register 3) Start the SPI 3 clock and read data in via the SDI 3 line</p>
+<p>The control lines SH and CLK_INH are on port D</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>read buttons </dd></dl>
 <p>SH pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>button remappings... </dd></dl>
 
 </div>
 </div>
@@ -505,7 +498,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
 
 <p>Reset the <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> display cycle _*. </p>
 <p>Reset the display cycle. Called before adding anything.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>do it</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>do it</dd></dl>
 
 </div>
 </div>
@@ -663,7 +656,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
 <p>Initialise parameters to zero</p>
 <p>Initialise display buffer to zero</p>
 <p>Set flashing period</p>
-<p>Turn timer 6 on </p>
+<p>Turn timer 6 on</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>CURRENTLY CYCLING IS OFF </dd></dl>
 
 </div>
 </div>
@@ -717,7 +711,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>mode switcher for <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> Driver </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>mode switcher for <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> Driver </dd></dl>
 
 </div>
 </div>
@@ -825,25 +819,87 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>cycle_counter</b> = 0<
 <p>To write to the device, use the SPI module to write a byte to the SDI 1 pin on the chip. Then momentarily set the <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin to latch the data onto the output register. Finally, bring the OE(ED2) pin low to enable the current sinking to turn on the LEDs. See the timing diagram on page 17 of the datasheet for details.</p>
 <p><a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> and OE(ED2) will be on Port D </p>
 <p>Set <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a76df059cb7347e382a4fa70f08e80814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76df059cb7347e382a4fa70f08e80814">&#9670;&nbsp;</a></span>buttons</h2>
+<a id="a133140a862d86c2c2618320b0d2a4649"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a133140a862d86c2c2618320b0d2a4649">&#9670;&nbsp;</a></span>btn_func</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int buttons[16]</td>
+          <td class="memname">btn_func = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>logical 4 </p>
+<p>logical 5</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>this. </dd></dl>
+
+</div>
+</div>
+<a id="afca92427ed515abb7865d9d5bdd764b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca92427ed515abb7865d9d5bdd764b1">&#9670;&nbsp;</a></span>btn_qubit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">btn_qubit = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>button mapping 1st byte 00000100 btn A26-28 -&gt; logical 0 00000010 btn A7-9 -&gt; logical 6 00000001 btn A4-6 -&gt; logical 7 00001000 btn A1-3 -&gt; logical 8 </p>
+<p>logical 3</p>
+<p>logical 2</p>
+<p>logical 1</p>
+<p>2nd byte 10000000 btn A23-25 -&gt; logical 1 00000010 btn A20-22 -&gt; logical 2 00000100 btn A17-19 -&gt; logical 3 00000001 btn A13-15 -&gt; logical 4 00001000 btn A10-12 -&gt; logical 5 </p>
+
+</div>
+</div>
+<a id="a8e3d9a11c267245297da0349abe3a9fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e3d9a11c267245297da0349abe3a9fb">&#9670;&nbsp;</a></span>buttons</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int buttons[BTN_CHIP_NUM]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Contains the button states. </p>
 <p>Each entry in the array is either 1 if the button is pressed or 0 if not. The array is accessed globally using `extern buttons;' in a *.c file. Read buttons array us updated by calling read_external_buttons </p>
+
+</div>
+</div>
+<a id="a2928302e19e150cd5833e37ec191962d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2928302e19e150cd5833e37ec191962d">&#9670;&nbsp;</a></span>chip</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">btn func [4] chip = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>logical 0 </p>
+<p>logical 8</p>
+<p>logical 7</p>
+<p>logical 6</p>
+<p>logical 5</p>
+<p>logical 4</p>
+<p>logical 3</p>
+<p>logical 2</p>
+<p>logical 1 </p>
 
 </div>
 </div>

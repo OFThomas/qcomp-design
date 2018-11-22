@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['display_5fbuf',['display_buf',['../io_8c.html#af88c57a82a9e95871b599e5d4534087d',1,'io.c']]]
+  ['chip',['chip',['../io_8c.html#a2928302e19e150cd5833e37ec191962d',1,'io.c']]]
 ];

@@ -16,7 +16,7 @@
  * `extern buttons;' in a *.c file. Read buttons array us updated
  * by calling read_external_buttons
  */
-int buttons[16];
+int buttons[BTN_CHIP_NUM];
 
 /// @brief Takes led number & RGB -> returns integer for sending via SPI to set the LED
 /// @param device input LED number to change
@@ -187,10 +187,40 @@ void __attribute__((__interrupt__, no_auto_psv)) _T7Interrupt(void) {
     // Clear Timer7 interrupt flag
     IFS3bits.T7IF = 0;
 }
-    
+
+//// button mapping
+/// 1st byte
+/// 00000100 btn A26-28 -> logical 0
+/// 00000010 btn A7-9   -> logical 6
+/// 00000001 btn A4-6   -> logical 7
+/// 00001000 btn A1-3   -> logical 8 
+/// 
+/// 2nd byte
+/// 10000000 btn A23-25 -> logical 1
+/// 00000010 btn A20-22 -> logical 2
+/// 00000100 btn A17-19 -> logical 3
+/// 00000001 btn A13-15 -> logical 4 
+/// 00001000 btn A10-12 -> logical 5
+BTN btn_qubit[NUM_QUBITS]; /// <--- Global in this file
+/// @bug this.
+BTN btn_func[NUM_BTNS - NUM_QUBITS]; /// <--- Global in this file
+
 /// @brief Set external variable RGB LEDs
 void setup_external_leds(void) {
 
+    /// For the qubits
+    btn_qubit[0].chip = 0; btn_qubit[0].line = 2; /// logical 0
+    btn_qubit[1].chip = 1; btn_qubit[1].line = 7; /// logical 1
+    btn_qubit[2].chip = 1; btn_qubit[2].line = 1; /// logical 2
+    btn_qubit[3].chip = 1; btn_qubit[3].line = 2; /// logical 3
+
+    /// For the function buttons
+    btn_func[0].chip = 1; btn_func[0].line = 0; /// logical 4
+    btn_func[1].chip = 1; btn_func[1].line = 3; /// logical 5
+    btn_func[2].chip = 0; btn_func[2].line = 1; /// logical 6
+    btn_func[3].chip = 0; btn_func[3].line = 0; /// logical 7
+    btn_func[4].chip = 0; btn_func[4].line = 3; /// logical 8
+    
     /// Initialise LED lines
     led[0].R[1] = 4; led[0].R[0] = 0;
     led[0].G[1] = 2; led[0].G[0] = 0;
@@ -501,7 +531,7 @@ int set_external_led(int index,
 //
 * @todo read buttons
 */
-#define BTN_CHIP_NUM 2
+
 int read_external_buttons(void) {
     // Bring SH low momentarily
     LATD &= ~(1 << SH); /// SH pin
@@ -516,13 +546,17 @@ int read_external_buttons(void) {
     for(int r = 0; r < BTN_CHIP_NUM; r++) {
         btn_byte = read_byte_spi_3();
         // loop over the bits in the byte
-        for(int s = 0; s < 8; s++) {
-            buttons[s] = ((btn_byte >> s) & 1); // Update the button array
-        }
+        // for(int s = 0; s < 8; s++) {
+            buttons[r] = btn_byte ; // Update the button array
+        //}
     }
+        int a=0;
+        a++;
     return 0;
     /// @todo button remappings...
 }
+
+
 
 /**
  * @brief Loop to cycle through LEDs 0 - 15

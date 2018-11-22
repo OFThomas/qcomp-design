@@ -26,8 +26,14 @@ extern "C" {
 
 /// The number of external LEDs  
 #define LED_NUM 4 
+    
+/// number of total buttons
+#define NUM_BTNS 9 
 
 #define ONE_Q15 0.9999694824
+    
+// number of button drivers
+#define BTN_CHIP_NUM 2
     
 /// Basic fractional time
 typedef signed _Fract Q15; 
