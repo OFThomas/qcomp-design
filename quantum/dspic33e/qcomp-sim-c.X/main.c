@@ -43,16 +43,28 @@ int main(void) {
     
     // Setup the external LEDs
     setup_external_leds();
+    
+    // Setup the external buttons
+    setup_external_buttons();
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
+
+
+    // set to vacuum
     zero_state(state);
-    gate(X, 0, state);
-    gate(H, 0, state);
-    gate(H, 1, state);
-    //display_average(state);
-    
+    /// button reading test. 
+    while (1) {
+        // loop over all 4 qubits 
+        read_external_buttons();
+        // Read the qubit buttons
+        for (int n = 0; n < NUM_QUBITS; n++) {
+            if (read_qubit_btn(n) == 1) set_external_led(n, 0.0, 0.0, 0.9);
+            else set_external_led(n, 0.0, 0.0, 0.0);
+        }
+    }
+
     //swap_test(state);
 
-    while(1); ///< @note Really important!
+    while (1); ///< @note Really important!
     return 0;
 }

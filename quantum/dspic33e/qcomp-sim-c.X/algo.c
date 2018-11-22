@@ -7,20 +7,39 @@
 
 #include "algo.h"
 
-/// @brief 
+/// @brief single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]){
+    /// does 2x2 operator on state vector
+    single_qubit_op(op, qubit, state);
+}
+
+/// @brief single qubit gate with display  
+void gate_display(const Complex op[2][2], int qubit, Complex state[]){
     /// does 2x2 operator on state vector
     /// displays the average state of the qubit by tracing over all 
     /// waits to let the user see the state (LEDs)
     single_qubit_op(op, qubit, state);
     display_average(state);
+    delay();
 }
 
+/// @brief two-qubit gate 
 void two_gate(const Complex op[2][2], int ctrl, int targ, Complex state[]){
     /// does controlled 2x2 operator 
     controlled_qubit_op(op, ctrl, targ, state);
-    display_average(state);
 }
+
+/// @brief two-qubit gate with display
+void two_gate_display(const Complex op[2][2], int ctrl, int targ, Complex state[]){
+    /// does controlled 2x2 operator 
+    /// displays the state 
+    /// waits to let the user see the state 
+    controlled_qubit_op(op, ctrl, targ, state);
+    display_average(state);
+    delay();
+}
+
+
 
 void swap(int q1, int q2, Complex state[]){
    

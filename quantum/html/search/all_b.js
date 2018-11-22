@@ -4,5 +4,6 @@ var searchData=
   ['n_5fg',['N_G',['../structLED.html#a6054598e9b4d400c9ada40e8e2922ee2',1,'LED']]],
   ['n_5fr',['N_R',['../structLED.html#a15d684728fa755efcdbfc6d213521792',1,'LED']]],
   ['next',['next',['../structcycle__node.html#a275ba7a105beb92123f7a0eb92321108',1,'cycle_node']]],
+  ['num_5fbtns',['NUM_BTNS',['../consts_8h.html#a2e8c97a165aba89fcbb18194537d8f92',1,'consts.h']]],
   ['num_5fmax_5famps',['NUM_MAX_AMPS',['../display_8c.html#a43ed06e2eeade77b541d88b3fe875a05',1,'display.c']]]
 ];
