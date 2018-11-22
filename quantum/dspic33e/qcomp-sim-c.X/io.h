@@ -91,6 +91,27 @@ extern "C" {
     
     /// Set up LEDs and buttons on port D 
     int setup_io(void);
+
+    /**
+     * @brief All the setup for external buttons
+     */
+    void setup_external_buttons(void);
+
+    /**
+     * @brief Read the state of a qubit button
+     * @param btn The index of the button to read
+     * @return the state of the button -- 1 if pressed, 0 if not
+     * 
+     */
+    int read_qubit_btn(int btn);
+
+    /**
+     * @brief Read the state of a qubit button
+     * @param btn The index of the button to read
+     * @return the state of the button -- 1 if pressed, 0 if not
+     * 
+     */
+    int read_func_btn(int btn);
     
     /// @brief Set external variable RGB LEDs
     void setup_external_leds(void);

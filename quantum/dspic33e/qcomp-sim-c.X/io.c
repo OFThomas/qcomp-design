@@ -205,9 +205,11 @@ BTN btn_qubit[NUM_QUBITS]; /// <--- Global in this file
 /// @bug this.
 BTN btn_func[NUM_BTNS - NUM_QUBITS]; /// <--- Global in this file
 
-/// @brief Set external variable RGB LEDs
-void setup_external_leds(void) {
-
+/**
+ * @brief All the setup for external buttons
+ */
+void setup_external_buttons(void) {
+    
     /// For the qubits
     btn_qubit[0].chip = 0; btn_qubit[0].line = 2; /// logical 0
     btn_qubit[1].chip = 1; btn_qubit[1].line = 7; /// logical 1
@@ -220,6 +222,49 @@ void setup_external_leds(void) {
     btn_func[2].chip = 0; btn_func[2].line = 1; /// logical 6
     btn_func[3].chip = 0; btn_func[3].line = 0; /// logical 7
     btn_func[4].chip = 0; btn_func[4].line = 3; /// logical 8
+    
+    // Do other setup procedures here 
+    
+}
+
+/**
+ * @brief Read the state of a qubit button
+ * @param btn The index of the button to read
+ * @return the state of the button -- 1 if pressed, 0 if not
+ * 
+ */
+int read_qubit_btn(int btn) {
+    /// The button state is in the buttons array
+    /// Each element of that array is a byte
+    /// Get the relevant byte
+    int byte = buttons[btn_qubit[btn].chip];
+    /// Retrieve the value of the right bit
+    int value = (byte >> btn_qubit[btn].line) & 0x01;
+    /// Return the button state
+    return value;
+}
+
+/**
+ * @brief Read the state of a qubit button
+ * @param btn The index of the button to read
+ * @return the state of the button -- 1 if pressed, 0 if not
+ * 
+ */
+int read_func_btn(int btn) {
+    /// The button state is in the buttons array
+    /// Each element of that array is a byte
+    /// Get the relevant byte
+    int byte = buttons[btn_func[btn].chip];
+    /// Retrieve the value of the right bit
+    int value = (byte >> btn_func[btn].line) & 0x01;
+    /// Return the button state
+    return value;
+}
+
+
+/// @brief Set external variable RGB LEDs
+void setup_external_leds(void) {
+
     
     /// Initialise LED lines
     led[0].R[1] = 4; led[0].R[0] = 0;
