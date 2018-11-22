@@ -61,6 +61,10 @@ int main(void) {
             if (read_qubit_btn(n) == 1) set_external_led(n, 0.0, 0.0, 0.9);
             else set_external_led(n, 0.0, 0.0, 0.0);
         }
+        for (int n = 0; n < NUM_BTNS - NUM_QUBITS - 1; n++) {
+            if (read_func_btn(n) == 1) set_external_led(n, 0.0, 0.9, 0);
+            else set_external_led(n, 0.0, 0.0, 0.0);
+        }
     }
 
     //swap_test(state);
