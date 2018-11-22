@@ -52,23 +52,82 @@ int main(void) {
 
     // set to vacuum
     zero_state(state);
-    /// button reading test. 
+    display_average(state);
+    
+    /// Test single qubit gates
+    
+    /** In this test the qubit buttons (0 - 3) will be used to select a qubit 
+     * and the function buttons (4 - 6) will be used to perform an operation
+     * on the selected qubit (X, Z or H).
+     * 
+     * The loop is made of two parts. The first waits for a qubit to be
+     * selected and the second chooses a single qubit operation for that
+     * qubit. Once the gate has been pressed the operation is immediately
+     * executed and the loop repeats.
+     * 
+     */
+    int select_qubit = -1;
+    int select_op = -1;
     while (1) {
-        // loop over all 4 qubits 
-        read_external_buttons();
-        // Read the qubit buttons
-        for (int n = 0; n < NUM_QUBITS; n++) {
-            if (read_qubit_btn(n) == 1) set_external_led(n, 0.0, 0.0, 0.9);
-            else set_external_led(n, 0.0, 0.0, 0.0);
-        }
-        for (int n = 0; n < NUM_BTNS - NUM_QUBITS - 1; n++) {
-            if (read_func_btn(n) == 1) set_external_led(n, 0.0, 0.9, 0);
-            /// Workaround below to prevent turning 4th LED off 
-            else if(n != 4) set_external_led(n, 0.0, 0.0, 0.0);
-        }
-    }
+        while (1) { /// Wait for qubit to be selected
+            // Read all the button state
+            read_external_buttons();
 
-    //swap_test(state);
+            // Check whether a qubit has been selected
+            for (int n = 0; n < NUM_QUBITS; n++) {
+                if (read_qubit_btn(n) == 1) {
+                    select_qubit = n;
+                }
+            }
+            
+            /// Check whether a qubit button was pressed
+            if(select_qubit != -1) {
+                break; /// Move onto the next part of the loop
+            }
+        } /// End of qubit select 
+
+        while (1) { /// Wait for a qubit operation to be selected
+            // Read all the button state
+            read_external_buttons();
+
+            // Check whether a qubit has been selected
+            for (int n = 0; n < 4; n++) {
+                if (read_func_btn(n) == 1) {
+                    select_op = n;
+                }
+            }
+
+            /// Check whether a qubit button was pressed
+            if (select_op != -1) {
+                break; /// Move onto the operation
+            }
+
+        } /// End of operation select
+        
+        /// Perform the single qubit gate
+        switch(select_op) {
+            case 0: 
+                single_qubit_op(X, select_qubit, state);
+                display_average(state);
+                break;
+            case 1:
+                single_qubit_op(Z, select_qubit, state);
+                display_average(state);
+                break;
+            case 2:
+                single_qubit_op(H, select_qubit, state);
+                display_average(state);
+                break;
+            default:
+                break; ///Do nothing   
+                
+        } /// End of switch
+        
+        /// Reset the qubit and operation select variables
+        select_qubit = -1;
+        select_op = -1;
+        
+    }
 
     while (1); ///< @note Really important!
     return 0;
