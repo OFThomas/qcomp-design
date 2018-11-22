@@ -63,7 +63,8 @@ int main(void) {
         }
         for (int n = 0; n < NUM_BTNS - NUM_QUBITS - 1; n++) {
             if (read_func_btn(n) == 1) set_external_led(n, 0.0, 0.9, 0);
-            else set_external_led(n, 0.0, 0.0, 0.0);
+            /// Workaround below to prevent turning 4th LED off 
+            else if(n != 4) set_external_led(n, 0.0, 0.0, 0.0);
         }
     }
 
