@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['num_5fmax_5famps',['NUM_MAX_AMPS',['../display_8c.html#a43ed06e2eeade77b541d88b3fe875a05',1,'display.c']]]
+  ['red',['red',['../io_8h.html#ab435487e41a1d42d4379464e35f873b4',1,'io.h']]]
 ];

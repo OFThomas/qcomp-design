@@ -119,6 +119,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5699149d9f8da95b284d42ab8d004b21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a5699149d9f8da95b284d42ab8d004b21">zero_state</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a5699149d9f8da95b284d42ab8d004b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise state to the vacuum (zero apart from the first position) Specify the dimension &ndash; of the matrix, i.e.  <a href="#a5699149d9f8da95b284d42ab8d004b21">More...</a><br /></td></tr>
 <tr class="separator:a5699149d9f8da95b284d42ab8d004b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a112e319d431a2827c78e971f9ca7dd41"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a112e319d431a2827c78e971f9ca7dd41">sign</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> a)</td></tr>
+<tr class="memdesc:a112e319d431a2827c78e971f9ca7dd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns phase quadrant  <a href="#a112e319d431a2827c78e971f9ca7dd41">More...</a><br /></td></tr>
+<tr class="separator:a112e319d431a2827c78e971f9ca7dd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a034aae000da9f5544033abebbef4c5e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> M[2][2], <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> V[], int i, int j)</td></tr>
 <tr class="memdesc:a034aae000da9f5544033abebbef4c5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">2x2 complex matrix multiplication  <a href="#a034aae000da9f5544033abebbef4c5e0">More...</a><br /></td></tr>
 <tr class="separator:a034aae000da9f5544033abebbef4c5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,6 +134,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
 <tr class="memdesc:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">abs function  <a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">More...</a><br /></td></tr>
 <tr class="separator:a4c505ea21f44c1e8e4f15b71b19b8cf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc94e50e1ffbc70dd687a48f34230d2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#a0dc94e50e1ffbc70dd687a48f34230d2">pow2</a> (int k)</td></tr>
+<tr class="memdesc:a0dc94e50e1ffbc70dd687a48f34230d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple function to compute integer powers of 2.  <a href="#a0dc94e50e1ffbc70dd687a48f34230d2">More...</a><br /></td></tr>
+<tr class="separator:a0dc94e50e1ffbc70dd687a48f34230d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad005ad233c481de9229e4c1c0dcf5d36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8h.html#ad005ad233c481de9229e4c1c0dcf5d36">square_magnitude</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> x)</td></tr>
+<tr class="memdesc:ad005ad233c481de9229e4c1c0dcf5d36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the magnitude squared of a complex number.  <a href="#ad005ad233c481de9229e4c1c0dcf5d36">More...</a><br /></td></tr>
+<tr class="separator:ad005ad233c481de9229e4c1c0dcf5d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Description: Header file containing all the matrix arithmetic for simulating a single qubit. </p>
@@ -161,7 +170,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The absolute value </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
 
 </div>
 </div>
@@ -213,19 +222,13 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>apply controlled 2x2 op</p>
-<pre class="fragment">///    00 01 10 11
-/// 00( 1  0  0  0   )
-/// 01( 0  1  0  0   )
-/// 10( 0  0 u00 u01 )
-/// 11( 0  0 u10 u11 )
-/// </pre><p> checks that the control qubit is |1&gt; then does 2x2 unitary on remaining state vector </p>
+<p>apply controlled 2x2 op </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. </dd></dl>
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
 
 </div>
 </div>
@@ -277,7 +280,79 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+<p>2x2 complex matrix multiplication</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">M</td><td>A 2x2 complex matrix </td></tr>
+    <tr><td class="paramname">V</td><td>A Nx1 complex vector </td></tr>
+    <tr><td class="paramname">i</td><td>The first index to pick from the vector V </td></tr>
+    <tr><td class="paramname">j</td><td>The second index to pick from the vector V </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Is static enough? Or should we declare outside the function? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Should we use for loops? Or is it better not to..? </dd></dl>
+<p>This is necessary because the previous computations use V </p>
+
+</div>
+</div>
+<a id="a0dc94e50e1ffbc70dd687a48f34230d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc94e50e1ffbc70dd687a48f34230d2">&#9670;&nbsp;</a></span>pow2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int pow2 </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A simple function to compute integer powers of 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The exponent of 2 to compute </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>2^k </dd></dl>
+<p>Multiply by 2 </p>
+
+</div>
+</div>
+<a id="a112e319d431a2827c78e971f9ca7dd41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a112e319d431a2827c78e971f9ca7dd41">&#9670;&nbsp;</a></span>sign()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int sign </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns phase quadrant </p>
+<pre class="fragment">///        Im
+//          |
+//     1    |   0
+//          |
+//  ----------------- Re
+//          |
+//     2    |   3
+//          |
+/// </pre> <p>if real negative and im neg return -1 if real negative and im pos return -0.5</p>
+<p>else if real pos and im negative return -0.5</p>
+<p>else if both pos return 0 </p>
 
 </div>
 </div>
@@ -356,7 +431,43 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>corresponds to the ONE entry. </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>First index is ZERO, second index is ONE </p>
+<p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
+
+</div>
+</div>
+<a id="ad005ad233c481de9229e4c1c0dcf5d36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad005ad233c481de9229e4c1c0dcf5d36">&#9670;&nbsp;</a></span>square_magnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92">Q15</a> square_magnitude </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the magnitude squared of a complex number. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input complex number x </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of |x|^2</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000027">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The input complex number x </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The value of |x|^2</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
 
 </div>
 </div>

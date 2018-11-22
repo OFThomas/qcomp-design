@@ -78,24 +78,30 @@ Include dependency graph for algo.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="algo_8c__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2algo_8c" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2algo_8c" id="dspic33e_2qcomp-sim-c_8X_2algo_8c">
-<area shape="rect" id="node2" href="algo_8h.html" title="header file for algorithms " alt="" coords="93,95,151,121"/>
-<area shape="rect" id="node3" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="43,244,126,271"/>
-<area shape="rect" id="node7" href="display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="122,169,197,196"/>
-<area shape="rect" id="node5" href="consts_8h.html" title="header file for (global) constants " alt="" coords="93,319,165,345"/>
-<area shape="rect" id="node8" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="150,244,193,271"/>
-<area shape="rect" id="node9" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="189,319,247,345"/>
-<area shape="rect" id="node10" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="193,393,243,420"/>
+<area shape="rect" id="node2" href="algo_8h.html" title="header file for algorithms " alt="" coords="97,95,154,121"/>
+<area shape="rect" id="node3" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="47,244,129,271"/>
+<area shape="rect" id="node8" href="display_8h.html" title="Description: Header file containing all the functions for displaying the qubits state vector..." alt="" coords="125,169,200,196"/>
+<area shape="rect" id="node5" href="consts_8h.html" title="header file for (global) constants " alt="" coords="96,319,168,345"/>
+<area shape="rect" id="node9" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="153,244,196,271"/>
+<area shape="rect" id="node10" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="192,319,251,345"/>
+<area shape="rect" id="node11" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="196,393,247,420"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af673f8534d0884210ca8586df1b8bbb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af673f8534d0884210ca8586df1b8bbb5">gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:af673f8534d0884210ca8586df1b8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#af673f8534d0884210ca8586df1b8bbb5">More...</a><br /></td></tr>
+<tr class="memdesc:af673f8534d0884210ca8586df1b8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">single qubit gate  <a href="#af673f8534d0884210ca8586df1b8bbb5">More...</a><br /></td></tr>
 <tr class="separator:af673f8534d0884210ca8586df1b8bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3be9ed01d6c123d6d2ff5a03fdb723bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a3be9ed01d6c123d6d2ff5a03fdb723bc">gate_display</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a3be9ed01d6c123d6d2ff5a03fdb723bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">single qubit gate with display  <a href="#a3be9ed01d6c123d6d2ff5a03fdb723bc">More...</a><br /></td></tr>
+<tr class="separator:a3be9ed01d6c123d6d2ff5a03fdb723bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7c3c82744216332788b14199a23ac14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#ab7c3c82744216332788b14199a23ac14">two_gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:ab7c3c82744216332788b14199a23ac14"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform controlled single qubit gate  <a href="#ab7c3c82744216332788b14199a23ac14">More...</a><br /></td></tr>
+<tr class="memdesc:ab7c3c82744216332788b14199a23ac14"><td class="mdescLeft">&#160;</td><td class="mdescRight">two-qubit gate  <a href="#ab7c3c82744216332788b14199a23ac14">More...</a><br /></td></tr>
 <tr class="separator:ab7c3c82744216332788b14199a23ac14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a5ddb9ecf7c937bab26004ea3b4cbcbf2">two_gate_display</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">two-qubit gate with display  <a href="#a5ddb9ecf7c937bab26004ea3b4cbcbf2">More...</a><br /></td></tr>
+<tr class="separator:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6055b39eb200c6680a7efb55e10ff4c7"><td class="memItemLeft" align="right" valign="top"><a id="a6055b39eb200c6680a7efb55e10ff4c7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a6055b39eb200c6680a7efb55e10ff4c7">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a6055b39eb200c6680a7efb55e10ff4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap using 3 cNots <br /></td></tr>
@@ -147,7 +153,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
       </table>
 </div><div class="memdoc">
 
+<p>single qubit gate </p>
 <p>perform single qubit gate </p>
+<p>does 2x2 operator on state vector </p>
+
+</div>
+</div>
+<a id="a3be9ed01d6c123d6d2ff5a03fdb723bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3be9ed01d6c123d6d2ff5a03fdb723bc">&#9670;&nbsp;</a></span>gate_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gate_display </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>op</em>[2][2], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>qubit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>single qubit gate with display </p>
+<p>Display gates!!! </p>
 <p>does 2x2 operator on state vector displays the average state of the qubit by tracing over all waits to let the user see the state (LEDs) </p>
 
 </div>
@@ -212,18 +257,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 </div><div class="memdoc">
 
 <p>Toffoli gate. </p>
-<pre class="fragment">/// -o--   ------o-----o--o-----
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+<p>pause and do display cycling();</p>
+<p>Make this a low priority interrupt so that everything else can interrupt it.</p>
+<p>Do stuff for a while</p>
+<p>return when you're done.</p>
+<p>}</p><pre class="fragment">/// -o--   ------o-----o--o-----
 /// -|--   ------|-----|--|-----
 /// -o-- = ---o--X--o--X--|-----
 /// -|--   ---|-----|-----|-----
 /// -X--   --rX----rX*---rX-----
 ///          a   b  c  d  e
 /// </pre><p> q1 ctrl 1 q2 ctrl 2 q3 target </p>
-<p>a</p>
-<p>b</p>
-<p>c</p>
-<p>d</p>
-<p>e </p>
+<p>&lt; a</p>
+<p>&lt; b</p>
+<p>&lt; c</p>
+<p>&lt; d</p>
+<p>&lt; e </p>
 
 </div>
 </div>
@@ -265,8 +315,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
       </table>
 </div><div class="memdoc">
 
+<p>two-qubit gate </p>
 <p>perform controlled single qubit gate </p>
 <p>does controlled 2x2 operator </p>
+
+</div>
+</div>
+<a id="a5ddb9ecf7c937bab26004ea3b4cbcbf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ddb9ecf7c937bab26004ea3b4cbcbf2">&#9670;&nbsp;</a></span>two_gate_display()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void two_gate_display </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>op</em>[2][2], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ctrl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>targ</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>two-qubit gate with display </p>
+<p>does controlled 2x2 operator displays the state waits to let the user see the state </p>
 
 </div>
 </div>

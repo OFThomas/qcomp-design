@@ -79,11 +79,11 @@ Include dependency graph for display.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="display_8h__incl.png" border="0" usemap="#dspic33e_2qcomp-sim-c_8X_2display_8h" alt=""/></div>
 <map name="dspic33e_2qcomp-sim-c_8X_2display_8h" id="dspic33e_2qcomp-sim-c_8X_2display_8h">
-<area shape="rect" id="node2" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="43,95,126,121"/>
-<area shape="rect" id="node6" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="150,95,193,121"/>
-<area shape="rect" id="node4" href="consts_8h.html" title="header file for (global) constants " alt="" coords="93,169,165,196"/>
-<area shape="rect" id="node7" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="189,169,247,196"/>
-<area shape="rect" id="node8" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="193,244,243,271"/>
+<area shape="rect" id="node2" href="quantum_8h.html" title="Description: Header file containing all the matrix arithmetic for simulating a single qubit..." alt="" coords="47,95,129,121"/>
+<area shape="rect" id="node7" href="io_8h.html" title="Description: Header file for input output functions. " alt="" coords="153,95,196,121"/>
+<area shape="rect" id="node4" href="consts_8h.html" title="header file for (global) constants " alt="" coords="96,169,168,196"/>
+<area shape="rect" id="node8" href="time_8h.html" title="Description: Header file containing all the timing functions. " alt="" coords="192,169,251,196"/>
+<area shape="rect" id="node9" href="spi_8h.html" title="Description: SPI communication functions. " alt="" coords="196,244,247,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -108,9 +108,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aa5e91a84f59326d71674fe31358c6f34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#aa5e91a84f59326d71674fe31358c6f34">display_cycle</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:aa5e91a84f59326d71674fe31358c6f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">cycles through the non-zero amplitude states  <a href="#aa5e91a84f59326d71674fe31358c6f34">More...</a><br /></td></tr>
 <tr class="separator:aa5e91a84f59326d71674fe31358c6f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a4f5f995bd054a84a73002f09bf6e3ccb">remove_zero_amp_states</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits, int disp_state[])</td></tr>
-<tr class="memdesc:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'  <a href="#a4f5f995bd054a84a73002f09bf6e3ccb">More...</a><br /></td></tr>
-<tr class="separator:a4f5f995bd054a84a73002f09bf6e3ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d0a746fb8cd5a0a1a3872d157ec07a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a0d0a746fb8cd5a0a1a3872d157ec07a6">remove_zero_amp_states</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int disp_state[])</td></tr>
+<tr class="memdesc:a0d0a746fb8cd5a0a1a3872d157ec07a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">updates disp_state where the first 'return value of the function'elements are the nonzero elements of the state vector 'state'  <a href="#a0d0a746fb8cd5a0a1a3872d157ec07a6">More...</a><br /></td></tr>
+<tr class="separator:a0d0a746fb8cd5a0a1a3872d157ec07a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="display_8h.html#a94844d5460515e4cbc5d3c2ef49ca680">sort_states</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[], int num_qubits)</td></tr>
 <tr class="separator:a94844d5460515e4cbc5d3c2ef49ca680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -143,7 +143,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>rename to display_average </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>rename to display_average </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>Pass in the state vector</td></tr>
@@ -185,12 +185,18 @@ Functions</h2></td></tr>
 <p>for(int root = 0; root &lt; 2^k; root ++) { ... // ZERO index root; // ONE index root + 2^k; }</p>
 <p>Then the STEP component can be realised as</p>
 <p>for(int step = 0; step &lt; 2^N; step += 2^(k+1)) { // Add the following to root... step; } </p>
-<p>Loop over all qubits k = 0, 1, 2, ... N-1</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Bring all constants out of the loops. Don't use pow. Loop over all qubits k = 0, 1, 2, ... N-1 </dd></dl>
+<p>Compute powers of 2</p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>Zeros are at the index root + step</p>
+<p>sign returns an int between 0 &amp; 3 depending which quadrant the amp is in get the difference between quadrants if 0&amp;3 do modulo 2 to get 1.</p>
+<p>absolute value of the difference phase zero state - phase 1 state</p>
+<pre class="fragment">/// c now equals 0      - no phase diff
+///              1 or 3 - re or im phase diff
+///              2      - complete phase diff
+/// </pre><p>Zeros are at the index root + step </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Rewrite pow for Q15 </dd></dl>
 <p>Ones are at the index root + 2^k + step</p>
-<p>update leds for each qubits average zero and one amps </p>
+<p>write phase update leds for each qubits average zero and one amps </p>
 
 </div>
 </div>
@@ -228,8 +234,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f5f995bd054a84a73002f09bf6e3ccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f5f995bd054a84a73002f09bf6e3ccb">&#9670;&nbsp;</a></span>remove_zero_amp_states()</h2>
+<a id="a0d0a746fb8cd5a0a1a3872d157ec07a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d0a746fb8cd5a0a1a3872d157ec07a6">&#9670;&nbsp;</a></span>remove_zero_amp_states()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,12 +245,6 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
           <td class="paramname"><em>state</em>[], </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_qubits</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -264,7 +264,6 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">state</td><td>complex state vector in </td></tr>
-    <tr><td class="paramname">num_qubits</td><td>int number of qubits in </td></tr>
     <tr><td class="paramname">disp_state</td><td>complex inout vector where the first n entries are the nonzero elements of 'state' </td></tr>
   </table>
   </dd>
@@ -307,8 +306,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>this function... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>this function... </dd></dl>
 
 </div>
 </div>
