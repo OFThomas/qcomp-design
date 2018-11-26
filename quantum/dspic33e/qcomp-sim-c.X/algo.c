@@ -73,6 +73,13 @@ void swap_test(Complex state[]) {
     }
 }
 
+/// QFT
+/// \verbatim
+/// H Rz Rz --------
+/// ---o--|---H Rz---
+/// ------o------o-H-
+/// \endverbatim
+
 /** @todo Fancy non-blocking Interrupt routine
 {
    if(no button) return;

@@ -110,7 +110,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 <tr class="memdesc:ac8da5bcaa49edd7caad947e51cf004f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">from tests.c  <a href="#ac8da5bcaa49edd7caad947e51cf004f2">More...</a><br /></td></tr>
 <tr class="separator:ac8da5bcaa49edd7caad947e51cf004f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef603005d416eb0e3e11c673e81f690"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#adef603005d416eb0e3e11c673e81f690">toffoli_gate</a> (int q1, int q2, int q3, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:adef603005d416eb0e3e11c673e81f690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toffoli gate.  <a href="#adef603005d416eb0e3e11c673e81f690">More...</a><br /></td></tr>
+<tr class="memdesc:adef603005d416eb0e3e11c673e81f690"><td class="mdescLeft">&#160;</td><td class="mdescRight">QFT.  <a href="#adef603005d416eb0e3e11c673e81f690">More...</a><br /></td></tr>
 <tr class="separator:adef603005d416eb0e3e11c673e81f690"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a451943b24bf91b6a9a215ddffcf2a6d6"><td class="memItemLeft" align="right" valign="top"><a id="a451943b24bf91b6a9a215ddffcf2a6d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
@@ -256,13 +256,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
       </table>
 </div><div class="memdoc">
 
-<p>Toffoli gate. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+<p>QFT. </p>
+<p>Toffoli gate.</p>
+<pre class="fragment">/// H Rz Rz --------
+/// ---o--|---H Rz---
+/// ------o------o-H-
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>
 <p>return when you're done.</p>
-<p>}</p><pre class="fragment">/// -o--   ------o-----o--o-----
+<p>}Toffoli gate </p><pre class="fragment">/// -o--   ------o-----o--o-----
 /// -|--   ------|-----|--|-----
 /// -o-- = ---o--X--o--X--|-----
 /// -|--   ---|-----|-----|-----
