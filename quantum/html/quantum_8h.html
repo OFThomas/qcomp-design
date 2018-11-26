@@ -170,7 +170,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The absolute value </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
 
 </div>
 </div>
@@ -228,7 +228,7 @@ Functions</h2></td></tr>
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000028">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication. </dd></dl>
 <p>2x2 complex matrix multiplication</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -291,8 +291,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Is static enough? Or should we declare outside the function? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Should we use for loops? Or is it better not to..? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Is static enough? Or should we declare outside the function? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>Should we use for loops? Or is it better not to..? </dd></dl>
 <p>This is necessary because the previous computations use V </p>
 
 </div>
@@ -431,7 +431,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>corresponds to the ONE entry. </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
+<p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
 
 </div>
 </div>
@@ -459,7 +459,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of |x|^2</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000027">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">x</td><td>The input complex number x </td></tr>
@@ -467,7 +467,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of |x|^2</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
 
 </div>
 </div>

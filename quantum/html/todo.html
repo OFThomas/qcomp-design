@@ -64,58 +64,64 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="quantum_8h.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a>  (Complex x)</dt>
+<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="quantum_8h.html#a4c505ea21f44c1e8e4f15b71b19b8cf3">absolute</a>  (Complex x)</dt>
 <dd>Check that the complex part is small  </dd>
-<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="quantum_8h.html#a6551e97d523f70c50778a11d51214e31">controlled_qubit_op</a>  (const Complex op[2][2], int ctrl, int targ, Complex state[])</dt>
+<dt><a class="anchor" id="_todo000028"></a>Global <a class="el" href="quantum_8h.html#a6551e97d523f70c50778a11d51214e31">controlled_qubit_op</a>  (const Complex op[2][2], int ctrl, int targ, Complex state[])</dt>
 <dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit.  </dd>
-<dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="quantum_8c.html#a61c576933f0298643e59d33e7fadd3a9">controlled_qubit_op_new</a>  (const Complex op[2][2], int ctrl, int targ, Complex state[])</dt>
+<dt><a class="anchor" id="_todo000026"></a>Global <a class="el" href="quantum_8c.html#a61c576933f0298643e59d33e7fadd3a9">controlled_qubit_op_new</a>  (const Complex op[2][2], int ctrl, int targ, Complex state[])</dt>
 <dd><p class="startdd">Replace pow2 with left rotations </p>
 <p class="enddd">The problem is the formula for the increment  </p>
 </dd>
 <dt><a class="anchor" id="_todo000003"></a>Global <a class="el" href="display_8c.html#a7c482b039f5672f34607e1d2febf47a8">display_average</a>  (Complex state[])</dt>
-<dd><p class="startdd">Bring all constants out of the loops. Don't use pow. Loop over all qubits k = 0, 1, 2, ... N-1 </p>
+<dd><p class="startdd">Bring all constants out of the loops. Don't use pow. </p>
 <p>Rewrite pow for Q15 </p>
 <p class="enddd">rename to display_average  </p>
 </dd>
-<dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="io_8h.html#ae1bf99f09184b0112291c5eaa0832fb6">led_cycle_test</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="io_8h.html#ae1bf99f09184b0112291c5eaa0832fb6">led_cycle_test</a>  (void)</dt>
 <dd>This won't work now: write_display_driver(counter);  </dd>
-<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="quantum_8c.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a>  (const Complex M[2][2], Complex V[], int i, int j)</dt>
+<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>  (void)</dt>
+<dd><p class="startdd">fix this menu system </p>
+<p class="enddd">add a button for switching between display average and cycle modes  </p>
+</dd>
+<dt><a class="anchor" id="_todo000023"></a>Global <a class="el" href="quantum_8c.html#a034aae000da9f5544033abebbef4c5e0">mat_mul</a>  (const Complex M[2][2], Complex V[], int i, int j)</dt>
 <dd><p class="startdd">Is static enough? Or should we declare outside the function? </p>
 <p>Should we use for loops? Or is it better not to..? </p>
 <p class="enddd">Because of the way the array types work (you can't pass a multidimensional array of unknown size) we will also need a function for 4x4 matrix multiplication.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="quantum_8c.html#ad5cbff6c0e5b92c1cb765c4c219952f7">mat_mul_old</a>  (const Complex M[2][2], Complex V[], int i, int j)</dt>
+<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="quantum_8c.html#ad5cbff6c0e5b92c1cb765c4c219952f7">mat_mul_old</a>  (const Complex M[2][2], Complex V[], int i, int j)</dt>
 <dd>Should these be outside the function?  </dd>
-<dt><a class="anchor" id="_todo000016"></a>File <a class="el" href="quantum_8c.html">quantum.c</a>  </dt>
+<dt><a class="anchor" id="_todo000019"></a>File <a class="el" href="quantum_8c.html">quantum.c</a>  </dt>
 <dd>split into a complex math and operator files  </dd>
-<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="io_8h.html#aedb7c3f9a532bae5bd32330fb1f2f4b8">read_external_buttons</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="io_8h.html#aedb7c3f9a532bae5bd32330fb1f2f4b8">read_external_buttons</a>  (void)</dt>
 <dd><p class="startdd">read buttons </p>
 <p>How long should this be? </p>
 <p class="enddd">button remappings...  </p>
 </dd>
-<dt><a class="anchor" id="_todo000009"></a>Global <a class="el" href="io_8h.html#afca6175051cc2870aefd3c17e07822fc">reset_cycle</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000008"></a>Global <a class="el" href="io_8h.html#ad226f88e7359e5d2bd2c94258b7c6b0c">read_qubit_btn</a>  (int btn)</dt>
+<dd>should return a qubit number which has been selected  </dd>
+<dt><a class="anchor" id="_todo000010"></a>Global <a class="el" href="io_8h.html#afca6175051cc2870aefd3c17e07822fc">reset_cycle</a>  (void)</dt>
 <dd>do it </dd>
-<dt><a class="anchor" id="_todo000008"></a>Global <a class="el" href="io_8h.html#a3f0891d14ef2e6230b477700b9e3daad">setup_external_leds</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000009"></a>Global <a class="el" href="io_8h.html#a3f0891d14ef2e6230b477700b9e3daad">setup_external_leds</a>  (void)</dt>
 <dd>CURRENTLY CYCLING IS OFF  </dd>
-<dt><a class="anchor" id="_todo000028"></a>Global <a class="el" href="time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c">setup_timer</a>  ()</dt>
+<dt><a class="anchor" id="_todo000031"></a>Global <a class="el" href="time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c">setup_timer</a>  ()</dt>
 <dd>distinguish between the two different timers here...  </dd>
-<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb">single_qubit_op</a>  (const Complex op[2][2], int qubit, Complex state[])</dt>
+<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb">single_qubit_op</a>  (const Complex op[2][2], int qubit, Complex state[])</dt>
 <dd>Should we inline mat_mul here?  </dd>
-<dt><a class="anchor" id="_todo000022"></a>Global <a class="el" href="quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb">single_qubit_op</a>  (const Complex op[2][2], int qubit, Complex state[])</dt>
+<dt><a class="anchor" id="_todo000025"></a>Global <a class="el" href="quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb">single_qubit_op</a>  (const Complex op[2][2], int qubit, Complex state[])</dt>
 <dd>Should we inline mat_mul here?  </dd>
 <dt><a class="anchor" id="_todo000005"></a>Global <a class="el" href="display_8c.html#a94844d5460515e4cbc5d3c2ef49ca680">sort_states</a>  (Complex state[], int num_qubits)</dt>
 <dd><p class="startdd">this function... </p>
 <p class="enddd">this  </p>
 </dd>
-<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="quantum_8c.html#ad005ad233c481de9229e4c1c0dcf5d36">square_magnitude</a>  (Complex x)</dt>
+<dt><a class="anchor" id="_todo000021"></a>Global <a class="el" href="quantum_8c.html#ad005ad233c481de9229e4c1c0dcf5d36">square_magnitude</a>  (Complex x)</dt>
 <dd><p class="startdd">Maybe we should inline this </p>
 <p class="enddd">Maybe we should inline this  </p>
 </dd>
-<dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="io_8c.html#aaf115833d4313aa7a9f099a4d7bea685">TLC591x_mode_switch</a>  (int mode)</dt>
+<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="io_8c.html#aaf115833d4313aa7a9f099a4d7bea685">TLC591x_mode_switch</a>  (int mode)</dt>
 <dd>mode switcher for <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> Driver  </dd>
 <dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="algo_8h.html#adef603005d416eb0e3e11c673e81f690">toffoli_gate</a>  (int q1, int q2, int q3, Complex state[])</dt>
 <dd>Fancy non-blocking Interrupt routine { if(no button) return; </dd>
-<dt><a class="anchor" id="_todo000010"></a>Global <a class="el" href="io_8h.html#a7a207068fff8b8f61fdf49a807efe94f">write_display_driver</a>  (void)</dt>
+<dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="io_8h.html#a7a207068fff8b8f61fdf49a807efe94f">write_display_driver</a>  (void)</dt>
 <dd>How long should this be? </dd>
 </dl>
 </div></div><!-- contents -->

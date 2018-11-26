@@ -99,7 +99,8 @@
  * 
  */
 void display_average(Complex state[]) {
-    ///@todo Bring all constants out of the loops. Don't use pow.
+    /// @todo Bring all constants out of the loops. Don't use pow.
+    /// @bug there is a phase bug when cycling the gates 
     /// Loop over all qubits k = 0, 1, 2, ... N-1
     for (int k = 0; k < NUM_QUBITS; k ++) {
         /// Compute powers of 2
@@ -110,7 +111,6 @@ void display_average(Complex state[]) {
         Q15 phase =0;
 
         int c =0;
-        Q15 temp_phase=0.0;
 
         /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < root_max; root ++) {
@@ -131,11 +131,13 @@ void display_average(Complex state[]) {
                 
                 // if c==0 do nothing
                 // if c==1 add 0.5/(2^(n-1))
-                
-                if(c==1 || c==3) 
-                    temp_phase += HALF_PHASE;
-                else if(c==2) 
-                    temp_phase += FULL_PHASE;
+               
+                /// if any difference between quarants do a phase change
+                if(c==1 || c==3 || c==2) 
+                    phase += FULL_PHASE;
+               // else if(c==2) 
+               //  HALF_PHASE
+               //     phase += FULL_PHASE;
                 
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 
@@ -148,8 +150,7 @@ void display_average(Complex state[]) {
         }
         /// write phase
         /// update leds for each qubits average zero and one amps
-        phase = temp_phase;     
-        set_external_led(k, phase, zero_amp, one_amp);
+        set_external_led(k, zero_amp, one_amp, phase);
     }
 }
 

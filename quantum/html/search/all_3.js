@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['chip',['chip',['../io_8c.html#a2928302e19e150cd5833e37ec191962d',1,'io.c']]],
   ['complex',['Complex',['../consts_8h.html#ab32a0935b29bf7784d29e5669c59e588',1,'consts.h']]],
   ['config_2eh',['config.h',['../config_8h.html',1,'']]],
   ['consts_2ec',['consts.c',['../consts_8c.html',1,'']]],

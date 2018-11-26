@@ -55,7 +55,8 @@ int main(void) {
     display_average(state);
     
     /// Test single qubit gates
-    
+    /// @todo fix this menu system
+    /// @todo add a button for switching between display average and cycle modes
     /** In this test the qubit buttons (0 - 3) will be used to select a qubit 
      * and the function buttons (4 - 6) will be used to perform an operation
      * on the selected qubit (X, Z or H).
@@ -105,6 +106,7 @@ int main(void) {
         } /// End of operation select
         
         /// Perform the single qubit gate
+        int targ =0;
         switch(select_op) {
             case 0: 
                 single_qubit_op(X, select_qubit, state);
@@ -117,6 +119,17 @@ int main(void) {
             case 2:
                 single_qubit_op(H, select_qubit, state);
                 display_average(state);
+                break;
+            case 3:
+                // swap
+                read_external_buttons();
+                 // Check whether a qubit has been selected
+            for (int n = 0; n < 4; n++) {
+                if (read_qubit_btn(n) == 1) {
+                    targ = n;
+                }
+            }
+                swap(select_qubit, targ, state);
                 break;
             default:
                 break; ///Do nothing   
