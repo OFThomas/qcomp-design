@@ -124,6 +124,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 <tr class="memitem:a451943b24bf91b6a9a215ddffcf2a6d6"><td class="memItemLeft" align="right" valign="top"><a id="a451943b24bf91b6a9a215ddffcf2a6d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="separator:a451943b24bf91b6a9a215ddffcf2a6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a1d4b7befdc5523a1fdda8220e0e4cede">repetition_code</a> (int q0, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="mdescLeft">&#160;</td><td class="mdescRight">repetition code  <a href="#a1d4b7befdc5523a1fdda8220e0e4cede">More...</a><br /></td></tr>
+<tr class="separator:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains quantum algorithms to be run. </p>
@@ -287,6 +290,56 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <p>wait for target qubit to be selected</p>
 <p>Do nothing</p>
 <p>End of switch </p>
+
+</div>
+</div>
+<a id="a1d4b7befdc5523a1fdda8220e0e4cede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d4b7befdc5523a1fdda8220e0e4cede">&#9670;&nbsp;</a></span>repetition_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void repetition_code </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>repetition code </p>
+<p>added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this </dd></dl>
+<pre class="fragment">///       a  b     c     d  e  f 
+/// |q2&gt; ----X--|-----|-----X--o--
+///          |  |     |     |  |
+/// |q1&gt; -X--|--|  U  |--X--|--o--
+///       |  |  |     |  |  |  |
+/// |q0&gt; -o--o--|-----|--o--o--X-- |q0&gt;
+/// </pre> <p>check position of 'q0' in the state, if the first qubit then q1, q2 are the next 2. e.g. q0=0 -&gt; q1=1, q2=2</p>
+<p>check if q0 is the last qubit then wrap so q1 is (q0-1) q2 is (q0-2)</p>
+<p>else have q0 in the middle of q1 &amp; q0</p>
+<p>do the gates, without displaying the intermediate steps?</p>
+<p>step a</p>
+<p>step b</p>
+<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
+<p>decoding steps d-f</p>
+<p>step d</p>
+<p>step e</p>
+<p>step f</p>
+<p>done! </p>
 
 </div>
 </div>

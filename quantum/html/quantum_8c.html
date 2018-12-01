@@ -126,7 +126,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <div class="textblock"><p>Description: Contains matrix and vector arithmetic for simulating one qubit. </p>
 <dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>split into a complex math and operator files </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>split into a complex math and operator files </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a4c505ea21f44c1e8e4f15b71b19b8cf3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c505ea21f44c1e8e4f15b71b19b8cf3">&#9670;&nbsp;</a></span>absolute()</h2>
@@ -152,7 +152,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The absolute value </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Check that the complex part is small </dd></dl>
 
 </div>
 </div>
@@ -201,7 +201,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
 
 </div>
 </div>
@@ -289,8 +289,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>where N is the number of _qubits (3 in the above case). Here, y is either zero or one, and enumerates the operations that must be performed In other words, the index is given by the following expression</p>
 <p>i: root + offset = x*2^ctrl + y*2^(N-ctrl-targ) j: root + sep + offset = x*2^ctrl + 2^targ + y*2^(N-ctrl-targ)</p>
 <p>where x is the value of the ctrl qubit (do X when x is 1, I when x is zero) and y ranges from 0 to 2^(N-1) where N is the number of qubits. Since it is only necessary to do the non-trivial unitary, x is always 1. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000028">Todo:</a></b></dt><dd>Replace pow2 with left rotations </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>The problem is the formula for the increment </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>Replace pow2 with left rotations </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>The problem is the formula for the increment </dd></dl>
 
 </div>
 </div>
@@ -343,8 +343,8 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>Is static enough? Or should we declare outside the function? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">Todo:</a></b></dt><dd>Should we use for loops? Or is it better not to..? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">Todo:</a></b></dt><dd>Is static enough? Or should we declare outside the function? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000027">Todo:</a></b></dt><dd>Should we use for loops? Or is it better not to..? </dd></dl>
 <p>This is necessary because the previous computations use V </p>
 
 </div>
@@ -398,7 +398,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <p>The function uses cadd and cmul </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>Should these be outside the function? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd>Should these be outside the function? </dd></dl>
 
 </div>
 </div>
@@ -533,7 +533,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>corresponds to the ONE entry. </p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000027">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
+<p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000028">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
 
 </div>
 </div>
@@ -561,7 +561,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The value of |x|^2</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>Maybe we should inline this </dd></dl>
 
 </div>
 </div>

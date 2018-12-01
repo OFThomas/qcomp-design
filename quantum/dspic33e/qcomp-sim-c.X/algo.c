@@ -29,12 +29,14 @@ void op_routine(int select_qubit, int select_op, Complex state[]){
             targ = check_qubit();
             two_gate_display(X, select_qubit, targ, state);
             break;
+        case 4:
+            // repetition_code example
+            repetition_code(select_qubit);
+            break;
         default:
             break; ///Do nothing   
     } /// End of switch
 }
-
-
 
 // Check whether a qubit has been selected
 int check_qubit(){
@@ -210,3 +212,49 @@ void toffoli_test(Complex state[]){
 
 /// repetition code
 /// @todo this
+/// \verbatim
+///       a  b     c     d  e  f 
+/// |q2> ----X--|-----|-----X--o--
+///          |  |     |     |  |
+/// |q1> -X--|--|  U  |--X--|--o--
+///       |  |  |     |  |  |  |
+/// |q0> -o--o--|-----|--o--o--X-- |q0>
+/// \endverbatim
+void repetition_code(int q0, Complex state[]){
+    int q1;
+    int q2;
+    
+    /// check position of 'q0' in the state, if the first qubit 
+    /// then q1, q2 are the next 2. e.g. q0=0 -> q1=1, q2=2
+    if(q0 == 0){
+        q1=1;
+        q2=2;
+    }
+    /// check if q0 is the last qubit then wrap so q1 is (q0-1)
+    /// q2 is (q0-2)
+    else if (q0 == (NUM_QUBITS-1)){
+        q1=q0-1;
+        q2=q0-2;
+    }
+    /// else have q0 in the middle of q1 & q0
+    else {
+        q1=q0-1;
+        q2=q0+1;
+    }
+    /// do the gates, without displaying the intermediate steps?
+    two_gate_display(X,q0,q1, state);   /// step a
+    two_gate_display(X,q0,q2, state);   /// step b
+    
+    /// now up to U step c
+    /// as a test I have hardcoded in only 2 X's corresponding to an error on q2
+    /// @todo generalise this, we should either have pseudo-random errors
+    /// or the user should be able to choose which gates to do here
+    gate_display(X,q0,state);
+    gate_display(X,q1, state);
+
+    /// decoding steps d-f
+    two_gate_display(X,q0, q1, state);  /// step d
+    two_gate_display(X,q0, q2, state);  /// step e
+    toffoli_gate(q1, q2, q0, state);    /// step f
+/// done!
+}

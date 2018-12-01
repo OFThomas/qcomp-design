@@ -52,6 +52,13 @@ void swap_test(Complex state[]);
 void toffoli_gate(int q1, int q2, int q3, Complex state[]);
     
 void toffoli_test(Complex state[]);
+
+/// added repetition_code for bit flip errors, currently only shows a fixed
+/// error which is a failed X on one of the ancillas. 
+/// todo.
+void repetition_code(int q0, Complex state[]);
+
+
 #ifdef	__cplusplus
 }
 #endif
