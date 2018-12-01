@@ -24,7 +24,7 @@ int check_qubit();
 
 /// function returns integer label used in switch statement in main
 /// \bug same as above^
-int check_qubit();
+int check_op();
 
 /// perform single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]);

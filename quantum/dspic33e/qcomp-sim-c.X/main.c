@@ -104,7 +104,7 @@ VACUUM:zero_state(state);
                 // CNOT
                 /// wait for target qubit to be selected
                 targ = check_qubit();
-                two_gate_display(select_qubit, targ, state);
+                two_gate_display(X, select_qubit, targ, state);
                 break;
             default:
                 break; ///Do nothing   
