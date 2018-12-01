@@ -21,7 +21,6 @@
  * are available from https://www.microchip.com/mplab/compilers 
  *
  */
-
 #include "config.h"
 #include "time.h"
 #include "algo.h"
@@ -87,28 +86,7 @@ VACUUM:zero_state(state);
 
         /// End of operation select
         /// Perform the qubit gates
-        switch(select_op) {
-            case 0:
-                // X
-                gate_display(X, select_qubit, state);
-                break;
-            case 1:
-                // Z
-                gate_display(Z, select_qubit, state);
-                break;
-            case 2:
-                // H
-                gate_display(H, select_qubit, state);
-                break;
-            case 3:
-                // CNOT
-                /// wait for target qubit to be selected
-                targ = check_qubit();
-                two_gate_display(X, select_qubit, targ, state);
-                break;
-            default:
-                break; ///Do nothing   
-        } /// End of switch
+        op_routine(select_qubit, select_op, state);
     }
 
     while (1); ///< @note Really important!

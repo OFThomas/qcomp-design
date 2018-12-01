@@ -4,8 +4,37 @@
  * @authors J Scott, O Thomas
  * @date Nov 2018
  */
-
 #include "algo.h"
+
+/// gate routine
+/// \todo not sure if the breaks are needed here, I don't think they are.
+void op_routine(int select_qubit, int select_op, Complex state[]){
+    int targ=0;
+    switch(select_op) {
+        case 0:
+            // X
+            gate_display(X, select_qubit, state);
+            break;
+        case 1:
+            // Z
+            gate_display(Z, select_qubit, state);
+            break;
+        case 2:
+            // H
+            gate_display(H, select_qubit, state);
+            break;
+        case 3:
+            // CNOT
+            /// wait for target qubit to be selected
+            targ = check_qubit();
+            two_gate_display(X, select_qubit, targ, state);
+            break;
+        default:
+            break; ///Do nothing   
+    } /// End of switch
+}
+
+
 
 // Check whether a qubit has been selected
 int check_qubit(){

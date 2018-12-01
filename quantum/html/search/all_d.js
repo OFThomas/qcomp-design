@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['q15',['Q15',['../consts_8h.html#a66dbef8ee970f4d9747e8bb5533d2a92',1,'consts.h']]],
-  ['quantum_2ec',['quantum.c',['../quantum_8c.html',1,'']]],
-  ['quantum_2eh',['quantum.h',['../quantum_8h.html',1,'']]]
+  ['pow2',['pow2',['../quantum_8c.html#a0dc94e50e1ffbc70dd687a48f34230d2',1,'pow2(int k):&#160;quantum.c'],['../quantum_8h.html#a0dc94e50e1ffbc70dd687a48f34230d2',1,'pow2(int k):&#160;quantum.c']]],
+  ['previous',['previous',['../structcycle__node.html#af5098ee179cc1e8607288984e1251833',1,'cycle_node']]]
 ];

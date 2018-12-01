@@ -16,6 +16,11 @@ extern "C" {
 #include "quantum.h"
 #include "display.h"
 
+
+/// functions for performing gate routines, takes qubit & button ints
+void op_routine(int select_qubit, int select_op, Complex state[]);
+
+
 /// function returns the integer for the label of which qubit is selected
 /// @returns int select_qubit (-1 if no qubit is selected)
 /// \bug problem with sampling, will cause the program to hang while waiting

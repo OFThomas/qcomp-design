@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x',['X',['../consts_8c.html#abcbdd53210c0723e4d6a6e56db5e6347',1,'X():&#160;consts.c'],['../consts_8h.html#abcbdd53210c0723e4d6a6e56db5e6347',1,'X():&#160;consts.c']]]
+  ['write_5fdisplay_5fdriver',['write_display_driver',['../io_8c.html#a7a207068fff8b8f61fdf49a807efe94f',1,'write_display_driver(void):&#160;io.c'],['../io_8h.html#a7a207068fff8b8f61fdf49a807efe94f',1,'write_display_driver(void):&#160;io.c']]]
 ];

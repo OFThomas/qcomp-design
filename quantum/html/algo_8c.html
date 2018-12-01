@@ -90,6 +90,9 @@ Include dependency graph for algo.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5f9c336ee8943bf32141661b8166d988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a5f9c336ee8943bf32141661b8166d988">op_routine</a> (int select_qubit, int select_op, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a5f9c336ee8943bf32141661b8166d988"><td class="mdescLeft">&#160;</td><td class="mdescRight">gate routine  <a href="#a5f9c336ee8943bf32141661b8166d988">More...</a><br /></td></tr>
+<tr class="separator:a5f9c336ee8943bf32141661b8166d988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af513534ad0d874e5480e9059b33b158e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a> ()</td></tr>
 <tr class="memdesc:af513534ad0d874e5480e9059b33b158e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns the integer for the label of which qubit is selected  <a href="#af513534ad0d874e5480e9059b33b158e">More...</a><br /></td></tr>
 <tr class="separator:af513534ad0d874e5480e9059b33b158e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -144,7 +147,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>End of qubit select. </p>
 <p>function returns integer label used in switch statement in main </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
 
 </div>
 </div>
@@ -246,6 +249,47 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 </div>
 </div>
+<a id="a5f9c336ee8943bf32141661b8166d988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9c336ee8943bf32141661b8166d988">&#9670;&nbsp;</a></span>op_routine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void op_routine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>select_qubit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>select_op</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gate routine </p>
+<p>functions for performing gate routines, takes qubit &amp; button ints</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>not sure if the breaks are needed here, I don't think they are.</dd></dl>
+<p>wait for target qubit to be selected</p>
+<p>Do nothing</p>
+<p>End of switch </p>
+
+</div>
+</div>
 <a id="ac8da5bcaa49edd7caad947e51cf004f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8da5bcaa49edd7caad947e51cf004f2">&#9670;&nbsp;</a></span>swap_test()</h2>
 
@@ -310,7 +354,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <pre class="fragment">/// H Rz Rz --------
 /// ---o--|---H Rz---
 /// ------o------o-H-
-/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>
