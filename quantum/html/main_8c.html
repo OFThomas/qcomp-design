@@ -121,22 +121,35 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Test single qubit gates </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>fix this menu system </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>add a button for switching between display average and cycle modes </dd></dl>
+<p>Test single qubit gates </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>fix this menu system </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>add a button for switching between display average and cycle modes </dd></dl>
 <p>In this test the qubit buttons (0 - 3) will be used to select a qubit and the function buttons (4 - 6) will be used to perform an operation on the selected qubit (X, Z or H).</p>
 <p>The loop is made of two parts. The first waits for a qubit to be selected and the second chooses a single qubit operation for that qubit. Once the gate has been pressed the operation is immediately executed and the loop repeats.</p>
-<p>Wait for qubit to be selected</p>
-<p>Check whether a qubit button was pressed</p>
-<p>Move onto the next part of the loop</p>
-<p>End of qubit select</p>
+<p>&lt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">qubit</td><td>integer to act on</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>qubit integer for 2-qubit gates</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>&lt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">integer</td><td>used in switch to pick which gate to do</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>after reading buttons see if any qubit is selected write the qubit number to "select_qubit"</p>
 <p>Wait for a qubit operation to be selected</p>
-<p>Check whether a qubit button was pressed</p>
-<p>Move onto the operation</p>
-<p>End of operation select</p>
-<p>Perform the single qubit gate</p>
+<p>if the '0' button is ever pressed reset to the vacuum state. </p><dl class="section note"><dt>Note</dt><dd>Nothing wrong here...</dd></dl>
+<p>End of operation select Perform the qubit gates</p>
+<p>wait for target qubit to be selected</p>
 <p>Do nothing</p>
 <p>End of switch</p>
-<p>Reset the qubit and operation select variables</p>
 <p>&lt; </p><dl class="section note"><dt>Note</dt><dd>Really important! </dd></dl>
 
 </div>

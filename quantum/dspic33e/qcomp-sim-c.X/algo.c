@@ -7,6 +7,46 @@
 
 #include "algo.h"
 
+// Check whether a qubit has been selected
+int check_qubit(){
+    int c = 0;
+    // clear previous val of select_qubit
+    select_qubit=-1;
+    /// \bug this probably shouldn't be an infinite loop.
+    /// the counter lets the loop exit after some time to check if the 
+    /// 'reset' button is pressed 
+    while((select_qubit == -1) and (c<10000000)){
+        // Read all the button state
+        read_external_buttons();
+        c++;
+        // check if any of the qubits are selected
+        for (int n = 0; n < NUM_QUBITS; n++) {
+            if (read_qubit_btn(n) == 1) {
+                select_qubit = n;
+            }
+        }
+    }
+return select_qubit;
+} /// End of qubit select 
+
+
+// Check whether a qubit has been selected
+int check_op(){
+    int c = 0;
+    select_op=-1;
+    /// \todo this is a temp fix to avoid getting stuck waiting for a user input.
+    while( (select_op == -1) and (c<10000000)){
+        read_external_buttons();
+        c++;
+        for (int n = 0; n < 4; n++) {
+            if (read_func_btn(n) == 1) {
+                select_op = n;
+            }
+        }
+    }
+return select_op;
+}
+
 /// @brief single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]){
     /// does 2x2 operator on state vector

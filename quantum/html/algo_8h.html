@@ -101,6 +101,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af513534ad0d874e5480e9059b33b158e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a> ()</td></tr>
+<tr class="memdesc:af513534ad0d874e5480e9059b33b158e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns the integer for the label of which qubit is selected  <a href="#af513534ad0d874e5480e9059b33b158e">More...</a><br /></td></tr>
+<tr class="separator:af513534ad0d874e5480e9059b33b158e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af673f8534d0884210ca8586df1b8bbb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af673f8534d0884210ca8586df1b8bbb5">gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:af673f8534d0884210ca8586df1b8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#af673f8534d0884210ca8586df1b8bbb5">More...</a><br /></td></tr>
 <tr class="separator:af673f8534d0884210ca8586df1b8bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +135,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="af513534ad0d874e5480e9059b33b158e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af513534ad0d874e5480e9059b33b158e">&#9670;&nbsp;</a></span>check_qubit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_qubit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function returns the integer for the label of which qubit is selected </p>
+<p>function returns integer label used in switch statement in main</p>
+<dl class="section return"><dt>Returns</dt><dd>int select_qubit (-1 if no qubit is selected) </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>problem with sampling, will cause the program to hang while waiting for qubit input </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>same as above^ </dd></dl>
+<p>function returns the integer for the label of which qubit is selected</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>same as above^ </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>this probably shouldn't be an infinite loop. the counter lets the loop exit after some time to check if the 'reset' button is pressed </dd></dl>
+
+</div>
+</div>
 <a id="af673f8534d0884210ca8586df1b8bbb5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af673f8534d0884210ca8586df1b8bbb5">&#9670;&nbsp;</a></span>gate()</h2>
 
@@ -272,7 +301,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <pre class="fragment">/// H Rz Rz --------
 /// ---o--|---H Rz---
 /// ------o------o-H-
-/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>

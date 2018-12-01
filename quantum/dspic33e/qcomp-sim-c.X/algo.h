@@ -16,6 +16,16 @@ extern "C" {
 #include "quantum.h"
 #include "display.h"
 
+/// function returns the integer for the label of which qubit is selected
+/// @returns int select_qubit (-1 if no qubit is selected)
+/// \bug problem with sampling, will cause the program to hang while waiting
+/// for qubit input
+int check_qubit();
+
+/// function returns integer label used in switch statement in main
+/// \bug same as above^
+int check_qubit();
+
 /// perform single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]);
 
