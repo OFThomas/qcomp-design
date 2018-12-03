@@ -13,11 +13,11 @@ void op_routine(int select_qubit, int select_op, Complex state[]){
     switch(select_op) {
         case 0:
             // X
-            gate_display(X, select_qubit, state);
+            gate_display(Z, select_qubit, state);
             break;
         case 1:
             // Z
-            gate_display(Z, select_qubit, state);
+            gate_display(X, select_qubit, state);
             break;
         case 2:
             // H
@@ -69,7 +69,7 @@ int check_op(){
     while( (select_op == -1) && (c<10000000)){
         read_external_buttons();
         c++;
-        for (int n = 0; n < 5; n++) {
+        for (int n = 0; n < 4; n++) {
             if (read_func_btn(n) == 1) {
                 select_op = n;
             }
