@@ -19,9 +19,9 @@ extern "C" {
 #define NUM_QUBITS 4
 #define STATE_LENGTH 16 // 2^NUM_QUBITS
 
-// Unit to add up when averaging over the state vector
-// for computing the phase
-#define FULL_PHASE ONE_Q15/(STATE_LENGTH-1)
+// ONE_Q15 / 2^(NUM_QUBITS - 1) 
+// The unit used when averaging for phase calculations
+#define FULL_PHASE 0.124996185
         // half of full phase
 #define HALF_PHASE 0.062498093
 
