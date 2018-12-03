@@ -236,6 +236,34 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
 }
 
 /**
+ * @brief New function to perform single qubit gates
+ * @param op the unitary to perform
+ * @param k the index of the qubit to modify
+ * @param state the state vector
+ * 
+ * The function computes a single qubit operation acting on @param state.
+ * It sets the bit position associated with the qubit to zero, and then 
+ * generates all possible indices in the other bit positions. These 
+ * correspond to the ZERO states. The ONE states are obtained by changing
+ * the kth bit from zero to one.
+ * 
+ */
+void single_qubit_op_new(const Complex op[2][2], int k, Complex state[]) {
+	int bit = (1 << k); // The bit position corresponding to the kth qubit
+	int high_incr = (bit << 1); 
+	// Increment through the indices above bit
+	for(int i=0; i<STATE_LENGTH; i+=high_incr) {
+		// Increment through the indices less than bit
+		for(int j=0; j<bit; j++) {
+			// 2x2 matrix multiplication on the zero (i+j)
+			// and one (i+j+bit) indices
+			mat_mul(op, state, i+j, i+j+bit);
+		}
+	}
+}
+
+
+/**
  * selective 2 qubit op function 
 
  *  checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
