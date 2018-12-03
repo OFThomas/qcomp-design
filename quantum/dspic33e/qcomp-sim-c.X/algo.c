@@ -31,7 +31,7 @@ void op_routine(int select_qubit, int select_op, Complex state[]){
             break;
         case 4:
             // repetition_code example
-            repetition_code(select_qubit);
+            repetition_code(select_qubit, state);
             break;
         default:
             break; ///Do nothing   
@@ -69,7 +69,7 @@ int check_op(){
     while( (select_op == -1) && (c<10000000)){
         read_external_buttons();
         c++;
-        for (int n = 0; n < 4; n++) {
+        for (int n = 0; n < 5; n++) {
             if (read_func_btn(n) == 1) {
                 select_op = n;
             }
