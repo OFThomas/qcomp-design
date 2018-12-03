@@ -64,8 +64,16 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_bug000001"></a>Global <a class="el" href="io_8c.html#a133140a862d86c2c2618320b0d2a4649">btn_func</a>  [NUM_BTNS - NUM_QUBITS]</dt>
-<dd>this. </dd>
+<dt><a class="anchor" id="_bug000005"></a>Global <a class="el" href="io_8c.html#a5c56ea41dba7187f435dd0bab63ddbc2">btn_func</a>  [NUM_BTNS - NUM_QUBITS]</dt>
+<dd>this.  </dd>
+<dt><a class="anchor" id="_bug000003"></a>Global <a class="el" href="algo_8h.html#a0c8403dbc55e1d291ded2057bb4fb502">check_op</a>  ()</dt>
+<dd>same as above^  </dd>
+<dt><a class="anchor" id="_bug000001"></a>Global <a class="el" href="algo_8c.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a>  ()</dt>
+<dd><p class="startdd">this probably shouldn't be an infinite loop. the counter lets the loop exit after some time to check if the 'reset' button is pressed </p>
+<p class="enddd">problem with sampling, will cause the program to hang while waiting for qubit input  </p>
+</dd>
+<dt><a class="anchor" id="_bug000004"></a>Global <a class="el" href="display_8h.html#a7c482b039f5672f34607e1d2febf47a8">display_average</a>  (Complex state[])</dt>
+<dd>there is a phase bug when cycling the gates Loop over all qubits k = 0, 1, 2, ... N-1 </dd>
 </dl>
 </div></div><!-- contents -->
 <!-- start footer part -->

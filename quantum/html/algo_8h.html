@@ -101,6 +101,15 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5f9c336ee8943bf32141661b8166d988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#a5f9c336ee8943bf32141661b8166d988">op_routine</a> (int select_qubit, int select_op, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a5f9c336ee8943bf32141661b8166d988"><td class="mdescLeft">&#160;</td><td class="mdescRight">functions for performing gate routines, takes qubit &amp; button ints  <a href="#a5f9c336ee8943bf32141661b8166d988">More...</a><br /></td></tr>
+<tr class="separator:a5f9c336ee8943bf32141661b8166d988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af513534ad0d874e5480e9059b33b158e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a> ()</td></tr>
+<tr class="memdesc:af513534ad0d874e5480e9059b33b158e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns the integer for the label of which qubit is selected  <a href="#af513534ad0d874e5480e9059b33b158e">More...</a><br /></td></tr>
+<tr class="separator:af513534ad0d874e5480e9059b33b158e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c8403dbc55e1d291ded2057bb4fb502"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#a0c8403dbc55e1d291ded2057bb4fb502">check_op</a> ()</td></tr>
+<tr class="memdesc:a0c8403dbc55e1d291ded2057bb4fb502"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns integer label used in switch statement in main  <a href="#a0c8403dbc55e1d291ded2057bb4fb502">More...</a><br /></td></tr>
+<tr class="separator:a0c8403dbc55e1d291ded2057bb4fb502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af673f8534d0884210ca8586df1b8bbb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#af673f8534d0884210ca8586df1b8bbb5">gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:af673f8534d0884210ca8586df1b8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">perform single qubit gate  <a href="#af673f8534d0884210ca8586df1b8bbb5">More...</a><br /></td></tr>
 <tr class="separator:af673f8534d0884210ca8586df1b8bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,12 +135,59 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo
 <tr class="memitem:a451943b24bf91b6a9a215ddffcf2a6d6"><td class="memItemLeft" align="right" valign="top"><a id="a451943b24bf91b6a9a215ddffcf2a6d6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="separator:a451943b24bf91b6a9a215ddffcf2a6d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8h.html#a1d4b7befdc5523a1fdda8220e0e4cede">repetition_code</a> (int q0, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="mdescLeft">&#160;</td><td class="mdescRight">added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas.  <a href="#a1d4b7befdc5523a1fdda8220e0e4cede">More...</a><br /></td></tr>
+<tr class="separator:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>header file for algorithms </p>
 <dl class="section author"><dt>Authors</dt><dd>J Scott, O Thomas </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>Nov 2018 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a0c8403dbc55e1d291ded2057bb4fb502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c8403dbc55e1d291ded2057bb4fb502">&#9670;&nbsp;</a></span>check_op()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_op </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function returns integer label used in switch statement in main </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>same as above^ </dd></dl>
+<p>function returns integer label used in switch statement in main </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
+
+</div>
+</div>
+<a id="af513534ad0d874e5480e9059b33b158e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af513534ad0d874e5480e9059b33b158e">&#9670;&nbsp;</a></span>check_qubit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_qubit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function returns the integer for the label of which qubit is selected </p>
+<dl class="section return"><dt>Returns</dt><dd>int select_qubit (-1 if no qubit is selected) </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>problem with sampling, will cause the program to hang while waiting for qubit input </dd></dl>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>this probably shouldn't be an infinite loop. the counter lets the loop exit after some time to check if the 'reset' button is pressed </dd></dl>
+
+</div>
+</div>
 <a id="af673f8534d0884210ca8586df1b8bbb5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af673f8534d0884210ca8586df1b8bbb5">&#9670;&nbsp;</a></span>gate()</h2>
 
@@ -208,6 +264,98 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 </div>
 </div>
+<a id="a5f9c336ee8943bf32141661b8166d988"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9c336ee8943bf32141661b8166d988">&#9670;&nbsp;</a></span>op_routine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void op_routine </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>select_qubit</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>select_op</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>functions for performing gate routines, takes qubit &amp; button ints </p>
+<p>functions for performing gate routines, takes qubit &amp; button ints</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>not sure if the breaks are needed here, I don't think they are.</dd></dl>
+<p>wait for target qubit to be selected</p>
+<p>Do nothing</p>
+<p>End of switch </p>
+
+</div>
+</div>
+<a id="a1d4b7befdc5523a1fdda8220e0e4cede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d4b7befdc5523a1fdda8220e0e4cede">&#9670;&nbsp;</a></span>repetition_code()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void repetition_code </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas. </p>
+<p>todo.</p>
+<p>added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this </dd></dl>
+<pre class="fragment">///       a  b     c     d  e  f 
+/// |q2&gt; ----X--|-----|-----X--o--
+///          |  |     |     |  |
+/// |q1&gt; -X--|--|  U  |--X--|--o--
+///       |  |  |     |  |  |  |
+/// |q0&gt; -o--o--|-----|--o--o--X-- |q0&gt;
+/// </pre> <p>check position of 'q0' in the state, if the first qubit then q1, q2 are the next 2. e.g. q0=0 -&gt; q1=1, q2=2</p>
+<p>check if q0 is the last qubit then wrap so q1 is (q0-1) q2 is (q0-2)</p>
+<p>else have q0 in the middle of q1 &amp; q0</p>
+<p>do the gates, without displaying the intermediate steps?</p>
+<p>step a</p>
+<p>step b</p>
+<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
+<p>decoding steps d-f</p>
+<p>step d</p>
+<p>step e</p>
+<p>step f</p>
+<p>done! </p>
+
+</div>
+</div>
 <a id="ac8da5bcaa49edd7caad947e51cf004f2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8da5bcaa49edd7caad947e51cf004f2">&#9670;&nbsp;</a></span>swap_test()</h2>
 
@@ -268,12 +416,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 </div><div class="memdoc">
 
 <p>Toffoli gate. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+<p>Toffoli gate.</p>
+<pre class="fragment">/// H Rz Rz --------
+/// ---o--|---H Rz---
+/// ------o------o-H-
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>
 <p>return when you're done.</p>
-<p>}</p><pre class="fragment">/// -o--   ------o-----o--o-----
+<p>}Toffoli gate </p><pre class="fragment">/// -o--   ------o-----o--o-----
 /// -|--   ------|-----|--|-----
 /// -o-- = ---o--X--o--X--|-----
 /// -|--   ---|-----|-----|-----

@@ -231,7 +231,7 @@ void setup_external_buttons(void) {
  * @brief Read the state of a qubit button
  * @param btn The index of the button to read
  * @return the state of the button -- 1 if pressed, 0 if not
- * 
+ * @todo should return a qubit number which has been selected 
  */
 int read_qubit_btn(int btn) {
     /// The button state is in the buttons array
@@ -248,7 +248,7 @@ int read_qubit_btn(int btn) {
  * @brief Read the state of a qubit button
  * @param btn The index of the button to read
  * @return the state of the button -- 1 if pressed, 0 if not
- * 
+ *  
  */
 int read_func_btn(int btn) {
     /// The button state is in the buttons array
@@ -264,8 +264,6 @@ int read_func_btn(int btn) {
 
 /// @brief Set external variable RGB LEDs
 void setup_external_leds(void) {
-
-    
     /// Initialise LED lines
     led[0].R[1] = 4; led[0].R[0] = 0;
     led[0].G[1] = 2; led[0].G[0] = 0;

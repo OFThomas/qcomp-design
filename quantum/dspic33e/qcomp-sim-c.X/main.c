@@ -21,7 +21,6 @@
  * are available from https://www.microchip.com/mplab/compilers 
  *
  */
-
 #include "config.h"
 #include "time.h"
 #include "algo.h"
@@ -51,11 +50,12 @@ int main(void) {
 
 
     // set to vacuum
-    zero_state(state);
+VACUUM:zero_state(state);
     display_average(state);
     
     /// Test single qubit gates
-    
+    /// @todo fix this menu system
+    /// @todo add a button for switching between display average and cycle modes
     /** In this test the qubit buttons (0 - 3) will be used to select a qubit 
      * and the function buttons (4 - 6) will be used to perform an operation
      * on the selected qubit (X, Z or H).
@@ -66,67 +66,27 @@ int main(void) {
      * executed and the loop repeats.
      * 
      */
-    int select_qubit = -1;
-    int select_op = -1;
+    int select_qubit = -1; ///< @param qubit integer to act on
+    int targ =0;            ///< @param target qubit integer for 2-qubit gates
+    int select_op = -1;     ///< @param integer used in switch to pick which gate to do
     while (1) {
-        while (1) { /// Wait for qubit to be selected
-            // Read all the button state
-            read_external_buttons();
 
-            // Check whether a qubit has been selected
-            for (int n = 0; n < NUM_QUBITS; n++) {
-                if (read_qubit_btn(n) == 1) {
-                    select_qubit = n;
-                }
-            }
-            
-            /// Check whether a qubit button was pressed
-            if(select_qubit != -1) {
-                break; /// Move onto the next part of the loop
-            }
-        } /// End of qubit select 
-
-        while (1) { /// Wait for a qubit operation to be selected
-            // Read all the button state
-            read_external_buttons();
-
-            // Check whether a qubit has been selected
-            for (int n = 0; n < 4; n++) {
-                if (read_func_btn(n) == 1) {
-                    select_op = n;
-                }
-            }
-
-            /// Check whether a qubit button was pressed
-            if (select_op != -1) {
-                break; /// Move onto the operation
-            }
-
-        } /// End of operation select
+        // while(qubit == -1) -> read 
+        // while(op == -1) -> read
         
-        /// Perform the single qubit gate
-        switch(select_op) {
-            case 0: 
-                single_qubit_op(X, select_qubit, state);
-                display_average(state);
-                break;
-            case 1:
-                single_qubit_op(Z, select_qubit, state);
-                display_average(state);
-                break;
-            case 2:
-                single_qubit_op(H, select_qubit, state);
-                display_average(state);
-                break;
-            default:
-                break; ///Do nothing   
-                
-        } /// End of switch
-        
-        /// Reset the qubit and operation select variables
-        select_qubit = -1;
-        select_op = -1;
-        
+        /// after reading buttons see if any qubit is selected
+        /// write the qubit number to "select_qubit"
+        select_qubit = check_qubit();
+
+        /// Wait for a qubit operation to be selected
+        select_op = check_op();
+        /// if the '0' button is ever pressed reset to the vacuum state.
+        /// \note Nothing wrong here...
+        if(select_op == 0) goto VACUUM;
+
+        /// End of operation select
+        /// Perform the qubit gates
+        op_routine(select_qubit, select_op, state);
     }
 
     while (1); ///< @note Really important!

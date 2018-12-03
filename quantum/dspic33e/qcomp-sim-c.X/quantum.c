@@ -236,146 +236,70 @@ void single_qubit_op(const Complex op[2][2], int k, Complex state[]) {
 }
 
 /**
- * selective 2 qubit op function 
+ * @brief New function to perform single qubit gates
+ * @param op the unitary to perform
+ * @param k the index of the qubit to modify
+ * @param state the state vector
+ * 
+ * The function computes a single qubit operation acting on @param state.
+ * It sets the bit position associated with the qubit to zero, and then 
+ * generates all possible indices in the other bit positions. These 
+ * correspond to the ZERO states. The ONE states are obtained by changing
+ * the kth bit from zero to one.
+ * 
+ */
+void single_qubit_op_new(const Complex op[2][2], int k, Complex state[]) {
+	int bit = (1 << k); // The bit position corresponding to the kth qubit
+	int high_incr = (bit << 1); 
+	// Increment through the indices above bit
+	for(int i=0; i<STATE_LENGTH; i+=high_incr) {
+		// Increment through the indices less than bit
+		for(int j=0; j<bit; j++) {
+			// 2x2 matrix multiplication on the zero (i+j)
+			// and one (i+j+bit) indices
+			mat_mul(op, state, i+j, i+j+bit);
+		}
+	}
+}
 
- *  checks that the control qubit is |1> then does 2x2 unitary on remaining state vector
- *  elements
+
+/**
+ * @brief Efficient controlled qubit operation
+ * @param op the operation (ctrl-op is performed)
+ * @param ctrl the index of the ctrl qubit
+ * @param targ the index of the targ qubit
+ * @param state the state vector
  * 
- * This routine implements a controlled unitary gate. Controlled unitaries can
- * be expressed as single qubit unitaries that are conditionally applied if 
- * the control qubit state (ctrl) is 1. Otherwise no operation is performed.
- * 
- * The following example is for the three qubit case. Suppose the following
- * operation is performed. 
- * 
- *  \verbatim
- *      00 01 10 11
- *  00 ( 1  0  0  0   )
- *  01 ( 0  1  0  0   )
- *  10 ( 0  0 u00 u01 )
- *  11 ( 0  0 u10 u11 )
- *  \endverbatim
- * 
- * The first qubit is the control (ctrl) and the second qubit is the target 
- * (targ). If the control is 0 the identity operation is performed. If the
- * control qubit is 1, then a unitary U (the second block above) is performed.
- * 
- * For three qubits, the state vector is shown below: 
- *
- *   \verbatim
- *     index     binary   amplitude 
- *      ----------------------------- 
- *        0       0 0 0       a0
- *        1       0 0 1       a1 
- *        2       0 1 0       a2
- *        3       0 1 1       a3
- *        4       1 0 0       a4
- *        5       1 0 1       a5
- *        6       1 1 0       a6
- *        7       1 1 1       a7
- *      -----------------------------
- *      Qubit:    2 1 0
- * \endverbatim
- * 
- * Suppose the controlled unitary is to be performed between qubits 0 and 1,
- * with the control qubit on 0. Suppose the controlled gate is a CNOT, so that
- * the 2x2 matrices involved are I and X. X and I are performed on the 
- * following (vertical) pairs of indices
- * 
- *             I               X
- * i:     (0+0) (0+4)     (1+0) (1+4)           (ctrl = 0, targ = 1)
- * j:     (0+2) (0+6)     (1+2) (1+6)           
- * 
- * If the control and target are reversed (ctrl on 1), then the pairings of the
- * indices are
- *
- *           I                 X
- * i:     (0+0) (0+4)     (2+0) (2+4)           (ctrl = 1, targ = 0)
- * j:     (0+1) (0+5)     (2+1) (2+5)
- * 
- * For control and target qubits on 0 and 2 the indices are
- * 
- *             I               X
- * i:     (0+0) (0+2)     (1+0) (1+2)           (ctrl = 0, targ = 2)
- * j:     (0+4) (0+6)     (1+4) (1+6)           
- * 
- * If the control and target are reversed (ctrl on 2), then the pairings of the
- * indices are
- *
- *             I               X
- * i:     (0+0) (0+2)     (4+0) (4+2)           (ctrl = 2, targ = 0)
- * j:     (0+1) (0+3)     (4+1) (4+3)
- * 
- * Finally, if the control and target are 1 and 2, then
- * 
- *             I               X
- * i:     (0+0) (0+1)     (2+0) (2+1)           (ctrl = 1, targ = 2)
- * j:     (0+4) (0+5)     (2+4) (2+5)           
- * 
- * If the control and target are reversed (ctrl on 2), then the pairings of the
- * indices are
- *
- *             I               X
- * i:     (0+0) (0+1)     (4+0) (4+1)           (ctrl = 2, targ = 1)
- * j:     (0+2) (0+3)     (4+2) (4+3)
- * 
- * The pattern in the general case is as follows. Firstly, similarly to the 
- * single qubit case, the index required can be expressed as the sum of a root
- * and another contribution. In this case, the root depends only on the ctrl
- * qubit number:
- * 
- * root = x * 2^ctrl
- * 
- * where x is the state of the ctrl qubit (either 1 or 0). This will determine
- * whether I or (in the case of CNOT) X is applied. That the root only depends
- * on the ctrl qubit number is due to the interpretation of root -- it is the
- * base index of all the ctrl states of a particular value. For example, 
- * whatever the qubit number, the starting index of the zero ctrl state is 
- * always zero. Then, the first occurance of a 1 in the ctrl qubit depends 
- * on the ctrl qubit number, and is just a power of 2 into the state vector.
- * 
- * The other contributions to the index depend on the the target qubit number 
- * (targ). The offset between indices of the same operation (either I or X) are 
- * separated by 
- * 
- * sep = 2^targ
- * 
- * The logic for this is similar to the case for ctrl: the way to get from a 
- * 0 in the target to a 1 in the target is to add 2^targ to the index in the
- * state vector.
- * 
- * Finally, there is the offset due to moving from the 0 to 1 state within a 
- * particular operation (I or X). This depends on both the values of the ctrl 
- * and targ qubit numbers as follows:
- * 
- * offset = 2^(N-ctrl-targ) * y
- * 
- * where N is the number of _qubits (3 in the above case). Here, y is either 
- * zero or one, and enumerates the operations that must be performed In other 
- * words, the index is given by the following expression
- * 
- * i:   root + offset       = x*2^ctrl + y*2^(N-ctrl-targ)
- * j:   root + sep + offset = x*2^ctrl + 2^targ + y*2^(N-ctrl-targ)
- * 
- * where x is the value of the ctrl qubit (do X when x is 1, I when x is zero)
- * and y ranges from 0 to 2^(N-1) where N is the number of qubits. Since it is
- * only necessary to do the non-trivial unitary, x is always 1.
+ * This function is implemented similarly to the single qubit case above.
+ * Now there are three ranges of indices to increment through, separated by
+ * the two qubit indices. 
  * 
  */
 void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
-    ///@todo Replace pow2 with left rotations
-    int root = pow2(ctrl); // Base of indices
-    int sep = pow2(targ); // Separation between 0 and 1 target positions
-    int increment = pow2(NUM_QUBITS - ctrl - targ); // Increment between 
-                                                    // adjacent mat muls
-    ///@todo The problem is the formula for the increment
-    int step_max = STATE_LENGTH - sep - root; // Limit to step
-    // Perform the matrix multiplications
-    for (int step = 0; step < step_max; step += increment) {
-        int a = 0;
-        a++;
-        mat_mul(op, state, root + step, root + sep + step);
+    int small_bit, large_bit;
+    if(ctrl > targ) {
+        small_bit = (1 << targ);
+        large_bit = (1 << ctrl);
+    } else {
+        small_bit = (1 << ctrl);
+        large_bit = (1 << targ);
     }
+    int mid_incr = (small_bit << 1);
+    int high_incr = (large_bit << 1);
+    int targ_bit = (1 << targ);
+
+	// Increment through the indices above largest bit (ctrl or targ)
+	for(int i=0; i<STATE_LENGTH; i+=high_incr) {
+		// Increment through the middle set of bits
+		for(int j=0; j<large_bit; j+=mid_incr) {
+            // Increment through the low set of bits
+            for(int k=0; j<small_bit; j++) {
+                // 2x2 matrix multiplication on the zero (i+j+k)
+                // and one (i+j+k+targ_bit) indices. 
+                mat_mul(op, state, i+j+k, i+j+k+targ_bit);
+            }
+		}
+	}
 }
 
 /// Old controlled qubit operations

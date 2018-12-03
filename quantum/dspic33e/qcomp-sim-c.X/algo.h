@@ -16,6 +16,21 @@ extern "C" {
 #include "quantum.h"
 #include "display.h"
 
+
+/// functions for performing gate routines, takes qubit & button ints
+void op_routine(int select_qubit, int select_op, Complex state[]);
+
+
+/// function returns the integer for the label of which qubit is selected
+/// @returns int select_qubit (-1 if no qubit is selected)
+/// \bug problem with sampling, will cause the program to hang while waiting
+/// for qubit input
+int check_qubit();
+
+/// function returns integer label used in switch statement in main
+/// \bug same as above^
+int check_op();
+
 /// perform single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]);
 
@@ -37,6 +52,13 @@ void swap_test(Complex state[]);
 void toffoli_gate(int q1, int q2, int q3, Complex state[]);
     
 void toffoli_test(Complex state[]);
+
+/// added repetition_code for bit flip errors, currently only shows a fixed
+/// error which is a failed X on one of the ancillas. 
+/// todo.
+void repetition_code(int q0, Complex state[]);
+
+
 #ifdef	__cplusplus
 }
 #endif

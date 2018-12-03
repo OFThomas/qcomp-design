@@ -175,6 +175,15 @@ Functions</h2></td></tr>
 <tr class="memitem:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#accd4a9c9edd862d4e50bf6a3740d9b82">setup_io</a> (void)</td></tr>
 <tr class="memdesc:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up LEDs and buttons on port D.  <a href="#accd4a9c9edd862d4e50bf6a3740d9b82">More...</a><br /></td></tr>
 <tr class="separator:accd4a9c9edd862d4e50bf6a3740d9b82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a539abfae938cc740571d8bf679adcac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a539abfae938cc740571d8bf679adcac3">setup_external_buttons</a> (void)</td></tr>
+<tr class="memdesc:a539abfae938cc740571d8bf679adcac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">All the setup for external buttons.  <a href="#a539abfae938cc740571d8bf679adcac3">More...</a><br /></td></tr>
+<tr class="separator:a539abfae938cc740571d8bf679adcac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad226f88e7359e5d2bd2c94258b7c6b0c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#ad226f88e7359e5d2bd2c94258b7c6b0c">read_qubit_btn</a> (int btn)</td></tr>
+<tr class="memdesc:ad226f88e7359e5d2bd2c94258b7c6b0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the state of a qubit button.  <a href="#ad226f88e7359e5d2bd2c94258b7c6b0c">More...</a><br /></td></tr>
+<tr class="separator:ad226f88e7359e5d2bd2c94258b7c6b0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d5dd62d936f0acc68f8844f9061cdf7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a1d5dd62d936f0acc68f8844f9061cdf7">read_func_btn</a> (int btn)</td></tr>
+<tr class="memdesc:a1d5dd62d936f0acc68f8844f9061cdf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the state of a qubit button.  <a href="#a1d5dd62d936f0acc68f8844f9061cdf7">More...</a><br /></td></tr>
+<tr class="separator:a1d5dd62d936f0acc68f8844f9061cdf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f0891d14ef2e6230b477700b9e3daad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8h.html#a3f0891d14ef2e6230b477700b9e3daad">setup_external_leds</a> (void)</td></tr>
 <tr class="memdesc:a3f0891d14ef2e6230b477700b9e3daad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set external variable <a class="el" href="structRGB.html" title="A type for holding red, green, blue values. ">RGB</a> LEDs.  <a href="#a3f0891d14ef2e6230b477700b9e3daad">More...</a><br /></td></tr>
 <tr class="separator:a3f0891d14ef2e6230b477700b9e3daad"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,7 +417,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </div><div class="memdoc">
 
 <p>Loop to cycle through LEDs 0 - 15. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
 
 </div>
 </div>
@@ -460,10 +469,78 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>The external buttons are interfaced to the microcontroller via a shift register. Data is shifted in a byte at a time using the SPI 3 module. The sequence to read the buttons is as follows:</p>
 <p>1) Momentarily bring SH low to latch button data into the shift registers 2) Bring CLK_INH low to enable the clock input on the shift register 3) Start the SPI 3 clock and read data in via the SDI 3 line</p>
 <p>The control lines SH and CLK_INH are on port D</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>read buttons </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>read buttons </dd></dl>
 <p>SH pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+
+</div>
+</div>
+<a id="a1d5dd62d936f0acc68f8844f9061cdf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d5dd62d936f0acc68f8844f9061cdf7">&#9670;&nbsp;</a></span>read_func_btn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_func_btn </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the state of a qubit button. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">btn</td><td>The index of the button to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the state of the button &ndash; 1 if pressed, 0 if not </dd></dl>
+<p>The button state is in the buttons array Each element of that array is a byte Get the relevant byte</p>
+<p>Retrieve the value of the right bit</p>
+<p>Return the button state </p>
+
+</div>
+</div>
+<a id="ad226f88e7359e5d2bd2c94258b7c6b0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad226f88e7359e5d2bd2c94258b7c6b0c">&#9670;&nbsp;</a></span>read_qubit_btn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int read_qubit_btn </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>btn</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the state of a qubit button. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">btn</td><td>The index of the button to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the state of the button &ndash; 1 if pressed, 0 if not</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">btn</td><td>The index of the button to read </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the state of the button &ndash; 1 if pressed, 0 if not </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>should return a qubit number which has been selected </dd></dl>
+<p>The button state is in the buttons array Each element of that array is a byte Get the relevant byte</p>
+<p>Retrieve the value of the right bit</p>
+<p>Return the button state </p>
 
 </div>
 </div>
@@ -485,7 +562,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p>Reset the display cycle. Called before adding anything. </p>
 <p>Reset the display cycle. Called before adding anything.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>do it</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>do it</dd></dl>
 
 </div>
 </div>
@@ -622,6 +699,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 </div>
 </div>
+<a id="a539abfae938cc740571d8bf679adcac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a539abfae938cc740571d8bf679adcac3">&#9670;&nbsp;</a></span>setup_external_buttons()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setup_external_buttons </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>All the setup for external buttons. </p>
+<p>All the setup for external buttons.</p>
+<p>All the setup for external buttons </p>
+<p>For the qubits</p>
+<p>logical 0</p>
+<p>logical 1</p>
+<p>logical 2</p>
+<p>logical 3</p>
+<p>For the function buttons</p>
+<p>logical 4</p>
+<p>logical 5</p>
+<p>logical 6</p>
+<p>logical 7</p>
+<p>logical 8 </p>
+
+</div>
+</div>
 <a id="a3f0891d14ef2e6230b477700b9e3daad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3f0891d14ef2e6230b477700b9e3daad">&#9670;&nbsp;</a></span>setup_external_leds()</h2>
 
@@ -644,7 +754,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>Initialise display buffer to zero</p>
 <p>Set flashing period</p>
 <p>Turn timer 6 on</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000008">Todo:</a></b></dt><dd>CURRENTLY CYCLING IS OFF </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>CURRENTLY CYCLING IS OFF </dd></dl>
 
 </div>
 </div>
@@ -789,7 +899,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>To write to the device, use the SPI module to write a byte to the SDI 1 pin on the chip. Then momentarily set the <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin to latch the data onto the output register. Finally, bring the OE(ED2) pin low to enable the current sinking to turn on the LEDs. See the timing diagram on page 17 of the datasheet for details.</p>
 <p><a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> and OE(ED2) will be on Port D </p>
 <p>Set <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000010">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
 
 </div>
 </div>
