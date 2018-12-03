@@ -294,8 +294,8 @@ void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex
 		for(int j=0; j<large_bit; j+=mid_incr) {
             // Increment through the low set of bits
             for(int k=0; j<small_bit; j++) {
-                // 2x2 matrix multiplication on the zero (i+j)
-                // and one (i+j+bit) indices
+                // 2x2 matrix multiplication on the zero (i+j+k)
+                // and one (i+j+k+targ_bit) indices. 
                 mat_mul(op, state, i+j+k, i+j+k+targ_bit);
             }
 		}
