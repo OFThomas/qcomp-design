@@ -132,12 +132,9 @@ void display_average(Complex state[]) {
                 // if c==0 do nothing
                 // if c==1 add 0.5/(2^(n-1))
                
-                /// if any difference between quarants do a phase change
+                /// if any difference between quadrants do a phase change
                 if(c==1 || c==3 || c==2) 
                     phase += FULL_PHASE;
-               // else if(c==2) 
-               //  HALF_PHASE
-               //     phase += FULL_PHASE;
                 
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 

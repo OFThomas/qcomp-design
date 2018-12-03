@@ -17,10 +17,7 @@
  * 
  */
 int pow2(int k) {
-    int result = 1;
-    for(int n = 0; n < k; n++)
-        result *= 2; /// Multiply by 2
-    return result;
+    return (1 << k);
 }
 
 /// 
