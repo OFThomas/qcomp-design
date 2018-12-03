@@ -26,23 +26,12 @@ void display_average(Complex state[]) {
         for(int root = 0; root < root_max; root ++) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
             for(int step = 0; step < STATE_LENGTH; step += increment) {
-                            
-               /// sign returns an int between 0 & 3 depending which quadrant the amp is in
-               /// get the difference between quadrants if 0&3 do modulo 2 to get 1.
 
-                /// absolute value of the difference 
-                /// phase zero state - phase 1 state
-                c = abs(sign(state[root + step]) - sign(state[root + root_max + step]));
-                /// \verbatim
-                /// c now equals 0      - no phase diff
-                ///              1 or 3 - re or im phase diff
-                ///              2      - complete phase diff
-                /// \endverbatim
-                
-                // if c==0 do nothing
-                // if c==1 add 0.5/(2^(n-1))
-               
-                /// if any difference between quadrants do a phase change
+                /// @bug The problem is with the sign function, which will
+                /// not distinguish between (e.g.) 1 and i. I think all the 
+                /// problems stem from that kind of error.
+                c = sign(state[root + step]) - sign(state[root + root_max + step]);
+
                 if(c==1 || c==3 || c==2) 
                     phase += FULL_PHASE;
                 
