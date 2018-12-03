@@ -32,16 +32,14 @@ int pow2(int k) {
 //          |
 /// \endverbatim
 int sign(Complex a){
-    //real part
-    /// if real negative and im neg return -1
-    /// if real negative and im pos return -0.5
-    if(a[0] < 0.0){
+    if(a[0] < 0.0) {
+        // Both real and imag part negative
         if(a[1] < 0.0) return 2;
-        else return 1;
-    }
-    /// else if real pos and im negative return -0.5
-    else if(a[1] < 0.0) return 3;
-    /// else if both pos return 0
+        // Real part negative, imaginary part non-negative
+        else return 1; 
+        // Real part non-negative, imaginary part negative
+    } else if(a[1] < 0.0) return 3;
+    // Both real and imaginary parts non-negative
     else return 0;
 }
 

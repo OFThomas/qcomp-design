@@ -10,93 +10,6 @@
  * @note Currently the function only displays superpositions using the
  * red and blue colors.
  * 
- * The routine works by adding up the squares of the amplitudes corresponding
- * to each state of a given qubit. Suppose there are three qubits. Then the
- * state vector is given by
- * 
- * \verbatim
- *      index     binary   amplitude 
- *      ----------------------------- 
- *        0       0 0 0       a0
- *        1       0 0 1       a1 
- *        2       0 1 0       a2
- *        3       0 1 1       a3
- *        4       1 0 0       a4
- *        5       1 0 1       a5
- *        6       1 1 0       a6
- *        7       1 1 1       a7
- *      -----------------------------
- *      Qubit:    2 1 0
- * \endverbatim
- *
- * Consider qubit 2. The value of the ZERO state is formed by adding up all
- * the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 
- * and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and 
- * 7. 
- * 
- * So the amplitudes for qubit 2 are
- * 
- * ZERO: (a_0)^2 + (a_1)^2 + (a_2)^2 + (a_3)^2
- * ONE:  (a_4)^2 + (a_5)^2 + (a_6)^2 + (a_7)^2
- * 
- * Corresponding to the following indices:
- * 
- * ZERO: 0+0, 1+0, 2+0, 3+0
- * ONE:  4+0, 5+0, 6+0, 7+0
- * 
- * For qubit 1 the indices are:
- * 
- * ZERO: 0+0, 0+4, 1+0, 1+4
- * ONE:  2+0, 2+4, 3+0, 3+4
- * 
- * And for qubit 0 the indices are:
- * 
- * ZERO: 0+0, 0+2, 0+4, 0+6
- * ONE:  1+0, 1+2, 1+4, 1+6
- * 
- * The examples above are supposed to show the general pattern. For N qubits,
- * qubit number k, the ZERO and ONE states are given by summing all the square
- * amplitudes corresponding to the following indices:
- * 
- * ZERO: n + (2^(k+1) * j), where n = 0, 1, ..., 2^k - 1 
- *                          and   j = 0, 1, ..., 2^(N-k-2)
- * 
- * ONE:  n + (2^(k+1) * j), where n = 2^k, 2^k + 1, ..., 2^(k+1) - 1  
- *                          and   j = 0, 1, ..., 2^(N-k-2)
- * 
- * The amplitudes are obtained by summing over both n and j. Notice that there
- * is an edge condition when k = N-1. There, j acycle_lengthpparently ranges from 0 to -1.
- * In this case, the only value of j is 0. The condition arises because of the
- * way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) 
- * gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must
- * be multiplied by 2^(-1). The key point is that the second term should not
- * ever equal 2^N, so j should stop at 0. 
- * 
- * The above indices can be expressed as the sum of a ROOT and a STEP as 
- * follows:
- * 
- * index = ROOT + STEP
- * 
- * where ROOT ranges from 0 to 2^k-1. This corresponds to the n values that
- * give rise to ZERO. The indices for ONE can be obtained by adding 2^k to root.
- * The STEP = j is a multiple of 2^(k+1) starting from zero that does not equal 
- * or exceed 2^N. ROOT can be realised using the following for loop:
- * 
- * for(int root = 0; root \< 2^k; root ++) {
- *      ...
- *      // ZERO index
- *      root;
- *      // ONE index
- *      root + 2^k; 
- * } 
- * 
- * Then the STEP component can be realised as 
- * 
- * for(int step = 0; step \< 2^N; step += 2^(k+1)) {
- *      // Add the following to root...
- *      step;
- * }
- * 
  */
 void display_average(Complex state[]) {
     /// @todo Bring all constants out of the loops. Don't use pow.
@@ -107,11 +20,8 @@ void display_average(Complex state[]) {
         int root_max = pow2(k);
         int increment = 2 * root_max;
         Q15 zero_amp = 0, one_amp = 0;
-        
-        Q15 phase =0;
-
-        int c =0;
-
+        Q15 phase = 0;
+        int c = 0;
         /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < root_max; root ++) {
             /// STEP loop: starts at 0, increases in steps of 2^(k+1)
@@ -122,7 +32,7 @@ void display_average(Complex state[]) {
 
                 /// absolute value of the difference 
                 /// phase zero state - phase 1 state
-                c = abs( sign(state[root + step]) - sign(state[root + root_max + step]));
+                c = abs(sign(state[root + step]) - sign(state[root + root_max + step]));
                 /// \verbatim
                 /// c now equals 0      - no phase diff
                 ///              1 or 3 - re or im phase diff
