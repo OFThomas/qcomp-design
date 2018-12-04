@@ -142,7 +142,7 @@ int send_byte_spi_1(int data) {
 int read_byte_spi_3() {
     // Check that the transmit buffer is empty
     if(SPI3STATbits.SPITBF == 0) {
-        // Write dummy data to the SPI buffer
+        // Write dummy data to the SPI buffer 
         SPI3BUF = 0;
         // Trans-
         // mission starts automatically

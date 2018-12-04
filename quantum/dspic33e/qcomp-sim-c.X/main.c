@@ -46,11 +46,9 @@ int main(void) {
     // Setup the external buttons
     setup_external_buttons();
 
-    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
-
-    set_led(red, on); /// Turn LED on to signify reset
+    Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length
     
-
+    
     // set to vacuum
 VACUUM:zero_state(state);
     display_average(state);
