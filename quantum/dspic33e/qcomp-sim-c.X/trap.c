@@ -7,11 +7,7 @@
  *
  */
 
-/**
- * @brief Ocsillator fail
- * 
- * This trap occurs when 
- */
+
 void __attribute__((__interrupt__)) _OscillatorFail(void) {
     while(1);
 }
