@@ -40,16 +40,22 @@ void op_routine(int select_qubit, int select_op, Complex state[]){
 
 // Check whether a qubit has been selected
 int check_qubit(){
-    int c = 0;
     // clear previous val of select_qubit
     int select_qubit=-1;
     /// \bug this probably shouldn't be an infinite loop.
     /// the counter lets the loop exit after some time to check if the 
     /// 'reset' button is pressed 
-    while((select_qubit == -1) && (c<10000000)){
+    while((select_qubit == -1)) {
+        /// Check for the reset button
+        if (read_btn(sw1) == 1) {
+            while (read_btn(sw1) == 1) {
+                set_led(red, on); /// Turn LED on to signify reset
+            }
+            set_led(red, off); /// Turn LED off and return
+            return -2; /// -2 means reset
+        }
         // Read all the button state
         read_external_buttons();
-        c++;
         // check if any of the qubits are selected
         for (int n = 0; n < NUM_QUBITS; n++) {
             if (read_qubit_btn(n) == 1) {
@@ -63,13 +69,19 @@ return select_qubit;
 
 // Check whether a qubit has been selected
 int check_op(){
-    int c = 0;
     int select_op=-1;
     /// \todo this is a temp fix to avoid getting stuck waiting for a user input.
-    while( (select_op == -1) && (c<10000000)){
+    while(select_op == -1) {
+        /// Check for the reset button
+        if (read_btn(sw1) == 1) {
+            while (read_btn(sw1) == 1) {
+                set_led(red, on); /// Turn LED on to signify reset
+            }
+            set_led(red, off); /// Turn LED off and return
+            return -2; /// -2 means reset
+        }
         read_external_buttons();
-        c++;
-        for (int n = 0; n < 4; n++) {
+        for (int n = 0; n < NUM_BTNS; n++) {
             if (read_func_btn(n) == 1) {
                 select_op = n;
             }
@@ -91,7 +103,7 @@ void gate_display(const Complex op[2][2], int qubit, Complex state[]){
     /// waits to let the user see the state (LEDs)
     single_qubit_op(op, qubit, state);
     display_average(state);
-    delay();
+    ///delay();
 }
 
 /// @brief two-qubit gate 

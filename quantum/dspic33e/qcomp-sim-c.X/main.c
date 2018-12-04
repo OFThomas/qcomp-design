@@ -48,6 +48,8 @@ int main(void) {
 
     Complex state[STATE_LENGTH]; // Make a 3 qubit state vector of length 
 
+    set_led(red, on); /// Turn LED on to signify reset
+    
 
     // set to vacuum
 VACUUM:zero_state(state);
@@ -77,13 +79,12 @@ VACUUM:zero_state(state);
         /// after reading buttons see if any qubit is selected
         /// write the qubit number to "select_qubit"
         select_qubit = check_qubit();
+        if(select_qubit == -2) goto VACUUM;
 
         /// Wait for a qubit operation to be selected
         select_op = check_op();
-        /// if the '0' button is ever pressed reset to the vacuum state.
-        /// \note Nothing wrong here...
-        if(select_op == 0) goto VACUUM;
-
+        if(select_op == -2) goto VACUUM;
+            
         /// End of operation select
         /// Perform the qubit gates
         op_routine(select_qubit, select_op, state);

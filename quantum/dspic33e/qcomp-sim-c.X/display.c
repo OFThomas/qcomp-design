@@ -43,8 +43,6 @@ void display_average(Complex state[]) {
                 if(tmp1 < -0.01) c = 1;
                 if(tmp2 < -0.01) c = 1;
                 
-                
-                
                 ///if(c==1 || c==3 || c==2)
                 if(c==1) phase += FULL_PHASE;
                 
@@ -59,7 +57,7 @@ void display_average(Complex state[]) {
         }
         /// write phase
         /// update leds for each qubits average zero and one amps
-        set_external_led(k, zero_amp, one_amp, phase);
+        set_external_led(k, phase, one_amp, zero_amp);
     }
 }
 
