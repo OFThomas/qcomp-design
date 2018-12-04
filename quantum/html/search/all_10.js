@@ -12,6 +12,7 @@ var searchData=
   ['sh',['SH',['../io_8h.html#a4453478cd8b3bf96df84fe861cb78600',1,'io.h']]],
   ['sign',['sign',['../quantum_8c.html#a112e319d431a2827c78e971f9ca7dd41',1,'sign(Complex a):&#160;quantum.c'],['../quantum_8h.html#a112e319d431a2827c78e971f9ca7dd41',1,'sign(Complex a):&#160;quantum.c']]],
   ['single_5fqubit_5fop',['single_qubit_op',['../quantum_8c.html#a408325d76eec56562e47e72fc131cc76',1,'single_qubit_op(const Complex op[2][2], int k, Complex state[]):&#160;quantum.c'],['../quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb',1,'single_qubit_op(const Complex op[2][2], int qubit, Complex state[]):&#160;quantum.c']]],
+  ['single_5fqubit_5fop_5fnew',['single_qubit_op_new',['../quantum_8c.html#a155da7af383d815ce9f1dc223e47d56e',1,'quantum.c']]],
   ['size',['size',['../structcycle__node.html#a6921dce8465c98286a06eebb61849351',1,'cycle_node']]],
   ['sort_5fstates',['sort_states',['../display_8c.html#a94844d5460515e4cbc5d3c2ef49ca680',1,'sort_states(Complex state[], int num_qubits):&#160;display.c'],['../display_8h.html#a94844d5460515e4cbc5d3c2ef49ca680',1,'sort_states(Complex state[], int num_qubits):&#160;display.c']]],
   ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
