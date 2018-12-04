@@ -34,6 +34,7 @@ int op_routine(int select_op, Complex state[]){
             /// CNOT
             select_qubit = check_qubit(); // The control
              if(select_qubit == -2) return -2;
+            ///@todo need a check for zero button 
             targ = check_qubit(); // The target
             if(targ == -2) return -2;
             two_gate_display(X, select_qubit, targ, state);
@@ -82,7 +83,22 @@ int check_qubit(){
             }
         }
     }
-return select_qubit;
+    int release = 0;
+    while (1) {
+        release = 0; //     
+        // Read all the button states
+        read_external_buttons();
+        // check if any of the qubits are selected
+        for (int n = 0; n < NUM_QUBITS; n++) {
+            if (read_qubit_btn(n) == 1) {
+                release = 1;
+            }
+        }
+        // Break if all the buttons are released.
+        if(release == 0) break;
+        ///@ we need button debouncing here
+    }
+    return select_qubit;
 } /// End of qubit select 
 
 
@@ -100,7 +116,7 @@ int check_op(){
             return -2; /// -2 means reset
         }
         read_external_buttons();
-        for (int n = 0; n < 4; n++) {
+        for (int n = 0; n < NUM_BTNS; n++) {
             if (read_func_btn(n) == 1) {
                 select_op = n;
             }
