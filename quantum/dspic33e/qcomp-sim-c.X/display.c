@@ -21,6 +21,8 @@ void display_average(Complex state[]) {
         int increment = 2 * root_max;
         Q15 zero_amp = 0, one_amp = 0;
         Q15 phase = 0;
+        Q15 tmp1 = 0;
+        Q15 tmp2 = 0;
         int c = 0;
         /// ROOT loop: starts at 0, increases in steps of 1
         for(int root = 0; root < root_max; root ++) {
@@ -30,10 +32,21 @@ void display_average(Complex state[]) {
                 /// @bug The problem is with the sign function, which will
                 /// not distinguish between (e.g.) 1 and i. I think all the 
                 /// problems stem from that kind of error.
-                c = sign(state[root + step]) - sign(state[root + root_max + step]);
-
-                if(c==1 || c==3 || c==2) 
-                    phase += FULL_PHASE;
+                /// c = sign(state[root + step]) - sign(state[root + root_max + step]);
+                
+                
+                /// Compute two temporary variables to check real and imaj signs
+                tmp1 = state[root+step][0]*state[root + root_max + step][0];
+                tmp2 = state[root+step][1]*state[root + root_max + step][1];
+                c = 0;
+                /// Set c = 1 if there is a phase difference in either r or i
+                if(tmp1 < -0.01) c = 1;
+                if(tmp2 < -0.01) c = 1;
+                
+                
+                
+                ///if(c==1 || c==3 || c==2)
+                if(c==1) phase += FULL_PHASE;
                 
                 /// Zeros are at the index root + step
                 /// @todo Rewrite pow for Q15 

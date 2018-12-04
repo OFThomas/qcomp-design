@@ -13,11 +13,11 @@ void op_routine(int select_qubit, int select_op, Complex state[]){
     switch(select_op) {
         case 0:
             // X
-            gate_display(Z, select_qubit, state);
+            gate_display(X, select_qubit, state);
             break;
         case 1:
             // Z
-            gate_display(X, select_qubit, state);
+            gate_display(Z, select_qubit, state);
             break;
         case 2:
             // H
