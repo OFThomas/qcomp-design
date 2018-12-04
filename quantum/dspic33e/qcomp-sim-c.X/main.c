@@ -67,7 +67,6 @@ VACUUM:zero_state(state);
      * 
      */
     int select_qubit = -1; ///< @param qubit integer to act on
-    int targ =0;            ///< @param target qubit integer for 2-qubit gates
     int select_op = -1;     ///< @param integer used in switch to pick which gate to do
     int op_result = 0;
     while (1) {
