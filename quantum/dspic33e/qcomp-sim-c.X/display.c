@@ -40,8 +40,10 @@ void display_average(Complex state[]) {
                 tmp2 = state[root+step][1]*state[root + root_max + step][1];
                 c = 0;
                 /// Set c = 1 if there is a phase difference in either r or i
+                
                 if(tmp1 < -0.01) c = 1;
                 if(tmp2 < -0.01) c = 1;
+                /*
                 // Deal with zero cases
                 if (state[root + step][0] == 0.0 ||
                         state[root + root_max + step][0] == 0.0) {
@@ -57,7 +59,7 @@ void display_average(Complex state[]) {
                         c = 1; /// Treat 0 and -ve as a difference in phase
                     }
                 }
-                
+                */
                 ///if(c==1 || c==3 || c==2)
                 if(c==1) phase += FULL_PHASE;
                 
