@@ -11,6 +11,7 @@ var searchData=
   ['setup_5ftimer',['setup_timer',['../time_8c.html#a4e7127f2f48fb1c538bbd67fe921c58c',1,'setup_timer():&#160;time.c'],['../time_8h.html#a4e7127f2f48fb1c538bbd67fe921c58c',1,'setup_timer():&#160;time.c']]],
   ['sign',['sign',['../quantum_8c.html#a112e319d431a2827c78e971f9ca7dd41',1,'sign(Complex a):&#160;quantum.c'],['../quantum_8h.html#a112e319d431a2827c78e971f9ca7dd41',1,'sign(Complex a):&#160;quantum.c']]],
   ['single_5fqubit_5fop',['single_qubit_op',['../quantum_8c.html#a408325d76eec56562e47e72fc131cc76',1,'single_qubit_op(const Complex op[2][2], int k, Complex state[]):&#160;quantum.c'],['../quantum_8h.html#a56d6de76b5a2616e53e8e7f16d0043cb',1,'single_qubit_op(const Complex op[2][2], int qubit, Complex state[]):&#160;quantum.c']]],
+  ['single_5fqubit_5fop_5fnew',['single_qubit_op_new',['../quantum_8c.html#a155da7af383d815ce9f1dc223e47d56e',1,'quantum.c']]],
   ['sort_5fstates',['sort_states',['../display_8c.html#a94844d5460515e4cbc5d3c2ef49ca680',1,'sort_states(Complex state[], int num_qubits):&#160;display.c'],['../display_8h.html#a94844d5460515e4cbc5d3c2ef49ca680',1,'sort_states(Complex state[], int num_qubits):&#160;display.c']]],
   ['square_5fmagnitude',['square_magnitude',['../quantum_8c.html#ad005ad233c481de9229e4c1c0dcf5d36',1,'square_magnitude(Complex x):&#160;quantum.c'],['../quantum_8h.html#ad005ad233c481de9229e4c1c0dcf5d36',1,'square_magnitude(Complex x):&#160;quantum.c']]],
   ['stop_5fexternal_5fleds',['stop_external_leds',['../io_8c.html#a1a8e4ae99d58990da0bdfca60d5767a7',1,'io.c']]],

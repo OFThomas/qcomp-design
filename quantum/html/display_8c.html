@@ -157,52 +157,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors.</dd></dl>
-<p>The routine works by adding up the squares of the amplitudes corresponding to each state of a given qubit. Suppose there are three qubits. Then the state vector is given by</p>
-<pre class="fragment">*      index     binary   amplitude 
-*      ----------------------------- 
-*        0       0 0 0       a0
-*        1       0 0 1       a1 
-*        2       0 1 0       a2
-*        3       0 1 1       a3
-*        4       1 0 0       a4
-*        5       1 0 1       a5
-*        6       1 1 0       a6
-*        7       1 1 1       a7
-*      -----------------------------
-*      Qubit:    2 1 0
-* </pre><p>Consider qubit 2. The value of the ZERO state is formed by adding up all the amplitudes corresponding to its ZERO state. That is, indices 0, 1, 2 and 3. The ONE state is obtained by adding up the other indices: 4, 5, 6 and</p><ol type="1">
-<li></li>
-</ol>
-<p>So the amplitudes for qubit 2 are</p>
-<p>ZERO: (a_0)^2 + (a_1)^2 + (a_2)^2 + (a_3)^2 ONE: (a_4)^2 + (a_5)^2 + (a_6)^2 + (a_7)^2</p>
-<p>Corresponding to the following indices:</p>
-<p>ZERO: 0+0, 1+0, 2+0, 3+0 ONE: 4+0, 5+0, 6+0, 7+0</p>
-<p>For qubit 1 the indices are:</p>
-<p>ZERO: 0+0, 0+4, 1+0, 1+4 ONE: 2+0, 2+4, 3+0, 3+4</p>
-<p>And for qubit 0 the indices are:</p>
-<p>ZERO: 0+0, 0+2, 0+4, 0+6 ONE: 1+0, 1+2, 1+4, 1+6</p>
-<p>The examples above are supposed to show the general pattern. For N qubits, qubit number k, the ZERO and ONE states are given by summing all the square amplitudes corresponding to the following indices:</p>
-<p>ZERO: n + (2^(k+1) * j), where n = 0, 1, ..., 2^k - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
-<p>ONE: n + (2^(k+1) * j), where n = 2^k, 2^k + 1, ..., 2^(k+1) - 1 and j = 0, 1, ..., 2^(N-k-2)</p>
-<p>The amplitudes are obtained by summing over both n and j. Notice that there is an edge condition when k = N-1. There, j acycle_lengthpparently ranges from 0 to -1. In this case, the only value of j is 0. The condition arises because of the way that 2^(N-k-2) is obtained (i.e. such that multiplying it by 2^(k+1) gives 2^(N-1).) However, if k = N-1, then 2^(k+1) = 2^N already, so it must be multiplied by 2^(-1). The key point is that the second term should not ever equal 2^N, so j should stop at 0.</p>
-<p>The above indices can be expressed as the sum of a ROOT and a STEP as follows:</p>
-<p>index = ROOT + STEP</p>
-<p>where ROOT ranges from 0 to 2^k-1. This corresponds to the n values that give rise to ZERO. The indices for ONE can be obtained by adding 2^k to root. The STEP = j is a multiple of 2^(k+1) starting from zero that does not equal or exceed 2^N. ROOT can be realised using the following for loop:</p>
-<p>for(int root = 0; root &lt; 2^k; root ++) { ... // ZERO index root; // ONE index root + 2^k; }</p>
-<p>Then the STEP component can be realised as</p>
-<p>for(int step = 0; step &lt; 2^N; step += 2^(k+1)) { // Add the following to root... step; } </p>
+<dl class="section note"><dt>Note</dt><dd>Currently the function only displays superpositions using the red and blue colors. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Bring all constants out of the loops. Don't use pow. </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000004">Bug:</a></b></dt><dd>there is a phase bug when cycling the gates Loop over all qubits k = 0, 1, 2, ... N-1 </dd></dl>
 <p>Compute powers of 2</p>
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
-<p>sign returns an int between 0 &amp; 3 depending which quadrant the amp is in get the difference between quadrants if 0&amp;3 do modulo 2 to get 1.</p>
-<p>absolute value of the difference phase zero state - phase 1 state</p>
-<pre class="fragment">/// c now equals 0      - no phase diff
-///              1 or 3 - re or im phase diff
-///              2      - complete phase diff
-/// </pre><p>if any difference between quarants do a phase change</p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000005">Bug:</a></b></dt><dd>The problem is with the sign function, which will not distinguish between (e.g.) 1 and i. I think all the problems stem from that kind of error. c = sign(state[root + step]) - sign(state[root + root_max + step]); </dd></dl>
+<p>Compute two temporary variables to check real and imaj signs</p>
+<p>Set c = 1 if there is a phase difference in either r or i</p>
+<p>if(c==1 || c==3 || c==2)</p>
 <p>Zeros are at the index root + step </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>Rewrite pow for Q15 </dd></dl>
 <p>Ones are at the index root + 2^k + step</p>
 <p>write phase update leds for each qubits average zero and one amps </p>

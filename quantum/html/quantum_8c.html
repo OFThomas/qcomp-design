@@ -115,8 +115,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <tr class="memitem:a408325d76eec56562e47e72fc131cc76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a408325d76eec56562e47e72fc131cc76">single_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a408325d76eec56562e47e72fc131cc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">apply operator  <a href="#a408325d76eec56562e47e72fc131cc76">More...</a><br /></td></tr>
 <tr class="separator:a408325d76eec56562e47e72fc131cc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a155da7af383d815ce9f1dc223e47d56e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a155da7af383d815ce9f1dc223e47d56e">single_qubit_op_new</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int k, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a155da7af383d815ce9f1dc223e47d56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">New function to perform single qubit gates.  <a href="#a155da7af383d815ce9f1dc223e47d56e">More...</a><br /></td></tr>
+<tr class="separator:a155da7af383d815ce9f1dc223e47d56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61c576933f0298643e59d33e7fadd3a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a61c576933f0298643e59d33e7fadd3a9">controlled_qubit_op_new</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:a61c576933f0298643e59d33e7fadd3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">selective 2 qubit op function  <a href="#a61c576933f0298643e59d33e7fadd3a9">More...</a><br /></td></tr>
+<tr class="memdesc:a61c576933f0298643e59d33e7fadd3a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Efficient controlled qubit operation.  <a href="#a61c576933f0298643e59d33e7fadd3a9">More...</a><br /></td></tr>
 <tr class="separator:a61c576933f0298643e59d33e7fadd3a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6551e97d523f70c50778a11d51214e31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="quantum_8c.html#a6551e97d523f70c50778a11d51214e31">controlled_qubit_op</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a6551e97d523f70c50778a11d51214e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Old controlled qubit operations.  <a href="#a6551e97d523f70c50778a11d51214e31">More...</a><br /></td></tr>
@@ -201,7 +204,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>cmul</b> (const <a cl
 <p>First index is ZERO, second index is ONE </p><dl class="section note"><dt>Note</dt><dd>for 2 qubit case check if the index in the ctrl qubit is a 1 then apply the 2x2 unitary else do nothing</dd>
 <dd>
 sorry. this checks for the first element of the state vector i.e. the target qubits |0&gt; and checks that the state vector element is one which the control qubit has a |1&gt; state -&gt; (root + step)</dd></dl>
-<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
+<p>The second element of the state vector to take is then the first +2^(target qubit number). This also needs to be checked that the control qubit is in the |1&gt;. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>This expression can probably be simplified or broken over lines. The condition for the if statement is that root+step and root + step + root_max contain 1 in the ctrl-th bit. </dd></dl>
 
 </div>
 </div>
@@ -243,54 +246,17 @@ sorry. this checks for the first element of the state vector i.e. the target qub
       </table>
 </div><div class="memdoc">
 
-<p>selective 2 qubit op function </p>
-<p>checks that the control qubit is |1&gt; then does 2x2 unitary on remaining state vector elements</p>
-<p>This routine implements a controlled unitary gate. Controlled unitaries can be expressed as single qubit unitaries that are conditionally applied if the control qubit state (ctrl) is 1. Otherwise no operation is performed.</p>
-<p>The following example is for the three qubit case. Suppose the following operation is performed.</p>
-<pre class="fragment">*      00 01 10 11
-*  00 ( 1  0  0  0   )
-*  01 ( 0  1  0  0   )
-*  10 ( 0  0 u00 u01 )
-*  11 ( 0  0 u10 u11 )
-*  </pre><p>The first qubit is the control (ctrl) and the second qubit is the target (targ). If the control is 0 the identity operation is performed. If the control qubit is 1, then a unitary U (the second block above) is performed.</p>
-<p>For three qubits, the state vector is shown below:</p>
-<pre class="fragment">*     index     binary   amplitude 
-*      ----------------------------- 
-*        0       0 0 0       a0
-*        1       0 0 1       a1 
-*        2       0 1 0       a2
-*        3       0 1 1       a3
-*        4       1 0 0       a4
-*        5       1 0 1       a5
-*        6       1 1 0       a6
-*        7       1 1 1       a7
-*      -----------------------------
-*      Qubit:    2 1 0
-* </pre><p>Suppose the controlled unitary is to be performed between qubits 0 and 1, with the control qubit on 0. Suppose the controlled gate is a CNOT, so that the 2x2 matrices involved are I and X. X and I are performed on the following (vertical) pairs of indices </p><pre class="fragment">        I               X
-</pre><p> i: (0+0) (0+4) (1+0) (1+4) (ctrl = 0, targ = 1) j: (0+2) (0+6) (1+2) (1+6)</p>
-<p>If the control and target are reversed (ctrl on 1), then the pairings of the indices are </p><pre class="fragment">      I                 X
-</pre><p> i: (0+0) (0+4) (2+0) (2+4) (ctrl = 1, targ = 0) j: (0+1) (0+5) (2+1) (2+5)</p>
-<p>For control and target qubits on 0 and 2 the indices are </p><pre class="fragment">        I               X
-</pre><p> i: (0+0) (0+2) (1+0) (1+2) (ctrl = 0, targ = 2) j: (0+4) (0+6) (1+4) (1+6)</p>
-<p>If the control and target are reversed (ctrl on 2), then the pairings of the indices are </p><pre class="fragment">        I               X
-</pre><p> i: (0+0) (0+2) (4+0) (4+2) (ctrl = 2, targ = 0) j: (0+1) (0+3) (4+1) (4+3)</p>
-<p>Finally, if the control and target are 1 and 2, then </p><pre class="fragment">        I               X
-</pre><p> i: (0+0) (0+1) (2+0) (2+1) (ctrl = 1, targ = 2) j: (0+4) (0+5) (2+4) (2+5)</p>
-<p>If the control and target are reversed (ctrl on 2), then the pairings of the indices are </p><pre class="fragment">        I               X
-</pre><p> i: (0+0) (0+1) (4+0) (4+1) (ctrl = 2, targ = 1) j: (0+2) (0+3) (4+2) (4+3)</p>
-<p>The pattern in the general case is as follows. Firstly, similarly to the single qubit case, the index required can be expressed as the sum of a root and another contribution. In this case, the root depends only on the ctrl qubit number:</p>
-<p>root = x * 2^ctrl</p>
-<p>where x is the state of the ctrl qubit (either 1 or 0). This will determine whether I or (in the case of CNOT) X is applied. That the root only depends on the ctrl qubit number is due to the interpretation of root &ndash; it is the base index of all the ctrl states of a particular value. For example, whatever the qubit number, the starting index of the zero ctrl state is always zero. Then, the first occurance of a 1 in the ctrl qubit depends on the ctrl qubit number, and is just a power of 2 into the state vector.</p>
-<p>The other contributions to the index depend on the the target qubit number (targ). The offset between indices of the same operation (either I or X) are separated by</p>
-<p>sep = 2^targ</p>
-<p>The logic for this is similar to the case for ctrl: the way to get from a 0 in the target to a 1 in the target is to add 2^targ to the index in the state vector.</p>
-<p>Finally, there is the offset due to moving from the 0 to 1 state within a particular operation (I or X). This depends on both the values of the ctrl and targ qubit numbers as follows:</p>
-<p>offset = 2^(N-ctrl-targ) * y</p>
-<p>where N is the number of _qubits (3 in the above case). Here, y is either zero or one, and enumerates the operations that must be performed In other words, the index is given by the following expression</p>
-<p>i: root + offset = x*2^ctrl + y*2^(N-ctrl-targ) j: root + sep + offset = x*2^ctrl + 2^targ + y*2^(N-ctrl-targ)</p>
-<p>where x is the value of the ctrl qubit (do X when x is 1, I when x is zero) and y ranges from 0 to 2^(N-1) where N is the number of qubits. Since it is only necessary to do the non-trivial unitary, x is always 1. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>Replace pow2 with left rotations </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>The problem is the formula for the increment </dd></dl>
+<p>Efficient controlled qubit operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">op</td><td>the operation (ctrl-op is performed) </td></tr>
+    <tr><td class="paramname">ctrl</td><td>the index of the ctrl qubit </td></tr>
+    <tr><td class="paramname">targ</td><td>the index of the targ qubit </td></tr>
+    <tr><td class="paramname">state</td><td>the state vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>This function is implemented similarly to the single qubit case above. Now there are three ranges of indices to increment through, separated by the two qubit indices. </p>
 
 </div>
 </div>
@@ -426,7 +392,6 @@ sorry. this checks for the first element of the state vector i.e. the target qub
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>2^k </dd></dl>
-<p>Multiply by 2 </p>
 
 </div>
 </div>
@@ -455,10 +420,7 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 //          |
 //     2    |   3
 //          |
-/// </pre> <p>if real negative and im neg return -1 if real negative and im pos return -0.5</p>
-<p>else if real pos and im negative return -0.5</p>
-<p>else if both pos return 0 </p>
-
+/// </pre> 
 </div>
 </div>
 <a id="a408325d76eec56562e47e72fc131cc76"></a>
@@ -534,6 +496,56 @@ sorry. this checks for the first element of the state vector i.e. the target qub
 <p>ROOT loop: starts at 0, increases in steps of 1</p>
 <p>STEP loop: starts at 0, increases in steps of 2^(k+1)</p>
 <p>First index is ZERO, second index is ONE </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000028">Todo:</a></b></dt><dd>Should we inline mat_mul here? </dd></dl>
+
+</div>
+</div>
+<a id="a155da7af383d815ce9f1dc223e47d56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a155da7af383d815ce9f1dc223e47d56e">&#9670;&nbsp;</a></span>single_qubit_op_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void single_qubit_op_new </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>op</em>[2][2], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>New function to perform single qubit gates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">op</td><td>the unitary to perform </td></tr>
+    <tr><td class="paramname">k</td><td>the index of the qubit to modify </td></tr>
+    <tr><td class="paramname">state</td><td>the state vector</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>The function computes a single qubit operation acting on </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state.</td><td>It sets the bit position associated with the qubit to zero, and then generates all possible indices in the other bit positions. These correspond to the ZERO states. The ONE states are obtained by changing the kth bit from zero to one. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
