@@ -8,34 +8,53 @@
 
 /// gate routine
 /// \todo not sure if the breaks are needed here, I don't think they are.
-void op_routine(int select_qubit, int select_op, Complex state[]){
-    int targ=0;
+int op_routine(int select_op, Complex state[]){
+    int targ = 0;
+    int select_qubit = -1;
     switch(select_op) {
         case 0:
-            // X
+            /// X
+            select_qubit = check_qubit();
+            if(select_qubit == -2) return -2;
             gate_display(X, select_qubit, state);
             break;
         case 1:
-            // Z
+            /// Z
+            select_qubit = check_qubit();
+            if(select_qubit == -2) return -2;
             gate_display(Z, select_qubit, state);
             break;
         case 2:
-            // H
+            /// H
+            select_qubit = check_qubit();
+            if(select_qubit == -2) return -2;
             gate_display(H, select_qubit, state);
             break;
-        case 3:
-            // CNOT
-            /// wait for target qubit to be selected
-            targ = check_qubit();
+        case 3:         
+            /// CNOT
+            select_qubit = check_qubit(); // The control
+             if(select_qubit == -2) return -2;
+            targ = check_qubit(); // The target
+            if(targ == -2) return -2;
             two_gate_display(X, select_qubit, targ, state);
             break;
+            
         case 4:
-            // repetition_code example
-            repetition_code(select_qubit, state);
+            /// SWAP
+            select_qubit = check_qubit(); // One qubit
+             if(select_qubit == -2) return -2;
+            targ = check_qubit(); // Second qubit
+            if(targ == -2) return -2;
+            swap(select_qubit, targ, state);
             break;
+            
+            // repetition_code example
+            //repetition_code(select_qubit, state);
+            //break;
         default:
             break; ///Do nothing   
     } /// End of switch
+    return 0;
 }
 
 // Check whether a qubit has been selected

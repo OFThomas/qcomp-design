@@ -18,7 +18,7 @@ extern "C" {
 
 
 /// functions for performing gate routines, takes qubit & button ints
-void op_routine(int select_qubit, int select_op, Complex state[]);
+int op_routine(int select_op, Complex state[]);
 
 
 /// function returns the integer for the label of which qubit is selected

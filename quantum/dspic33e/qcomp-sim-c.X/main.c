@@ -69,23 +69,37 @@ VACUUM:zero_state(state);
     int select_qubit = -1; ///< @param qubit integer to act on
     int targ =0;            ///< @param target qubit integer for 2-qubit gates
     int select_op = -1;     ///< @param integer used in switch to pick which gate to do
+    int op_result = 0;
     while (1) {
 
         // while(qubit == -1) -> read 
         // while(op == -1) -> read
         
-        /// after reading buttons see if any qubit is selected
-        /// write the qubit number to "select_qubit"
-        select_qubit = check_qubit();
-        if(select_qubit == -2) goto VACUUM;
-
+        
+        
+        
         /// Wait for a qubit operation to be selected
         select_op = check_op();
         if(select_op == -2) goto VACUUM;
+        
+        /// Perform operation
+        op_result = op_routine(select_op, state);
+                if(op_result == -2) goto VACUUM;
+        
+ 
+        /// Wait for a qubit operation to be selected
+        ///select_op = check_op();
+        ///if(select_op == -2) goto VACUUM;
+        
+        
+        /// after reading buttons see if any qubit is selected
+        /// write the qubit number to "select_qubit"
+        ///select_qubit = check_qubit();
+        ///if(select_qubit == -2) goto VACUUM;
             
         /// End of operation select
         /// Perform the qubit gates
-        op_routine(select_qubit, select_op, state);
+        ///op_routine(select_qubit, select_op, state);
     }
 
     while (1); ///< @note Really important!
