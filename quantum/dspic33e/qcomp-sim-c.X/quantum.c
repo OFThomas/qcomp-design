@@ -300,6 +300,7 @@ void controlled_qubit_op_new(const Complex op[2][2], int ctrl, int targ, Complex
 /// Old controlled qubit operations
 void controlled_qubit_op(const Complex op[2][2], int ctrl, int targ, Complex state[]) {
     int root_max = pow2(targ); // Declared outside the loop
+    /// \bug this needs to be a long int for >16 qubits
     int increment = 2 * root_max;
     /// ROOT loop: starts at 0, increases in steps of 1
     for (int root = 0; root < root_max; root++) {

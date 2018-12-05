@@ -417,7 +417,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 </div><div class="memdoc">
 
 <p>Loop to cycle through LEDs 0 - 15. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>This won't work now: write_display_driver(counter); </dd></dl>
 
 </div>
 </div>
@@ -469,10 +469,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>The external buttons are interfaced to the microcontroller via a shift register. Data is shifted in a byte at a time using the SPI 3 module. The sequence to read the buttons is as follows:</p>
 <p>1) Momentarily bring SH low to latch button data into the shift registers 2) Bring CLK_INH low to enable the clock input on the shift register 3) Start the SPI 3 clock and read data in via the SDI 3 line</p>
 <p>The control lines SH and CLK_INH are on port D</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>read buttons </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>read buttons </dd></dl>
 <p>SH pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000017">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>button remappings... </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>button remappings... </dd></dl>
 
 </div>
 </div>
@@ -537,7 +537,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the state of the button &ndash; 1 if pressed, 0 if not </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>should return a qubit number which has been selected </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>should return a qubit number which has been selected </dd></dl>
 <p>The button state is in the buttons array Each element of that array is a byte Get the relevant byte</p>
 <p>Retrieve the value of the right bit</p>
 <p>Return the button state </p>
@@ -562,7 +562,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 
 <p>Reset the display cycle. Called before adding anything. </p>
 <p>Reset the display cycle. Called before adding anything.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>do it</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>do it</dd></dl>
 
 </div>
 </div>
@@ -754,7 +754,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>Initialise display buffer to zero</p>
 <p>Set flashing period</p>
 <p>Turn timer 6 on</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>CURRENTLY CYCLING IS OFF </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>CURRENTLY CYCLING IS OFF </dd></dl>
 
 </div>
 </div>
@@ -899,7 +899,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="io_8
 <p>To write to the device, use the SPI module to write a byte to the SDI 1 pin on the chip. Then momentarily set the <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin to latch the data onto the output register. Finally, bring the OE(ED2) pin low to enable the current sinking to turn on the LEDs. See the timing diagram on page 17 of the datasheet for details.</p>
 <p><a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> and OE(ED2) will be on Port D </p>
 <p>Set <a class="el" href="io_8h.html#aa4d6abc7b58eb11e517993df83b7f0f7" title="Control for TLC591x chip on Port D. ">LE(ED1)</a> pin</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000016">Todo:</a></b></dt><dd>How long should this be? </dd></dl>
 
 </div>
 </div>
