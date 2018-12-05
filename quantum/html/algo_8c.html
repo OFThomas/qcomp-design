@@ -90,9 +90,9 @@ Include dependency graph for algo.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5f9c336ee8943bf32141661b8166d988"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a5f9c336ee8943bf32141661b8166d988">op_routine</a> (int select_qubit, int select_op, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:a5f9c336ee8943bf32141661b8166d988"><td class="mdescLeft">&#160;</td><td class="mdescRight">gate routine  <a href="#a5f9c336ee8943bf32141661b8166d988">More...</a><br /></td></tr>
-<tr class="separator:a5f9c336ee8943bf32141661b8166d988"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ddfbd40abbdda5b34ad2f878c19b8fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a2ddfbd40abbdda5b34ad2f878c19b8fa">op_routine</a> (int select_op, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a2ddfbd40abbdda5b34ad2f878c19b8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">gate routine  <a href="#a2ddfbd40abbdda5b34ad2f878c19b8fa">More...</a><br /></td></tr>
+<tr class="separator:a2ddfbd40abbdda5b34ad2f878c19b8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af513534ad0d874e5480e9059b33b158e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a> ()</td></tr>
 <tr class="memdesc:af513534ad0d874e5480e9059b33b158e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns the integer for the label of which qubit is selected  <a href="#af513534ad0d874e5480e9059b33b158e">More...</a><br /></td></tr>
 <tr class="separator:af513534ad0d874e5480e9059b33b158e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,7 +150,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>End of qubit select. </p>
 <p>function returns integer label used in switch statement in main </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
+<p>Check for the reset button</p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on to signify reset</p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> off and return</p>
+<p>-2 means reset </p>
 
 </div>
 </div>
@@ -173,6 +177,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <dl class="section return"><dt>Returns</dt><dd>int select_qubit (-1 if no qubit is selected) </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>problem with sampling, will cause the program to hang while waiting for qubit input </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>this probably shouldn't be an infinite loop. the counter lets the loop exit after some time to check if the 'reset' button is pressed </dd></dl>
+<p>Check for the reset button</p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on to signify reset</p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> off and return</p>
+<p>-2 means reset</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>we need button debouncing here </dd></dl>
 
 </div>
 </div>
@@ -248,25 +257,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>single qubit gate with display </p>
 <p>Display gates!!! </p>
-<p>does 2x2 operator on state vector displays the average state of the qubit by tracing over all waits to let the user see the state (LEDs) </p>
+<p>does 2x2 operator on state vector displays the average state of the qubit by tracing over all waits to let the user see the state (LEDs)</p>
+<p><a class="el" href="time_8c.html#abb9ee10191569258e0f22bdd0a95ba62" title="Delay function! ">delay()</a>; </p>
 
 </div>
 </div>
-<a id="a5f9c336ee8943bf32141661b8166d988"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f9c336ee8943bf32141661b8166d988">&#9670;&nbsp;</a></span>op_routine()</h2>
+<a id="a2ddfbd40abbdda5b34ad2f878c19b8fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ddfbd40abbdda5b34ad2f878c19b8fa">&#9670;&nbsp;</a></span>op_routine()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void op_routine </td>
+          <td class="memname">int op_routine </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>select_qubit</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>select_op</em>, </td>
         </tr>
@@ -287,7 +291,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <p>gate routine </p>
 <p>functions for performing gate routines, takes qubit &amp; button ints</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>not sure if the breaks are needed here, I don't think they are.</dd></dl>
-<p>wait for target qubit to be selected</p>
+<p>X</p>
+<p>Z</p>
+<p>H</p>
+<p>CNOT</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>need a check for zero button </dd></dl>
+<p>SWAP</p>
 <p>Do nothing</p>
 <p>End of switch </p>
 
@@ -321,7 +330,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>repetition code </p>
 <p>added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>this </dd></dl>
 <pre class="fragment">///       a  b     c     d  e  f 
 /// |q2&gt; ----X--|-----|-----X--o--
 ///          |  |     |     |  |
@@ -334,7 +343,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <p>do the gates, without displaying the intermediate steps?</p>
 <p>step a</p>
 <p>step b</p>
-<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
+<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
 <p>decoding steps d-f</p>
 <p>step d</p>
 <p>step e</p>
@@ -407,7 +416,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <pre class="fragment">/// H Rz Rz --------
 /// ---o--|---H Rz---
 /// ------o------o-H-
-/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>
