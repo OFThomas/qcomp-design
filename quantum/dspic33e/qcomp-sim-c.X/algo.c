@@ -10,7 +10,7 @@
 /// \todo not sure if the breaks are needed here, I don't think they are.
 int op_routine(int select_op, Complex state[]){
     int targ = 0;
-    int select_qubit = -1;
+    int select_qubit = 0;
     switch(select_op) {
         case 0:
             /// X
@@ -65,7 +65,7 @@ int check_qubit(){
     /// \bug this probably shouldn't be an infinite loop.
     /// the counter lets the loop exit after some time to check if the 
     /// 'reset' button is pressed 
-    while((select_qubit == -1)) {
+    while(select_qubit == -1) {
         /// Check for the reset button
         if (read_btn(sw3) == 1) {
             while (read_btn(sw3) == 1) {
@@ -96,7 +96,7 @@ int check_qubit(){
         }
         // Break if all the buttons are released.
         if(release == 0) break;
-        ///@ we need button debouncing here
+        ///@todo we need button debouncing here
     }
     return select_qubit;
 } /// End of qubit select 
