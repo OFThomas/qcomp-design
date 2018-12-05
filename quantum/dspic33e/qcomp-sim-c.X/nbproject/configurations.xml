@@ -27,6 +27,7 @@
       <itemPath>consts.c</itemPath>
       <itemPath>display.c</itemPath>
       <itemPath>display.h</itemPath>
+      <itemPath>trap.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
