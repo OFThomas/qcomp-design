@@ -7,7 +7,6 @@
  *
  */
 
-
 void __attribute__((__interrupt__, no_auto_psv)) _OscillatorFail(void) {
     while(1);
 }
