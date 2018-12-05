@@ -8,30 +8,30 @@
  */
 
 
-void __attribute__((__interrupt__)) _OscillatorFail(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _OscillatorFail(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _AddressError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _AddressError(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _HardTrapError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _HardTrapError(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _StackError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _StackError(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _MathError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _MathError(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _DMACError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _DMACError(void) {
     while(1);
 }
 
-void __attribute__((__interrupt__)) _SoftTrapError(void) {
+void __attribute__((__interrupt__, no_auto_psv)) _SoftTrapError(void) {
     while(1);
 }
