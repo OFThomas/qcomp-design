@@ -7,6 +7,11 @@
  *
  */
 
+#include "xc.h"
+
+void trap_enable(void) { 
+}
+
 void __attribute__((__interrupt__, no_auto_psv)) _OscillatorFail(void) {
     while(1);
 }

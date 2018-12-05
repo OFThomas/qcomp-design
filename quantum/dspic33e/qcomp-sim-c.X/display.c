@@ -74,6 +74,10 @@ void display_average(Complex state[]) {
         }
         /// write phase
         /// update leds for each qubits average zero and one amps
+        one_amp = 0.2 * one_amp;
+        zero_amp = 0.2 * zero_amp;
+        if (phase != 0.0) phase = 0.99;
+        else phase = 0.0;
         set_external_led(k, phase, one_amp, zero_amp);
     }
 }
