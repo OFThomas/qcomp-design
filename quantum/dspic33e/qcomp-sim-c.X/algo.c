@@ -71,12 +71,8 @@ int check_qubit(){
     /// 'reset' button is pressed 
     while(select_qubit == -1) {
         /// Check for the reset button
-        if (read_btn(sw3) == 1) {
-            while (read_btn(sw3) == 1) {
-                set_led(green, on); /// Turn LED on to signify reset
-            }
-            set_led(green, off); /// Turn LED off and return
-            return -2; /// -2 means reset
+        /// Check for the reset button, returns 1 for pressed, 0 for not
+        if(reset_button() == 1) return -2; /// -2 means reset
         }
         // Read all the button state
         read_external_buttons();
@@ -111,13 +107,8 @@ int check_op(){
     int select_op=-1;
     /// \todo this is a temp fix to avoid getting stuck waiting for a user input.
     while(select_op == -1) {
-        /// Check for the reset button
-        if (read_btn(sw3) == 1) {
-            while (read_btn(sw3) == 1) {
-                set_led(green, on); /// Turn LED on to signify reset
-            }
-            set_led(green, off); /// Turn LED off and return
-            return -2; /// -2 means reset
+        /// Check for the reset button, returns 1 for pressed, 0 for not
+        if(reset_button() == 1) return -2; /// -2 means reset
         }
         read_external_buttons();
         for (int n = 0; n < 4; n++) {
@@ -127,6 +118,19 @@ int check_op(){
         }
     }
 return select_op;
+}
+
+/// reset button, triggered by sw3
+/// returns 1 if the reset button is pressed, 0 if not
+int reset_button(){
+    if(read_btn(sw3)==1){
+        while (read_btn(sw3) == 1) {
+            set_led(green, on); /// Turn LED on to signify reset
+        }
+        set_led(green, off); /// Turn LED off and return
+        return 1;
+    }
+    else return 0;
 }
 
 /// @brief single qubit gate 
@@ -161,8 +165,7 @@ void two_gate_display(const Complex op[2][2], int ctrl, int targ, Complex state[
     delay();
 }
 
-
-
+/// does the swap operation between two qubits and displays the state
 void swap(int q1, int q2, Complex state[]){
    
     controlled_qubit_op(X, q1, q2, state);
@@ -298,7 +301,6 @@ void repetition_code(int q0, Complex state[]){
     /// as a test I have hardcoded in only 2 X's corresponding to an error on q2
     /// @todo generalise this, we should either have pseudo-random errors
     /// or the user should be able to choose which gates to do here
-    gate_display(X,q0,state);
     gate_display(X,q1, state);
 
     /// decoding steps d-f

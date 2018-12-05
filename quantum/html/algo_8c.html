@@ -64,7 +64,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">algo.c File Reference</div>  </div>
 </div><!--header-->
@@ -96,9 +97,14 @@ Functions</h2></td></tr>
 <tr class="memitem:af513534ad0d874e5480e9059b33b158e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af513534ad0d874e5480e9059b33b158e">check_qubit</a> ()</td></tr>
 <tr class="memdesc:af513534ad0d874e5480e9059b33b158e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function returns the integer for the label of which qubit is selected  <a href="#af513534ad0d874e5480e9059b33b158e">More...</a><br /></td></tr>
 <tr class="separator:af513534ad0d874e5480e9059b33b158e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fdafe3be7e00ce3d4f0cb50a9a5eb39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a8fdafe3be7e00ce3d4f0cb50a9a5eb39">while</a> (1)</td></tr>
+<tr class="separator:a8fdafe3be7e00ce3d4f0cb50a9a5eb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8403dbc55e1d291ded2057bb4fb502"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a0c8403dbc55e1d291ded2057bb4fb502">check_op</a> ()</td></tr>
 <tr class="memdesc:a0c8403dbc55e1d291ded2057bb4fb502"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of qubit select.  <a href="#a0c8403dbc55e1d291ded2057bb4fb502">More...</a><br /></td></tr>
 <tr class="separator:a0c8403dbc55e1d291ded2057bb4fb502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69647185757406c32085122522f18103"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a69647185757406c32085122522f18103">reset_button</a> ()</td></tr>
+<tr class="memdesc:a69647185757406c32085122522f18103"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset button, triggered by sw3 returns 1 if the reset button is pressed, 0 if not  <a href="#a69647185757406c32085122522f18103">More...</a><br /></td></tr>
+<tr class="separator:a69647185757406c32085122522f18103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af673f8534d0884210ca8586df1b8bbb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#af673f8534d0884210ca8586df1b8bbb5">gate</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int qubit, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:af673f8534d0884210ca8586df1b8bbb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">single qubit gate  <a href="#af673f8534d0884210ca8586df1b8bbb5">More...</a><br /></td></tr>
 <tr class="separator:af673f8534d0884210ca8586df1b8bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -111,9 +117,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a5ddb9ecf7c937bab26004ea3b4cbcbf2">two_gate_display</a> (const <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> op[2][2], int ctrl, int targ, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">two-qubit gate with display  <a href="#a5ddb9ecf7c937bab26004ea3b4cbcbf2">More...</a><br /></td></tr>
 <tr class="separator:a5ddb9ecf7c937bab26004ea3b4cbcbf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6055b39eb200c6680a7efb55e10ff4c7"><td class="memItemLeft" align="right" valign="top"><a id="a6055b39eb200c6680a7efb55e10ff4c7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a6055b39eb200c6680a7efb55e10ff4c7">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
-<tr class="memdesc:a6055b39eb200c6680a7efb55e10ff4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">swap using 3 cNots <br /></td></tr>
+<tr class="memitem:a6055b39eb200c6680a7efb55e10ff4c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a6055b39eb200c6680a7efb55e10ff4c7">swap</a> (int q1, int q2, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
+<tr class="memdesc:a6055b39eb200c6680a7efb55e10ff4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">does the swap operation between two qubits and displays the state  <a href="#a6055b39eb200c6680a7efb55e10ff4c7">More...</a><br /></td></tr>
 <tr class="separator:a6055b39eb200c6680a7efb55e10ff4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8da5bcaa49edd7caad947e51cf004f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#ac8da5bcaa49edd7caad947e51cf004f2">swap_test</a> (<a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:ac8da5bcaa49edd7caad947e51cf004f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">from tests.c  <a href="#ac8da5bcaa49edd7caad947e51cf004f2">More...</a><br /></td></tr>
@@ -127,6 +132,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <tr class="memitem:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="algo_8c.html#a1d4b7befdc5523a1fdda8220e0e4cede">repetition_code</a> (int q0, <a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a> state[])</td></tr>
 <tr class="memdesc:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="mdescLeft">&#160;</td><td class="mdescRight">repetition code  <a href="#a1d4b7befdc5523a1fdda8220e0e4cede">More...</a><br /></td></tr>
 <tr class="separator:a1d4b7befdc5523a1fdda8220e0e4cede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a7c97eb876977f934d544e77118e8df0a"><td class="memItemLeft" align="right" valign="top"><a id="a7c97eb876977f934d544e77118e8df0a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>release</b> = 0</td></tr>
+<tr class="separator:a7c97eb876977f934d544e77118e8df0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a249cd7ae097a5192a0e8880b7201c4d4"><td class="memItemLeft" align="right" valign="top"><a id="a249cd7ae097a5192a0e8880b7201c4d4"></a>
+return&#160;</td><td class="memItemRight" valign="bottom"><b>select_qubit</b></td></tr>
+<tr class="separator:a249cd7ae097a5192a0e8880b7201c4d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae6fecb1d1bc765dbc8b595da510313b2"><td class="memItemLeft" align="right" valign="top"><a id="ae6fecb1d1bc765dbc8b595da510313b2"></a>
+return&#160;</td><td class="memItemRight" valign="bottom"><b>select_op</b></td></tr>
+<tr class="separator:ae6fecb1d1bc765dbc8b595da510313b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains quantum algorithms to be run. </p>
@@ -150,10 +167,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>End of qubit select. </p>
 <p>function returns integer label used in switch statement in main </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
-<p>Check for the reset button</p>
-<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on to signify reset</p>
-<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> off and return</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>this is a temp fix to avoid getting stuck waiting for a user input. </dd></dl>
+<p>Check for the reset button, returns 1 for pressed, 0 for not</p>
 <p>-2 means reset </p>
 
 </div>
@@ -177,11 +192,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <dl class="section return"><dt>Returns</dt><dd>int select_qubit (-1 if no qubit is selected) </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>problem with sampling, will cause the program to hang while waiting for qubit input </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>this probably shouldn't be an infinite loop. the counter lets the loop exit after some time to check if the 'reset' button is pressed </dd></dl>
-<p>Check for the reset button</p>
-<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on to signify reset</p>
-<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> off and return</p>
-<p>-2 means reset</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>we need button debouncing here </dd></dl>
+<p>Check for the reset button Check for the reset button, returns 1 for pressed, 0 for not</p>
+<p>-2 means reset </p>
 
 </div>
 </div>
@@ -294,8 +306,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <p>X</p>
 <p>Z</p>
 <p>H</p>
-<p>CNOT</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>need a check for zero button </dd></dl>
 <p>SWAP</p>
 <p>Do nothing</p>
 <p>End of switch </p>
@@ -330,7 +340,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>repetition code </p>
 <p>added repetition_code for bit flip errors, currently only shows a fixed error which is a failed X on one of the ancillas.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>this </dd></dl>
 <pre class="fragment">///       a  b     c     d  e  f 
 /// |q2&gt; ----X--|-----|-----X--o--
 ///          |  |     |     |  |
@@ -343,12 +353,71 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <p>do the gates, without displaying the intermediate steps?</p>
 <p>step a</p>
 <p>step b</p>
-<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000007">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
+<p>now up to U step c as a test I have hardcoded in only 2 X's corresponding to an error on q2 </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>generalise this, we should either have pseudo-random errors or the user should be able to choose which gates to do here </dd></dl>
 <p>decoding steps d-f</p>
 <p>step d</p>
 <p>step e</p>
 <p>step f</p>
 <p>done! </p>
+
+</div>
+</div>
+<a id="a69647185757406c32085122522f18103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69647185757406c32085122522f18103">&#9670;&nbsp;</a></span>reset_button()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int reset_button </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>reset button, triggered by sw3 returns 1 if the reset button is pressed, 0 if not </p>
+<p>function returns 1 if the sw3 is pressed or 0 if not. </p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> on to signify reset</p>
+<p>Turn <a class="el" href="structLED.html" title="Each LED has the following type. ">LED</a> off and return </p>
+
+</div>
+</div>
+<a id="a6055b39eb200c6680a7efb55e10ff4c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6055b39eb200c6680a7efb55e10ff4c7">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void swap </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="consts_8h.html#ab32a0935b29bf7784d29e5669c59e588">Complex</a>&#160;</td>
+          <td class="paramname"><em>state</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>does the swap operation between two qubits and displays the state </p>
+<p>swap using 3 cNots </p>
 
 </div>
 </div>
@@ -416,7 +485,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 <pre class="fragment">/// H Rz Rz --------
 /// ---o--|---H Rz---
 /// ------o------o-H-
-/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
+/// </pre> <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Fancy non-blocking Interrupt routine { if(no button) return;</dd></dl>
 <p>pause and do display cycling();</p>
 <p>Make this a low priority interrupt so that everything else can interrupt it.</p>
 <p>Do stuff for a while</p>
@@ -520,6 +589,25 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>toffoli_test</b> (<a 
 
 <p>two-qubit gate with display </p>
 <p>does controlled 2x2 operator displays the state waits to let the user see the state </p>
+
+</div>
+</div>
+<a id="a8fdafe3be7e00ce3d4f0cb50a9a5eb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fdafe3be7e00ce3d4f0cb50a9a5eb39">&#9670;&nbsp;</a></span>while()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">while </td>
+          <td>(</td>
+          <td class="paramtype">1&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>we need button debouncing here </dd></dl>
 
 </div>
 </div>

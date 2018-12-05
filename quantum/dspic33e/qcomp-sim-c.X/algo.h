@@ -31,6 +31,9 @@ int check_qubit();
 /// \bug same as above^
 int check_op();
 
+/// function returns 1 if the sw3 is pressed or 0 if not.
+int reset_button();
+
 /// perform single qubit gate 
 void gate(const Complex op[2][2], int qubit, Complex state[]);
 
