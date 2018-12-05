@@ -31,15 +31,18 @@ int op_routine(int select_op, Complex state[]){
             gate_display(H, select_qubit, state);
             break;
         case 3:         
-            /// CNOT
+            /// SWAP
+            /*
             select_qubit = check_qubit(); // The control
              if(select_qubit == -2) return -2;
             ///@todo need a check for zero button 
             targ = check_qubit(); // The target
             if(targ == -2) return -2;
             two_gate_display(X, select_qubit, targ, state);
+             * */
+            swap_test(state);
             break;
-            
+            /*
         case 4:
             /// SWAP
             select_qubit = check_qubit(); // One qubit
@@ -52,6 +55,7 @@ int op_routine(int select_op, Complex state[]){
             // repetition_code example
             //repetition_code(select_qubit, state);
             //break;
+             * */
         default:
             break; ///Do nothing   
     } /// End of switch
@@ -116,7 +120,7 @@ int check_op(){
             return -2; /// -2 means reset
         }
         read_external_buttons();
-        for (int n = 0; n < NUM_BTNS; n++) {
+        for (int n = 0; n < 4; n++) {
             if (read_func_btn(n) == 1) {
                 select_op = n;
             }
@@ -168,27 +172,25 @@ void swap(int q1, int q2, Complex state[]){
 }
 
 void swap_test(Complex state[]) {
-
-    zero_state(state); // Set the state to the vacuum
-    display_average(state); // Display the state for four qubits
-    delay();
+/*
+        zero_state(state); // Set the state to the vacuum
+        display_average(state); // Display the state for four qubits
+        delay();
 
     
-    gate(X, 0, state);
-    gate(H, 0, state);
-    gate(X, 2, state);
-
+        gate(X, 0, state);
+        gate(H, 0, state);
+        gate(X, 2, state);
+     */
     /// swap for ever!
-    while (1) {
-        swap(0, 1, state);
-        delay();
-        swap(1, 2, state);
-        delay();
-        swap(2, 3, state);
-        delay();
-        swap(3, 0, state);
-        delay();
-    }
+    swap(0, 1, state);
+    delay();
+    swap(1, 2, state);
+    delay();
+    swap(2, 3, state);
+    delay();
+    swap(3, 0, state);
+    delay();
 }
 
 /// QFT
