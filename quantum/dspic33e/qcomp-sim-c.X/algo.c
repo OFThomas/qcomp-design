@@ -32,15 +32,15 @@ int op_routine(int select_op, Complex state[]){
             break;
         case 3:         
             /// SWAP
-            /*
+            
             select_qubit = check_qubit(); // The control
              if(select_qubit == -2) return -2;
             ///@todo need a check for zero button 
             targ = check_qubit(); // The target
             if(targ == -2) return -2;
             two_gate_display(X, select_qubit, targ, state);
-             * */
-            swap_test(state);
+            
+            //swap_test(state);
             break;
             /*
         case 4:
